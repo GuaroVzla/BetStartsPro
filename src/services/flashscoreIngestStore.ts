@@ -48,6 +48,8 @@ export type StoredRecord = FlashscoreMatch & {
   actualizado_en: string;
 };
 
+import seedPayload from "../../scripts/flashscore-payload.json";
+
 const store = new Map<string, StoredRecord>();
 
 /** Combina un registro nuevo con uno existente sin sobrescribir datos válidos con null. */
@@ -103,4 +105,14 @@ export function listMatches(): StoredRecord[] {
 
 export function clearMatches(): void {
   store.clear();
+}
+
+/**
+ * Semilla incluida en el bundle: en Cloudflare Workers el almacén en memoria
+ * arranca vacío en cada isolate, así que los partidos capturados se cargan
+ * desde este archivo para que la web muestre el mismo listado que el repo local.
+ */
+const seeded = seedPayload as unknown as FlashscorePayload;
+if (store.size === 0) {
+  upsertMatches(seeded);
 }
