@@ -138,6 +138,35 @@ El deploy usa el Worker `betstatspro` y publica el subdominio gratuito `*.worker
 
 > Los stores de ingesta actuales están en memoria. En Workers cada isolate puede tener su propio estado; para producción con datos persistidos hay que sembrar los datos o migrar los stores a KV/D1.
 
+## Publicar desde GitHub (enlace gratis)
+
+El repositorio `https://github.com/GuaroVzla/BetStartsPro` incluye el workflow `.github/workflows/deploy-cloudflare.yml`. Cada `push` a `main` compila y publica el Worker automáticamente.
+
+> **Importante:** Cloudflare no registra dominios gratis. Lo que incluye el plan Free es un subdominio `*.workers.dev` (por ejemplo `https://betstatspro.tu-cuenta.workers.dev`). Ese es el enlace público sin costo. Un dominio propio como `misitio.com` requiere comprarlo en un registrador y apuntar sus nameservers a Cloudflare.
+
+### 1. Preparar la cuenta de Cloudflare
+
+1. Crea la cuenta en https://dash.cloudflare.com/sign-up.
+2. Copia el **Account ID**: aparece al abrir **Workers y Pages** o en la URL del dashboard (`dash.cloudflare.com/<account-id>/...`).
+3. Ve a **Mi perfil → API Tokens → Create Token** y usa la plantilla **Edit Cloudflare Workers**, o crea un token personalizado con:
+   - `Account → Workers Scripts → Edit`
+   - `Account → Account Settings → Read`
+4. Copia el token cuando se muestre (solo aparece una vez).
+
+### 2. Enlazar GitHub con Cloudflare
+
+1. En GitHub entra a **Settings → Secrets and variables → Actions → New repository secret**.
+2. Crea estos dos secretos:
+   - `CLOUDFLARE_ACCOUNT_ID` → el Account ID del paso anterior.
+   - `CLOUDFLARE_API_TOKEN` → el token del paso anterior.
+3. Haz un `push` a `main` o ejecuta el workflow manualmente en **Actions → Deploy a Cloudflare Workers → Run workflow**.
+
+### 3. Ver la web en línea
+
+Al terminar el workflow, abre **Workers y Pages → betstatspro → Dominios y rutas** en https://dash.cloudflare.com/ y encontrarás la URL `https://betstatspro.<tu-cuenta>.workers.dev`. El mismo enlace se imprime en el log del job de GitHub Actions.
+
+La app arranca en **modo demo** sin claves, así que no necesitas configurar nada más para verla. Si quieres cuotas reales, agrega `THE_ODDS_API_KEY`, `SPORTMONKS_KEY` y `APISPORTS_KEY` como **Variables y secretos del Worker** en Cloudflare (no como secretos de GitHub), porque se leen en tiempo de ejecución dentro del Worker.
+
 ## Scripts
 
 ```bash
