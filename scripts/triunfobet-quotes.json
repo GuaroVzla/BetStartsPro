@@ -1,0 +1,470 @@
+{
+  "target_app": "BetStats Pro",
+  "source": "triunfobet_agent",
+  "sync_mode": "enrich_or_create",
+  "fecha_extraccion": "2026-11-22",
+  "zona_horaria": "America/Caracas",
+  "total_cotizaciones": 20,
+  "cotizaciones": [
+    {
+      "match_slug": "2026-11-22_ac-milan_vs_frosinone",
+      "deporte": "Fútbol",
+      "liga": "Serie A • Italia",
+      "fecha_local": "2026-11-22",
+      "hora_local": "13:00",
+      "equipo_local": "AC Milan",
+      "equipo_visitante": "Frosinone",
+      "mercado": "1X2",
+      "cuotas_1x2": {
+        "local_1": 1.543,
+        "empate_x": 4.5,
+        "visitante_2": 5.5
+      },
+      "capturado_en": "2026-11-22T12:26:49-04:00",
+      "url": "https://triunfobet.com/altenar",
+      "nota": "Cuotas 1X2 visibles en el widget Altenar con sesión iniciada; convertidas de formato americano a decimal",
+      "cuotas_americanas": {
+        "local_1": "-184",
+        "empate_x": "+350",
+        "visitante_2": "+450"
+      }
+    },
+    {
+      "match_slug": "2026-11-22_liverpool_vs_manchester-united",
+      "deporte": "Fútbol",
+      "liga": "Premier League • Inglaterra",
+      "fecha_local": "2026-11-22",
+      "hora_local": "12:30",
+      "equipo_local": "Liverpool",
+      "equipo_visitante": "Manchester United",
+      "mercado": "1X2",
+      "cuotas_1x2": {
+        "local_1": 1.813,
+        "empate_x": 4,
+        "visitante_2": 4
+      },
+      "capturado_en": "2026-11-22T12:26:49-04:00",
+      "url": "https://triunfobet.com/altenar",
+      "nota": "Cuotas 1X2 visibles en el widget Altenar con sesión iniciada; convertidas de formato americano a decimal",
+      "cuotas_americanas": {
+        "local_1": "-123",
+        "empate_x": "+300",
+        "visitante_2": "+300"
+      }
+    },
+    {
+      "match_slug": "2026-11-22_getafe_vs_atletico-madrid",
+      "deporte": "Fútbol",
+      "liga": "LaLiga • España",
+      "fecha_local": "2026-11-22",
+      "hora_local": "16:00",
+      "equipo_local": "Getafe",
+      "equipo_visitante": "Atletico Madrid",
+      "mercado": "1X2",
+      "cuotas_1x2": {
+        "local_1": 6.66,
+        "empate_x": 3.8,
+        "visitante_2": 1.571
+      },
+      "capturado_en": "2026-11-22T12:26:49-04:00",
+      "url": "https://triunfobet.com/altenar",
+      "nota": "Cuotas 1X2 visibles en el widget Altenar con sesión iniciada; convertidas de formato americano a decimal",
+      "cuotas_americanas": {
+        "local_1": "+566",
+        "empate_x": "+280",
+        "visitante_2": "-175"
+      }
+    },
+    {
+      "match_slug": "2026-11-22_atalanta_vs_inter",
+      "deporte": "Fútbol",
+      "liga": "Serie A • Italia",
+      "fecha_local": "2026-11-22",
+      "hora_local": "15:45",
+      "equipo_local": "Atalanta",
+      "equipo_visitante": "Inter",
+      "mercado": "1X2",
+      "cuotas_1x2": {
+        "local_1": 5.33,
+        "empate_x": 4.5,
+        "visitante_2": 1.556
+      },
+      "capturado_en": "2026-11-22T12:26:49-04:00",
+      "url": "https://triunfobet.com/altenar",
+      "nota": "Cuotas 1X2 visibles en el widget Altenar con sesión iniciada; convertidas de formato americano a decimal",
+      "cuotas_americanas": {
+        "local_1": "+433",
+        "empate_x": "+350",
+        "visitante_2": "-180"
+      }
+    },
+    {
+      "match_slug": "2026-11-22_marseille_vs_le-mans",
+      "deporte": "Fútbol",
+      "liga": "Ligue 1 • Francia",
+      "fecha_local": "2026-11-22",
+      "hora_local": "15:45",
+      "equipo_local": "Marseille",
+      "equipo_visitante": "Le Mans",
+      "mercado": "1X2",
+      "cuotas_1x2": {
+        "local_1": 1.427,
+        "empate_x": 5,
+        "visitante_2": 6.66
+      },
+      "capturado_en": "2026-11-22T12:26:49-04:00",
+      "url": "https://triunfobet.com/altenar",
+      "nota": "Cuotas 1X2 visibles en el widget Altenar con sesión iniciada; convertidas de formato americano a decimal",
+      "cuotas_americanas": {
+        "local_1": "-234",
+        "empate_x": "+400",
+        "visitante_2": "+566"
+      }
+    },
+    {
+      "match_slug": "2026-11-22_werder-bremen_vs_hamburg",
+      "deporte": "Fútbol",
+      "liga": "Bundesliga • Alemania",
+      "fecha_local": "2026-11-22",
+      "hora_local": "12:30",
+      "equipo_local": "Werder Bremen",
+      "equipo_visitante": "Hamburg",
+      "mercado": "1X2",
+      "cuotas_1x2": {
+        "local_1": 1.613,
+        "empate_x": 4.33,
+        "visitante_2": 5
+      },
+      "capturado_en": "2026-11-22T12:26:49-04:00",
+      "url": "https://triunfobet.com/altenar",
+      "nota": "Cuotas 1X2 visibles en el widget Altenar con sesión iniciada; convertidas de formato americano a decimal",
+      "cuotas_americanas": {
+        "local_1": "-163",
+        "empate_x": "+333",
+        "visitante_2": "+400"
+      }
+    },
+    {
+      "match_slug": "2026-11-22_osasuna_vs_malaga",
+      "deporte": "Fútbol",
+      "liga": "LaLiga • España",
+      "fecha_local": "2026-11-22",
+      "hora_local": "13:30",
+      "equipo_local": "Osasuna",
+      "equipo_visitante": "Malaga",
+      "mercado": "1X2",
+      "cuotas_1x2": {
+        "local_1": 1.813,
+        "empate_x": 3.6,
+        "visitante_2": 4.5
+      },
+      "capturado_en": "2026-11-22T12:26:49-04:00",
+      "url": "https://triunfobet.com/altenar",
+      "nota": "Cuotas 1X2 visibles en el widget Altenar con sesión iniciada; convertidas de formato americano a decimal",
+      "cuotas_americanas": {
+        "local_1": "-123",
+        "empate_x": "+260",
+        "visitante_2": "+350"
+      }
+    },
+    {
+      "match_slug": "2026-11-22_olympiacos_vs_iraklis",
+      "deporte": "Fútbol",
+      "liga": "Super League • Grecia",
+      "fecha_local": "2026-11-22",
+      "hora_local": "13:00",
+      "equipo_local": "Olympiacos",
+      "equipo_visitante": "Iraklis",
+      "mercado": "1X2",
+      "cuotas_1x2": {
+        "local_1": 1.167,
+        "empate_x": 7,
+        "visitante_2": 17
+      },
+      "capturado_en": "2026-11-22T12:26:49-04:00",
+      "url": "https://triunfobet.com/altenar",
+      "nota": "Cuotas 1X2 visibles en el widget Altenar con sesión iniciada; convertidas de formato americano a decimal",
+      "cuotas_americanas": {
+        "local_1": "-600",
+        "empate_x": "+600",
+        "visitante_2": "+1600"
+      }
+    },
+    {
+      "match_slug": "2026-11-22_paok_vs_kifisia",
+      "deporte": "Fútbol",
+      "liga": "Super League • Grecia",
+      "fecha_local": "2026-11-22",
+      "hora_local": "13:30",
+      "equipo_local": "PAOK",
+      "equipo_visitante": "Kifisia",
+      "mercado": "1X2",
+      "cuotas_1x2": {
+        "local_1": 1.333,
+        "empate_x": 5,
+        "visitante_2": 9
+      },
+      "capturado_en": "2026-11-22T12:26:49-04:00",
+      "url": "https://triunfobet.com/altenar",
+      "nota": "Cuotas 1X2 visibles en el widget Altenar con sesión iniciada; convertidas de formato americano a decimal",
+      "cuotas_americanas": {
+        "local_1": "-300",
+        "empate_x": "+400",
+        "visitante_2": "+800"
+      }
+    },
+    {
+      "match_slug": "2026-11-22_torreense_vs_benfica",
+      "deporte": "Fútbol",
+      "liga": "Taca de Portugal • Portugal",
+      "fecha_local": "2026-11-22",
+      "hora_local": "16:45",
+      "equipo_local": "Torreense",
+      "equipo_visitante": "Benfica",
+      "mercado": "1X2",
+      "cuotas_1x2": {
+        "local_1": 10,
+        "empate_x": 6,
+        "visitante_2": 1.167
+      },
+      "capturado_en": "2026-11-22T12:26:49-04:00",
+      "url": "https://triunfobet.com/altenar",
+      "nota": "Cuotas 1X2 visibles en el widget Altenar con sesión iniciada; convertidas de formato americano a decimal",
+      "cuotas_americanas": {
+        "local_1": "+900",
+        "empate_x": "+500",
+        "visitante_2": "-600"
+      }
+    },
+    {
+      "match_slug": "2026-11-22_dolomiti-bellunesi_vs_carpi",
+      "deporte": "Fútbol",
+      "liga": "Serie C • Italia",
+      "fecha_local": "2026-11-22",
+      "hora_local": "12:30",
+      "equipo_local": "Dolomiti Bellunesi",
+      "equipo_visitante": "Carpi",
+      "mercado": "1X2",
+      "cuotas_1x2": {
+        "local_1": 2.62,
+        "empate_x": 3.1,
+        "visitante_2": 2.6
+      },
+      "capturado_en": "2026-11-22T12:26:49-04:00",
+      "url": "https://triunfobet.com/altenar",
+      "nota": "Cuotas 1X2 visibles en el widget Altenar con sesión iniciada; convertidas de formato americano a decimal",
+      "cuotas_americanas": {
+        "local_1": "+162",
+        "empate_x": "+210",
+        "visitante_2": "+160"
+      }
+    },
+    {
+      "match_slug": "2026-11-22_calvina-sport_vs_albinoleffe",
+      "deporte": "Fútbol",
+      "liga": "Serie C • Italia",
+      "fecha_local": "2026-11-22",
+      "hora_local": "12:30",
+      "equipo_local": "Calvina Sport",
+      "equipo_visitante": "Albinoleffe",
+      "mercado": "1X2",
+      "cuotas_1x2": {
+        "local_1": 2.54,
+        "empate_x": 3.1,
+        "visitante_2": 2.66
+      },
+      "capturado_en": "2026-11-22T12:26:49-04:00",
+      "url": "https://triunfobet.com/altenar",
+      "nota": "Cuotas 1X2 visibles en el widget Altenar con sesión iniciada; convertidas de formato americano a decimal",
+      "cuotas_americanas": {
+        "local_1": "+154",
+        "empate_x": "+210",
+        "visitante_2": "+166"
+      }
+    },
+    {
+      "match_slug": "2026-11-22_celje_vs_nk-brinje-grosuplje",
+      "deporte": "Fútbol",
+      "liga": "Primera Liga • Eslovenia",
+      "fecha_local": "2026-11-22",
+      "hora_local": "12:30",
+      "equipo_local": "Celje",
+      "equipo_visitante": "NK Brinje Grosuplje",
+      "mercado": "1X2",
+      "cuotas_1x2": {
+        "local_1": 1.319,
+        "empate_x": 5,
+        "visitante_2": 7
+      },
+      "capturado_en": "2026-11-22T12:26:49-04:00",
+      "url": "https://triunfobet.com/altenar",
+      "nota": "Cuotas 1X2 visibles en el widget Altenar con sesión iniciada; convertidas de formato americano a decimal",
+      "cuotas_americanas": {
+        "local_1": "-313",
+        "empate_x": "+400",
+        "visitante_2": "+600"
+      }
+    },
+    {
+      "match_slug": "2026-11-22_sambenedettese_vs_perugia",
+      "deporte": "Fútbol",
+      "liga": "Serie C • Italia",
+      "fecha_local": "2026-11-22",
+      "hora_local": "12:30",
+      "equipo_local": "Sambenedettese",
+      "equipo_visitante": "Perugia",
+      "mercado": "1X2",
+      "cuotas_1x2": {
+        "local_1": 2.9,
+        "empate_x": 3,
+        "visitante_2": 2.42
+      },
+      "capturado_en": "2026-11-22T12:26:49-04:00",
+      "url": "https://triunfobet.com/altenar",
+      "nota": "Cuotas 1X2 visibles en el widget Altenar con sesión iniciada; convertidas de formato americano a decimal",
+      "cuotas_americanas": {
+        "local_1": "+190",
+        "empate_x": "+200",
+        "visitante_2": "+142"
+      }
+    },
+    {
+      "match_slug": "2026-11-22_az-picerno_vs_giugliano",
+      "deporte": "Fútbol",
+      "liga": "Serie C • Italia",
+      "fecha_local": "2026-11-22",
+      "hora_local": "12:30",
+      "equipo_local": "AZ Picerno",
+      "equipo_visitante": "Giugliano",
+      "mercado": "1X2",
+      "cuotas_1x2": {
+        "local_1": 1.952,
+        "empate_x": 3.5,
+        "visitante_2": 3.4
+      },
+      "capturado_en": "2026-11-22T12:26:49-04:00",
+      "url": "https://triunfobet.com/altenar",
+      "nota": "Cuotas 1X2 visibles en el widget Altenar con sesión iniciada; convertidas de formato americano a decimal",
+      "cuotas_americanas": {
+        "local_1": "-105",
+        "empate_x": "+250",
+        "visitante_2": "+240"
+      }
+    },
+    {
+      "match_slug": "2026-11-22_manta_vs_delfin",
+      "deporte": "Fútbol",
+      "liga": "LigaPro • Ecuador",
+      "fecha_local": "2026-11-22",
+      "hora_local": "12:30",
+      "equipo_local": "Manta",
+      "equipo_visitante": "Delfin",
+      "mercado": "1X2",
+      "cuotas_1x2": {
+        "local_1": 3,
+        "empate_x": 3.1,
+        "visitante_2": 2.36
+      },
+      "capturado_en": "2026-11-22T12:26:49-04:00",
+      "url": "https://triunfobet.com/altenar",
+      "nota": "Cuotas 1X2 visibles en el widget Altenar con sesión iniciada; convertidas de formato americano a decimal",
+      "cuotas_americanas": {
+        "local_1": "+200",
+        "empate_x": "+210",
+        "visitante_2": "+136"
+      }
+    },
+    {
+      "match_slug": "2026-11-22_sestao-river_vs_amorebieta",
+      "deporte": "Fútbol",
+      "liga": "Segunda Division B • España",
+      "fecha_local": "2026-11-22",
+      "hora_local": "12:30",
+      "equipo_local": "Sestao River",
+      "equipo_visitante": "Amorebieta",
+      "mercado": "1X2",
+      "cuotas_1x2": {
+        "local_1": 1.855,
+        "empate_x": 3.33,
+        "visitante_2": 3.8
+      },
+      "capturado_en": "2026-11-22T12:26:49-04:00",
+      "url": "https://triunfobet.com/altenar",
+      "nota": "Cuotas 1X2 visibles en el widget Altenar con sesión iniciada; convertidas de formato americano a decimal",
+      "cuotas_americanas": {
+        "local_1": "-117",
+        "empate_x": "+233",
+        "visitante_2": "+280"
+      }
+    },
+    {
+      "match_slug": "2026-11-22_sd-logrones_vs_arnedo",
+      "deporte": "Fútbol",
+      "liga": "Segunda Division B • España",
+      "fecha_local": "2026-11-22",
+      "hora_local": "12:30",
+      "equipo_local": "SD Logrones",
+      "equipo_visitante": "Arnedo",
+      "mercado": "1X2",
+      "cuotas_1x2": {
+        "local_1": 1.714,
+        "empate_x": 3.4,
+        "visitante_2": 4.5
+      },
+      "capturado_en": "2026-11-22T12:26:49-04:00",
+      "url": "https://triunfobet.com/altenar",
+      "nota": "Cuotas 1X2 visibles en el widget Altenar con sesión iniciada; convertidas de formato americano a decimal",
+      "cuotas_americanas": {
+        "local_1": "-140",
+        "empate_x": "+240",
+        "visitante_2": "+350"
+      }
+    },
+    {
+      "match_slug": "2026-11-22_recreativo-huelva_vs_badajoz",
+      "deporte": "Fútbol",
+      "liga": "Segunda Division B • España",
+      "fecha_local": "2026-11-22",
+      "hora_local": "12:30",
+      "equipo_local": "Recreativo Huelva",
+      "equipo_visitante": "Badajoz",
+      "mercado": "1X2",
+      "cuotas_1x2": {
+        "local_1": 1.461,
+        "empate_x": 4,
+        "visitante_2": 6
+      },
+      "capturado_en": "2026-11-22T12:26:49-04:00",
+      "url": "https://triunfobet.com/altenar",
+      "nota": "Cuotas 1X2 visibles en el widget Altenar con sesión iniciada; convertidas de formato americano a decimal",
+      "cuotas_americanas": {
+        "local_1": "-217",
+        "empate_x": "+300",
+        "visitante_2": "+500"
+      }
+    },
+    {
+      "match_slug": "2026-11-22_ciudad-de-lucena_vs_real-betis-b",
+      "deporte": "Fútbol",
+      "liga": "Segunda Division B • España",
+      "fecha_local": "2026-11-22",
+      "hora_local": "12:30",
+      "equipo_local": "Ciudad de Lucena",
+      "equipo_visitante": "Real Betis B",
+      "mercado": "1X2",
+      "cuotas_1x2": {
+        "local_1": 2.66,
+        "empate_x": 3.14,
+        "visitante_2": 2.45
+      },
+      "capturado_en": "2026-11-22T12:26:49-04:00",
+      "url": "https://triunfobet.com/altenar",
+      "nota": "Cuotas 1X2 visibles en el widget Altenar con sesión iniciada; convertidas de formato americano a decimal",
+      "cuotas_americanas": {
+        "local_1": "+166",
+        "empate_x": "+214",
+        "visitante_2": "+145"
+      }
+    }
+  ]
+}

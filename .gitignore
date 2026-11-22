@@ -1,0 +1,50 @@
+# dependencies
+/node_modules
+/.pnp
+.pnp.*
+
+# next.js
+/.next/
+/out/
+
+# production
+/build
+/dist/
+.vinext/
+.cloudflare/
+
+# local environment
+.env
+.env.local
+.env*.local
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# misc
+.DS_Store
+*.pem
+*.tsbuildinfo
+next-env.d.ts
+
+# temporary automation artifacts
+.vscode/
+scripts/.tb-auth.json
+scripts/*-auth.json
+scripts/tb-*
+scripts/analyze-*.mjs
+scripts/debug-*.mjs
+scripts/detail-*.txt
+scripts/dump-*.mjs
+scripts/flashscore-debug-*.mjs
+scripts/flashscore-explore*.mjs
+scripts/flashscore-payload-fix.json
+scripts/flashscore-payload-test.json
+scripts/triunfobet-altenar*
+scripts/triunfobet-api-calls.txt
+scripts/triunfobet-body.txt
+scripts/triunfobet-explore*.mjs
+scripts/ui-verification.png

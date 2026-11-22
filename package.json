@@ -1,0 +1,41 @@
+{
+  "name": "betstats-pro",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Plataforma de analítica deportiva y comparación de cuotas para fútbol, básquet, béisbol y hockey.",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "typecheck": "tsc --noEmit",
+    "dev:vinext": "vite dev --port 3001",
+    "build:vinext": "vite build",
+    "start:vinext": "vite preview",
+    "deploy:vinext": "vinext-cloudflare deploy"
+  },
+  "dependencies": {
+    "@vinext/cloudflare": "^1.4.0",
+    "lucide-react": "^0.468.0",
+    "next": "15.5.29",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "react-server-dom-webpack": "^19.3.1",
+    "vinext": "^1.4.6"
+  },
+  "devDependencies": {
+    "@cloudflare/vite-plugin": "^2.0.0-rc.3",
+    "@types/node": "^22.15.0",
+    "@types/react": "^19.1.0",
+    "@types/react-dom": "^19.1.0",
+    "@vitejs/plugin-react": "^6.3.0",
+    "@vitejs/plugin-rsc": "^0.5.39",
+    "autoprefixer": "^10.4.21",
+    "cf": "^1.0.0-rc.2",
+    "playwright": "^1.65.1",
+    "postcss": "^8.5.3",
+    "tailwindcss": "3.4.19",
+    "typescript": "^5.8.3",
+    "vite": "^8.3.0"
+  },
+  "type": "module"
+}
