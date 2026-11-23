@@ -20,6 +20,7 @@ import {
 } from "@/lib/marketSummary";
 import { clamp, namesLikelyMatch, normalizeName } from "@/lib/utils";
 import {
+  dateInVET,
   dateInVETOffset,
   matchDayVET,
   resolveMatchStatus,
@@ -30,7 +31,10 @@ import { applyTriunfobetQuotes } from "@/services/triunfobetAdapter";
 import { listQuotes as listTriunfobetQuotes } from "@/services/triunfobetIngestStore";
 import { applyApuestasRoyalQuotes } from "@/services/apuestasRoyalAdapter";
 import { listQuotes as listApuestasRoyalQuotes } from "@/services/apuestasRoyalIngestStore";
+import { listInsights as listTheAnalystInsights } from "@/services/theAnalystStore";
+import { findTheAnalystMatch } from "@/services/theAnalystAdapter";
 import type {
+  AnalystInsight,
   BookmakerQuote,
   DashboardData,
   DashboardMeta,
@@ -533,8 +537,9 @@ function countMatchDays(
 
 function finalizeDashboard(
   data: Omit<DashboardData, "dayCounts"> & { dayCounts?: Record<MatchDay, number> },
+  now: Date = new Date(),
 ): DashboardData {
-  return { ...data, dayCounts: countMatchDays(data.matches) };
+  return { ...data, dayCounts: countMatchDays(data.matches, now) };
 }
 
 function mockWithConfigurationWarnings(): DashboardData {
@@ -666,8 +671,8 @@ async function getAggregatedDataUnfinalized(): Promise<
   }
 }
 
-async function getAggregatedData(): Promise<DashboardData> {
-  return finalizeDashboard(await getAggregatedDataUnfinalized());
+async function getAggregatedData(now: Date = new Date()): Promise<DashboardData> {
+  return finalizeDashboard(await getAggregatedDataUnfinalized(), now);
 }
 
 export function getActiveLeagueIds(matches: SportsMatch[]): Set<string> {
@@ -699,30 +704,21 @@ interface CapturedQuotesResult {
  */
 function withCapturedBookmakerQuotes(
   matches: SportsMatch[],
+  now: Date = new Date(),
 ): CapturedQuotesResult {
-  const days = new Set([dateInVETOffset(0), dateInVETOffset(1)]);
-  // isCurrent: una quote se considera "actual" si su fecha de extracción es hoy o
-  // mañana en VET, O si tiene fecha_local en esa ventana. Se usa OR en lugar de
-  // AND para no descartar quotes que tengan una de las dos fechas definidas.
-  const isCurrent = (quote: { fecha_extraccion: string; fecha_local?: string | null }) =>
-    days.has(quote.fecha_extraccion) ||
-    (quote.fecha_local != null && days.has(quote.fecha_local));
-
-  // Ampliamos un poco la ventana: también aceptamos quotes cuya fecha_extracción
-  // sea un día antes o después (para compensar desfases de zona horaria o actualización
-  // tardía), pero solo las mantendremos si su fecha_local también coincide o si la
-  // fecha_extracción está muy próxima a hoy/mañana.
-  const isCurrentBroad = (quote: { fecha_extraccion: string; fecha_local?: string | null }) => {
-    const extraday = dateInVETOffset(
-      quote.fecha_extraccion === dateInVETOffset(0) ? -1 : quote.fecha_extraccion === dateInVETOffset(1) ? -1 : 0,
-    );
-    const extradayOK = days.has(dateInVETOffset(-1)) || days.has(dateInVETOffset(2));
-    return (days.has(quote.fecha_extraccion) || (quote.fecha_local != null && days.has(quote.fecha_local))) ||
-      (extradayOK && quote.fecha_local != null && days.has(quote.fecha_local));
-  };
+  const days = new Set([dateInVETOffset(0, now), dateInVETOffset(1, now)]);
+  // Una captura es vigente si el partido que describe cae en hoy/mañana VET.
+  // `fecha_local` manda; `fecha_extraccion` solo se usa como respaldo cuando
+  // la casa no informó la fecha del encuentro.
+  const isCurrent = (quote: {
+    fecha_extraccion: string;
+    fecha_local?: string | null;
+  }) =>
+    (quote.fecha_local != null && days.has(quote.fecha_local)) ||
+    (quote.fecha_local == null && days.has(quote.fecha_extraccion));
 
   const triunfobetQuotes = listTriunfobetQuotes().filter(isCurrent);
-  const royalQuotes = listApuestasRoyalQuotes().filter(isCurrentBroad);
+  const royalQuotes = listApuestasRoyalQuotes().filter(isCurrent);
 
   const triunfobet = applyTriunfobetQuotes(matches, triunfobetQuotes);
   const royal = applyApuestasRoyalQuotes(triunfobet.matches, royalQuotes);
@@ -746,18 +742,96 @@ function withCapturedBookmakerQuotes(
   };
 }
 
+interface TheAnalystResult {
+  matches: SportsMatch[];
+  applied: number;
+  connected: boolean;
+}
+
+/**
+ * Cruza los partidos del dashboard con los insights capturados de The Analyst
+ * (xG, probabilidades 1X2 y rachas). El resultado se guarda en `match.analyst`
+ * para que el motor de valor compare la probabilidad estadística contra la
+ * implícita de las cuotas de las casas.
+ */
+function withTheAnalystInsights(matches: SportsMatch[]): TheAnalystResult {
+  const records = listTheAnalystInsights();
+  if (records.length === 0 || matches.length === 0) {
+    return { matches, applied: 0, connected: false };
+  }
+
+  let applied = 0;
+  const enriched = matches.map((match) => {
+    const found = findTheAnalystMatch(
+      {
+        id: match.id,
+        match_slug: match.id.startsWith("flashscore-")
+          ? match.id.slice("flashscore-".length)
+          : null,
+        fecha_local: dateInVET(match.commenceTime),
+        liga: match.league.name,
+        equipo_local: match.home.name,
+        equipo_visitante: match.away.name,
+      },
+      records,
+    );
+    if (!found) return match;
+
+    const { probabilidades, metricas, resumen, confianza } = found.insight;
+    const winProbabilities =
+      probabilidades.home != null &&
+      probabilidades.draw != null &&
+      probabilidades.away != null
+        ? {
+            home: probabilidades.home,
+            draw: probabilidades.draw,
+            away: probabilidades.away,
+          }
+        : null;
+    const analyst: AnalystInsight = {
+      source: "the-analyst",
+      xgHome: metricas.xg_local,
+      xgAway: metricas.xg_visitante,
+      winProbabilities,
+      streakHome: metricas.racha_local ?? metricas.forma_local,
+      streakAway: metricas.racha_visitante ?? metricas.forma_visitante,
+      headline: resumen ?? found.record.titulo,
+      url: found.record.url || null,
+      updatedAt: found.record.actualizado_en,
+    };
+
+    applied += 1;
+    return {
+      ...match,
+      analyst,
+      intel: {
+        ...match.intel,
+        note: [
+          match.intel.note,
+          winProbabilities
+            ? `The Analyst (confianza ${confianza}): ${(winProbabilities.home * 100).toFixed(1)}% / ${(winProbabilities.draw * 100).toFixed(1)}% / ${(winProbabilities.away * 100).toFixed(1)}%`
+            : `The Analyst: ${resumen ?? found.record.titulo}`,
+        ]
+          .filter(Boolean)
+          .join(" · "),
+      },
+    };
+  });
+
+  return { matches: enriched, applied, connected: applied > 0 };
+}
+
 /**
  * Punto de entrada del dashboard. Prioriza los partidos inyectados por el agente
  * de Flashscore, los convierte al modelo interno y limita el radar pre-match a
  * los encuentros pendientes de hoy y mañana en hora de Venezuela.
  */
 export async function getDashboardData(): Promise<DashboardData> {
-  const [base, flashscoreMatches] = await Promise.all([
-    getAggregatedData(),
-    Promise.resolve(flashscoreRecordsToMatches(listFlashscoreRecords())),
-  ]);
-
   const ahora = new Date();
+  const [base, flashscoreMatches] = await Promise.all([
+    getAggregatedData(ahora),
+    Promise.resolve(flashscoreRecordsToMatches(listFlashscoreRecords(), ahora)),
+  ]);
   // Solo entran partidos de hoy o mañana que todavía no hayan comenzado. Los
   // que ya arrancaron o finalizaron se retiran automáticamente del feed.
   const esVigente = (match: SportsMatch) =>
@@ -772,28 +846,33 @@ export async function getDashboardData(): Promise<DashboardData> {
     (flashscoreMatches.length - upcomingFlashscore.length);
 
   if (upcomingFlashscore.length === 0) {
-    const captured = withCapturedBookmakerQuotes(baseUpcoming);
+    const captured = withCapturedBookmakerQuotes(baseUpcoming, ahora);
+    const analyst = withTheAnalystInsights(captured.matches);
     return finalizeDashboard({
       ...base,
-      matches: captured.matches,
+      matches: analyst.matches,
       leagues: base.leagues.filter((league) =>
-        captured.matches.some((match) => match.league.id === league.id),
+        analyst.matches.some((match) => match.league.id === league.id),
       ),
-      sportCounts: countSports(captured.matches),
+      sportCounts: countSports(analyst.matches),
       meta: {
         ...base.meta,
         warnings: uniqueWarnings([
           `${excluded} partidos ya comenzaron o están fuera de la ventana hoy/mañana y fueron excluidos.`,
           ...captured.warnings,
+          ...(analyst.applied > 0
+            ? [`${analyst.applied} análisis de The Analyst cruzados con partidos.`]
+            : []),
           ...base.meta.warnings,
         ]),
         sources: {
           ...base.meta.sources,
+          theAnalyst: analyst.connected,
           triunfobet: captured.triunfobetConnected,
           apuestasRoyal: captured.royalConnected,
         },
       },
-    });
+    }, ahora);
   }
 
   const keyOf = (match: SportsMatch) =>
@@ -807,8 +886,9 @@ export async function getDashboardData(): Promise<DashboardData> {
     matches.push(match);
   }
 
-  const captured = withCapturedBookmakerQuotes(matches);
-  const finalMatches = captured.matches;
+  const captured = withCapturedBookmakerQuotes(matches, ahora);
+  const analyst = withTheAnalystInsights(captured.matches);
+  const finalMatches = analyst.matches;
   const leagues = Array.from(
     new Map(finalMatches.map((match) => [match.league.id, match.league])).values(),
   );
@@ -824,14 +904,18 @@ export async function getDashboardData(): Promise<DashboardData> {
       warnings: uniqueWarnings([
         `${upcomingFlashscore.length} partidos de Flashscore pendientes hoy/mañana (VET).`,
         ...captured.warnings,
+        ...(analyst.applied > 0
+          ? [`${analyst.applied} análisis de The Analyst cruzados con partidos.`]
+          : []),
         ...base.meta.warnings,
       ]),
       sources: {
         ...base.meta.sources,
         flashscore: true,
+        theAnalyst: analyst.connected,
         triunfobet: captured.triunfobetConnected,
         apuestasRoyal: captured.royalConnected,
       },
     },
-  });
+  }, ahora);
 }

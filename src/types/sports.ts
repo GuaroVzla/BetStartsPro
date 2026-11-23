@@ -19,6 +19,24 @@ export type OddsSource =
 
 export type OutcomeKey = "home" | "draw" | "away";
 
+/**
+ * Métricas avanzadas cruzadas desde The Analyst u otra fuente editorial.
+ * Se guardan en el partido para que el motor de valor pueda comparar
+ * probabilidad estadística vs. probabilidad implícita del mercado.
+ */
+export interface AnalystInsight {
+  source: "the-analyst";
+  xgHome: number | null;
+  xgAway: number | null;
+  /** Probabilidad 1X2 calculada por la fuente editorial (0-1). */
+  winProbabilities: Record<OutcomeKey, number> | null;
+  streakHome: string | null;
+  streakAway: string | null;
+  headline: string | null;
+  url: string | null;
+  updatedAt: string;
+}
+
 export type MatchStatus = "scheduled" | "live" | "finished";
 
 /** Ventana operativa del radar pre-match: hoy y mañana (hora Venezuela). */
@@ -181,6 +199,8 @@ export interface SportsMatch {
   intel: MatchIntel;
   /** Equipo con la cuota 1X2 más baja (favorito según el mercado). */
   favoriteSide?: "home" | "away" | null;
+  /** Análisis previo y métricas avanzadas de The Analyst, cuando está disponible. */
+  analyst?: AnalystInsight | null;
 }
 
 export interface ApiSourceStatus {
@@ -188,6 +208,7 @@ export interface ApiSourceStatus {
   sportmonks: boolean;
   apiSports: boolean;
   flashscore?: boolean;
+  theAnalyst?: boolean;
   triunfobet?: boolean;
   apuestasRoyal?: boolean;
 }
@@ -217,8 +238,8 @@ export interface OutcomeAnalysis {
   label: string;
   selectionName: string;
   modelProbability: number;
-  /** Origen de la probabilidad: modelo propio o consenso de mercado sin margen. */
-  probabilitySource: "modelo" | "mercado";
+  /** Origen de la probabilidad: modelo propio, mercado o The Analyst. */
+  probabilitySource: "modelo" | "mercado" | "analista";
   impliedProbability: number;
   fairOdds: number;
   bestOdds: number | null;
@@ -258,4 +279,10 @@ export interface ValuePick {
 export interface AnalyzerOptions {
   minProbability?: number;
   minOdds?: number;
+  /** Instante de referencia compartido por toda la request (VET). */
+  now?: Date;
+  /** Ventana a analizar; "all" respeta la ventana del dashboard sin filtrar. */
+  day?: MatchDay | "all";
+  /** Peso de la probabilidad editorial de The Analyst frente al modelo propio. */
+  analystWeight?: number;
 }

@@ -1,10 +1,43 @@
-# Integración de Triunfobet
+# Integración de Triunfobet (widget Altenar)
 
-Triunfobet sirve el sportsbook de Altenar dentro de un widget que solo carga
-configuración, traducciones y autenticación mientras no hay sesión iniciada.
-No expone un feed público de eventos/cuotas, por lo que **no se inventa ninguna
-cuota**: el crucero se alimenta únicamente con precios visibles capturados por
-el usuario o por un agente con sesión.
+Triunfobet sirve el sportsbook de Altenar en `https://triunfobet.com/altenar`.
+Sin sesión iniciada el widget solo carga configuración, traducciones y
+autenticación: **no expone un feed público de eventos/cuotas**. Por eso no se
+inventa ninguna cuota; el dashboard solo recibe precios efectivamente visibles
+en pantalla.
+
+## Captura (con sesión)
+
+```bash
+# 1) Diagnóstico sin escribir nada: muestra shadow roots, event boxes y XHR.
+node scripts/triunfobet-capture.mjs --dry-run
+
+# 2) Con perfil persistente (nombre de usuario/contraseña ya guardados en esa carpeta):
+node scripts/triunfobet-capture.mjs --profile C:/ruta/perfil-triunfobet --dry-run
+
+# 3) Si el perfil no basta, inicie sesión en modo visible con --headed:
+node scripts/triunfobet-capture.mjs --headed --profile C:/ruta/perfil-triunfobet --dry-run
+
+# 4) Solo cuando las cuotas impresas sean correctas:
+node scripts/triunfobet-capture.mjs --profile C:/ruta/perfil-triunfobet --write
+```
+
+Opciones útiles: `--wait 25000` (espera del widget), `--profile <directorio>` (perfil
+persistente con la sesión ya iniciada) o `--state <storageState.json>`,
+`--fecha YYYY-MM-DD` (por defecto, hoy en VET), `--out <archivo>`.
+
+El capturador:
+
+- intercepta las respuestas XHR de `sb2frontend-altenar2.biahosted.com` y lista
+  los endpoints observados **solo como diagnóstico** (no se inventa un API);
+- recorre los shadow DOM y busca `EventBoxRoot`, `OddValue`, `OddLabel`,
+  participantes y marca de hora;
+- cruza los nombres con `flashscore-payload.json` y
+  `flashscore-payload-manana.json` para reutilizar el `match_slug` oficial;
+- convierte cuotas americanas (`-184`, `+350`) a decimales (`1.543`, `4.5`).
+
+Si `COTIZACIONES_DETECTADAS=0`, no modifica la semilla. Revise
+`XHR_RELEVANTES` y ejecute con `--headed` para verificar el estado de sesión.
 
 ## Formato del payload
 
@@ -15,27 +48,23 @@ el usuario o por un agente con sesión.
   "target_app": "BetStats Pro",
   "source": "triunfobet_agent",
   "sync_mode": "enrich_or_create",
-  "fecha_extraccion": "2026-11-22",
+  "fecha_extraccion": "2026-11-23",
   "zona_horaria": "America/Caracas",
   "total_cotizaciones": 1,
   "cotizaciones": [
     {
-      "match_slug": "2026-11-22_equipo-local_vs_equipo-visitante",
+      "match_slug": "2026-11-24_arsenal_vs_borussia-dortmund",
       "deporte": "Fútbol",
-      "liga": "Venezuela: Liga FUTVE",
-      "fecha_local": "2026-11-22",
-      "hora_local": "18:00",
-      "equipo_local": "Nombre exacto visible en Triunfobet",
-      "equipo_visitante": "Nombre exacto visible en Triunfobet",
+      "liga": "Champions League",
+      "fecha_local": "2026-11-24",
+      "hora_local": "16:00",
+      "equipo_local": "Arsenal",
+      "equipo_visitante": "Borussia Dortmund",
       "mercado": "1X2",
-      "cuotas_1x2": {
-        "local_1": 2.35,
-        "empate_x": 3.1,
-        "visitante_2": 2.8
-      },
-      "capturado_en": "2026-11-22T14:30:00-04:00",
+      "cuotas_1x2": { "local_1": 2.1, "empate_x": 3.7, "visitante_2": 3.4 },
+      "capturado_en": "2026-11-23T15:30:00-04:00",
       "url": "https://triunfobet.com/altenar",
-      "nota": "Cuota visible en la pantalla de 1X2"
+      "nota": "Cuota visible en el widget Altenar con sesión iniciada"
     }
   ]
 }
@@ -43,41 +72,43 @@ el usuario o por un agente con sesión.
 
 Reglas:
 
-- `match_slug` es opcional; si se omite, el cruce se hace por nombres de equipo
-  y `fecha_local` en hora de Venezuela.
-- Todo valor no visible se envía como `null`. El servidor rechaza cuotas `<= 1`
-  y no las transforma en números válidos.
-- `mercado` acepta `1X2` (por defecto), `ganador` o `moneyline`.
-- `GET /api/ingest/triunfobet` lista las cotizaciones activas y
-  `DELETE /api/ingest/triunfobet` las borra.
+- `match_slug` se recalcula en la ingesta con el mismo `slugify` de la UI
+  (`YYYY-MM-DD_equipo_vs_equipo`, sin tildes ni stopwords como `fc`, `real`,
+  `city`). No hace falta escribirlo a mano; el capturador lo genera.
+- `fecha_local` debe ser hoy o mañana en VET; la ingesta descarta cotizaciones
+  fuera de esa ventana salvo `--allow-stale`.
+- Todo valor no visible se envía como `null`. El servidor rechaza cuotas `<= 1`.
+- `mercado` acepta `1X2`, `ganador` o `moneyline`.
 
 ## Carga
 
 ```bash
-node scripts/ingest-triunfobet.mjs scripts/triunfobet-quotes.json http://localhost:3000/api/ingest/triunfobet
+node scripts/ingest-triunfobet.mjs --dry-run
+node scripts/ingest-triunfobet.mjs scripts/triunfobet-quotes.json
 ```
 
-La respuesta imprime `HTTP_STATUS: 201` cuando la ingesta es válida y `422`
-cuando el esquema no cumple estas reglas. Tras reiniciar `npm run start` hay que
-recargar tanto el payload de Flashscore como el de Triunfobet: ambos stores son
-en memoria.
+`HTTP_STATUS: 201` significa ingesta válida; `422`, esquema inválido.
+
+> `scripts/triunfobet-quotes.json` conserva 20 cotizaciones reales capturadas el
+> **22/11/2026**. Están fuera de la ventana actual (23/24): se omiten con un
+> mensaje claro hasta que se haga una captura nueva. No se alteraron ni se
+> inventaron precios.
 
 ## Qué hace el motor después del cruce
 
-1. Agrega a Triunfobet como casa de apuestas al resumen `1X2` del partido.
-2. Recalcula mejor cuota, media y spread, y actualiza el favorito (cuota más
-   baja entre local y visitante).
+1. Agrega a Triunfobet como casa al resumen `1X2` del partido.
+2. Recalcula mejor cuota, media y spread, y actualiza el favorito.
 3. Compara la cuota de Triunfobet contra el resto del mercado.
 4. Marca como **🔥 Hembra** las selecciones favoritas (o con probabilidad ≥ 60%)
-   con cuota ≥ 1.85 y valor esperado positivo, ordenando por rentabilidad.
+   con cuota ≥ 1.85 y valor esperado positivo.
 5. En el comparador, **🔥 Hembra · Triunfobet** destaca al favorito con cuota
-   ≥ 1.80 cuyo mejor precio viene de Triunfobet; no implica EV positivo.
+   ≥ 1.80 cuyo mejor precio viene de Triunfobet.
 
-## Captura real del 22/11/2026
+## Solución de problemas
 
-`scripts/triunfobet-quotes.json` contiene 20 cotizaciones 1X2 tomadas del widget
-Altenar con sesión autenticada y convertidas de formato americano a decimal.
-En la ingesta inicial, 18 cruzaron con partidos del dashboard. Los valores se
-capturaron desde el shadow DOM del widget (`EventBoxRoot`, `OddLabel`,
-`OddValue`); no se inventó ninguna cuota. La sesión temporal y los scripts de
-login se eliminaron después de la captura.
+| Síntoma | Causa probable | Acción |
+| --- | --- | --- |
+| `COTIZACIONES_DETECTADAS=0` | Sin sesión / widget no renderiza | `--headed`, iniciar sesión, subir `--wait` |
+| `sin cotizaciones vigentes` | Semilla antigua (22/11) | Captura nueva con `--write` |
+| `match_slug inválido` | Nombres vacíos o caracteres raros | El capturador ya normaliza; revise el JSON |
+| `422` en la API | Cuota `<= 1` o `hora_local` con formato inválido | Enviar `null` / `HH:mm` |

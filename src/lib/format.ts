@@ -121,6 +121,22 @@ export function matchDayVET(
   return null;
 }
 
+/** Comprueba un partido contra una ventana concreta (hoy, mañana o ambas). */
+export function isMatchDayVET(
+  isoDate: string,
+  day: "today" | "tomorrow" | "all",
+  now: Date = new Date(),
+): boolean {
+  if (day === "all") return matchDayVET(isoDate, now) !== null;
+  return matchDayVET(isoDate, now) === day;
+}
+
+/** Construye un instante ISO a partir de una fecha VET (YYYY-MM-DD) y hora local. */
+export function fromVETDateTime(date: string, time: string): string {
+  const normalizedTime = /^\d{2}:\d{2}$/.test(time) ? time : "12:00";
+  return `${date}T${normalizedTime}:00-04:00`;
+}
+
 /**
  * Comprueba si un encuentro ya comenzó respecto a un instante dado.
  * Los partidos en vivo o finalizados se consideran comenzados por definición;

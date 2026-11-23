@@ -1,0 +1,130 @@
+{
+  "target_app": "BetStats Pro",
+  "source": "the_analyst_agent",
+  "sync_mode": "enrich_or_create",
+  "fecha_extraccion": "2026-11-23",
+  "zona_horaria": "America/Caracas",
+  "total_registros": 3,
+  "advertencias": [
+    "Semilla con probabilidades y hechos literalmente observados en artículos públicos de The Analyst (REST API de WordPress), capturados el 23/11/2026."
+  ],
+  "registros": [
+    {
+      "articulo_id": "269148",
+      "titulo": "Chelsea vs Leeds Prediction: Premier League Preview",
+      "url": "https://theanalyst.com/articles/chelsea-vs-leeds-prediction-premier-league-preview-11-2026",
+      "fecha_publicacion": "2026-11-21T12:20:57.000Z",
+      "tipo": "match_preview",
+      "liga": "Premier League",
+      "equipo_local": "Chelsea",
+      "equipo_visitante": "Leeds United",
+      "resumen": "The Opta supercomputer ranks Chelsea as the favourites in Saturday afternoon's clash, with a win probability of 51.1% to Leeds United's 24.0%. Three of Chelsea's four defeats this season have come to nil.",
+      "insight": {
+        "match_slug": "2026-11-21_chelsea_vs_leeds-united",
+        "fecha_partido": "2026-11-21",
+        "deporte": "Fútbol",
+        "liga": "Premier League",
+        "equipo_local": "Chelsea",
+        "equipo_visitante": "Leeds United",
+        "probabilidades": {
+          "home": 0.511,
+          "draw": 0.248,
+          "away": 0.24,
+          "inferidas": []
+        },
+        "metricas": {
+          "xg_local": null,
+          "xg_visitante": null,
+          "forma_local": "W3 D1 L1",
+          "forma_visitante": null,
+          "racha_local": "Chelsea have taken 10 points from five home Premier League games this season (W3 D1 L1), their best tally in that span.",
+          "racha_visitante": "Leeds have generated the most xG from set-pieces (excluding penalties) in the Premier League this season (6.1).",
+          "h2h_resumen": "Dos últimos encuentros de la temporada pasada: 3-1 en Elland Road y 2-2 en Stamford Bridge."
+        },
+        "resumen": "Chelsea 51.1% / empate 24.8% / Leeds 24.0% según 10.000 simulaciones del Opta supercomputer.",
+        "metodo": "articulo",
+        "confianza": "media"
+      },
+      "capturado_en": "2026-11-23T14:00:00.000Z",
+      "notas": "Probabilidades literales del artículo. Forma local W3 D1 L1 de cinco partidos en casa. xG de tiros libres de Leeds NO es xG del partido, por eso es null."
+    },
+    {
+      "articulo_id": "269663",
+      "titulo": "Man City vs Napoli Prediction: UEFA Champions League Preview",
+      "url": "https://theanalyst.com/articles/man-city-vs-napoli-prediction-uefa-champions-league-preview-11-2026",
+      "fecha_publicacion": "2026-11-23T10:32:44.000Z",
+      "tipo": "match_preview",
+      "liga": "UEFA Champions League",
+      "equipo_local": "Manchester City",
+      "equipo_visitante": "Napoli",
+      "resumen": "Manchester City are the heavy favourites for this encounter, having come out on top in 71.2% of pre-match simulations by the Opta supercomputer. The same data-led sims only afforded Napoli a 12.6% chance of victory, with the draw making up the rest of the scenarios at 16.2%.",
+      "insight": {
+        "match_slug": "2026-11-23_manchester-city_vs_napoli",
+        "fecha_partido": null,
+        "deporte": "Fútbol",
+        "liga": "UEFA Champions League",
+        "equipo_local": "Manchester City",
+        "equipo_visitante": "Napoli",
+        "probabilidades": {
+          "home": 0.712,
+          "draw": 0.162,
+          "away": 0.126,
+          "inferidas": []
+        },
+        "metricas": {
+          "xg_local": null,
+          "xg_visitante": null,
+          "forma_local": null,
+          "forma_visitante": null,
+          "racha_local": "City are unbeaten at home to Napoli (W2 D1).",
+          "racha_visitante": null,
+          "h2h_resumen": "City went winless across their first two meetings with Napoli in 2011-12 (D1 L1) and are unbeaten at home to Napoli (W2 D1)."
+        },
+        "resumen": "Manchester City 71.2% / empate 16.2% / Napoli 12.6% según simulaciones previas del Opta supercomputer.",
+        "metodo": "articulo",
+        "confianza": "media"
+      },
+      "capturado_en": "2026-11-23T14:00:00.000Z",
+      "notas": "fecha_partido se deja null porque el artículo no exponía la fecha exacta del encuentro."
+    },
+    {
+      "articulo_id": "269079",
+      "titulo": "Newcastle vs Arsenal Prediction: Premier League Preview",
+      "url": "https://theanalyst.com/articles/newcastle-vs-arsenal-prediction-premier-league-preview-11-2026",
+      "fecha_publicacion": "2026-11-21T12:20:53.000Z",
+      "tipo": "match_preview",
+      "liga": "Premier League",
+      "equipo_local": "Newcastle United",
+      "equipo_visitante": "Arsenal",
+      "resumen": "A sixth straight victory could be on the horizon for Arsenal, with the Opta supercomputer calculating that they have a 56.4% win probability. Newcastle have just a 21.7% chance of springing an upset; a draw has a fractionally higher probability at 21.9%.",
+      "insight": {
+        "match_slug": "2026-11-21_newcastle-united_vs_arsenal",
+        "fecha_partido": "2026-11-21",
+        "deporte": "Fútbol",
+        "liga": "Premier League",
+        "equipo_local": "Newcastle United",
+        "equipo_visitante": "Arsenal",
+        "probabilidades": {
+          "home": 0.217,
+          "draw": 0.219,
+          "away": 0.564,
+          "inferidas": []
+        },
+        "metricas": {
+          "xg_local": null,
+          "xg_visitante": null,
+          "forma_local": null,
+          "forma_visitante": null,
+          "racha_local": "The Magpies sit 12th in the table but have won just two of their past eight top-flight outings.",
+          "racha_visitante": "Arsenal are chasing a sixth straight Premier League victory.",
+          "h2h_resumen": "Arsenal have taken all three points from their past three meetings with Newcastle, with 38 Premier League wins overall against the Magpies."
+        },
+        "resumen": "Newcastle 21.7% / empate 21.9% / Arsenal 56.4% según 10.000 simulaciones previas del Opta supercomputer.",
+        "metodo": "articulo",
+        "confianza": "media"
+      },
+      "capturado_en": "2026-11-23T14:00:00.000Z",
+      "notas": "Artículo textual publicado el mismo sábado del partido."
+    }
+  ]
+}

@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { revalidatePath } from "next/cache";
 import {
   clearMatches,
   listMatches,
@@ -124,6 +125,8 @@ export async function POST(request: NextRequest) {
   }
 
   const result = upsertMatches(payload);
+  revalidatePath("/");
+  revalidatePath("/api/matches");
   return NextResponse.json(
     {
       ok: true,
@@ -136,6 +139,8 @@ export async function POST(request: NextRequest) {
 
 export async function DELETE() {
   clearMatches();
+  revalidatePath("/");
+  revalidatePath("/api/matches");
   return NextResponse.json({ ok: true, mensaje: "Registros de Flashscore eliminados", total_partidos: 0 });
 }
 

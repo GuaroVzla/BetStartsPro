@@ -1,0 +1,5952 @@
+{
+  "target_app": "BetStats Pro",
+  "source": "flashscore_agent",
+  "sync_mode": "enrich_or_create",
+  "fecha_extraccion": "2026-11-24",
+  "fecha_local": "2026-11-24",
+  "dia": "manana",
+  "zona_horaria": "America/Caracas",
+  "capturado_en": "2026-11-23T15:57:34-04:00",
+  "total_partidos": 235,
+  "partidos": [
+    {
+      "match_slug": "2026-11-24_bodo-glimt_vs_lask",
+      "deporte": "Fútbol",
+      "liga": "EUROPA: Champions League - Fase de liga",
+      "fecha_local": "2026-11-24",
+      "hora_local": "13:45",
+      "estado": "Programado",
+      "equipo_local": "Bodo/Glimt",
+      "equipo_visitante": "LASK",
+      "cuotas_1x2": {
+        "local_1": 1.49,
+        "empate_x": 5.25,
+        "visitante_2": 5.5
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "pItlFEBk",
+      "url": "http://m.flashscore.com.ve/partido/pItlFEBk/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_galatasaray_vs_aston-villa",
+      "deporte": "Fútbol",
+      "liga": "EUROPA: Champions League - Fase de liga",
+      "fecha_local": "2026-11-24",
+      "hora_local": "13:45",
+      "estado": "Programado",
+      "equipo_local": "Galatasaray",
+      "equipo_visitante": "Aston Villa",
+      "cuotas_1x2": {
+        "local_1": 2.9,
+        "empate_x": 3.95,
+        "visitante_2": 2.2
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": 18,
+        "posicion_visitante": 6,
+        "racha_local_ultimos_5": [
+          "V",
+          "V",
+          "V",
+          "V",
+          "V"
+        ],
+        "racha_visitante_ultimos_5": [
+          "E",
+          "E",
+          "D",
+          "E",
+          "D"
+        ],
+        "h2h_resumen": null
+      },
+      "mid": "OCNDYmfK",
+      "url": "http://m.flashscore.com.ve/partido/OCNDYmfK/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_arsenal_vs_borussia-dortmund",
+      "deporte": "Fútbol",
+      "liga": "EUROPA: Champions League - Fase de liga",
+      "fecha_local": "2026-11-24",
+      "hora_local": "16:00",
+      "estado": "Programado",
+      "equipo_local": "Arsenal",
+      "equipo_visitante": "Borussia Dortmund",
+      "cuotas_1x2": {
+        "local_1": 1.37,
+        "empate_x": 5,
+        "visitante_2": 7.5
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "vPVzwlTF",
+      "url": "http://m.flashscore.com.ve/partido/vPVzwlTF/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_como_vs_aek",
+      "deporte": "Fútbol",
+      "liga": "EUROPA: Champions League - Fase de liga",
+      "fecha_local": "2026-11-24",
+      "hora_local": "16:00",
+      "estado": "Programado",
+      "equipo_local": "Como",
+      "equipo_visitante": "AEK",
+      "cuotas_1x2": {
+        "local_1": 1.25,
+        "empate_x": 6.5,
+        "visitante_2": 9.5
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "jiHA3xET",
+      "url": "http://m.flashscore.com.ve/partido/jiHA3xET/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_feyenoord_vs_oporto",
+      "deporte": "Fútbol",
+      "liga": "EUROPA: Champions League - Fase de liga",
+      "fecha_local": "2026-11-24",
+      "hora_local": "16:00",
+      "estado": "Programado",
+      "equipo_local": "Feyenoord",
+      "equipo_visitante": "Oporto",
+      "cuotas_1x2": {
+        "local_1": 2.95,
+        "empate_x": 3.7,
+        "visitante_2": 2.2
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": 32,
+        "posicion_visitante": 26,
+        "racha_local_ultimos_5": [
+          "D",
+          "D",
+          "D",
+          "E",
+          "E"
+        ],
+        "racha_visitante_ultimos_5": [
+          "E",
+          "V",
+          "V",
+          "V",
+          "V"
+        ],
+        "h2h_resumen": "Últimos 3 H2H: Oporto 3-2 Feyenoord; Feyenoord 2-0 Oporto; Feyenoord 0-0 Oporto"
+      },
+      "mid": "6grtKluR",
+      "url": "http://m.flashscore.com.ve/partido/6grtKluR/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_manchester_vs_napoles",
+      "deporte": "Fútbol",
+      "liga": "EUROPA: Champions League - Fase de liga",
+      "fecha_local": "2026-11-24",
+      "hora_local": "16:00",
+      "estado": "Programado",
+      "equipo_local": "Manchester City",
+      "equipo_visitante": "Nápoles",
+      "cuotas_1x2": {
+        "local_1": 1.25,
+        "empate_x": 6.5,
+        "visitante_2": 9
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "OxXVS94F",
+      "url": "http://m.flashscore.com.ve/partido/OxXVS94F/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_rb-leipzig_vs_lens",
+      "deporte": "Fútbol",
+      "liga": "EUROPA: Champions League - Fase de liga",
+      "fecha_local": "2026-11-24",
+      "hora_local": "16:00",
+      "estado": "Programado",
+      "equipo_local": "RB Leipzig",
+      "equipo_visitante": "Lens",
+      "cuotas_1x2": {
+        "local_1": 1.36,
+        "empate_x": 5.75,
+        "visitante_2": 6.75
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "pxXsydY8",
+      "url": "http://m.flashscore.com.ve/partido/pxXsydY8/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_madrid_vs_psv",
+      "deporte": "Fútbol",
+      "liga": "EUROPA: Champions League - Fase de liga",
+      "fecha_local": "2026-11-24",
+      "hora_local": "16:00",
+      "estado": "Programado",
+      "equipo_local": "Real Madrid",
+      "equipo_visitante": "PSV",
+      "cuotas_1x2": {
+        "local_1": 1.15,
+        "empate_x": 9,
+        "visitante_2": 12
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "6PURSlmI",
+      "url": "http://m.flashscore.com.ve/partido/6PURSlmI/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_slovan-bratislava_vs_betis",
+      "deporte": "Fútbol",
+      "liga": "EUROPA: Champions League - Fase de liga",
+      "fecha_local": "2026-11-24",
+      "hora_local": "16:00",
+      "estado": "Programado",
+      "equipo_local": "Slovan Bratislava",
+      "equipo_visitante": "Real Betis",
+      "cuotas_1x2": {
+        "local_1": 10,
+        "empate_x": 6.75,
+        "visitante_2": 1.22
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": 36,
+        "posicion_visitante": 11,
+        "racha_local_ultimos_5": [
+          "V",
+          "E",
+          "D",
+          "V",
+          "V"
+        ],
+        "racha_visitante_ultimos_5": [
+          "E",
+          "V",
+          "V",
+          "D",
+          "V"
+        ],
+        "h2h_resumen": null
+      },
+      "mid": "I9qIUvgn",
+      "url": "http://m.flashscore.com.ve/partido/I9qIUvgn/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_costa-rica-sub-17_vs_irlanda-sub-17",
+      "deporte": "Fútbol",
+      "liga": "MUNDIAL: Mundial Sub-17",
+      "fecha_local": "2026-11-24",
+      "hora_local": "08:30",
+      "estado": "Programado",
+      "equipo_local": "Costa Rica Sub-17",
+      "equipo_visitante": "Irlanda Sub-17",
+      "cuotas_1x2": {
+        "local_1": null,
+        "empate_x": null,
+        "visitante_2": null
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "nehK33wf",
+      "url": "http://m.flashscore.com.ve/partido/nehK33wf/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_venezuela-sub-17_vs_rumania-sub-17",
+      "deporte": "Fútbol",
+      "liga": "MUNDIAL: Mundial Sub-17",
+      "fecha_local": "2026-11-24",
+      "hora_local": "08:30",
+      "estado": "Programado",
+      "equipo_local": "Venezuela Sub-17",
+      "equipo_visitante": "Rumanía Sub-17",
+      "cuotas_1x2": {
+        "local_1": null,
+        "empate_x": null,
+        "visitante_2": null
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "jBXiI2hm",
+      "url": "http://m.flashscore.com.ve/partido/jBXiI2hm/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_japon-sub-17_vs_serbia-sub-17",
+      "deporte": "Fútbol",
+      "liga": "MUNDIAL: Mundial Sub-17",
+      "fecha_local": "2026-11-24",
+      "hora_local": "09:00",
+      "estado": "Programado",
+      "equipo_local": "Japón Sub-17",
+      "equipo_visitante": "Serbia Sub-17",
+      "cuotas_1x2": {
+        "local_1": null,
+        "empate_x": null,
+        "visitante_2": null
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "xSVaGtNa",
+      "url": "http://m.flashscore.com.ve/partido/xSVaGtNa/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_mexico-sub-17_vs_camerun-sub-17",
+      "deporte": "Fútbol",
+      "liga": "MUNDIAL: Mundial Sub-17",
+      "fecha_local": "2026-11-24",
+      "hora_local": "09:30",
+      "estado": "Programado",
+      "equipo_local": "México Sub-17",
+      "equipo_visitante": "Camerún Sub-17",
+      "cuotas_1x2": {
+        "local_1": null,
+        "empate_x": null,
+        "visitante_2": null
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "funMNOUP",
+      "url": "http://m.flashscore.com.ve/partido/funMNOUP/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_republica-dominicana-sub-17_vs_chile-sub-17",
+      "deporte": "Fútbol",
+      "liga": "MUNDIAL: Mundial Sub-17",
+      "fecha_local": "2026-11-24",
+      "hora_local": "10:30",
+      "estado": "Programado",
+      "equipo_local": "República Dominicana Sub-17",
+      "equipo_visitante": "Chile Sub-17",
+      "cuotas_1x2": {
+        "local_1": null,
+        "empate_x": null,
+        "visitante_2": null
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "fcenRpFa",
+      "url": "http://m.flashscore.com.ve/partido/fcenRpFa/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_brasil-sub-17_vs_tanzania-sub-17",
+      "deporte": "Fútbol",
+      "liga": "MUNDIAL: Mundial Sub-17",
+      "fecha_local": "2026-11-24",
+      "hora_local": "11:00",
+      "estado": "Programado",
+      "equipo_local": "Brasil Sub-17",
+      "equipo_visitante": "Tanzania Sub-17",
+      "cuotas_1x2": {
+        "local_1": null,
+        "empate_x": null,
+        "visitante_2": null
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "fmzD5P8s",
+      "url": "http://m.flashscore.com.ve/partido/fmzD5P8s/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_argelia-sub-17_vs_montenegro-sub-17",
+      "deporte": "Fútbol",
+      "liga": "MUNDIAL: Mundial Sub-17",
+      "fecha_local": "2026-11-24",
+      "hora_local": "11:30",
+      "estado": "Programado",
+      "equipo_local": "Argelia Sub-17",
+      "equipo_visitante": "Montenegro Sub-17",
+      "cuotas_1x2": {
+        "local_1": null,
+        "empate_x": null,
+        "visitante_2": null
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "SYgz0LxJ",
+      "url": "http://m.flashscore.com.ve/partido/SYgz0LxJ/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_honduras-sub-17_vs_colombia-sub-17",
+      "deporte": "Fútbol",
+      "liga": "MUNDIAL: Mundial Sub-17",
+      "fecha_local": "2026-11-24",
+      "hora_local": "11:30",
+      "estado": "Programado",
+      "equipo_local": "Honduras Sub-17",
+      "equipo_visitante": "Colombia Sub-17",
+      "cuotas_1x2": {
+        "local_1": null,
+        "empate_x": null,
+        "visitante_2": null
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "phZ7EKiC",
+      "url": "http://m.flashscore.com.ve/partido/phZ7EKiC/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_al-raed_vs_al-okhdood",
+      "deporte": "Fútbol",
+      "liga": "ARABIA SAUDÍ: Primera División",
+      "fecha_local": "2026-11-24",
+      "hora_local": "08:15",
+      "estado": "Programado",
+      "equipo_local": "Al-Raed",
+      "equipo_visitante": "Al Okhdood",
+      "cuotas_1x2": {
+        "local_1": null,
+        "empate_x": null,
+        "visitante_2": null
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "noT6UEqQ",
+      "url": "http://m.flashscore.com.ve/partido/noT6UEqQ/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_al-jabalain_vs_al-zulfi",
+      "deporte": "Fútbol",
+      "liga": "ARABIA SAUDÍ: Primera División",
+      "fecha_local": "2026-11-24",
+      "hora_local": "08:20",
+      "estado": "Programado",
+      "equipo_local": "Al Jabalain",
+      "equipo_visitante": "Al Zulfi",
+      "cuotas_1x2": {
+        "local_1": null,
+        "empate_x": null,
+        "visitante_2": null
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "dvLhLA6C",
+      "url": "http://m.flashscore.com.ve/partido/dvLhLA6C/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_al-orubah_vs_al-najma",
+      "deporte": "Fútbol",
+      "liga": "ARABIA SAUDÍ: Primera División",
+      "fecha_local": "2026-11-24",
+      "hora_local": "08:20",
+      "estado": "Programado",
+      "equipo_local": "Al Orubah",
+      "equipo_visitante": "Al Najma",
+      "cuotas_1x2": {
+        "local_1": null,
+        "empate_x": null,
+        "visitante_2": null
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "44O0JlyP",
+      "url": "http://m.flashscore.com.ve/partido/44O0JlyP/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_hajer_vs_al-taee",
+      "deporte": "Fútbol",
+      "liga": "ARABIA SAUDÍ: Primera División",
+      "fecha_local": "2026-11-24",
+      "hora_local": "10:30",
+      "estado": "Programado",
+      "equipo_local": "Hajer",
+      "equipo_visitante": "Al Taee",
+      "cuotas_1x2": {
+        "local_1": null,
+        "empate_x": null,
+        "visitante_2": null
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "KGbAwhMt",
+      "url": "http://m.flashscore.com.ve/partido/KGbAwhMt/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_al-loa_vs_najran",
+      "deporte": "Fútbol",
+      "liga": "ARABIA SAUDÍ: Division 2",
+      "fecha_local": "2026-11-24",
+      "hora_local": "08:20",
+      "estado": "Programado",
+      "equipo_local": "Al Loa",
+      "equipo_visitante": "Najran",
+      "cuotas_1x2": {
+        "local_1": null,
+        "empate_x": null,
+        "visitante_2": null
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "YL9nAdom",
+      "url": "http://m.flashscore.com.ve/partido/YL9nAdom/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_sardarapat-2_vs_ararat-2",
+      "deporte": "Fútbol",
+      "liga": "ARMENIA: First League",
+      "fecha_local": "2026-11-24",
+      "hora_local": "06:00",
+      "estado": "Programado",
+      "equipo_local": "Sardarapat 2",
+      "equipo_visitante": "Ararat 2",
+      "cuotas_1x2": {
+        "local_1": null,
+        "empate_x": null,
+        "visitante_2": null
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "xYz9jSJN",
+      "url": "http://m.flashscore.com.ve/partido/xYz9jSJN/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_andranik_vs_ararat-2",
+      "deporte": "Fútbol",
+      "liga": "ARMENIA: First League",
+      "fecha_local": "2026-11-24",
+      "hora_local": null,
+      "estado": "En Vivo",
+      "equipo_local": "Andranik",
+      "equipo_visitante": "Ararat 2",
+      "cuotas_1x2": {
+        "local_1": null,
+        "empate_x": null,
+        "visitante_2": null
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "pvY780u9",
+      "url": "http://m.flashscore.com.ve/partido/pvY780u9/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_ararat-armenia-2_vs_pyunik-2",
+      "deporte": "Fútbol",
+      "liga": "ARMENIA: First League",
+      "fecha_local": "2026-11-24",
+      "hora_local": null,
+      "estado": "En Vivo",
+      "equipo_local": "Ararat-Armenia 2",
+      "equipo_visitante": "Pyunik 2",
+      "cuotas_1x2": {
+        "local_1": null,
+        "empate_x": null,
+        "visitante_2": null
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "2wNo1IXr",
+      "url": "http://m.flashscore.com.ve/partido/2wNo1IXr/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_lernayin-artsakh_vs_bkma-2",
+      "deporte": "Fútbol",
+      "liga": "ARMENIA: First League",
+      "fecha_local": "2026-11-24",
+      "hora_local": null,
+      "estado": "En Vivo",
+      "equipo_local": "Lernayin Artsakh",
+      "equipo_visitante": "BKMA 2",
+      "cuotas_1x2": {
+        "local_1": null,
+        "empate_x": null,
+        "visitante_2": null
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "pKsEnJIk",
+      "url": "http://m.flashscore.com.ve/partido/pKsEnJIk/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_mika_vs_noah-2",
+      "deporte": "Fútbol",
+      "liga": "ARMENIA: First League",
+      "fecha_local": "2026-11-24",
+      "hora_local": null,
+      "estado": "En Vivo",
+      "equipo_local": "Mika",
+      "equipo_visitante": "Noah 2",
+      "cuotas_1x2": {
+        "local_1": null,
+        "empate_x": null,
+        "visitante_2": null
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "hpoMpcm2",
+      "url": "http://m.flashscore.com.ve/partido/hpoMpcm2/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_sardarapat-2_vs_shirak-2",
+      "deporte": "Fútbol",
+      "liga": "ARMENIA: First League",
+      "fecha_local": "2026-11-24",
+      "hora_local": null,
+      "estado": "En Vivo",
+      "equipo_local": "Sardarapat 2",
+      "equipo_visitante": "Shirak 2",
+      "cuotas_1x2": {
+        "local_1": null,
+        "empate_x": null,
+        "visitante_2": null
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "WfWF6vAL",
+      "url": "http://m.flashscore.com.ve/partido/WfWF6vAL/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_newcastle-jets-aus_vs_kashiwa-jpn",
+      "deporte": "Fútbol",
+      "liga": "ASIA: Liga de Campeones AFC - Fase de liga",
+      "fecha_local": "2026-11-24",
+      "hora_local": "03:45",
+      "estado": "Programado",
+      "equipo_local": "Newcastle Jets (Aus)",
+      "equipo_visitante": "Kashiwa (Jpn)",
+      "cuotas_1x2": {
+        "local_1": 5.8,
+        "empate_x": 4.9,
+        "visitante_2": 1.41
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "p0kPsTFD",
+      "url": "http://m.flashscore.com.ve/partido/p0kPsTFD/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_daejeon-kor_vs_beijing-guoan-chn",
+      "deporte": "Fútbol",
+      "liga": "ASIA: Liga de Campeones AFC - Fase de liga",
+      "fecha_local": "2026-11-24",
+      "hora_local": "06:00",
+      "estado": "Programado",
+      "equipo_local": "Daejeon (Kor)",
+      "equipo_visitante": "Beijing Guoan (Chn)",
+      "cuotas_1x2": {
+        "local_1": 1.52,
+        "empate_x": 4.2,
+        "visitante_2": 5.2
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "8xTt0AVs",
+      "url": "http://m.flashscore.com.ve/partido/8xTt0AVs/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_kyoto-jpn_vs_pohang-kor",
+      "deporte": "Fútbol",
+      "liga": "ASIA: Liga de Campeones AFC - Fase de liga",
+      "fecha_local": "2026-11-24",
+      "hora_local": "06:00",
+      "estado": "Programado",
+      "equipo_local": "Kyoto (Jpn)",
+      "equipo_visitante": "Pohang (Kor)",
+      "cuotas_1x2": {
+        "local_1": 1.58,
+        "empate_x": 3.85,
+        "visitante_2": 5
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "C6sB5W7K",
+      "url": "http://m.flashscore.com.ve/partido/C6sB5W7K/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_cong-an-ha-noi-vie_vs_vissel-kobe-jpn",
+      "deporte": "Fútbol",
+      "liga": "ASIA: Liga de Campeones AFC - Fase de liga",
+      "fecha_local": "2026-11-24",
+      "hora_local": "08:15",
+      "estado": "Programado",
+      "equipo_local": "Cong An Ha Noi (Vie)",
+      "equipo_visitante": "Vissel Kobe (Jpn)",
+      "cuotas_1x2": {
+        "local_1": 3.8,
+        "empate_x": 3.55,
+        "visitante_2": 1.83
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "fgRlbl0f",
+      "url": "http://m.flashscore.com.ve/partido/fgRlbl0f/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_ratchaburi-tha_vs_johor-dt-mys",
+      "deporte": "Fútbol",
+      "liga": "ASIA: Liga de Campeones AFC - Fase de liga",
+      "fecha_local": "2026-11-24",
+      "hora_local": "08:15",
+      "estado": "Programado",
+      "equipo_local": "Ratchaburi (Tha)",
+      "equipo_visitante": "Johor DT (Mys)",
+      "cuotas_1x2": {
+        "local_1": 4.5,
+        "empate_x": 4.2,
+        "visitante_2": 1.59
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": "Últimos 2 H2H: Johor DT 0-0 Ratchaburi; Ratchaburi 0-1 Johor DT"
+      },
+      "mid": "2JUddSU6",
+      "url": "http://m.flashscore.com.ve/partido/2JUddSU6/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_shanghai-port-chn_vs_buriram-tha",
+      "deporte": "Fútbol",
+      "liga": "ASIA: Liga de Campeones AFC - Fase de liga",
+      "fecha_local": "2026-11-24",
+      "hora_local": "08:15",
+      "estado": "Programado",
+      "equipo_local": "Shanghai Port (Chn)",
+      "equipo_visitante": "Buriram (Tha)",
+      "cuotas_1x2": {
+        "local_1": 1.89,
+        "empate_x": 3.55,
+        "visitante_2": 3.6
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "zXS4f6aJ",
+      "url": "http://m.flashscore.com.ve/partido/zXS4f6aJ/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_al-ahli-dubai-uae_vs_al-qadsiah-sau",
+      "deporte": "Fútbol",
+      "liga": "ASIA: Liga de Campeones AFC - Fase de liga",
+      "fecha_local": "2026-11-24",
+      "hora_local": "12:00",
+      "estado": "Programado",
+      "equipo_local": "Al-Ahli Dubai (Uae)",
+      "equipo_visitante": "Al Qadsiah (Sau)",
+      "cuotas_1x2": {
+        "local_1": 2.9,
+        "empate_x": 3.3,
+        "visitante_2": 2.26
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "baNtwK2t",
+      "url": "http://m.flashscore.com.ve/partido/baNtwK2t/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_al-nassr-riyadh-sau_vs_al-sadd-qat",
+      "deporte": "Fútbol",
+      "liga": "ASIA: Liga de Campeones AFC - Fase de liga",
+      "fecha_local": "2026-11-24",
+      "hora_local": "14:15",
+      "estado": "Programado",
+      "equipo_local": "Al Nassr Riyadh (Sau)",
+      "equipo_visitante": "Al Sadd (Qat)",
+      "cuotas_1x2": {
+        "local_1": 1.23,
+        "empate_x": 6.2,
+        "visitante_2": 8.4
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "6PQlybXh",
+      "url": "http://m.flashscore.com.ve/partido/6PQlybXh/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_east-bengal-ind_vs_al-hussein-jor",
+      "deporte": "Fútbol",
+      "liga": "ASIA: AFC Champions League 2",
+      "fecha_local": "2026-11-24",
+      "hora_local": "09:45",
+      "estado": "Programado",
+      "equipo_local": "East Bengal (Ind)",
+      "equipo_visitante": "Al Hussein (Jor)",
+      "cuotas_1x2": {
+        "local_1": 2.9,
+        "empate_x": 3.35,
+        "visitante_2": 2.24
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": "Últimos 1 H2H: Al Hussein 2-2 East Bengal"
+      },
+      "mid": "dWtqlR0f",
+      "url": "http://m.flashscore.com.ve/partido/dWtqlR0f/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_al-seeb-oma_vs_al-shorta-irq",
+      "deporte": "Fútbol",
+      "liga": "ASIA: AFC Champions League 2",
+      "fecha_local": "2026-11-24",
+      "hora_local": "12:00",
+      "estado": "Programado",
+      "equipo_local": "Al Seeb (Oma)",
+      "equipo_visitante": "Al Shorta (Irq)",
+      "cuotas_1x2": {
+        "local_1": 2.34,
+        "empate_x": 3.1,
+        "visitante_2": 2.95
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "hzh5e98K",
+      "url": "http://m.flashscore.com.ve/partido/hzh5e98K/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_al-duhail-qat_vs_neom-sau",
+      "deporte": "Fútbol",
+      "liga": "ASIA: Gulf Club Champions League",
+      "fecha_local": "2026-11-24",
+      "hora_local": "10:30",
+      "estado": "Programado",
+      "equipo_local": "Al Duhail (Qat)",
+      "equipo_visitante": "Neom SC (Sau)",
+      "cuotas_1x2": {
+        "local_1": null,
+        "empate_x": null,
+        "visitante_2": null
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "zoCvgsml",
+      "url": "http://m.flashscore.com.ve/partido/zoCvgsml/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_al-riffa-bhr_vs_al-zawraa-irq",
+      "deporte": "Fútbol",
+      "liga": "ASIA: Gulf Club Champions League",
+      "fecha_local": "2026-11-24",
+      "hora_local": "11:30",
+      "estado": "Programado",
+      "equipo_local": "Al Riffa (Bhr)",
+      "equipo_visitante": "Al Zawraa (Irq)",
+      "cuotas_1x2": {
+        "local_1": null,
+        "empate_x": null,
+        "visitante_2": null
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "rN5DWmyA",
+      "url": "http://m.flashscore.com.ve/partido/rN5DWmyA/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_ajman-uae_vs_al-ettifaq-sau",
+      "deporte": "Fútbol",
+      "liga": "ASIA: Gulf Club Champions League",
+      "fecha_local": "2026-11-24",
+      "hora_local": "13:00",
+      "estado": "Programado",
+      "equipo_local": "Ajman (Uae)",
+      "equipo_visitante": "Al Ettifaq (Sau)",
+      "cuotas_1x2": {
+        "local_1": null,
+        "empate_x": null,
+        "visitante_2": null
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "KEVLhYh5",
+      "url": "http://m.flashscore.com.ve/partido/KEVLhYh5/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_abahani-limited_vs_fakirerpool-ymc",
+      "deporte": "Fútbol",
+      "liga": "BANGLADÉS: Federation Cup",
+      "fecha_local": "2026-11-24",
+      "hora_local": "04:30",
+      "estado": "Programado",
+      "equipo_local": "Abahani Limited",
+      "equipo_visitante": "Fakirerpool YMC",
+      "cuotas_1x2": {
+        "local_1": null,
+        "empate_x": null,
+        "visitante_2": null
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "OICcaaek",
+      "url": "http://m.flashscore.com.ve/partido/OICcaaek/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_chattogram_vs_brothers-u",
+      "deporte": "Fútbol",
+      "liga": "BANGLADÉS: Federation Cup",
+      "fecha_local": "2026-11-24",
+      "hora_local": "04:30",
+      "estado": "Programado",
+      "equipo_local": "Chattogram",
+      "equipo_visitante": "Brothers U.",
+      "cuotas_1x2": {
+        "local_1": null,
+        "empate_x": null,
+        "visitante_2": null
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "dpQ4cwQ1",
+      "url": "http://m.flashscore.com.ve/partido/dpQ4cwQ1/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_bdf-xi_vs_extension-gunners",
+      "deporte": "Fútbol",
+      "liga": "BOTSUANA: Premier League",
+      "fecha_local": "2026-11-24",
+      "hora_local": "10:00",
+      "estado": "Programado",
+      "equipo_local": "BDF XI",
+      "equipo_visitante": "Extension Gunners",
+      "cuotas_1x2": {
+        "local_1": null,
+        "empate_x": null,
+        "visitante_2": null
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "h2WH6bTF",
+      "url": "http://m.flashscore.com.ve/partido/h2WH6bTF/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_tafic_vs_morupule",
+      "deporte": "Fútbol",
+      "liga": "BOTSUANA: Premier League",
+      "fecha_local": "2026-11-24",
+      "hora_local": "13:00",
+      "estado": "Programado",
+      "equipo_local": "Tafic FC",
+      "equipo_visitante": "Morupule",
+      "cuotas_1x2": {
+        "local_1": null,
+        "empate_x": null,
+        "visitante_2": null
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "0SZP4xbS",
+      "url": "http://m.flashscore.com.ve/partido/0SZP4xbS/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_township-rollers_vs_prisons-xi-gaborone",
+      "deporte": "Fútbol",
+      "liga": "BOTSUANA: Premier League",
+      "fecha_local": "2026-11-24",
+      "hora_local": "13:00",
+      "estado": "Programado",
+      "equipo_local": "Township Rollers",
+      "equipo_visitante": "Prisons XI Gaborone",
+      "cuotas_1x2": {
+        "local_1": null,
+        "empate_x": null,
+        "visitante_2": null
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "dbLeaGLk",
+      "url": "http://m.flashscore.com.ve/partido/dbLeaGLk/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_chapecoense_vs_palmeiras",
+      "deporte": "Fútbol",
+      "liga": "BRASIL: Serie A",
+      "fecha_local": "2026-11-24",
+      "hora_local": "17:00",
+      "estado": "Programado",
+      "equipo_local": "Chapecoense",
+      "equipo_visitante": "Palmeiras",
+      "cuotas_1x2": {
+        "local_1": 3.5,
+        "empate_x": 3.75,
+        "visitante_2": 1.95
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": 20,
+        "posicion_visitante": 2,
+        "racha_local_ultimos_5": [
+          "D",
+          "D",
+          "D",
+          "D",
+          "D"
+        ],
+        "racha_visitante_ultimos_5": [
+          "E",
+          "D",
+          "D",
+          "V",
+          "V"
+        ],
+        "h2h_resumen": "Últimos 3 H2H: Palmeiras 1-0 Chapecoense; Chapecoense 0-2 Palmeiras; Palmeiras 3-1 Chapecoense"
+      },
+      "mid": "OzJP5JI5",
+      "url": "http://m.flashscore.com.ve/partido/OzJP5JI5/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_sao-paulo-sub-20_vs_mg-sub-20",
+      "deporte": "Fútbol",
+      "liga": "BRASIL: Copa do Brasil Sub-20",
+      "fecha_local": "2026-11-24",
+      "hora_local": "20:30",
+      "estado": "Programado",
+      "equipo_local": "Sao Paulo Sub-20",
+      "equipo_visitante": "Atlético-MG Sub-20",
+      "cuotas_1x2": {
+        "local_1": null,
+        "empate_x": null,
+        "visitante_2": null
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "6iDRfVbS",
+      "url": "http://m.flashscore.com.ve/partido/6iDRfVbS/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_craques-do-futuro-sub-20_vs_desportiva-paraense-sub-20",
+      "deporte": "Fútbol",
+      "liga": "BRASIL: Paraense Sub-20 - Playoffs",
+      "fecha_local": "2026-11-24",
+      "hora_local": "08:30",
+      "estado": "Programado",
+      "equipo_local": "Craques do Futuro Sub-20",
+      "equipo_visitante": "Desportiva Paraense Sub-20",
+      "cuotas_1x2": {
+        "local_1": null,
+        "empate_x": null,
+        "visitante_2": null
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "EkImd8Oj",
+      "url": "http://m.flashscore.com.ve/partido/EkImd8Oj/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_independente-sub-20_vs_tuna-luso-sub-20",
+      "deporte": "Fútbol",
+      "liga": "BRASIL: Paraense Sub-20 - Playoffs",
+      "fecha_local": "2026-11-24",
+      "hora_local": "08:30",
+      "estado": "Programado",
+      "equipo_local": "Independente Sub-20",
+      "equipo_visitante": "Tuna Luso Sub-20",
+      "cuotas_1x2": {
+        "local_1": null,
+        "empate_x": null,
+        "visitante_2": null
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "W2Y93jWG",
+      "url": "http://m.flashscore.com.ve/partido/W2Y93jWG/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_mec-maraba-sub-20_vs_aguia-maraba-sub-20",
+      "deporte": "Fútbol",
+      "liga": "BRASIL: Paraense Sub-20 - Playoffs",
+      "fecha_local": "2026-11-24",
+      "hora_local": "17:30",
+      "estado": "Programado",
+      "equipo_local": "Mec Maraba Sub-20",
+      "equipo_visitante": "Aguia De Maraba Sub-20",
+      "cuotas_1x2": {
+        "local_1": null,
+        "empate_x": null,
+        "visitante_2": null
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "f5B0iVNj",
+      "url": "http://m.flashscore.com.ve/partido/f5B0iVNj/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_sao-paulo-sub-20-f_vs_criciuma-sub-20-f",
+      "deporte": "Fútbol",
+      "liga": "BRASIL: Copinha Women",
+      "fecha_local": "2026-11-24",
+      "hora_local": "10:00",
+      "estado": "Programado",
+      "equipo_local": "Sao Paulo Sub-20 F",
+      "equipo_visitante": "Criciúma Sub-20 F",
+      "cuotas_1x2": {
+        "local_1": null,
+        "empate_x": null,
+        "visitante_2": null
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "WrnsPlFq",
+      "url": "http://m.flashscore.com.ve/partido/WrnsPlFq/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_fluminense-sub-20-f_vs_vitoria-sub-20-f",
+      "deporte": "Fútbol",
+      "liga": "BRASIL: Copinha Women",
+      "fecha_local": "2026-11-24",
+      "hora_local": "14:00",
+      "estado": "Programado",
+      "equipo_local": "Fluminense Sub-20 F",
+      "equipo_visitante": "Vitória Sub-20 F",
+      "cuotas_1x2": {
+        "local_1": null,
+        "empate_x": null,
+        "visitante_2": null
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "v9kkNSqd",
+      "url": "http://m.flashscore.com.ve/partido/v9kkNSqd/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_centro-olimpico-sub-20-f_vs_gremio-sub-20-f",
+      "deporte": "Fútbol",
+      "liga": "BRASIL: Copinha Women",
+      "fecha_local": "2026-11-24",
+      "hora_local": "15:00",
+      "estado": "Programado",
+      "equipo_local": "Centro Olimpico Sub-20 F",
+      "equipo_visitante": "Grêmio Sub-20 F",
+      "cuotas_1x2": {
+        "local_1": null,
+        "empate_x": null,
+        "visitante_2": null
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "l2uXpBK5",
+      "url": "http://m.flashscore.com.ve/partido/l2uXpBK5/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_flamengo-sub-20-f_vs_vasco-sub-20-f",
+      "deporte": "Fútbol",
+      "liga": "BRASIL: Copinha Women",
+      "fecha_local": "2026-11-24",
+      "hora_local": "18:00",
+      "estado": "Programado",
+      "equipo_local": "Flamengo Sub-20 F",
+      "equipo_visitante": "Vasco Sub-20 F",
+      "cuotas_1x2": {
+        "local_1": null,
+        "empate_x": null,
+        "visitante_2": null
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "A9PXSxaK",
+      "url": "http://m.flashscore.com.ve/partido/A9PXSxaK/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_ferroviaria-sub-20-f_vs_alianca-go-sub-20-f",
+      "deporte": "Fútbol",
+      "liga": "BRASIL: Copinha Women",
+      "fecha_local": "2026-11-24",
+      "hora_local": "19:00",
+      "estado": "Programado",
+      "equipo_local": "Ferroviaria Sub-20 F",
+      "equipo_visitante": "Alianca GO Sub-20 F",
+      "cuotas_1x2": {
+        "local_1": null,
+        "empate_x": null,
+        "visitante_2": null
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "tAcvqkkI",
+      "url": "http://m.flashscore.com.ve/partido/tAcvqkkI/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_palmeiras-sub-20-f_vs_taruma-sub-20-f",
+      "deporte": "Fútbol",
+      "liga": "BRASIL: Copinha Women",
+      "fecha_local": "2026-11-24",
+      "hora_local": "20:30",
+      "estado": "Programado",
+      "equipo_local": "Palmeiras Sub-20 F",
+      "equipo_visitante": "Taruma Sub-20 F",
+      "cuotas_1x2": {
+        "local_1": null,
+        "empate_x": null,
+        "visitante_2": null
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "thG3NGMs",
+      "url": "http://m.flashscore.com.ve/partido/thG3NGMs/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_a-acreano-f_vs_galvez-f",
+      "deporte": "Fútbol",
+      "liga": "BRASIL: Acreano Femenino",
+      "fecha_local": "2026-11-24",
+      "hora_local": "18:00",
+      "estado": "Programado",
+      "equipo_local": "A. Acreano F",
+      "equipo_visitante": "Galvez F",
+      "cuotas_1x2": {
+        "local_1": null,
+        "empate_x": null,
+        "visitante_2": null
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "nBtIHZ8E",
+      "url": "http://m.flashscore.com.ve/partido/nBtIHZ8E/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_nauas-ec-f_vs_assermurb-f",
+      "deporte": "Fútbol",
+      "liga": "BRASIL: Acreano Femenino",
+      "fecha_local": "2026-11-24",
+      "hora_local": "20:00",
+      "estado": "Programado",
+      "equipo_local": "Nauas EC F",
+      "equipo_visitante": "Assermurb F",
+      "cuotas_1x2": {
+        "local_1": null,
+        "empate_x": null,
+        "visitante_2": null
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "nijOehne",
+      "url": "http://m.flashscore.com.ve/partido/nijOehne/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_botafogo-f_vs_vasco-f",
+      "deporte": "Fútbol",
+      "liga": "BRASIL: Carioca Femenino - Segunda fase",
+      "fecha_local": "2026-11-24",
+      "hora_local": "14:00",
+      "estado": "Programado",
+      "equipo_local": "Botafogo F",
+      "equipo_visitante": "Vasco F",
+      "cuotas_1x2": {
+        "local_1": null,
+        "empate_x": null,
+        "visitante_2": null
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "lKQlSbp9",
+      "url": "http://m.flashscore.com.ve/partido/lKQlSbp9/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_flamengo-f_vs_fluminense-f",
+      "deporte": "Fútbol",
+      "liga": "BRASIL: Carioca Femenino - Segunda fase",
+      "fecha_local": "2026-11-24",
+      "hora_local": "14:00",
+      "estado": "Programado",
+      "equipo_local": "Flamengo F",
+      "equipo_visitante": "Fluminense F",
+      "cuotas_1x2": {
+        "local_1": null,
+        "empate_x": null,
+        "visitante_2": null
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "dpUdQxFL",
+      "url": "http://m.flashscore.com.ve/partido/dpUdQxFL/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_fratria_vs_yantra-gabrovo",
+      "deporte": "Fútbol",
+      "liga": "BULGARIA: Vtora liga",
+      "fecha_local": "2026-11-24",
+      "hora_local": "12:00",
+      "estado": "Programado",
+      "equipo_local": "Fratria",
+      "equipo_visitante": "Yantra Gabrovo",
+      "cuotas_1x2": {
+        "local_1": null,
+        "empate_x": null,
+        "visitante_2": null
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "2Lmmx0Mr",
+      "url": "http://m.flashscore.com.ve/partido/2Lmmx0Mr/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_cherno-more-ii_vs_fratria-ii",
+      "deporte": "Fútbol",
+      "liga": "BULGARIA: Third League - Noreste",
+      "fecha_local": "2026-11-24",
+      "hora_local": "07:00",
+      "estado": "Programado",
+      "equipo_local": "Cherno More II",
+      "equipo_visitante": "Fratria II",
+      "cuotas_1x2": {
+        "local_1": null,
+        "empate_x": null,
+        "visitante_2": null
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "0vE1NhUH",
+      "url": "http://m.flashscore.com.ve/partido/0vE1NhUH/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_coquimbo_vs_u-la-calera",
+      "deporte": "Fútbol",
+      "liga": "CHILE: Copa Chile - Playoffs",
+      "fecha_local": "2026-11-24",
+      "hora_local": "18:00",
+      "estado": "Programado",
+      "equipo_local": "Coquimbo",
+      "equipo_visitante": "U. La Calera",
+      "cuotas_1x2": {
+        "local_1": null,
+        "empate_x": null,
+        "visitante_2": null
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "pMUKiJe2",
+      "url": "http://m.flashscore.com.ve/partido/pMUKiJe2/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_millonarios_vs_atl-bucaramanga",
+      "deporte": "Fútbol",
+      "liga": "COLOMBIA: Primera A - Clausura - Cuadrangular",
+      "fecha_local": "2026-11-24",
+      "hora_local": "19:20",
+      "estado": "Programado",
+      "equipo_local": "Millonarios",
+      "equipo_visitante": "Atl. Bucaramanga",
+      "cuotas_1x2": {
+        "local_1": 1.51,
+        "empate_x": 4.2,
+        "visitante_2": 6.6
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "dzkRA7eB",
+      "url": "http://m.flashscore.com.ve/partido/dzkRA7eB/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_america-cali_vs_deportivo-cali",
+      "deporte": "Fútbol",
+      "liga": "COLOMBIA: Primera A - Clausura - Cuadrangular",
+      "fecha_local": "2026-11-24",
+      "hora_local": "21:30",
+      "estado": "Programado",
+      "equipo_local": "América de Cali",
+      "equipo_visitante": "Deportivo Cali",
+      "cuotas_1x2": {
+        "local_1": 2.06,
+        "empate_x": 3.35,
+        "visitante_2": 3.75
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "lAoJCTQb",
+      "url": "http://m.flashscore.com.ve/partido/lAoJCTQb/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_smouha_vs_national-bank-egypt",
+      "deporte": "Fútbol",
+      "liga": "EGIPTO: Premier League",
+      "fecha_local": "2026-11-24",
+      "hora_local": "11:00",
+      "estado": "Programado",
+      "equipo_local": "Smouha",
+      "equipo_visitante": "National Bank Egypt",
+      "cuotas_1x2": {
+        "local_1": 2.8,
+        "empate_x": 2.85,
+        "visitante_2": 2.65
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": 9,
+        "posicion_visitante": 8,
+        "racha_local_ultimos_5": [
+          "D",
+          "V",
+          "D",
+          "E",
+          "V"
+        ],
+        "racha_visitante_ultimos_5": [
+          "V",
+          "E",
+          "E",
+          "V",
+          "D"
+        ],
+        "h2h_resumen": "Últimos 3 H2H: National Bank Egypt 1-3 Smouha; Smouha 1-4 National Bank Egypt; National Bank Egypt 1-2 Smouha"
+      },
+      "mid": "fkkbfbBa",
+      "url": "http://m.flashscore.com.ve/partido/fkkbfbBa/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_zed_vs_abu-qir-semad",
+      "deporte": "Fútbol",
+      "liga": "EGIPTO: Premier League",
+      "fecha_local": "2026-11-24",
+      "hora_local": "11:00",
+      "estado": "Programado",
+      "equipo_local": "ZED",
+      "equipo_visitante": "Abu Qir Semad",
+      "cuotas_1x2": {
+        "local_1": 1.93,
+        "empate_x": 3.2,
+        "visitante_2": 3.85
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "S2m6hxtC",
+      "url": "http://m.flashscore.com.ve/partido/S2m6hxtC/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_al-masry_vs_asyut-petroleum",
+      "deporte": "Fútbol",
+      "liga": "EGIPTO: Premier League",
+      "fecha_local": "2026-11-24",
+      "hora_local": "14:00",
+      "estado": "Programado",
+      "equipo_local": "Al Masry",
+      "equipo_visitante": "Asyut Petroleum",
+      "cuotas_1x2": {
+        "local_1": 1.39,
+        "empate_x": 4.2,
+        "visitante_2": 7.4
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "zTjEjGAO",
+      "url": "http://m.flashscore.com.ve/partido/zTjEjGAO/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_arab-contractors_vs_al-qanah",
+      "deporte": "Fútbol",
+      "liga": "EGIPTO: Premier League",
+      "fecha_local": "2026-11-24",
+      "hora_local": "14:00",
+      "estado": "Programado",
+      "equipo_local": "Arab Contractors",
+      "equipo_visitante": "Al Qanah",
+      "cuotas_1x2": {
+        "local_1": 1.98,
+        "empate_x": 3.1,
+        "visitante_2": 3.85
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "rmqV8cQh",
+      "url": "http://m.flashscore.com.ve/partido/rmqV8cQh/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_hibernian_vs_dundee",
+      "deporte": "Fútbol",
+      "liga": "ESCOCIA: Premiership",
+      "fecha_local": "2026-11-24",
+      "hora_local": "15:45",
+      "estado": "Programado",
+      "equipo_local": "Hibernian",
+      "equipo_visitante": "Dundee FC",
+      "cuotas_1x2": {
+        "local_1": 1.62,
+        "empate_x": 3.95,
+        "visitante_2": 4.6
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "jo2Ibzdm",
+      "url": "http://m.flashscore.com.ve/partido/jo2Ibzdm/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_rangers_vs_aberdeen",
+      "deporte": "Fútbol",
+      "liga": "ESCOCIA: Premiership",
+      "fecha_local": "2026-11-24",
+      "hora_local": "16:00",
+      "estado": "Programado",
+      "equipo_local": "Rangers",
+      "equipo_visitante": "Aberdeen",
+      "cuotas_1x2": {
+        "local_1": 1.22,
+        "empate_x": 6,
+        "visitante_2": 9.4
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "xOV5xpuo",
+      "url": "http://m.flashscore.com.ve/partido/xOV5xpuo/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_arbroath_vs_airdrieonians",
+      "deporte": "Fútbol",
+      "liga": "ESCOCIA: Challenge Cup - Playoffs",
+      "fecha_local": "2026-11-24",
+      "hora_local": "15:45",
+      "estado": "Programado",
+      "equipo_local": "Arbroath",
+      "equipo_visitante": "Airdrieonians",
+      "cuotas_1x2": {
+        "local_1": 2.25,
+        "empate_x": 3.85,
+        "visitante_2": 2.95
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "fBtYZXGP",
+      "url": "http://m.flashscore.com.ve/partido/fBtYZXGP/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_ayr_vs_inverness",
+      "deporte": "Fútbol",
+      "liga": "ESCOCIA: Challenge Cup - Playoffs",
+      "fecha_local": "2026-11-24",
+      "hora_local": "15:45",
+      "estado": "Programado",
+      "equipo_local": "Ayr",
+      "equipo_visitante": "Inverness",
+      "cuotas_1x2": {
+        "local_1": 3.7,
+        "empate_x": 3.6,
+        "visitante_2": 2
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": [
+          "E",
+          "V",
+          "D",
+          "V",
+          "V"
+        ],
+        "racha_visitante_ultimos_5": [
+          "E",
+          "D",
+          "E",
+          "V",
+          "D"
+        ],
+        "h2h_resumen": "Últimos 3 H2H: Inverness 0-0 Ayr; Ayr 1-3 Inverness; Ayr 1-2 Inverness"
+      },
+      "mid": "pb0YV3bf",
+      "url": "http://m.flashscore.com.ve/partido/pb0YV3bf/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_clydebank_vs_queen-s-park",
+      "deporte": "Fútbol",
+      "liga": "ESCOCIA: Challenge Cup - Playoffs",
+      "fecha_local": "2026-11-24",
+      "hora_local": "15:45",
+      "estado": "Programado",
+      "equipo_local": "Clydebank FC",
+      "equipo_visitante": "Queen's Park",
+      "cuotas_1x2": {
+        "local_1": 2.3,
+        "empate_x": 3.75,
+        "visitante_2": 2.85
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "44YJQTwC",
+      "url": "http://m.flashscore.com.ve/partido/44YJQTwC/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_dunfermline_vs_kelty-hearts",
+      "deporte": "Fútbol",
+      "liga": "ESCOCIA: Challenge Cup - Playoffs",
+      "fecha_local": "2026-11-24",
+      "hora_local": "15:45",
+      "estado": "Programado",
+      "equipo_local": "Dunfermline",
+      "equipo_visitante": "Kelty Hearts",
+      "cuotas_1x2": {
+        "local_1": 1.11,
+        "empate_x": 10,
+        "visitante_2": 21
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "dvVBSk9a",
+      "url": "http://m.flashscore.com.ve/partido/dvVBSk9a/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_east-kilbride_vs_partick-thistle",
+      "deporte": "Fútbol",
+      "liga": "ESCOCIA: Challenge Cup - Playoffs",
+      "fecha_local": "2026-11-24",
+      "hora_local": "15:45",
+      "estado": "Programado",
+      "equipo_local": "East Kilbride",
+      "equipo_visitante": "Partick Thistle",
+      "cuotas_1x2": {
+        "local_1": 4.05,
+        "empate_x": 4.25,
+        "visitante_2": 1.74
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": [
+          "D",
+          "V",
+          "V",
+          "V",
+          "D"
+        ],
+        "racha_visitante_ultimos_5": [
+          "V",
+          "V",
+          "V",
+          "V",
+          "D"
+        ],
+        "h2h_resumen": "Últimos 1 H2H: East Kilbride 1-2 Partick Thistle"
+      },
+      "mid": "OQW3UBvm",
+      "url": "http://m.flashscore.com.ve/partido/OQW3UBvm/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_hamilton_vs_cove-rangers",
+      "deporte": "Fútbol",
+      "liga": "ESCOCIA: Challenge Cup - Playoffs",
+      "fecha_local": "2026-11-24",
+      "hora_local": "15:45",
+      "estado": "Programado",
+      "equipo_local": "Hamilton",
+      "equipo_visitante": "Cove Rangers",
+      "cuotas_1x2": {
+        "local_1": 1.59,
+        "empate_x": 4.35,
+        "visitante_2": 5.25
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "bs2QXPTs",
+      "url": "http://m.flashscore.com.ve/partido/bs2QXPTs/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_livingston_vs_peterhead",
+      "deporte": "Fútbol",
+      "liga": "ESCOCIA: Challenge Cup - Playoffs",
+      "fecha_local": "2026-11-24",
+      "hora_local": "15:45",
+      "estado": "Programado",
+      "equipo_local": "Livingston",
+      "equipo_visitante": "Peterhead",
+      "cuotas_1x2": {
+        "local_1": 1.24,
+        "empate_x": 6.75,
+        "visitante_2": 10.5
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "Qy2lSLcJ",
+      "url": "http://m.flashscore.com.ve/partido/Qy2lSLcJ/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_ross_vs_stenhousemuir",
+      "deporte": "Fútbol",
+      "liga": "ESCOCIA: Challenge Cup - Playoffs",
+      "fecha_local": "2026-11-24",
+      "hora_local": "15:45",
+      "estado": "Programado",
+      "equipo_local": "Ross County",
+      "equipo_visitante": "Stenhousemuir",
+      "cuotas_1x2": {
+        "local_1": 1.87,
+        "empate_x": 4.1,
+        "visitante_2": 3.75
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "hO3tUsT6",
+      "url": "http://m.flashscore.com.ve/partido/hO3tUsT6/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_zilina_vs_ruzomberok",
+      "deporte": "Fútbol",
+      "liga": "ESLOVAQUIA: Copa",
+      "fecha_local": "2026-11-24",
+      "hora_local": "12:00",
+      "estado": "Programado",
+      "equipo_local": "Zilina",
+      "equipo_visitante": "Ruzomberok",
+      "cuotas_1x2": {
+        "local_1": null,
+        "empate_x": null,
+        "visitante_2": null
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "pUOJFI4S",
+      "url": "http://m.flashscore.com.ve/partido/pUOJFI4S/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_san-jose-earthquakes_vs_houston-dynamo",
+      "deporte": "Fútbol",
+      "liga": "ESTADOS UNIDOS: MLS - Playoffs",
+      "fecha_local": "2026-11-24",
+      "hora_local": "23:00",
+      "estado": "Programado",
+      "equipo_local": "San Jose Earthquakes",
+      "equipo_visitante": "Houston Dynamo",
+      "cuotas_1x2": {
+        "local_1": 2.1,
+        "empate_x": 3.6,
+        "visitante_2": 3.2
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "AmSjcCfo",
+      "url": "http://m.flashscore.com.ve/partido/AmSjcCfo/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_tampa-bay-sun-f_vs_dallas-trinity-f",
+      "deporte": "Fútbol",
+      "liga": "ESTADOS UNIDOS: USL Super League Femenina",
+      "fecha_local": "2026-11-24",
+      "hora_local": "19:00",
+      "estado": "Programado",
+      "equipo_local": "Tampa Bay Sun F",
+      "equipo_visitante": "Dallas Trinity F",
+      "cuotas_1x2": {
+        "local_1": null,
+        "empate_x": null,
+        "visitante_2": null
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "KjeIJlJi",
+      "url": "http://m.flashscore.com.ve/partido/KjeIJlJi/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_dolnoslaski-am_vs_carpathians-am",
+      "deporte": "Fútbol",
+      "liga": "EUROPA: UEFA Regions' Cup - Clasificación",
+      "fecha_local": "2026-11-24",
+      "hora_local": "05:00",
+      "estado": "Programado",
+      "equipo_local": "Dolnoslaski (Am)",
+      "equipo_visitante": "Carpathians (Am)",
+      "cuotas_1x2": {
+        "local_1": null,
+        "empate_x": null,
+        "visitante_2": null
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "d0zT20Ka",
+      "url": "http://m.flashscore.com.ve/partido/d0zT20Ka/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_istanbul-b-am_vs_zangazur-am",
+      "deporte": "Fútbol",
+      "liga": "EUROPA: UEFA Regions' Cup - Clasificación",
+      "fecha_local": "2026-11-24",
+      "hora_local": "08:00",
+      "estado": "Programado",
+      "equipo_local": "Istanbul B. (Am)",
+      "equipo_visitante": "Zangazur (Am)",
+      "cuotas_1x2": {
+        "local_1": null,
+        "empate_x": null,
+        "visitante_2": null
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "4Qwy1vkC",
+      "url": "http://m.flashscore.com.ve/partido/4Qwy1vkC/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_bodo-glimt-sub-19_vs_lask-sub-19",
+      "deporte": "Fútbol",
+      "liga": "EUROPA: UEFA Youth League - Fase de liga",
+      "fecha_local": "2026-11-24",
+      "hora_local": "06:00",
+      "estado": "Programado",
+      "equipo_local": "Bodo/Glimt Sub-19",
+      "equipo_visitante": "LASK Sub-19",
+      "cuotas_1x2": {
+        "local_1": 4.9,
+        "empate_x": 4.6,
+        "visitante_2": 1.5
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": 31,
+        "posicion_visitante": 26,
+        "racha_local_ultimos_5": [
+          "V",
+          "D",
+          "D",
+          "D",
+          "D"
+        ],
+        "racha_visitante_ultimos_5": [
+          "V",
+          "D",
+          "D",
+          "E"
+        ],
+        "h2h_resumen": null
+      },
+      "mid": "00iH22Q1",
+      "url": "http://m.flashscore.com.ve/partido/00iH22Q1/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_galatasaray-sub-19_vs_aston-villa-sub-19",
+      "deporte": "Fútbol",
+      "liga": "EUROPA: UEFA Youth League - Fase de liga",
+      "fecha_local": "2026-11-24",
+      "hora_local": "07:00",
+      "estado": "Programado",
+      "equipo_local": "Galatasaray Sub-19",
+      "equipo_visitante": "Aston Villa Sub-19",
+      "cuotas_1x2": {
+        "local_1": 2.48,
+        "empate_x": 3.9,
+        "visitante_2": 2.32
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "0Cw2PJY7",
+      "url": "http://m.flashscore.com.ve/partido/0Cw2PJY7/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_arsenal-sub-19_vs_borussia-dortmund-sub-19",
+      "deporte": "Fútbol",
+      "liga": "EUROPA: UEFA Youth League - Fase de liga",
+      "fecha_local": "2026-11-24",
+      "hora_local": "09:00",
+      "estado": "Programado",
+      "equipo_local": "Arsenal Sub-19",
+      "equipo_visitante": "Borussia Dortmund Sub-19",
+      "cuotas_1x2": {
+        "local_1": 3.15,
+        "empate_x": 4,
+        "visitante_2": 1.91
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": 23,
+        "posicion_visitante": 10,
+        "racha_local_ultimos_5": [
+          "D",
+          "E",
+          "D",
+          "V",
+          "D"
+        ],
+        "racha_visitante_ultimos_5": [
+          "D",
+          "V",
+          "E",
+          "V",
+          "E"
+        ],
+        "h2h_resumen": "Últimos 3 H2H: Arsenal Sub-19 1-0 Borussia Dortmund Sub-19; Borussia Dortmund Sub-19 0-2 Arsenal Sub-19; Borussia Dortmund Sub-19 2-2 Arsenal Sub-19"
+      },
+      "mid": "GpmtJNAr",
+      "url": "http://m.flashscore.com.ve/partido/GpmtJNAr/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_como-sub-19_vs_aek-sub-19",
+      "deporte": "Fútbol",
+      "liga": "EUROPA: UEFA Youth League - Fase de liga",
+      "fecha_local": "2026-11-24",
+      "hora_local": "09:00",
+      "estado": "Programado",
+      "equipo_local": "Como Sub-19",
+      "equipo_visitante": "AEK Sub-19",
+      "cuotas_1x2": {
+        "local_1": 1.8,
+        "empate_x": 3.8,
+        "visitante_2": 3.7
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "p2dAOqmL",
+      "url": "http://m.flashscore.com.ve/partido/p2dAOqmL/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_slovan-bratislava-sub-19_vs_betis-sub-19",
+      "deporte": "Fútbol",
+      "liga": "EUROPA: UEFA Youth League - Fase de liga",
+      "fecha_local": "2026-11-24",
+      "hora_local": "09:00",
+      "estado": "Programado",
+      "equipo_local": "Slovan Bratislava Sub-19",
+      "equipo_visitante": "Real Betis Sub-19",
+      "cuotas_1x2": {
+        "local_1": 5.4,
+        "empate_x": 5,
+        "visitante_2": 1.42
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": 30,
+        "posicion_visitante": 17,
+        "racha_local_ultimos_5": [
+          "D",
+          "D",
+          "V",
+          "D",
+          "V"
+        ],
+        "racha_visitante_ultimos_5": [
+          "E",
+          "D",
+          "V",
+          "E",
+          "D"
+        ],
+        "h2h_resumen": null
+      },
+      "mid": "OAjlH1ue",
+      "url": "http://m.flashscore.com.ve/partido/OAjlH1ue/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_feyenoord-sub-19_vs_oporto-sub-19",
+      "deporte": "Fútbol",
+      "liga": "EUROPA: UEFA Youth League - Fase de liga",
+      "fecha_local": "2026-11-24",
+      "hora_local": "11:00",
+      "estado": "Programado",
+      "equipo_local": "Feyenoord Sub-19",
+      "equipo_visitante": "Oporto Sub-19",
+      "cuotas_1x2": {
+        "local_1": 1.69,
+        "empate_x": 4.7,
+        "visitante_2": 3.5
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "h6QmmNQE",
+      "url": "http://m.flashscore.com.ve/partido/h6QmmNQE/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_manchester-sub-19_vs_napoles-sub-19",
+      "deporte": "Fútbol",
+      "liga": "EUROPA: UEFA Youth League - Fase de liga",
+      "fecha_local": "2026-11-24",
+      "hora_local": "11:00",
+      "estado": "Programado",
+      "equipo_local": "Manchester City Sub-19",
+      "equipo_visitante": "Nápoles Sub-19",
+      "cuotas_1x2": {
+        "local_1": 1.15,
+        "empate_x": 7.4,
+        "visitante_2": 12
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "Clb2Q5I8",
+      "url": "http://m.flashscore.com.ve/partido/Clb2Q5I8/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_rb-leipzig-sub-19_vs_lens-sub-19",
+      "deporte": "Fútbol",
+      "liga": "EUROPA: UEFA Youth League - Fase de liga",
+      "fecha_local": "2026-11-24",
+      "hora_local": "11:00",
+      "estado": "Programado",
+      "equipo_local": "RB Leipzig Sub-19",
+      "equipo_visitante": "Lens Sub-19",
+      "cuotas_1x2": {
+        "local_1": null,
+        "empate_x": null,
+        "visitante_2": null
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "2Lyrwq2E",
+      "url": "http://m.flashscore.com.ve/partido/2Lyrwq2E/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_madrid-sub-19_vs_psv-sub-19",
+      "deporte": "Fútbol",
+      "liga": "EUROPA: UEFA Youth League - Fase de liga",
+      "fecha_local": "2026-11-24",
+      "hora_local": "11:00",
+      "estado": "Programado",
+      "equipo_local": "Real Madrid Sub-19",
+      "equipo_visitante": "PSV Sub-19",
+      "cuotas_1x2": {
+        "local_1": 1.24,
+        "empate_x": 6.4,
+        "visitante_2": 8
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "dOldFuA7",
+      "url": "http://m.flashscore.com.ve/partido/dOldFuA7/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_ucrania-sub-19-f_vs_andorra-sub-19-f",
+      "deporte": "Fútbol",
+      "liga": "EUROPA: Europeo Femenino Sub-19 - Clasificación - Ronda 1 - Liga B",
+      "fecha_local": "2026-11-24",
+      "hora_local": "07:00",
+      "estado": "Programado",
+      "equipo_local": "Ucrania Sub-19 F",
+      "equipo_visitante": "Andorra Sub-19 F",
+      "cuotas_1x2": {
+        "local_1": null,
+        "empate_x": null,
+        "visitante_2": null
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "UuNwTt13",
+      "url": "http://m.flashscore.com.ve/partido/UuNwTt13/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_lituania-sub-19-f_vs_islas-feroe-sub-19-f",
+      "deporte": "Fútbol",
+      "liga": "EUROPA: Europeo Femenino Sub-19 - Clasificación - Ronda 1 - Liga B",
+      "fecha_local": "2026-11-24",
+      "hora_local": "11:00",
+      "estado": "Programado",
+      "equipo_local": "Lituania Sub-19 F",
+      "equipo_visitante": "Islas Feroe Sub-19 F",
+      "cuotas_1x2": {
+        "local_1": 4.6,
+        "empate_x": 4.1,
+        "visitante_2": 1.59
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": 3,
+        "posicion_visitante": 3,
+        "racha_local_ultimos_5": [
+          "E",
+          "V",
+          "D",
+          "V",
+          "D"
+        ],
+        "racha_visitante_ultimos_5": [
+          "D",
+          "V",
+          "V",
+          "D",
+          "D"
+        ],
+        "h2h_resumen": "Últimos 3 H2H: Lituania Sub-19 F 1-3 Islas Feroe Sub-19 F; Islas Feroe Sub-19 F 1-0 Lituania Sub-19 F; Islas Feroe Sub-19 F 3-1 Lituania Sub-19 F"
+      },
+      "mid": "OMOgPb0S",
+      "url": "http://m.flashscore.com.ve/partido/OMOgPb0S/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_holywell_vs_penybont",
+      "deporte": "Fútbol",
+      "liga": "GALES: Cymru Premier",
+      "fecha_local": "2026-11-24",
+      "hora_local": "15:45",
+      "estado": "Programado",
+      "equipo_local": "Holywell",
+      "equipo_visitante": "Penybont",
+      "cuotas_1x2": {
+        "local_1": 12,
+        "empate_x": 7.4,
+        "visitante_2": 1.15
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": 16,
+        "posicion_visitante": 2,
+        "racha_local_ultimos_5": [
+          "D",
+          "D",
+          "D",
+          "D",
+          "E"
+        ],
+        "racha_visitante_ultimos_5": [
+          "V",
+          "V",
+          "V",
+          "V",
+          "V"
+        ],
+        "h2h_resumen": "Últimos 1 H2H: Penybont 2-1 Holywell"
+      },
+      "mid": "Gtsj1gBE",
+      "url": "http://m.flashscore.com.ve/partido/Gtsj1gBE/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_gagra_vs_dinamo-tbilisi",
+      "deporte": "Fútbol",
+      "liga": "GEORGIA: Crystalbet Erovnuli Liga",
+      "fecha_local": "2026-11-24",
+      "hora_local": "11:00",
+      "estado": "Programado",
+      "equipo_local": "Gagra",
+      "equipo_visitante": "Dinamo Tbilisi",
+      "cuotas_1x2": {
+        "local_1": null,
+        "empate_x": null,
+        "visitante_2": null
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "2ys7eyko",
+      "url": "http://m.flashscore.com.ve/partido/2ys7eyko/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_north-east_vs_delhi",
+      "deporte": "Fútbol",
+      "liga": "INDIA: ISL",
+      "fecha_local": "2026-11-24",
+      "hora_local": "10:00",
+      "estado": "Programado",
+      "equipo_local": "North East Utd",
+      "equipo_visitante": "SC Delhi",
+      "cuotas_1x2": {
+        "local_1": 1.75,
+        "empate_x": 3.6,
+        "visitante_2": 4
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "tQTcmF4c",
+      "url": "http://m.flashscore.com.ve/partido/tQTcmF4c/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_samaleswari_vs_bengaluru",
+      "deporte": "Fútbol",
+      "liga": "INDIA: IFL",
+      "fecha_local": "2026-11-24",
+      "hora_local": "06:30",
+      "estado": "Programado",
+      "equipo_local": "Samaleswari SC",
+      "equipo_visitante": "Bengaluru Utd",
+      "cuotas_1x2": {
+        "local_1": 2.16,
+        "empate_x": 3.5,
+        "visitante_2": 2.75
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "r9KjqbAD",
+      "url": "http://m.flashscore.com.ve/partido/r9KjqbAD/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_sreenidi-deccan_vs_chanmari",
+      "deporte": "Fútbol",
+      "liga": "INDIA: IFL",
+      "fecha_local": "2026-11-24",
+      "hora_local": "09:00",
+      "estado": "Programado",
+      "equipo_local": "Sreenidi Deccan",
+      "equipo_visitante": "Chanmari",
+      "cuotas_1x2": {
+        "local_1": 1.57,
+        "empate_x": 3.8,
+        "visitante_2": 4.75
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "z37x712K",
+      "url": "http://m.flashscore.com.ve/partido/z37x712K/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_gokulam-kerala-f_vs_garhwal-f",
+      "deporte": "Fútbol",
+      "liga": "INDIA: IWL Femenina",
+      "fecha_local": "2026-11-24",
+      "hora_local": "09:30",
+      "estado": "Programado",
+      "equipo_local": "Gokulam Kerala F",
+      "equipo_visitante": "Garhwal United F",
+      "cuotas_1x2": {
+        "local_1": null,
+        "empate_x": null,
+        "visitante_2": null
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "GAvBbv2t",
+      "url": "http://m.flashscore.com.ve/partido/GAvBbv2t/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_garudayaksa_vs_pss-sleman",
+      "deporte": "Fútbol",
+      "liga": "INDONESIA: I.League Cup",
+      "fecha_local": "2026-11-24",
+      "hora_local": "05:00",
+      "estado": "Programado",
+      "equipo_local": "Garudayaksa",
+      "equipo_visitante": "PSS Sleman",
+      "cuotas_1x2": {
+        "local_1": 2,
+        "empate_x": 3.5,
+        "visitante_2": 3
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "AHeqL9Ib",
+      "url": "http://m.flashscore.com.ve/partido/AHeqL9Ib/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_persebaya_vs_psbs-biak-numfor",
+      "deporte": "Fútbol",
+      "liga": "INDONESIA: I.League Cup",
+      "fecha_local": "2026-11-24",
+      "hora_local": "05:00",
+      "estado": "Programado",
+      "equipo_local": "Persebaya",
+      "equipo_visitante": "PSBS Biak Numfor",
+      "cuotas_1x2": {
+        "local_1": null,
+        "empate_x": null,
+        "visitante_2": null
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "0UrVB5uo",
+      "url": "http://m.flashscore.com.ve/partido/0UrVB5uo/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_persija-jakarta_vs_sumsel",
+      "deporte": "Fútbol",
+      "liga": "INDONESIA: I.League Cup",
+      "fecha_local": "2026-11-24",
+      "hora_local": "05:00",
+      "estado": "Programado",
+      "equipo_local": "Persija Jakarta",
+      "equipo_visitante": "Sumsel United",
+      "cuotas_1x2": {
+        "local_1": 1.11,
+        "empate_x": 6.5,
+        "visitante_2": 15
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "tO8Ja2jL",
+      "url": "http://m.flashscore.com.ve/partido/tO8Ja2jL/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_bhayangkara_vs_padang",
+      "deporte": "Fútbol",
+      "liga": "INDONESIA: I.League Cup",
+      "fecha_local": "2026-11-24",
+      "hora_local": "08:00",
+      "estado": "Programado",
+      "equipo_local": "FC Bhayangkara",
+      "equipo_visitante": "Padang",
+      "cuotas_1x2": {
+        "local_1": 1.5,
+        "empate_x": 3.8,
+        "visitante_2": 5.33
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "jH05jbD7",
+      "url": "http://m.flashscore.com.ve/partido/jH05jbD7/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_madura_vs_persela",
+      "deporte": "Fútbol",
+      "liga": "INDONESIA: I.League Cup",
+      "fecha_local": "2026-11-24",
+      "hora_local": "08:00",
+      "estado": "Programado",
+      "equipo_local": "Madura United",
+      "equipo_visitante": "Persela",
+      "cuotas_1x2": {
+        "local_1": 1.28,
+        "empate_x": 5,
+        "visitante_2": 7
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "xlJdnnHc",
+      "url": "http://m.flashscore.com.ve/partido/xlJdnnHc/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_persiraja-aceh_vs_dewa",
+      "deporte": "Fútbol",
+      "liga": "INDONESIA: I.League Cup",
+      "fecha_local": "2026-11-24",
+      "hora_local": "09:30",
+      "estado": "Programado",
+      "equipo_local": "Persiraja Aceh",
+      "equipo_visitante": "Dewa United",
+      "cuotas_1x2": {
+        "local_1": null,
+        "empate_x": null,
+        "visitante_2": null
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "MJsV6Jcl",
+      "url": "http://m.flashscore.com.ve/partido/MJsV6Jcl/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_bristol_vs_wrexham",
+      "deporte": "Fútbol",
+      "liga": "INGLATERRA: Championship",
+      "fecha_local": "2026-11-24",
+      "hora_local": "15:45",
+      "estado": "Programado",
+      "equipo_local": "Bristol City",
+      "equipo_visitante": "Wrexham",
+      "cuotas_1x2": {
+        "local_1": 2.25,
+        "empate_x": 3.35,
+        "visitante_2": 3.05
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "hvQs781c",
+      "url": "http://m.flashscore.com.ve/partido/hvQs781c/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_cardiff_vs_preston",
+      "deporte": "Fútbol",
+      "liga": "INGLATERRA: Championship",
+      "fecha_local": "2026-11-24",
+      "hora_local": "15:45",
+      "estado": "Programado",
+      "equipo_local": "Cardiff",
+      "equipo_visitante": "Preston",
+      "cuotas_1x2": {
+        "local_1": 1.48,
+        "empate_x": 4.75,
+        "visitante_2": 5.5
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "04Tk5nW9",
+      "url": "http://m.flashscore.com.ve/partido/04Tk5nW9/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_charlton_vs_lincoln",
+      "deporte": "Fútbol",
+      "liga": "INGLATERRA: Championship",
+      "fecha_local": "2026-11-24",
+      "hora_local": "15:45",
+      "estado": "Programado",
+      "equipo_local": "Charlton",
+      "equipo_visitante": "Lincoln",
+      "cuotas_1x2": {
+        "local_1": 2.7,
+        "empate_x": 3.35,
+        "visitante_2": 2.5
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "bL0NFRhT",
+      "url": "http://m.flashscore.com.ve/partido/bL0NFRhT/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_middlesbrough_vs_swansea",
+      "deporte": "Fútbol",
+      "liga": "INGLATERRA: Championship",
+      "fecha_local": "2026-11-24",
+      "hora_local": "15:45",
+      "estado": "Programado",
+      "equipo_local": "Middlesbrough",
+      "equipo_visitante": "Swansea",
+      "cuotas_1x2": {
+        "local_1": 1.41,
+        "empate_x": 4.95,
+        "visitante_2": 6.5
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "61Wc3Q0M",
+      "url": "http://m.flashscore.com.ve/partido/61Wc3Q0M/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_norwich_vs_qpr",
+      "deporte": "Fútbol",
+      "liga": "INGLATERRA: Championship",
+      "fecha_local": "2026-11-24",
+      "hora_local": "15:45",
+      "estado": "Programado",
+      "equipo_local": "Norwich",
+      "equipo_visitante": "QPR",
+      "cuotas_1x2": {
+        "local_1": 1.91,
+        "empate_x": 3.8,
+        "visitante_2": 3.5
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "U3igA5Gj",
+      "url": "http://m.flashscore.com.ve/partido/U3igA5Gj/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_portsmouth_vs_west-ham",
+      "deporte": "Fútbol",
+      "liga": "INGLATERRA: Championship",
+      "fecha_local": "2026-11-24",
+      "hora_local": "15:45",
+      "estado": "Programado",
+      "equipo_local": "Portsmouth",
+      "equipo_visitante": "West Ham",
+      "cuotas_1x2": {
+        "local_1": 4,
+        "empate_x": 3.75,
+        "visitante_2": 1.8
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": 12,
+        "posicion_visitante": 10,
+        "racha_local_ultimos_5": [
+          "E",
+          "D",
+          "V",
+          "E",
+          "V"
+        ],
+        "racha_visitante_ultimos_5": [
+          "E",
+          "D",
+          "E",
+          "D",
+          "D"
+        ],
+        "h2h_resumen": "Últimos 3 H2H: West Ham 3-1 Portsmouth; Portsmouth 0-1 West Ham; West Ham 4-3 Portsmouth"
+      },
+      "mid": "dAquY88c",
+      "url": "http://m.flashscore.com.ve/partido/dAquY88c/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_sheffield_vs_southampton",
+      "deporte": "Fútbol",
+      "liga": "INGLATERRA: Championship",
+      "fecha_local": "2026-11-24",
+      "hora_local": "15:45",
+      "estado": "Programado",
+      "equipo_local": "Sheffield Utd",
+      "equipo_visitante": "Southampton",
+      "cuotas_1x2": {
+        "local_1": 2.4,
+        "empate_x": 3.55,
+        "visitante_2": 2.7
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "UNsmWnwA",
+      "url": "http://m.flashscore.com.ve/partido/UNsmWnwA/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_wolves_vs_derby",
+      "deporte": "Fútbol",
+      "liga": "INGLATERRA: Championship",
+      "fecha_local": "2026-11-24",
+      "hora_local": "16:00",
+      "estado": "Programado",
+      "equipo_local": "Wolves",
+      "equipo_visitante": "Derby",
+      "cuotas_1x2": {
+        "local_1": 1.28,
+        "empate_x": 5.5,
+        "visitante_2": 9
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "GvteUQ7M",
+      "url": "http://m.flashscore.com.ve/partido/GvteUQ7M/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_blackpool_vs_leicester",
+      "deporte": "Fútbol",
+      "liga": "INGLATERRA: League One",
+      "fecha_local": "2026-11-24",
+      "hora_local": "15:45",
+      "estado": "Programado",
+      "equipo_local": "Blackpool",
+      "equipo_visitante": "Leicester",
+      "cuotas_1x2": {
+        "local_1": 3.8,
+        "empate_x": 3.9,
+        "visitante_2": 1.75
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": 22,
+        "posicion_visitante": 10,
+        "racha_local_ultimos_5": [
+          "D",
+          "D",
+          "V",
+          "E",
+          "V"
+        ],
+        "racha_visitante_ultimos_5": [
+          "V",
+          "V",
+          "V",
+          "E",
+          "V"
+        ],
+        "h2h_resumen": "Últimos 3 H2H: Leicester 3-1 Blackpool; Blackpool 2-2 Leicester; Blackpool 0-0 Leicester"
+      },
+      "mid": "YwR6YnI7",
+      "url": "http://m.flashscore.com.ve/partido/YwR6YnI7/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_bradford_vs_barnsley",
+      "deporte": "Fútbol",
+      "liga": "INGLATERRA: League One",
+      "fecha_local": "2026-11-24",
+      "hora_local": "15:45",
+      "estado": "Programado",
+      "equipo_local": "Bradford City",
+      "equipo_visitante": "Barnsley",
+      "cuotas_1x2": {
+        "local_1": 1.55,
+        "empate_x": 4.1,
+        "visitante_2": 5
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "f9JjXryn",
+      "url": "http://m.flashscore.com.ve/partido/f9JjXryn/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_bromley_vs_wycombe",
+      "deporte": "Fútbol",
+      "liga": "INGLATERRA: League One",
+      "fecha_local": "2026-11-24",
+      "hora_local": "15:45",
+      "estado": "Programado",
+      "equipo_local": "Bromley",
+      "equipo_visitante": "Wycombe",
+      "cuotas_1x2": {
+        "local_1": 3.75,
+        "empate_x": 3.6,
+        "visitante_2": 1.83
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": 23,
+        "posicion_visitante": 15,
+        "racha_local_ultimos_5": [
+          "V",
+          "D",
+          "D",
+          "D",
+          "D"
+        ],
+        "racha_visitante_ultimos_5": [
+          "D",
+          "V",
+          "V",
+          "E",
+          "E"
+        ],
+        "h2h_resumen": "Últimos 1 H2H: Bromley 1-1 Wycombe"
+      },
+      "mid": "0pJhdjAE",
+      "url": "http://m.flashscore.com.ve/partido/0pJhdjAE/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_stevenage_vs_sheffield-wed",
+      "deporte": "Fútbol",
+      "liga": "INGLATERRA: League One",
+      "fecha_local": "2026-11-24",
+      "hora_local": "15:45",
+      "estado": "Programado",
+      "equipo_local": "Stevenage",
+      "equipo_visitante": "Sheffield Wed",
+      "cuotas_1x2": {
+        "local_1": 2.8,
+        "empate_x": 3.3,
+        "visitante_2": 2.33
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": 14,
+        "posicion_visitante": 5,
+        "racha_local_ultimos_5": [
+          "V",
+          "E",
+          "V",
+          "E",
+          "D"
+        ],
+        "racha_visitante_ultimos_5": [
+          "V",
+          "V",
+          "D",
+          "D",
+          "E"
+        ],
+        "h2h_resumen": "Últimos 2 H2H: Sheffield Wed 0-1 Stevenage; Stevenage 5-1 Sheffield Wed"
+      },
+      "mid": "OQrRL9Y1",
+      "url": "http://m.flashscore.com.ve/partido/OQrRL9Y1/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_crawley_vs_barnet",
+      "deporte": "Fútbol",
+      "liga": "INGLATERRA: League Two",
+      "fecha_local": "2026-11-24",
+      "hora_local": "15:45",
+      "estado": "Programado",
+      "equipo_local": "Crawley",
+      "equipo_visitante": "Barnet",
+      "cuotas_1x2": {
+        "local_1": 3.6,
+        "empate_x": 3.7,
+        "visitante_2": 1.85
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": 24,
+        "posicion_visitante": 2,
+        "racha_local_ultimos_5": [
+          "V",
+          "D",
+          "D",
+          "V",
+          "E"
+        ],
+        "racha_visitante_ultimos_5": [
+          "V",
+          "V",
+          "V",
+          "E",
+          "V"
+        ],
+        "h2h_resumen": "Últimos 3 H2H: Crawley 1-1 Barnet; Barnet 2-1 Crawley; Crawley 2-0 Barnet"
+      },
+      "mid": "jysDl2u9",
+      "url": "http://m.flashscore.com.ve/partido/jysDl2u9/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_port-vale_vs_northampton",
+      "deporte": "Fútbol",
+      "liga": "INGLATERRA: League Two",
+      "fecha_local": "2026-11-24",
+      "hora_local": "15:45",
+      "estado": "Programado",
+      "equipo_local": "Port Vale",
+      "equipo_visitante": "Northampton",
+      "cuotas_1x2": {
+        "local_1": 2.04,
+        "empate_x": 3.25,
+        "visitante_2": 3.45
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "zoA0SBO6",
+      "url": "http://m.flashscore.com.ve/partido/zoA0SBO6/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_fylde_vs_halifax",
+      "deporte": "Fútbol",
+      "liga": "INGLATERRA: National League",
+      "fecha_local": "2026-11-24",
+      "hora_local": "15:45",
+      "estado": "Programado",
+      "equipo_local": "AFC Fylde",
+      "equipo_visitante": "Halifax",
+      "cuotas_1x2": {
+        "local_1": null,
+        "empate_x": null,
+        "visitante_2": null
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "jFot5zRO",
+      "url": "http://m.flashscore.com.ve/partido/jFot5zRO/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_altrincham_vs_wealdstone",
+      "deporte": "Fútbol",
+      "liga": "INGLATERRA: National League",
+      "fecha_local": "2026-11-24",
+      "hora_local": "15:45",
+      "estado": "Programado",
+      "equipo_local": "Altrincham",
+      "equipo_visitante": "Wealdstone",
+      "cuotas_1x2": {
+        "local_1": null,
+        "empate_x": null,
+        "visitante_2": null
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "6RLkPwCt",
+      "url": "http://m.flashscore.com.ve/partido/6RLkPwCt/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_boston_vs_barrow",
+      "deporte": "Fútbol",
+      "liga": "INGLATERRA: National League",
+      "fecha_local": "2026-11-24",
+      "hora_local": "15:45",
+      "estado": "Programado",
+      "equipo_local": "Boston Utd",
+      "equipo_visitante": "Barrow",
+      "cuotas_1x2": {
+        "local_1": null,
+        "empate_x": null,
+        "visitante_2": null
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "hrKcNHtg",
+      "url": "http://m.flashscore.com.ve/partido/hrKcNHtg/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_carlisle_vs_tamworth",
+      "deporte": "Fútbol",
+      "liga": "INGLATERRA: National League",
+      "fecha_local": "2026-11-24",
+      "hora_local": "15:45",
+      "estado": "Programado",
+      "equipo_local": "Carlisle",
+      "equipo_visitante": "Tamworth",
+      "cuotas_1x2": {
+        "local_1": null,
+        "empate_x": null,
+        "visitante_2": null
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "08N5LeB5",
+      "url": "http://m.flashscore.com.ve/partido/08N5LeB5/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_eastleigh_vs_yeovil",
+      "deporte": "Fútbol",
+      "liga": "INGLATERRA: National League",
+      "fecha_local": "2026-11-24",
+      "hora_local": "15:45",
+      "estado": "Programado",
+      "equipo_local": "Eastleigh",
+      "equipo_visitante": "Yeovil",
+      "cuotas_1x2": {
+        "local_1": null,
+        "empate_x": null,
+        "visitante_2": null
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "YLLDJZuI",
+      "url": "http://m.flashscore.com.ve/partido/YLLDJZuI/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_forest-green_vs_southend",
+      "deporte": "Fútbol",
+      "liga": "INGLATERRA: National League",
+      "fecha_local": "2026-11-24",
+      "hora_local": "15:45",
+      "estado": "Programado",
+      "equipo_local": "Forest Green",
+      "equipo_visitante": "Southend",
+      "cuotas_1x2": {
+        "local_1": null,
+        "empate_x": null,
+        "visitante_2": null
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "tnPLHDAU",
+      "url": "http://m.flashscore.com.ve/partido/tnPLHDAU/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_hornchurch_vs_sutton",
+      "deporte": "Fútbol",
+      "liga": "INGLATERRA: National League",
+      "fecha_local": "2026-11-24",
+      "hora_local": "15:45",
+      "estado": "Programado",
+      "equipo_local": "Hornchurch",
+      "equipo_visitante": "Sutton",
+      "cuotas_1x2": {
+        "local_1": null,
+        "empate_x": null,
+        "visitante_2": null
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "GhJUyHen",
+      "url": "http://m.flashscore.com.ve/partido/GhJUyHen/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_scunthorpe_vs_gateshead",
+      "deporte": "Fútbol",
+      "liga": "INGLATERRA: National League",
+      "fecha_local": "2026-11-24",
+      "hora_local": "15:45",
+      "estado": "Programado",
+      "equipo_local": "Scunthorpe",
+      "equipo_visitante": "Gateshead",
+      "cuotas_1x2": {
+        "local_1": null,
+        "empate_x": null,
+        "visitante_2": null
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "l6HxzeQb",
+      "url": "http://m.flashscore.com.ve/partido/l6HxzeQb/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_woking_vs_worthing",
+      "deporte": "Fútbol",
+      "liga": "INGLATERRA: National League",
+      "fecha_local": "2026-11-24",
+      "hora_local": "15:45",
+      "estado": "Programado",
+      "equipo_local": "Woking",
+      "equipo_visitante": "Worthing",
+      "cuotas_1x2": {
+        "local_1": null,
+        "empate_x": null,
+        "visitante_2": null
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "dWKpYYfB",
+      "url": "http://m.flashscore.com.ve/partido/dWKpYYfB/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_brackley_vs_hereford",
+      "deporte": "Fútbol",
+      "liga": "INGLATERRA: National League North",
+      "fecha_local": "2026-11-24",
+      "hora_local": "15:45",
+      "estado": "Programado",
+      "equipo_local": "Brackley Town",
+      "equipo_visitante": "Hereford",
+      "cuotas_1x2": {
+        "local_1": null,
+        "empate_x": null,
+        "visitante_2": null
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "ERLwXY2C",
+      "url": "http://m.flashscore.com.ve/partido/ERLwXY2C/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_chorley_vs_hebburn",
+      "deporte": "Fútbol",
+      "liga": "INGLATERRA: National League North",
+      "fecha_local": "2026-11-24",
+      "hora_local": "15:45",
+      "estado": "Programado",
+      "equipo_local": "Chorley",
+      "equipo_visitante": "Hebburn Town",
+      "cuotas_1x2": {
+        "local_1": null,
+        "empate_x": null,
+        "visitante_2": null
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "CKzcxUvh",
+      "url": "http://m.flashscore.com.ve/partido/CKzcxUvh/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_darlington_vs_southport",
+      "deporte": "Fútbol",
+      "liga": "INGLATERRA: National League North",
+      "fecha_local": "2026-11-24",
+      "hora_local": "15:45",
+      "estado": "Programado",
+      "equipo_local": "Darlington",
+      "equipo_visitante": "Southport",
+      "cuotas_1x2": {
+        "local_1": null,
+        "empate_x": null,
+        "visitante_2": null
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "IHw5z894",
+      "url": "http://m.flashscore.com.ve/partido/IHw5z894/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_harborough_vs_chester",
+      "deporte": "Fútbol",
+      "liga": "INGLATERRA: National League North",
+      "fecha_local": "2026-11-24",
+      "hora_local": "15:45",
+      "estado": "Programado",
+      "equipo_local": "Harborough",
+      "equipo_visitante": "Chester",
+      "cuotas_1x2": {
+        "local_1": null,
+        "empate_x": null,
+        "visitante_2": null
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "jVyDYovH",
+      "url": "http://m.flashscore.com.ve/partido/jVyDYovH/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_hednesford_vs_oxford",
+      "deporte": "Fútbol",
+      "liga": "INGLATERRA: National League North",
+      "fecha_local": "2026-11-24",
+      "hora_local": "15:45",
+      "estado": "Programado",
+      "equipo_local": "Hednesford",
+      "equipo_visitante": "Oxford City",
+      "cuotas_1x2": {
+        "local_1": null,
+        "empate_x": null,
+        "visitante_2": null
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "beuLWP8T",
+      "url": "http://m.flashscore.com.ve/partido/beuLWP8T/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_king-s-lynn_vs_radcliffe",
+      "deporte": "Fútbol",
+      "liga": "INGLATERRA: National League North",
+      "fecha_local": "2026-11-24",
+      "hora_local": "15:45",
+      "estado": "Programado",
+      "equipo_local": "King’s Lynn",
+      "equipo_visitante": "Radcliffe",
+      "cuotas_1x2": {
+        "local_1": null,
+        "empate_x": null,
+        "visitante_2": null
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "UwWjR3Wj",
+      "url": "http://m.flashscore.com.ve/partido/UwWjR3Wj/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_macclesfield_vs_morecambe",
+      "deporte": "Fútbol",
+      "liga": "INGLATERRA: National League North",
+      "fecha_local": "2026-11-24",
+      "hora_local": "15:45",
+      "estado": "Programado",
+      "equipo_local": "Macclesfield",
+      "equipo_visitante": "Morecambe",
+      "cuotas_1x2": {
+        "local_1": null,
+        "empate_x": null,
+        "visitante_2": null
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "MXIxk7Oc",
+      "url": "http://m.flashscore.com.ve/partido/MXIxk7Oc/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_marine_vs_spennymoor",
+      "deporte": "Fútbol",
+      "liga": "INGLATERRA: National League North",
+      "fecha_local": "2026-11-24",
+      "hora_local": "15:45",
+      "estado": "Programado",
+      "equipo_local": "Marine",
+      "equipo_visitante": "Spennymoor",
+      "cuotas_1x2": {
+        "local_1": null,
+        "empate_x": null,
+        "visitante_2": null
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "faWqmogA",
+      "url": "http://m.flashscore.com.ve/partido/faWqmogA/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_merthyr_vs_bedford",
+      "deporte": "Fútbol",
+      "liga": "INGLATERRA: National League North",
+      "fecha_local": "2026-11-24",
+      "hora_local": "15:45",
+      "estado": "Programado",
+      "equipo_local": "Merthyr Town",
+      "equipo_visitante": "Bedford",
+      "cuotas_1x2": {
+        "local_1": null,
+        "empate_x": null,
+        "visitante_2": null
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "KSn0wlgd",
+      "url": "http://m.flashscore.com.ve/partido/KSn0wlgd/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_scarborough_vs_spalding",
+      "deporte": "Fútbol",
+      "liga": "INGLATERRA: National League North",
+      "fecha_local": "2026-11-24",
+      "hora_local": "15:45",
+      "estado": "Programado",
+      "equipo_local": "Scarborough",
+      "equipo_visitante": "Spalding United",
+      "cuotas_1x2": {
+        "local_1": null,
+        "empate_x": null,
+        "visitante_2": null
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "2PZioPNM",
+      "url": "http://m.flashscore.com.ve/partido/2PZioPNM/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_south-shields_vs_worksop",
+      "deporte": "Fútbol",
+      "liga": "INGLATERRA: National League North",
+      "fecha_local": "2026-11-24",
+      "hora_local": "15:45",
+      "estado": "Programado",
+      "equipo_local": "South Shields",
+      "equipo_visitante": "Worksop",
+      "cuotas_1x2": {
+        "local_1": null,
+        "empate_x": null,
+        "visitante_2": null
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "beLNu3op",
+      "url": "http://m.flashscore.com.ve/partido/beLNu3op/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_telford_vs_buxton",
+      "deporte": "Fútbol",
+      "liga": "INGLATERRA: National League North",
+      "fecha_local": "2026-11-24",
+      "hora_local": "15:45",
+      "estado": "Programado",
+      "equipo_local": "Telford",
+      "equipo_visitante": "Buxton",
+      "cuotas_1x2": {
+        "local_1": null,
+        "empate_x": null,
+        "visitante_2": null
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "61IVYfYa",
+      "url": "http://m.flashscore.com.ve/partido/61IVYfYa/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_dagenham-red_vs_tonbridge",
+      "deporte": "Fútbol",
+      "liga": "INGLATERRA: National League South",
+      "fecha_local": "2026-11-24",
+      "hora_local": "15:45",
+      "estado": "Programado",
+      "equipo_local": "Dagenham & Red.",
+      "equipo_visitante": "Tonbridge",
+      "cuotas_1x2": {
+        "local_1": null,
+        "empate_x": null,
+        "visitante_2": null
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "zcdMS34U",
+      "url": "http://m.flashscore.com.ve/partido/zcdMS34U/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_ebbsfleet_vs_billericay",
+      "deporte": "Fútbol",
+      "liga": "INGLATERRA: National League South",
+      "fecha_local": "2026-11-24",
+      "hora_local": "15:45",
+      "estado": "Programado",
+      "equipo_local": "Ebbsfleet",
+      "equipo_visitante": "Billericay",
+      "cuotas_1x2": {
+        "local_1": null,
+        "empate_x": null,
+        "visitante_2": null
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "QLyWn7kn",
+      "url": "http://m.flashscore.com.ve/partido/QLyWn7kn/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_farnham_vs_maidenhead",
+      "deporte": "Fútbol",
+      "liga": "INGLATERRA: National League South",
+      "fecha_local": "2026-11-24",
+      "hora_local": "15:45",
+      "estado": "Programado",
+      "equipo_local": "Farnham",
+      "equipo_visitante": "Maidenhead",
+      "cuotas_1x2": {
+        "local_1": null,
+        "empate_x": null,
+        "visitante_2": null
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "bZZwooKb",
+      "url": "http://m.flashscore.com.ve/partido/bZZwooKb/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_hampton-richmond_vs_dover",
+      "deporte": "Fútbol",
+      "liga": "INGLATERRA: National League South",
+      "fecha_local": "2026-11-24",
+      "hora_local": "15:45",
+      "estado": "Programado",
+      "equipo_local": "Hampton & Richmond",
+      "equipo_visitante": "Dover",
+      "cuotas_1x2": {
+        "local_1": null,
+        "empate_x": null,
+        "visitante_2": null
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "hGyfs3JN",
+      "url": "http://m.flashscore.com.ve/partido/hGyfs3JN/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_horsham_vs_truro",
+      "deporte": "Fútbol",
+      "liga": "INGLATERRA: National League South",
+      "fecha_local": "2026-11-24",
+      "hora_local": "15:45",
+      "estado": "Programado",
+      "equipo_local": "Horsham FC",
+      "equipo_visitante": "Truro",
+      "cuotas_1x2": {
+        "local_1": null,
+        "empate_x": null,
+        "visitante_2": null
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "GhFBapZi",
+      "url": "http://m.flashscore.com.ve/partido/GhFBapZi/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_salisbury_vs_totton",
+      "deporte": "Fútbol",
+      "liga": "INGLATERRA: National League South",
+      "fecha_local": "2026-11-24",
+      "hora_local": "15:45",
+      "estado": "Programado",
+      "equipo_local": "Salisbury",
+      "equipo_visitante": "AFC Totton",
+      "cuotas_1x2": {
+        "local_1": null,
+        "empate_x": null,
+        "visitante_2": null
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "80XIcO34",
+      "url": "http://m.flashscore.com.ve/partido/80XIcO34/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_slough_vs_farnborough",
+      "deporte": "Fútbol",
+      "liga": "INGLATERRA: National League South",
+      "fecha_local": "2026-11-24",
+      "hora_local": "15:45",
+      "estado": "Programado",
+      "equipo_local": "Slough",
+      "equipo_visitante": "Farnborough",
+      "cuotas_1x2": {
+        "local_1": null,
+        "empate_x": null,
+        "visitante_2": null
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "tEVQe2YG",
+      "url": "http://m.flashscore.com.ve/partido/tEVQe2YG/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_torquay_vs_chesham",
+      "deporte": "Fútbol",
+      "liga": "INGLATERRA: National League South",
+      "fecha_local": "2026-11-24",
+      "hora_local": "15:45",
+      "estado": "Programado",
+      "equipo_local": "Torquay",
+      "equipo_visitante": "Chesham",
+      "cuotas_1x2": {
+        "local_1": null,
+        "empate_x": null,
+        "visitante_2": null
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "lvZYgt3T",
+      "url": "http://m.flashscore.com.ve/partido/lvZYgt3T/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_weston-super-mare_vs_walton-hersham",
+      "deporte": "Fútbol",
+      "liga": "INGLATERRA: National League South",
+      "fecha_local": "2026-11-24",
+      "hora_local": "15:45",
+      "estado": "Programado",
+      "equipo_local": "Weston-super-Mare",
+      "equipo_visitante": "Walton & Hersham",
+      "cuotas_1x2": {
+        "local_1": null,
+        "empate_x": null,
+        "visitante_2": null
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "KMP4lKQj",
+      "url": "http://m.flashscore.com.ve/partido/KMP4lKQj/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_leek_vs_gainsborough",
+      "deporte": "Fútbol",
+      "liga": "INGLATERRA: NPL Premier Division",
+      "fecha_local": "2026-11-24",
+      "hora_local": "15:45",
+      "estado": "Programado",
+      "equipo_local": "Leek",
+      "equipo_visitante": "Gainsborough",
+      "cuotas_1x2": {
+        "local_1": null,
+        "empate_x": null,
+        "visitante_2": null
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "OpmfKDFF",
+      "url": "http://m.flashscore.com.ve/partido/OpmfKDFF/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_anstey-nomads_vs_redditch",
+      "deporte": "Fútbol",
+      "liga": "INGLATERRA: Southern League Premier Central",
+      "fecha_local": "2026-11-24",
+      "hora_local": "15:45",
+      "estado": "Programado",
+      "equipo_local": "Anstey Nomads",
+      "equipo_visitante": "Redditch",
+      "cuotas_1x2": {
+        "local_1": null,
+        "empate_x": null,
+        "visitante_2": null
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "WACft6DT",
+      "url": "http://m.flashscore.com.ve/partido/WACft6DT/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_halesowen_vs_stourbridge",
+      "deporte": "Fútbol",
+      "liga": "INGLATERRA: Southern League Premier Central",
+      "fecha_local": "2026-11-24",
+      "hora_local": "15:45",
+      "estado": "Programado",
+      "equipo_local": "Halesowen",
+      "equipo_visitante": "Stourbridge",
+      "cuotas_1x2": {
+        "local_1": null,
+        "empate_x": null,
+        "visitante_2": null
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "dbkX40Ec",
+      "url": "http://m.flashscore.com.ve/partido/dbkX40Ec/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_hitchin_vs_worcester",
+      "deporte": "Fútbol",
+      "liga": "INGLATERRA: Southern League Premier Central",
+      "fecha_local": "2026-11-24",
+      "hora_local": "15:45",
+      "estado": "Programado",
+      "equipo_local": "Hitchin",
+      "equipo_visitante": "Worcester",
+      "cuotas_1x2": {
+        "local_1": null,
+        "empate_x": null,
+        "visitante_2": null
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "QPsFcM0f",
+      "url": "http://m.flashscore.com.ve/partido/QPsFcM0f/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_leighton_vs_racing-warwick",
+      "deporte": "Fútbol",
+      "liga": "INGLATERRA: Southern League Premier Central",
+      "fecha_local": "2026-11-24",
+      "hora_local": "15:45",
+      "estado": "Programado",
+      "equipo_local": "Leighton Town",
+      "equipo_visitante": "Racing Club Warwick",
+      "cuotas_1x2": {
+        "local_1": null,
+        "empate_x": null,
+        "visitante_2": null
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "nsgDtF7C",
+      "url": "http://m.flashscore.com.ve/partido/nsgDtF7C/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_peterborough-sports_vs_alvechurch",
+      "deporte": "Fútbol",
+      "liga": "INGLATERRA: Southern League Premier Central",
+      "fecha_local": "2026-11-24",
+      "hora_local": "15:45",
+      "estado": "Programado",
+      "equipo_local": "Peterborough Sports",
+      "equipo_visitante": "Alvechurch",
+      "cuotas_1x2": {
+        "local_1": null,
+        "empate_x": null,
+        "visitante_2": null
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "E7wcgD8F",
+      "url": "http://m.flashscore.com.ve/partido/E7wcgD8F/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_basingstoke_vs_sholing",
+      "deporte": "Fútbol",
+      "liga": "INGLATERRA: Southern League Premier South",
+      "fecha_local": "2026-11-24",
+      "hora_local": "15:45",
+      "estado": "Programado",
+      "equipo_local": "Basingstoke",
+      "equipo_visitante": "Sholing",
+      "cuotas_1x2": {
+        "local_1": null,
+        "empate_x": null,
+        "visitante_2": null
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "AenpVvr9",
+      "url": "http://m.flashscore.com.ve/partido/AenpVvr9/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_bracknell_vs_berkhamsted",
+      "deporte": "Fútbol",
+      "liga": "INGLATERRA: Southern League Premier South",
+      "fecha_local": "2026-11-24",
+      "hora_local": "15:45",
+      "estado": "Programado",
+      "equipo_local": "Bracknell",
+      "equipo_visitante": "Berkhamsted",
+      "cuotas_1x2": {
+        "local_1": null,
+        "empate_x": null,
+        "visitante_2": null
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "Wts3icct",
+      "url": "http://m.flashscore.com.ve/partido/Wts3icct/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_chippenham_vs_havant-w",
+      "deporte": "Fútbol",
+      "liga": "INGLATERRA: Southern League Premier South",
+      "fecha_local": "2026-11-24",
+      "hora_local": "15:45",
+      "estado": "Programado",
+      "equipo_local": "Chippenham",
+      "equipo_visitante": "Havant & W",
+      "cuotas_1x2": {
+        "local_1": null,
+        "empate_x": null,
+        "visitante_2": null
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "0SPPsIRE",
+      "url": "http://m.flashscore.com.ve/partido/0SPPsIRE/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_malvern_vs_hanworth",
+      "deporte": "Fútbol",
+      "liga": "INGLATERRA: Southern League Premier South",
+      "fecha_local": "2026-11-24",
+      "hora_local": "15:45",
+      "estado": "Programado",
+      "equipo_local": "Malvern Town",
+      "equipo_visitante": "Hanworth",
+      "cuotas_1x2": {
+        "local_1": null,
+        "empate_x": null,
+        "visitante_2": null
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "6RicP9Bm",
+      "url": "http://m.flashscore.com.ve/partido/6RicP9Bm/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_yate_vs_evesham",
+      "deporte": "Fútbol",
+      "liga": "INGLATERRA: Southern League Premier South",
+      "fecha_local": "2026-11-24",
+      "hora_local": "15:45",
+      "estado": "Programado",
+      "equipo_local": "Yate Town",
+      "equipo_visitante": "Evesham",
+      "cuotas_1x2": {
+        "local_1": null,
+        "empate_x": null,
+        "visitante_2": null
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "SvT7msaT",
+      "url": "http://m.flashscore.com.ve/partido/SvT7msaT/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_cray-wanderers_vs_wingate-finchley",
+      "deporte": "Fútbol",
+      "liga": "INGLATERRA: Isthmian League Premier Division",
+      "fecha_local": "2026-11-24",
+      "hora_local": "15:45",
+      "estado": "Programado",
+      "equipo_local": "Cray Wanderers",
+      "equipo_visitante": "Wingate & Finchley",
+      "cuotas_1x2": {
+        "local_1": null,
+        "empate_x": null,
+        "visitante_2": null
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "OAS4nBfc",
+      "url": "http://m.flashscore.com.ve/partido/OAS4nBfc/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_eastbourne-boro_vs_aveley",
+      "deporte": "Fútbol",
+      "liga": "INGLATERRA: Isthmian League Premier Division",
+      "fecha_local": "2026-11-24",
+      "hora_local": "15:45",
+      "estado": "Programado",
+      "equipo_local": "Eastbourne Boro",
+      "equipo_visitante": "Aveley",
+      "cuotas_1x2": {
+        "local_1": null,
+        "empate_x": null,
+        "visitante_2": null
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "4lUKrTgM",
+      "url": "http://m.flashscore.com.ve/partido/4lUKrTgM/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_leatherhead_vs_ramsgate",
+      "deporte": "Fútbol",
+      "liga": "INGLATERRA: Isthmian League Premier Division",
+      "fecha_local": "2026-11-24",
+      "hora_local": "15:45",
+      "estado": "Programado",
+      "equipo_local": "Leatherhead",
+      "equipo_visitante": "Ramsgate",
+      "cuotas_1x2": {
+        "local_1": null,
+        "empate_x": null,
+        "visitante_2": null
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "YNApalv3",
+      "url": "http://m.flashscore.com.ve/partido/YNApalv3/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_fleetwood_vs_leeds-sub-21",
+      "deporte": "Fútbol",
+      "liga": "INGLATERRA: EFL Trophy",
+      "fecha_local": "2026-11-24",
+      "hora_local": "15:00",
+      "estado": "Programado",
+      "equipo_local": "Fleetwood",
+      "equipo_visitante": "Leeds Utd Sub-21",
+      "cuotas_1x2": {
+        "local_1": null,
+        "empate_x": null,
+        "visitante_2": null
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "fR49Kr8C",
+      "url": "http://m.flashscore.com.ve/partido/fR49Kr8C/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_oxford_vs_tottenham-sub-21",
+      "deporte": "Fútbol",
+      "liga": "INGLATERRA: EFL Trophy",
+      "fecha_local": "2026-11-24",
+      "hora_local": "15:00",
+      "estado": "Programado",
+      "equipo_local": "Oxford Utd",
+      "equipo_visitante": "Tottenham Sub-21",
+      "cuotas_1x2": {
+        "local_1": null,
+        "empate_x": null,
+        "visitante_2": null
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "Sf9ipTn4",
+      "url": "http://m.flashscore.com.ve/partido/Sf9ipTn4/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_salford_vs_sunderland-sub-21",
+      "deporte": "Fútbol",
+      "liga": "INGLATERRA: EFL Trophy",
+      "fecha_local": "2026-11-24",
+      "hora_local": "15:00",
+      "estado": "Programado",
+      "equipo_local": "Salford",
+      "equipo_visitante": "Sunderland Sub-21",
+      "cuotas_1x2": {
+        "local_1": null,
+        "empate_x": null,
+        "visitante_2": null
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "dbRfPChl",
+      "url": "http://m.flashscore.com.ve/partido/dbRfPChl/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_tranmere_vs_everton-sub-21",
+      "deporte": "Fútbol",
+      "liga": "INGLATERRA: EFL Trophy",
+      "fecha_local": "2026-11-24",
+      "hora_local": "15:00",
+      "estado": "Programado",
+      "equipo_local": "Tranmere",
+      "equipo_visitante": "Everton Sub-21",
+      "cuotas_1x2": {
+        "local_1": null,
+        "empate_x": null,
+        "visitante_2": null
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "2X1HDzeS",
+      "url": "http://m.flashscore.com.ve/partido/2X1HDzeS/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_charlton-sub-21_vs_coventry-sub-21",
+      "deporte": "Fútbol",
+      "liga": "INGLATERRA: Professional Development League",
+      "fecha_local": "2026-11-24",
+      "hora_local": "09:00",
+      "estado": "Programado",
+      "equipo_local": "Charlton Sub-21",
+      "equipo_visitante": "Coventry Sub-21",
+      "cuotas_1x2": {
+        "local_1": null,
+        "empate_x": null,
+        "visitante_2": null
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "zTQI3XOQ",
+      "url": "http://m.flashscore.com.ve/partido/zTQI3XOQ/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_huddersfield-sub-21_vs_swansea-sub-21",
+      "deporte": "Fútbol",
+      "liga": "INGLATERRA: Premier League Cup",
+      "fecha_local": "2026-11-24",
+      "hora_local": "15:00",
+      "estado": "Programado",
+      "equipo_local": "Huddersfield Sub-21",
+      "equipo_visitante": "Swansea Sub-21",
+      "cuotas_1x2": {
+        "local_1": null,
+        "empate_x": null,
+        "visitante_2": null
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "4fmNqfJE",
+      "url": "http://m.flashscore.com.ve/partido/4fmNqfJE/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_ipswich-sub-21_vs_bromley-sub-21",
+      "deporte": "Fútbol",
+      "liga": "INGLATERRA: Premier League Cup",
+      "fecha_local": "2026-11-24",
+      "hora_local": "15:00",
+      "estado": "Programado",
+      "equipo_local": "Ipswich Sub-21",
+      "equipo_visitante": "Bromley Sub-21",
+      "cuotas_1x2": {
+        "local_1": null,
+        "empate_x": null,
+        "visitante_2": null
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "h4wdSXnl",
+      "url": "http://m.flashscore.com.ve/partido/h4wdSXnl/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_qpr-sub-21_vs_southampton-sub-21",
+      "deporte": "Fútbol",
+      "liga": "INGLATERRA: Premier League Cup",
+      "fecha_local": "2026-11-24",
+      "hora_local": "15:00",
+      "estado": "Programado",
+      "equipo_local": "QPR Sub-21",
+      "equipo_visitante": "Southampton Sub-21",
+      "cuotas_1x2": {
+        "local_1": null,
+        "empate_x": null,
+        "visitante_2": null
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "l8lIZFfE",
+      "url": "http://m.flashscore.com.ve/partido/l8lIZFfE/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_sheffield-sub-21_vs_millwall-sub-21",
+      "deporte": "Fútbol",
+      "liga": "INGLATERRA: Premier League Cup",
+      "fecha_local": "2026-11-24",
+      "hora_local": "15:00",
+      "estado": "Programado",
+      "equipo_local": "Sheffield Utd Sub-21",
+      "equipo_visitante": "Millwall Sub-21",
+      "cuotas_1x2": {
+        "local_1": null,
+        "empate_x": null,
+        "visitante_2": null
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "MLnQXgPQ",
+      "url": "http://m.flashscore.com.ve/partido/MLnQXgPQ/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_fard_vs_pars-janoobi-jam",
+      "deporte": "Fútbol",
+      "liga": "IRÁN: Azadegan League",
+      "fecha_local": "2026-11-24",
+      "hora_local": "07:30",
+      "estado": "Programado",
+      "equipo_local": "Fard",
+      "equipo_visitante": "Pars Janoobi Jam",
+      "cuotas_1x2": {
+        "local_1": null,
+        "empate_x": null,
+        "visitante_2": null
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "6NPO3gQh",
+      "url": "http://m.flashscore.com.ve/partido/6NPO3gQh/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_shahin-bandar-ameri_vs_naft-m-i-s",
+      "deporte": "Fútbol",
+      "liga": "IRÁN: Azadegan League",
+      "fecha_local": "2026-11-24",
+      "hora_local": "10:00",
+      "estado": "Programado",
+      "equipo_local": "Shahin Bandar Ameri",
+      "equipo_visitante": "Naft M.I.S",
+      "cuotas_1x2": {
+        "local_1": null,
+        "empate_x": null,
+        "visitante_2": null
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "EmTW1Xf5",
+      "url": "http://m.flashscore.com.ve/partido/EmTW1Xf5/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_c-rangers_vs_glenavon",
+      "deporte": "Fútbol",
+      "liga": "IRLANDA DEL NORTE: Irish League Cup",
+      "fecha_local": "2026-11-24",
+      "hora_local": "15:45",
+      "estado": "Programado",
+      "equipo_local": "C. Rangers",
+      "equipo_visitante": "Glenavon",
+      "cuotas_1x2": {
+        "local_1": 2.09,
+        "empate_x": 3.4,
+        "visitante_2": 3.15
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "06bubW43",
+      "url": "http://m.flashscore.com.ve/partido/06bubW43/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_dungannon_vs_coleraine",
+      "deporte": "Fútbol",
+      "liga": "IRLANDA DEL NORTE: Irish League Cup",
+      "fecha_local": "2026-11-24",
+      "hora_local": "15:45",
+      "estado": "Programado",
+      "equipo_local": "Dungannon",
+      "equipo_visitante": "Coleraine",
+      "cuotas_1x2": {
+        "local_1": 3.35,
+        "empate_x": 3.75,
+        "visitante_2": 1.91
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": [
+          "V",
+          "D",
+          "V",
+          "E",
+          "D"
+        ],
+        "racha_visitante_ultimos_5": [
+          "V",
+          "V",
+          "D",
+          "E",
+          "V"
+        ],
+        "h2h_resumen": "Últimos 3 H2H: Dungannon 1-3 Coleraine; Dungannon 2-3 Coleraine; Dungannon 1-2 Coleraine"
+      },
+      "mid": "631mdAZF",
+      "url": "http://m.flashscore.com.ve/partido/631mdAZF/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_glentoran_vs_larne",
+      "deporte": "Fútbol",
+      "liga": "IRLANDA DEL NORTE: Irish League Cup",
+      "fecha_local": "2026-11-24",
+      "hora_local": "15:45",
+      "estado": "Programado",
+      "equipo_local": "Glentoran",
+      "equipo_visitante": "Larne",
+      "cuotas_1x2": {
+        "local_1": 2.7,
+        "empate_x": 3.3,
+        "visitante_2": 2.42
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "dIDENkTj",
+      "url": "http://m.flashscore.com.ve/partido/dIDENkTj/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_h-w-welders_vs_linfield",
+      "deporte": "Fútbol",
+      "liga": "IRLANDA DEL NORTE: Irish League Cup",
+      "fecha_local": "2026-11-24",
+      "hora_local": "15:45",
+      "estado": "Programado",
+      "equipo_local": "H&W Welders",
+      "equipo_visitante": "Linfield",
+      "cuotas_1x2": {
+        "local_1": 9.4,
+        "empate_x": 5.8,
+        "visitante_2": 1.23
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": [
+          "V",
+          "D",
+          "D",
+          "V",
+          "D"
+        ],
+        "racha_visitante_ultimos_5": [
+          "V",
+          "V",
+          "V",
+          "E",
+          "V"
+        ],
+        "h2h_resumen": "Últimos 3 H2H: H&W Welders 3-6 Linfield; H&W Welders 0-9 Linfield; H&W Welders 1-2 Linfield"
+      },
+      "mid": "dx48qXkA",
+      "url": "http://m.flashscore.com.ve/partido/dx48qXkA/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_limavady_vs_rathfriland",
+      "deporte": "Fútbol",
+      "liga": "IRLANDA DEL NORTE: Irish League Cup",
+      "fecha_local": "2026-11-24",
+      "hora_local": "15:45",
+      "estado": "Programado",
+      "equipo_local": "Limavady",
+      "equipo_visitante": "Rathfriland",
+      "cuotas_1x2": {
+        "local_1": 1.39,
+        "empate_x": 4.7,
+        "visitante_2": 6.2
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "Ya6gzTCd",
+      "url": "http://m.flashscore.com.ve/partido/Ya6gzTCd/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_loughgall_vs_queens-univ",
+      "deporte": "Fútbol",
+      "liga": "IRLANDA DEL NORTE: Irish League Cup",
+      "fecha_local": "2026-11-24",
+      "hora_local": "15:45",
+      "estado": "Programado",
+      "equipo_local": "Loughgall",
+      "equipo_visitante": "Queens Univ.",
+      "cuotas_1x2": {
+        "local_1": 2.49,
+        "empate_x": 3.5,
+        "visitante_2": 2.49
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "U3HFsBKM",
+      "url": "http://m.flashscore.com.ve/partido/U3HFsBKM/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_moyola_vs_ballymena",
+      "deporte": "Fútbol",
+      "liga": "IRLANDA DEL NORTE: Irish League Cup",
+      "fecha_local": "2026-11-24",
+      "hora_local": "15:45",
+      "estado": "Programado",
+      "equipo_local": "Moyola",
+      "equipo_visitante": "Ballymena",
+      "cuotas_1x2": {
+        "local_1": 6.4,
+        "empate_x": 4.5,
+        "visitante_2": 1.4
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": [
+          "D",
+          "V",
+          "D",
+          "D",
+          "E"
+        ],
+        "racha_visitante_ultimos_5": [
+          "D",
+          "D",
+          "E",
+          "D",
+          "V"
+        ],
+        "h2h_resumen": "Últimos 3 H2H: Moyola 1-3 Ballymena; Moyola 0-3 Ballymena; Moyola 0-1 Ballymena"
+      },
+      "mid": "OO50ogLc",
+      "url": "http://m.flashscore.com.ve/partido/OO50ogLc/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_warrenpoint_vs_cliftonville",
+      "deporte": "Fútbol",
+      "liga": "IRLANDA DEL NORTE: Irish League Cup",
+      "fecha_local": "2026-11-24",
+      "hora_local": "15:45",
+      "estado": "Programado",
+      "equipo_local": "Warrenpoint",
+      "equipo_visitante": "Cliftonville",
+      "cuotas_1x2": {
+        "local_1": null,
+        "empate_x": null,
+        "visitante_2": null
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "0n8oxkrp",
+      "url": "http://m.flashscore.com.ve/partido/0n8oxkrp/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_juve-stabia_vs_catanzaro",
+      "deporte": "Fútbol",
+      "liga": "ITALIA: Serie B",
+      "fecha_local": "2026-11-24",
+      "hora_local": "14:00",
+      "estado": "Programado",
+      "equipo_local": "Juve Stabia",
+      "equipo_visitante": "Catanzaro",
+      "cuotas_1x2": {
+        "local_1": 1.87,
+        "empate_x": 3.6,
+        "visitante_2": 3.9
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "EFw9l4oB",
+      "url": "http://m.flashscore.com.ve/partido/EFw9l4oB/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_benevento_vs_empoli",
+      "deporte": "Fútbol",
+      "liga": "ITALIA: Serie B",
+      "fecha_local": "2026-11-24",
+      "hora_local": "15:00",
+      "estado": "Programado",
+      "equipo_local": "Benevento",
+      "equipo_visitante": "Empoli",
+      "cuotas_1x2": {
+        "local_1": 1.51,
+        "empate_x": 4.3,
+        "visitante_2": 5.5
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "CCKdaLaT",
+      "url": "http://m.flashscore.com.ve/partido/CCKdaLaT/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_cesena_vs_ascoli",
+      "deporte": "Fútbol",
+      "liga": "ITALIA: Serie B",
+      "fecha_local": "2026-11-24",
+      "hora_local": "15:00",
+      "estado": "Programado",
+      "equipo_local": "Cesena",
+      "equipo_visitante": "Ascoli",
+      "cuotas_1x2": {
+        "local_1": 2.75,
+        "empate_x": 3.4,
+        "visitante_2": 2.4
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": 8,
+        "posicion_visitante": 3,
+        "racha_local_ultimos_5": [
+          "V",
+          "V",
+          "E",
+          "V",
+          "D"
+        ],
+        "racha_visitante_ultimos_5": [
+          "E",
+          "E",
+          "E",
+          "V",
+          "V"
+        ],
+        "h2h_resumen": "Últimos 3 H2H: Ascoli 2-1 Cesena; Cesena 0-2 Ascoli; Cesena 2-2 Ascoli"
+      },
+      "mid": "EsIghnnn",
+      "url": "http://m.flashscore.com.ve/partido/EsIghnnn/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_entella_vs_verona",
+      "deporte": "Fútbol",
+      "liga": "ITALIA: Serie B",
+      "fecha_local": "2026-11-24",
+      "hora_local": "15:00",
+      "estado": "Programado",
+      "equipo_local": "Entella",
+      "equipo_visitante": "Verona",
+      "cuotas_1x2": {
+        "local_1": 3.35,
+        "empate_x": 3.25,
+        "visitante_2": 2.15
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": 17,
+        "posicion_visitante": 11,
+        "racha_local_ultimos_5": [
+          "D",
+          "D",
+          "D",
+          "E",
+          "D"
+        ],
+        "racha_visitante_ultimos_5": [
+          "D",
+          "E",
+          "V",
+          "V",
+          "E"
+        ],
+        "h2h_resumen": "Últimos 3 H2H: Verona 2-2 Entella; Entella 1-2 Verona; Verona 1-0 Entella"
+      },
+      "mid": "4nHl1sVG",
+      "url": "http://m.flashscore.com.ve/partido/4nHl1sVG/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_l-r-vicenza_vs_carrarese",
+      "deporte": "Fútbol",
+      "liga": "ITALIA: Serie B",
+      "fecha_local": "2026-11-24",
+      "hora_local": "15:00",
+      "estado": "Programado",
+      "equipo_local": "L.R. Vicenza",
+      "equipo_visitante": "Carrarese",
+      "cuotas_1x2": {
+        "local_1": 2.75,
+        "empate_x": 3.2,
+        "visitante_2": 2.5
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": 18,
+        "posicion_visitante": 14,
+        "racha_local_ultimos_5": [
+          "E",
+          "D",
+          "D",
+          "D",
+          "V"
+        ],
+        "racha_visitante_ultimos_5": [
+          "V",
+          "D",
+          "D",
+          "V",
+          "D"
+        ],
+        "h2h_resumen": "Últimos 3 H2H: Carrarese 1-0 L.R. Vicenza; L.R. Vicenza 0-0 Carrarese; Carrarese 2-4 L.R. Vicenza"
+      },
+      "mid": "M7L1jQGb",
+      "url": "http://m.flashscore.com.ve/partido/M7L1jQGb/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_palermo_vs_sudtirol",
+      "deporte": "Fútbol",
+      "liga": "ITALIA: Serie B",
+      "fecha_local": "2026-11-24",
+      "hora_local": "15:00",
+      "estado": "Programado",
+      "equipo_local": "Palermo",
+      "equipo_visitante": "Sudtirol",
+      "cuotas_1x2": {
+        "local_1": 1.43,
+        "empate_x": 4.7,
+        "visitante_2": 6.5
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "IVIt3304",
+      "url": "http://m.flashscore.com.ve/partido/IVIt3304/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_ryukyu_vs_kumamoto",
+      "deporte": "Fútbol",
+      "liga": "JAPÓN: J3 League",
+      "fecha_local": "2026-11-24",
+      "hora_local": "23:00",
+      "estado": "Programado",
+      "equipo_local": "Ryukyu",
+      "equipo_visitante": "Kumamoto",
+      "cuotas_1x2": {
+        "local_1": null,
+        "empate_x": null,
+        "visitante_2": null
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "6y1DUp0c",
+      "url": "http://m.flashscore.com.ve/partido/6y1DUp0c/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_bandari_vs_mathare",
+      "deporte": "Fútbol",
+      "liga": "KENIA: Premier League",
+      "fecha_local": "2026-11-24",
+      "hora_local": "08:00",
+      "estado": "Programado",
+      "equipo_local": "Bandari",
+      "equipo_visitante": "Mathare Utd.",
+      "cuotas_1x2": {
+        "local_1": null,
+        "empate_x": null,
+        "visitante_2": null
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "IwRlvdLj",
+      "url": "http://m.flashscore.com.ve/partido/IwRlvdLj/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_kariobangi-sharks_vs_fortune-sacco",
+      "deporte": "Fútbol",
+      "liga": "KENIA: Super League",
+      "fecha_local": "2026-11-24",
+      "hora_local": "08:00",
+      "estado": "Programado",
+      "equipo_local": "Kariobangi Sharks",
+      "equipo_visitante": "Fortune Sacco",
+      "cuotas_1x2": {
+        "local_1": null,
+        "empate_x": null,
+        "visitante_2": null
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "juLXjHFi",
+      "url": "http://m.flashscore.com.ve/partido/juLXjHFi/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_luanda-villa_vs_equity-bank",
+      "deporte": "Fútbol",
+      "liga": "KENIA: Super League",
+      "fecha_local": "2026-11-24",
+      "hora_local": "08:00",
+      "estado": "Programado",
+      "equipo_local": "Luanda Villa",
+      "equipo_visitante": "Equity Bank",
+      "cuotas_1x2": {
+        "local_1": null,
+        "empate_x": null,
+        "visitante_2": null
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "tSxhvvWo",
+      "url": "http://m.flashscore.com.ve/partido/tSxhvvWo/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_mofa_vs_nairobi",
+      "deporte": "Fútbol",
+      "liga": "KENIA: Super League",
+      "fecha_local": "2026-11-24",
+      "hora_local": "08:00",
+      "estado": "Programado",
+      "equipo_local": "MOFA",
+      "equipo_visitante": "Nairobi City",
+      "cuotas_1x2": {
+        "local_1": null,
+        "empate_x": null,
+        "visitante_2": null
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "0EKLhITs",
+      "url": "http://m.flashscore.com.ve/partido/0EKLhITs/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_soy_vs_kiminini-combined",
+      "deporte": "Fútbol",
+      "liga": "KENIA: Super League",
+      "fecha_local": "2026-11-24",
+      "hora_local": "08:00",
+      "estado": "Programado",
+      "equipo_local": "Soy United",
+      "equipo_visitante": "Kiminini Combined",
+      "cuotas_1x2": {
+        "local_1": null,
+        "empate_x": null,
+        "visitante_2": null
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "t6yykzT6",
+      "url": "http://m.flashscore.com.ve/partido/t6yykzT6/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_golden-star_vs_colonial",
+      "deporte": "Fútbol",
+      "liga": "MARTINICA: Trophee Gerard Janvion",
+      "fecha_local": "2026-11-24",
+      "hora_local": "20:00",
+      "estado": "Programado",
+      "equipo_local": "Golden Star",
+      "equipo_visitante": "Club Colonial",
+      "cuotas_1x2": {
+        "local_1": null,
+        "empate_x": null,
+        "visitante_2": null
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "IaCVn1kf",
+      "url": "http://m.flashscore.com.ve/partido/IaCVn1kf/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_guerreros-autlan_vs_heroes-zaci",
+      "deporte": "Fútbol",
+      "liga": "MÉXICO: Liga Premier Serie A",
+      "fecha_local": "2026-11-24",
+      "hora_local": "22:00",
+      "estado": "Programado",
+      "equipo_local": "Guerreros de Autlan",
+      "equipo_visitante": "Heroes de Zaci",
+      "cuotas_1x2": {
+        "local_1": null,
+        "empate_x": null,
+        "visitante_2": null
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "AaEaI53k",
+      "url": "http://m.flashscore.com.ve/partido/AaEaI53k/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_arsenal-tivat_vs_decic",
+      "deporte": "Fútbol",
+      "liga": "MONTENEGRO: Prva Crnogorska Liga",
+      "fecha_local": "2026-11-24",
+      "hora_local": "09:00",
+      "estado": "Programado",
+      "equipo_local": "Arsenal Tivat",
+      "equipo_visitante": "Decic",
+      "cuotas_1x2": {
+        "local_1": 5.8,
+        "empate_x": 3.55,
+        "visitante_2": 1.58
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": 10,
+        "posicion_visitante": 5,
+        "racha_local_ultimos_5": [
+          "D",
+          "D",
+          "D",
+          "E",
+          "E"
+        ],
+        "racha_visitante_ultimos_5": [
+          "E",
+          "V",
+          "D",
+          "V",
+          "D"
+        ],
+        "h2h_resumen": "Últimos 3 H2H: Decic 0-0 Arsenal Tivat; Decic 4-1 Arsenal Tivat; Decic 1-2 Arsenal Tivat"
+      },
+      "mid": "WMGu5bNs",
+      "url": "http://m.flashscore.com.ve/partido/WMGu5bNs/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_grbalj_vs_mladost-dg",
+      "deporte": "Fútbol",
+      "liga": "MONTENEGRO: Cup",
+      "fecha_local": "2026-11-24",
+      "hora_local": "08:00",
+      "estado": "Programado",
+      "equipo_local": "Grbalj",
+      "equipo_visitante": "Mladost DG",
+      "cuotas_1x2": {
+        "local_1": null,
+        "empate_x": null,
+        "visitante_2": null
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "K4UrxGYF",
+      "url": "http://m.flashscore.com.ve/partido/K4UrxGYF/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_jedinstvo_vs_sutjeska",
+      "deporte": "Fútbol",
+      "liga": "MONTENEGRO: Cup",
+      "fecha_local": "2026-11-24",
+      "hora_local": "09:00",
+      "estado": "Programado",
+      "equipo_local": "Jedinstvo",
+      "equipo_visitante": "Sutjeska",
+      "cuotas_1x2": {
+        "local_1": null,
+        "empate_x": null,
+        "visitante_2": null
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "UcMUSBe2",
+      "url": "http://m.flashscore.com.ve/partido/UcMUSBe2/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_mornar_vs_jezero",
+      "deporte": "Fútbol",
+      "liga": "MONTENEGRO: Cup",
+      "fecha_local": "2026-11-24",
+      "hora_local": "09:00",
+      "estado": "Programado",
+      "equipo_local": "Mornar",
+      "equipo_visitante": "Jezero",
+      "cuotas_1x2": {
+        "local_1": null,
+        "empate_x": null,
+        "visitante_2": null
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "O0JMUXQk",
+      "url": "http://m.flashscore.com.ve/partido/O0JMUXQk/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_enh-vilankulo_vs_ud-songo",
+      "deporte": "Fútbol",
+      "liga": "MOZAMBIQUE: Mocambola",
+      "fecha_local": "2026-11-24",
+      "hora_local": "09:00",
+      "estado": "Programado",
+      "equipo_local": "ENH Vilankulo",
+      "equipo_visitante": "UD Songo",
+      "cuotas_1x2": {
+        "local_1": null,
+        "empate_x": null,
+        "visitante_2": null
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "jDA3IUqQ",
+      "url": "http://m.flashscore.com.ve/partido/jDA3IUqQ/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_zwolle-sub-21_vs_twente-heracles-sub-21",
+      "deporte": "Fútbol",
+      "liga": "PAÍSES BAJOS: Divisie 1 U21 - Fall Season",
+      "fecha_local": "2026-11-24",
+      "hora_local": "07:30",
+      "estado": "Programado",
+      "equipo_local": "Zwolle Sub-21",
+      "equipo_visitante": "FC Twente/Heracles Sub-21",
+      "cuotas_1x2": {
+        "local_1": null,
+        "empate_x": null,
+        "visitante_2": null
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "x0sxDtop",
+      "url": "http://m.flashscore.com.ve/partido/x0sxDtop/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_felgueiras-sub-23_vs_academico-viseu-sub-23",
+      "deporte": "Fútbol",
+      "liga": "PORTUGAL: Liga Next Gen U23",
+      "fecha_local": "2026-11-24",
+      "hora_local": "11:00",
+      "estado": "Programado",
+      "equipo_local": "Felgueiras Sub-23",
+      "equipo_visitante": "Academico Viseu Sub-23",
+      "cuotas_1x2": {
+        "local_1": null,
+        "empate_x": null,
+        "visitante_2": null
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "js2V25JE",
+      "url": "http://m.flashscore.com.ve/partido/js2V25JE/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_portimonense-sub-23_vs_estrela-sub-23",
+      "deporte": "Fútbol",
+      "liga": "PORTUGAL: Liga Next Gen U23",
+      "fecha_local": "2026-11-24",
+      "hora_local": "11:00",
+      "estado": "Programado",
+      "equipo_local": "Portimonense Sub-23",
+      "equipo_visitante": "Estrela Sub-23",
+      "cuotas_1x2": {
+        "local_1": null,
+        "empate_x": null,
+        "visitante_2": null
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "KbR5iWGU",
+      "url": "http://m.flashscore.com.ve/partido/KbR5iWGU/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_rio-ave-sub-23_vs_leiria-sub-23",
+      "deporte": "Fútbol",
+      "liga": "PORTUGAL: Liga Next Gen U23",
+      "fecha_local": "2026-11-24",
+      "hora_local": "11:00",
+      "estado": "Programado",
+      "equipo_local": "Rio Ave Sub-23",
+      "equipo_visitante": "Leiria Sub-23",
+      "cuotas_1x2": {
+        "local_1": null,
+        "empate_x": null,
+        "visitante_2": null
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "Of0w1qlR",
+      "url": "http://m.flashscore.com.ve/partido/Of0w1qlR/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_torreense-sub-23_vs_vizela-sub-23",
+      "deporte": "Fútbol",
+      "liga": "PORTUGAL: Liga Next Gen U23",
+      "fecha_local": "2026-11-24",
+      "hora_local": "13:00",
+      "estado": "Programado",
+      "equipo_local": "Torreense Sub-23",
+      "equipo_visitante": "Vizela Sub-23",
+      "cuotas_1x2": {
+        "local_1": null,
+        "empate_x": null,
+        "visitante_2": null
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "S44Gg1t1",
+      "url": "http://m.flashscore.com.ve/partido/S44Gg1t1/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_manika_vs_st-eloi-lupopo",
+      "deporte": "Fútbol",
+      "liga": "RD CONGO: Ligue 1",
+      "fecha_local": "2026-11-24",
+      "hora_local": "05:00",
+      "estado": "Programado",
+      "equipo_local": "Manika",
+      "equipo_visitante": "St Eloi Lupopo",
+      "cuotas_1x2": {
+        "local_1": null,
+        "empate_x": null,
+        "visitante_2": null
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "CbDOkKdd",
+      "url": "http://m.flashscore.com.ve/partido/CbDOkKdd/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_blessing_vs_as-new-soger",
+      "deporte": "Fútbol",
+      "liga": "RD CONGO: Ligue 1",
+      "fecha_local": "2026-11-24",
+      "hora_local": "09:00",
+      "estado": "Programado",
+      "equipo_local": "Blessing",
+      "equipo_visitante": "AS New Soger",
+      "cuotas_1x2": {
+        "local_1": null,
+        "empate_x": null,
+        "visitante_2": null
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "Kr7Q9ulS",
+      "url": "http://m.flashscore.com.ve/partido/Kr7Q9ulS/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_etoile-kivu_vs_novakin",
+      "deporte": "Fútbol",
+      "liga": "RD CONGO: Ligue 1",
+      "fecha_local": "2026-11-24",
+      "hora_local": "09:00",
+      "estado": "Programado",
+      "equipo_local": "Etoile de Kivu",
+      "equipo_visitante": "Novakin",
+      "cuotas_1x2": {
+        "local_1": null,
+        "empate_x": null,
+        "visitante_2": null
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "vadGFkiB",
+      "url": "http://m.flashscore.com.ve/partido/vadGFkiB/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_tanganyika_vs_mazembe",
+      "deporte": "Fútbol",
+      "liga": "RD CONGO: Ligue 1",
+      "fecha_local": "2026-11-24",
+      "hora_local": "09:00",
+      "estado": "Programado",
+      "equipo_local": "Tanganyika",
+      "equipo_visitante": "Mazembe",
+      "cuotas_1x2": {
+        "local_1": null,
+        "empate_x": null,
+        "visitante_2": null
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "v55ADNl3",
+      "url": "http://m.flashscore.com.ve/partido/v55ADNl3/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_bugesera_vs_rayon-sport",
+      "deporte": "Fútbol",
+      "liga": "RUANDA: Premier League",
+      "fecha_local": "2026-11-24",
+      "hora_local": "09:00",
+      "estado": "Programado",
+      "equipo_local": "Bugesera",
+      "equipo_visitante": "Rayon Sport",
+      "cuotas_1x2": {
+        "local_1": null,
+        "empate_x": null,
+        "visitante_2": null
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "6kEtCJuf",
+      "url": "http://m.flashscore.com.ve/partido/6kEtCJuf/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_kiyovu_vs_al-hilal-omdurman",
+      "deporte": "Fútbol",
+      "liga": "RUANDA: Premier League",
+      "fecha_local": "2026-11-24",
+      "hora_local": "12:30",
+      "estado": "Programado",
+      "equipo_local": "Kiyovu",
+      "equipo_visitante": "Al-Hilal Omdurman",
+      "cuotas_1x2": {
+        "local_1": null,
+        "empate_x": null,
+        "visitante_2": null
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "ADigLigl",
+      "url": "http://m.flashscore.com.ve/partido/ADigLigl/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_akron-togliatti_vs_cska-moscu",
+      "deporte": "Fútbol",
+      "liga": "RUSIA: Copa de Rusia - Fase Grupos",
+      "fecha_local": "2026-11-24",
+      "hora_local": "10:00",
+      "estado": "Programado",
+      "equipo_local": "Akron Togliatti",
+      "equipo_visitante": "CSKA Moscú",
+      "cuotas_1x2": {
+        "local_1": 4,
+        "empate_x": 3.8,
+        "visitante_2": 1.74
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": 3,
+        "posicion_visitante": 2,
+        "racha_local_ultimos_5": [
+          "D",
+          "D",
+          "D",
+          "D",
+          "V"
+        ],
+        "racha_visitante_ultimos_5": [
+          "D",
+          "V",
+          "D",
+          "E",
+          "V"
+        ],
+        "h2h_resumen": "Últimos 3 H2H: Akron Togliatti 2-2 CSKA Moscú; CSKA Moscú 0-1 Akron Togliatti; Akron Togliatti 1-2 CSKA Moscú"
+      },
+      "mid": "x4m5wbGq",
+      "url": "http://m.flashscore.com.ve/partido/x4m5wbGq/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_zenit_vs_kr-sovetov",
+      "deporte": "Fútbol",
+      "liga": "RUSIA: Copa de Rusia - Fase Grupos",
+      "fecha_local": "2026-11-24",
+      "hora_local": "12:30",
+      "estado": "Programado",
+      "equipo_local": "Zenit",
+      "equipo_visitante": "Kr. Sovetov",
+      "cuotas_1x2": {
+        "local_1": 1.51,
+        "empate_x": 4.2,
+        "visitante_2": 5.2
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "Ai6zm7wC",
+      "url": "http://m.flashscore.com.ve/partido/Ai6zm7wC/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_durban_vs_polokwane",
+      "deporte": "Fútbol",
+      "liga": "SUDÁFRICA: Betway Premiership",
+      "fecha_local": "2026-11-24",
+      "hora_local": "13:30",
+      "estado": "Programado",
+      "equipo_local": "Durban City",
+      "equipo_visitante": "Polokwane",
+      "cuotas_1x2": {
+        "local_1": 2.16,
+        "empate_x": 2.75,
+        "visitante_2": 3.8
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "pY0Bv23N",
+      "url": "http://m.flashscore.com.ve/partido/pY0Bv23N/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_orlando_vs_golden-arrows",
+      "deporte": "Fútbol",
+      "liga": "SUDÁFRICA: Betway Premiership",
+      "fecha_local": "2026-11-24",
+      "hora_local": "13:30",
+      "estado": "Programado",
+      "equipo_local": "Orlando",
+      "equipo_visitante": "Golden Arrows",
+      "cuotas_1x2": {
+        "local_1": 1.3,
+        "empate_x": 4.8,
+        "visitante_2": 8.8
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "MXpqg1IG",
+      "url": "http://m.flashscore.com.ve/partido/MXpqg1IG/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_dietikon_vs_eschen-mauren",
+      "deporte": "Fútbol",
+      "liga": "SUIZA: 1. Liga Grupo 3",
+      "fecha_local": "2026-11-24",
+      "hora_local": "15:00",
+      "estado": "Programado",
+      "equipo_local": "Dietikon",
+      "equipo_visitante": "Eschen/Mauren",
+      "cuotas_1x2": {
+        "local_1": null,
+        "empate_x": null,
+        "visitante_2": null
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "xnpcJ3OO",
+      "url": "http://m.flashscore.com.ve/partido/xnpcJ3OO/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_chanthaburi_vs_pattaya",
+      "deporte": "Fútbol",
+      "liga": "TAILANDIA: Thai League 2",
+      "fecha_local": "2026-11-24",
+      "hora_local": "07:00",
+      "estado": "Programado",
+      "equipo_local": "Chanthaburi",
+      "equipo_visitante": "Pattaya United",
+      "cuotas_1x2": {
+        "local_1": null,
+        "empate_x": null,
+        "visitante_2": null
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "GbWQpoH1",
+      "url": "http://m.flashscore.com.ve/partido/GbWQpoH1/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_nakhon-pathom_vs_chainat",
+      "deporte": "Fútbol",
+      "liga": "TAILANDIA: Thai League 2",
+      "fecha_local": "2026-11-24",
+      "hora_local": "08:00",
+      "estado": "Programado",
+      "equipo_local": "Nakhon Pathom",
+      "equipo_visitante": "Chainat",
+      "cuotas_1x2": {
+        "local_1": null,
+        "empate_x": null,
+        "visitante_2": null
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "MeJC8l98",
+      "url": "http://m.flashscore.com.ve/partido/MeJC8l98/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_ariana_vs_kairouanaise",
+      "deporte": "Fútbol",
+      "liga": "TÚNEZ: Ligue 2",
+      "fecha_local": "2026-11-24",
+      "hora_local": "09:00",
+      "estado": "Programado",
+      "equipo_local": "Ariana",
+      "equipo_visitante": "Kairouanaise",
+      "cuotas_1x2": {
+        "local_1": null,
+        "empate_x": null,
+        "visitante_2": null
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "6sW2m6jT",
+      "url": "http://m.flashscore.com.ve/partido/6sW2m6jT/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_jendouba-sport_vs_ksour-essef",
+      "deporte": "Fútbol",
+      "liga": "TÚNEZ: Ligue 2",
+      "fecha_local": "2026-11-24",
+      "hora_local": "09:00",
+      "estado": "Programado",
+      "equipo_local": "Jendouba Sport",
+      "equipo_visitante": "Ksour Essef",
+      "cuotas_1x2": {
+        "local_1": null,
+        "empate_x": null,
+        "visitante_2": null
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "xpDS3RzA",
+      "url": "http://m.flashscore.com.ve/partido/xpDS3RzA/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_kalaa_vs_korba",
+      "deporte": "Fútbol",
+      "liga": "TÚNEZ: Ligue 2",
+      "fecha_local": "2026-11-24",
+      "hora_local": "09:00",
+      "estado": "Programado",
+      "equipo_local": "Kalaa",
+      "equipo_visitante": "Korba",
+      "cuotas_1x2": {
+        "local_1": null,
+        "empate_x": null,
+        "visitante_2": null
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "hKPnili4",
+      "url": "http://m.flashscore.com.ve/partido/hKPnili4/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_redeyef_vs_gafsa",
+      "deporte": "Fútbol",
+      "liga": "TÚNEZ: Ligue 2",
+      "fecha_local": "2026-11-24",
+      "hora_local": "09:00",
+      "estado": "Programado",
+      "equipo_local": "Redeyef",
+      "equipo_visitante": "Gafsa",
+      "cuotas_1x2": {
+        "local_1": null,
+        "empate_x": null,
+        "visitante_2": null
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "0pTfkSLG",
+      "url": "http://m.flashscore.com.ve/partido/0pTfkSLG/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_stade-gabesien_vs_kasserine",
+      "deporte": "Fútbol",
+      "liga": "TÚNEZ: Ligue 2",
+      "fecha_local": "2026-11-24",
+      "hora_local": "09:00",
+      "estado": "Programado",
+      "equipo_local": "Stade Gabesien",
+      "equipo_visitante": "Kasserine",
+      "cuotas_1x2": {
+        "local_1": null,
+        "empate_x": null,
+        "visitante_2": null
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "2DHYspEj",
+      "url": "http://m.flashscore.com.ve/partido/2DHYspEj/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_ahrobiznes-volochysk_vs_chernihiv",
+      "deporte": "Fútbol",
+      "liga": "UCRANIA: Persha Liga",
+      "fecha_local": "2026-11-24",
+      "hora_local": "05:00",
+      "estado": "Programado",
+      "equipo_local": "Ahrobiznes Volochysk",
+      "equipo_visitante": "FC Chernihiv",
+      "cuotas_1x2": {
+        "local_1": null,
+        "empate_x": null,
+        "visitante_2": null
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "dfP3O3qL",
+      "url": "http://m.flashscore.com.ve/partido/dfP3O3qL/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_lnz-cherkasy-sub-21_vs_polissya-zhytomyr-sub-21",
+      "deporte": "Fútbol",
+      "liga": "UCRANIA: Premier League 2",
+      "fecha_local": "2026-11-24",
+      "hora_local": "06:00",
+      "estado": "Programado",
+      "equipo_local": "LNZ Cherkasy Sub-21",
+      "equipo_visitante": "Polissya Zhytomyr Sub-21",
+      "cuotas_1x2": {
+        "local_1": null,
+        "empate_x": null,
+        "visitante_2": null
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "x4T8dYEq",
+      "url": "http://m.flashscore.com.ve/partido/x4T8dYEq/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_ch-odesa-sub-21_vs_epitsentr-sub-21",
+      "deporte": "Fútbol",
+      "liga": "UCRANIA: Premier League 2",
+      "fecha_local": "2026-11-24",
+      "hora_local": "07:00",
+      "estado": "Programado",
+      "equipo_local": "Ch. Odesa Sub-21",
+      "equipo_visitante": "Epitsentr Sub-21",
+      "cuotas_1x2": {
+        "local_1": null,
+        "empate_x": null,
+        "visitante_2": null
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "fsFd7kT1",
+      "url": "http://m.flashscore.com.ve/partido/fsFd7kT1/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_blacks-power_vs_entebbe-uppc",
+      "deporte": "Fútbol",
+      "liga": "UGANDA: Premier League",
+      "fecha_local": "2026-11-24",
+      "hora_local": "09:00",
+      "estado": "Programado",
+      "equipo_local": "Blacks Power",
+      "equipo_visitante": "Entebbe UPPC",
+      "cuotas_1x2": {
+        "local_1": null,
+        "empate_x": null,
+        "visitante_2": null
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "M5CaZCMb",
+      "url": "http://m.flashscore.com.ve/partido/M5CaZCMb/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_updf_vs_mbarara",
+      "deporte": "Fútbol",
+      "liga": "UGANDA: Premier League",
+      "fecha_local": "2026-11-24",
+      "hora_local": "09:00",
+      "estado": "Programado",
+      "equipo_local": "UPDF",
+      "equipo_visitante": "Mbarara City",
+      "cuotas_1x2": {
+        "local_1": null,
+        "empate_x": null,
+        "visitante_2": null
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "UVF7XjiB",
+      "url": "http://m.flashscore.com.ve/partido/UVF7XjiB/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_andijan_vs_lok-tashkent",
+      "deporte": "Fútbol",
+      "liga": "UZBEKISTÁN: Uzbekistan Cup",
+      "fecha_local": "2026-11-24",
+      "hora_local": "09:15",
+      "estado": "Programado",
+      "equipo_local": "Andijan",
+      "equipo_visitante": "Lok. Tashkent",
+      "cuotas_1x2": {
+        "local_1": null,
+        "empate_x": null,
+        "visitante_2": null
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "MXjWtLvo",
+      "url": "http://m.flashscore.com.ve/partido/MXjWtLvo/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_okmk_vs_navbahor-namangan",
+      "deporte": "Fútbol",
+      "liga": "UZBEKISTÁN: Uzbekistan Cup",
+      "fecha_local": "2026-11-24",
+      "hora_local": "09:15",
+      "estado": "Programado",
+      "equipo_local": "OKMK",
+      "equipo_visitante": "Navbahor Namangan",
+      "cuotas_1x2": {
+        "local_1": null,
+        "empate_x": null,
+        "visitante_2": null
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "Q150nsHN",
+      "url": "http://m.flashscore.com.ve/partido/Q150nsHN/?d=1"
+    },
+    {
+      "match_slug": "2026-11-24_universidad-central_vs_anzoategui",
+      "deporte": "Fútbol",
+      "liga": "VENEZUELA: Copa Venezuela - Playoffs",
+      "fecha_local": "2026-11-24",
+      "hora_local": "19:30",
+      "estado": "Programado",
+      "equipo_local": "Universidad Central",
+      "equipo_visitante": "Anzoategui FC",
+      "cuotas_1x2": {
+        "local_1": null,
+        "empate_x": null,
+        "visitante_2": null
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "IFEviNGD",
+      "url": "http://m.flashscore.com.ve/partido/IFEviNGD/?d=1"
+    }
+  ]
+}

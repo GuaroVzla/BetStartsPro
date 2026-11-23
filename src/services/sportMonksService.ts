@@ -1,6 +1,7 @@
 import type { ApiSportsEvent } from "@/services/apiSportsService";
 import type { NormalizedOddsEvent } from "@/services/oddsApiService";
 import type { BookmakerQuote, LeagueInfo, OutcomePrices } from "@/types/sports";
+import { dateInVET, dateInVETOffset } from "@/lib/format";
 
 const SPORTMONKS_BASE = "https://api.sportmonks.com/v3/football";
 const CACHE_SECONDS = 3600;
@@ -68,13 +69,6 @@ function parseNumber(value: unknown): number | null {
 function minNullable(values: Array<number | null>): number | null {
   const valid = values.filter((value): value is number => value !== null);
   return valid.length === 0 ? null : Math.min(...valid);
-}
-
-function formatLocalDate(date: Date): string {
-  const year = date.getFullYear();
-  const month = String(date.getMonth() + 1).padStart(2, "0");
-  const day = String(date.getDate()).padStart(2, "0");
-  return `${year}-${month}-${day}`;
 }
 
 function normalizeTimestamp(value: string): string {
@@ -278,25 +272,52 @@ export async function fetchSportMonksForLeague(
   }
   if (league.sport !== "soccer" || !league.sportmonksLeagueId) return empty;
 
-  const fixturesResult = await request<SportMonksFixture[]>(
-    `/fixtures/date/${formatLocalDate(new Date())}`,
-    { include: "participants" },
+  const now = new Date();
+  // SportMonks filtra por fecha calendario: pedimos hoy y mañana en VET para
+  // que el radial no pierda eventos de madrugada por el UTC del Worker.
+  const dateResults = await Promise.allSettled(
+    [dateInVET(now), dateInVETOffset(1, now)].map((date) =>
+      request<SportMonksFixture[]>(`/fixtures/date/${date}`, {
+        include: "participants",
+      }),
+    ),
   );
-  if (fixturesResult.error) {
-    return {
-      ...empty,
-      creditsRemaining: fixturesResult.remaining,
-      error: fixturesResult.error,
-    };
-  }
 
-  const fixtures = (fixturesResult.data ?? [])
-    .filter((fixture) => fixture.league_id === league.sportmonksLeagueId)
-    .map((fixture) => mapFixture(fixture, league))
-    .filter((fixture): fixture is ApiSportsEvent => fixture !== null);
+  const fixtures = dateResults.flatMap((result) => {
+    if (result.status !== "fulfilled" || result.value.error) return [];
+    return (result.value.data ?? [])
+      .filter((fixture) => fixture.league_id === league.sportmonksLeagueId)
+      .map((fixture) => mapFixture(fixture, league))
+      .filter((fixture): fixture is ApiSportsEvent => fixture !== null);
+  });
+
+  const fixtureCredits = minNullable(
+    dateResults.map((result) =>
+      result.status === "fulfilled" ? result.value.remaining : null,
+    ),
+  );
+  const fixtureError =
+    dateResults.flatMap((result) =>
+      result.status === "fulfilled" && result.value.error
+        ? [result.value.error]
+        : [],
+    )[0] ??
+    dateResults.flatMap((result) =>
+      result.status === "rejected"
+        ? [
+            result.reason instanceof Error
+              ? result.reason.message
+              : "Error de red en SportMonks",
+          ]
+        : [],
+    )[0];
 
   if (fixtures.length === 0) {
-    return { ...empty, creditsRemaining: fixturesResult.remaining };
+    return {
+      ...empty,
+      creditsRemaining: fixtureCredits,
+      error: fixtureError,
+    };
   }
 
   const oddsResults = await Promise.all(fixtures.map(fetchFixtureOdds));
@@ -312,9 +333,9 @@ export async function fetchSportMonksForLeague(
     fixtures,
     oddsEvents,
     creditsRemaining: minNullable([
-      fixturesResult.remaining,
+      fixtureCredits,
       ...oddsResults.map((result) => result.remaining),
     ]),
-    error: firstError,
+    error: fixtureError ?? firstError,
   };
 }

@@ -134,9 +134,14 @@ function toSportsMatch(record: StoredRecord): SportsMatch | null {
   if (!record.equipo_local?.trim() || !record.equipo_visitante?.trim()) return null;
 
   const sport = SPORT_BY_LABEL[normalizeSportLabel(record.deporte)] ?? "soccer";
-  const fecha = /^\d{4}-\d{2}-\d{2}$/.test(record.fecha_extraccion)
-    ? record.fecha_extraccion
-    : dateInVET();
+  // La fecha del encuentro viaja en el slug (YYYY-MM-DD_...) y en fecha_local;
+  // fecha_extraccion es solo la fecha de la captura. Priorizar esas claves
+  // permite sembrar hoy y mañana en un único payload sin fechar mal los partidos.
+  const fecha =
+    /^(\d{4}-\d{2}-\d{2})_/.exec(record.match_slug)?.[1] ??
+    (/^\d{4}-\d{2}-\d{2}$/.test(record.fecha_extraccion)
+      ? record.fecha_extraccion
+      : dateInVET());
   const hora = /^\d{2}:\d{2}$/.test(record.hora_local ?? "") ? record.hora_local! : "12:00";
   const status =
     record.estado === "En Vivo"
@@ -202,10 +207,13 @@ function toSportsMatch(record: StoredRecord): SportsMatch | null {
  * Convierte los registros ingeridos por el agente a partidos del dashboard.
  * Se incluyen hoy y mañana (VET); el agregador descarta los ya iniciados.
  */
-export function flashscoreRecordsToMatches(records: StoredRecord[]): SportsMatch[] {
+export function flashscoreRecordsToMatches(
+  records: StoredRecord[],
+  now: Date = new Date(),
+): SportsMatch[] {
   return records
     .map(toSportsMatch)
     .filter((match): match is SportsMatch => match !== null)
-    .filter((match) => matchDayVET(match.commenceTime) !== null)
+    .filter((match) => matchDayVET(match.commenceTime, now) !== null)
     .sort((a, b) => a.commenceTime.localeCompare(b.commenceTime));
 }

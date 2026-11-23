@@ -3,6 +3,7 @@ import type {
   FormResult,
   Injury,
   MatchAnalysis,
+  MatchDay,
   OutcomeAnalysis,
   OutcomeKey,
   SportKey,
@@ -13,7 +14,7 @@ import type {
   VenueSplit,
 } from "@/types/sports";
 import { clamp, round } from "@/lib/utils";
-import { matchDayVET, resolveMatchStatus } from "@/lib/format";
+import { isMatchDayVET, resolveMatchStatus } from "@/lib/format";
 import { formatInteger } from "@/lib/format";
 
 const DEFAULT_MIN_PROBABILITY = 0.5;
@@ -373,14 +374,16 @@ function evaluateValueFavorite(
   match: SportsMatch,
   outcome: OutcomeKey,
   bestOdds: number | null,
-  day: "today" | "tomorrow" = "today",
+  options: Required<AnalyzerOptions>,
 ): ValueFavoriteScore | null {
-  // Filtrado estricto de ventana temporal: solo partidos de hoy o mañana (VET).
-  // Se descartan automáticamente encuentros programados a más de 1 día
-  // (pasado mañana en adelante) o que ya hayan comenzado/finalizado.
-  const matchDay = matchDayVET(match.commenceTime);
-  if (matchDay !== day) return null;
-  if (resolveMatchStatus(match) !== "scheduled") return null;
+  // Ventana compartida con el dashboard: se usa el mismo `now` para evitar
+  // que el servidor y el cliente discrepen al cruzar la medianoche VET.
+  if (
+    !isMatchDayVET(match.commenceTime, options.day, options.now) ||
+    resolveMatchStatus(match, options.now) !== "scheduled"
+  ) {
+    return null;
+  }
   const favorite = marketFavorite(match);
   if (outcome === "draw" || favorite !== outcome) return null;
 
@@ -481,7 +484,7 @@ function buildOutcomeAnalyses(
       expectedValue > 0 &&
       (isFavorite || probability >= options.minProbability);
     const valueFavorite = isFavorite
-      ? evaluateValueFavorite(match, outcome, usableBest)
+      ? evaluateValueFavorite(match, outcome, usableBest, options)
       : null;
 
     return {
@@ -494,7 +497,11 @@ function buildOutcomeAnalyses(
             : "Empate",
       selectionName: pickLabel(match, outcome),
       modelProbability: probability,
-      probabilitySource: hasGoalStatistics(match) ? "modelo" : "mercado",
+      probabilitySource: match.analyst?.winProbabilities
+        ? "analista"
+        : hasGoalStatistics(match)
+          ? "modelo"
+          : "mercado",
       impliedProbability,
       fairOdds: probability > 0 ? 1 / probability : 0,
       bestOdds: usableBest,
@@ -520,6 +527,9 @@ export function analyzeMatch(
   const resolvedOptions: Required<AnalyzerOptions> = {
     minProbability: options.minProbability ?? DEFAULT_MIN_PROBABILITY,
     minOdds: options.minOdds ?? DEFAULT_MIN_ODDS,
+    now: options.now ?? new Date(),
+    day: options.day ?? "all",
+    analystWeight: options.analystWeight ?? 0.45,
   };
   const projections = projectScores(match);
   const sportModel = SPORT_MODELS[match.sport];
@@ -562,6 +572,29 @@ export function analyzeMatch(
     }
   }
 
+  // The Analyst aporta probabilidades editoriales (xG, forma, rachas). Se
+  // combinan con el modelo+m mercado para que un partido sin estadísticas de
+  // goles locales también tenga una probabilidad estadística trazable.
+  const analystProbabilities = match.analyst?.winProbabilities;
+  if (
+    analystProbabilities &&
+    Object.values(analystProbabilities).some((value) => value > 0) &&
+    resolvedOptions.analystWeight > 0
+  ) {
+    const weight = clamp(resolvedOptions.analystWeight, 0, 1);
+    probabilities = normalizeProbabilities(
+      {
+        home:
+          probabilities.home * (1 - weight) + analystProbabilities.home * weight,
+        draw:
+          probabilities.draw * (1 - weight) + analystProbabilities.draw * weight,
+        away:
+          probabilities.away * (1 - weight) + analystProbabilities.away * weight,
+      },
+      match.sport === "soccer",
+    );
+  }
+
   const picks = buildOutcomeAnalyses(match, probabilities, resolvedOptions);
   const topPick = [...picks].sort(
     (a, b) =>
@@ -590,9 +623,15 @@ export function buildValuePicks(
   const resolvedOptions: Required<AnalyzerOptions> = {
     minProbability: options.minProbability ?? DEFAULT_MIN_PROBABILITY,
     minOdds: options.minOdds ?? DEFAULT_MIN_ODDS,
+    now: options.now ?? new Date(),
+    day: options.day ?? "all",
+    analystWeight: options.analystWeight ?? 0.45,
   };
 
   return matches
+    .filter((match) =>
+      isMatchDayVET(match.commenceTime, resolvedOptions.day, resolvedOptions.now),
+    )
     .flatMap((match) => {
       const analysis = analyzeMatch(match, resolvedOptions);
       return analysis.picks
@@ -620,20 +659,27 @@ export function buildValuePicks(
  */
 export function buildValueFavoritePicks(
   matches: SportsMatch[],
-  day: "today" | "tomorrow" = "today",
+  day: MatchDay | "all" = "all",
   options: AnalyzerOptions = {},
 ): ValuePick[] {
-  // Filtrado estricto de ventana temporal: solo partidos de hoy o mañana (VET).
-  // Se descartan automáticamente encuentros programados a más de 1 día
-  // (pasado mañana en adelante) o que ya hayan comenzado/finalizados.
-  const filteredMatches = matches.filter((match) => {
-    const matchDay = matchDayVET(match.commenceTime);
-    return matchDay === day && resolveMatchStatus(match) === "scheduled";
-  });
+  const resolvedOptions: Required<AnalyzerOptions> = {
+    minProbability: options.minProbability ?? DEFAULT_MIN_PROBABILITY,
+    minOdds: options.minOdds ?? DEFAULT_MIN_ODDS,
+    now: options.now ?? new Date(),
+    day: options.day ?? day,
+    analystWeight: options.analystWeight ?? 0.45,
+  };
+
+  // Misma ventana que el dashboard: hoy y/o mañana en VET, siempre pre-match.
+  const filteredMatches = matches.filter(
+    (match) =>
+      isMatchDayVET(match.commenceTime, resolvedOptions.day, resolvedOptions.now) &&
+      resolveMatchStatus(match, resolvedOptions.now) === "scheduled",
+  );
 
   return filteredMatches
     .flatMap((match) => {
-      const analysis = analyzeMatch(match, options);
+      const analysis = analyzeMatch(match, resolvedOptions);
       return analysis.picks
         .filter(
           (pick) =>

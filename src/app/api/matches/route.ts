@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { unstable_noStore as noStore } from "next/cache";
 import { getDashboardData } from "@/services/matchAggregator";
 import type { SportFilter } from "@/types/sports";
 
@@ -14,6 +15,9 @@ const VALID_SPORTS = new Set<SportFilter>([
 ]);
 
 export async function GET(request: NextRequest) {
+  const forceRefresh = request.nextUrl.searchParams.get("refresh") === "1";
+  if (forceRefresh) noStore();
+
   const sportParam = request.nextUrl.searchParams.get("sport") ?? "all";
   if (!VALID_SPORTS.has(sportParam as SportFilter)) {
     return NextResponse.json(
@@ -40,8 +44,9 @@ export async function GET(request: NextRequest) {
 
     return NextResponse.json(filtered, {
       headers: {
-        "Cache-Control":
-          "public, s-maxage=3600, stale-while-revalidate=600",
+        "Cache-Control": forceRefresh
+          ? "no-store, max-age=0"
+          : "public, s-maxage=3600, stale-while-revalidate=600",
         "X-Data-Mode": data.meta.mode,
         "X-Cache-TTL": String(data.meta.cacheTtlSeconds),
       },

@@ -10,6 +10,7 @@ import type {
   VenueSplit,
 } from "@/types/sports";
 import { clamp } from "@/lib/utils";
+import { dateInVET, dateInVETOffset, fromVETDateTime } from "@/lib/format";
 
 const CACHE_SECONDS = 3600;
 
@@ -199,11 +200,24 @@ async function apiRequest(
   };
 }
 
-function formatApiDate(date: Date): string {
-  const year = date.getFullYear();
-  const month = String(date.getMonth() + 1).padStart(2, "0");
-  const day = String(date.getDate()).padStart(2, "0");
-  return `${year}-${month}-${day}`;
+/**
+ * API-Sports devuelve las horas en el `timezone` solicitado pero no siempre
+ * incluye el offset en el string. Pedimos America/Caracas y convertimos
+ * explícitamente a ISO con offset -04:00 para que el filtro VET del agregador
+ * y el reloj del navegador hablen el mismo idioma.
+ */
+function minNullable(values: Array<number | null>): number | null {
+  const valid = values.filter((value): value is number => value !== null);
+  return valid.length === 0 ? null : Math.min(...valid);
+}
+
+function normalizeApiCommenceTime(date: string, time?: string): string {
+  if (!date) return new Date().toISOString();
+  if (date.includes("T")) {
+    return /(?:Z|[+-]\d{2}:?\d{2})$/.test(date) ? date : `${date}-04:00`;
+  }
+  if (time && /^\d{2}:\d{2}/.test(time)) return fromVETDateTime(date, time.slice(0, 5));
+  return fromVETDateTime(date, "12:00");
 }
 
 function mapStatus(short: unknown, long: unknown): MatchStatus {
@@ -237,7 +251,7 @@ function mapFootballFixture(item: unknown, league: LeagueInfo): ApiSportsEvent {
     awayTeamName: asString(away.name, "Visitante"),
     homeLogo: asString(home.logo) || undefined,
     awayLogo: asString(away.logo) || undefined,
-    commenceTime: asString(fixture.date, new Date().toISOString()),
+    commenceTime: normalizeApiCommenceTime(asString(fixture.date)),
     venue: venueName,
     status: mapStatus(status.short, status.long),
     homeScore:
@@ -267,10 +281,7 @@ function mapOtherGame(item: unknown, league: LeagueInfo): ApiSportsEvent {
         league.shortName;
   const date = asString(nested(item, "date"));
   const time = asString(nested(item, "time"));
-  const commenceTime =
-    date && time && !date.includes("T")
-      ? `${date}T${time}`
-      : date || new Date().toISOString();
+  const commenceTime = normalizeApiCommenceTime(date, time);
   const homeTotal = nested(scores, "home.total");
   const awayTotal = nested(scores, "away.total");
 
@@ -300,33 +311,59 @@ function mapOtherGame(item: unknown, league: LeagueInfo): ApiSportsEvent {
 export async function fetchLeagueEvents(
   league: LeagueInfo,
 ): Promise<ApiSportsLeagueEvents> {
-  const today = new Date();
-  const date = formatApiDate(today);
+  const now = new Date();
+  // Consultamos las dos ventanas operativas del radar en hora de Venezuela.
+  // Calcular `date` con getFullYear/getMonth/getDate del Worker (UTC) dejaba
+  // fuera los partidos de "hoy VET" durante varias horas de la madrugada.
+  const dates = [dateInVET(now), dateInVETOffset(1, now)];
+  const path = league.sport === "soccer" ? "/fixtures" : "/games";
 
-  try {
-    const path = league.sport === "soccer" ? "/fixtures" : "/games";
-    const { response, remaining } = await apiRequest(league, path, {
-      date,
-      league: league.apiSportsId,
-      season: league.season,
-      timezone: "Europe/Madrid",
-    });
-    const events = asArray(response)
+  const results = await Promise.allSettled(
+    dates.map((date) =>
+      apiRequest(league, path, {
+        date,
+        league: league.apiSportsId,
+        season: league.season,
+        timezone: "America/Caracas",
+      }),
+    ),
+  );
+
+  const events = results.flatMap((result) => {
+    if (result.status !== "fulfilled") return [];
+    return asArray(result.value.response)
       .map((item) =>
         league.sport === "soccer"
           ? mapFootballFixture(item, league)
           : mapOtherGame(item, league),
       )
       .filter((event) => event.id && event.homeTeamName && event.awayTeamName);
+  });
 
-    return { events, remaining };
-  } catch (error) {
+  const remaining = minNullable(
+    results.map((result) =>
+      result.status === "fulfilled" ? result.value.remaining : null,
+    ),
+  );
+  const errors = results.flatMap((result) =>
+    result.status === "rejected"
+      ? [
+          result.reason instanceof Error
+            ? result.reason.message
+            : "Error de red en API-Sports",
+        ]
+      : [],
+  );
+
+  if (results.every((result) => result.status === "rejected")) {
     return {
       events: [],
       remaining: null,
-      error: error instanceof Error ? error.message : "Error de red",
+      error: errors[0] ?? "API-Sports no respondió",
     };
   }
+
+  return { events, remaining, error: errors[0] };
 }
 
 function mapFootballStanding(item: unknown): StandingRow | null {
@@ -700,7 +737,7 @@ export async function fetchLeagueInjuries(
     const { response, remaining } = await apiRequest(league, "/injuries", {
       league: league.apiSportsId,
       season: league.season,
-      date: formatApiDate(new Date()),
+      date: dateInVET(),
     });
     const injuries = asArray(response)
       .map((rawEntry, index): Injury | null => {

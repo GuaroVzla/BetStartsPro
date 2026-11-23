@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { revalidatePath } from "next/cache";
 import {
   clearQuotes,
   listQuotes,
@@ -178,6 +179,8 @@ export async function POST(request: NextRequest) {
     cotizaciones,
   });
 
+  revalidatePath("/");
+  revalidatePath("/api/matches");
   return NextResponse.json(
     {
       ok: true,
@@ -200,6 +203,8 @@ export async function GET() {
 
 export async function DELETE() {
   clearQuotes();
+  revalidatePath("/");
+  revalidatePath("/api/matches");
   return NextResponse.json({
     ok: true,
     mensaje: "Cotizaciones de Apuestas Royal eliminadas",

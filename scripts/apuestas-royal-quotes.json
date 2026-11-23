@@ -1,0 +1,10 @@
+{
+  "_estado": "SIN_CAPTURA_AUTENTICADA: este archivo es solo un marcador de posición. No se inventan cuotas. Ejecuta scripts/apuestas-royal-capture.mjs --url <URL-verificada> --dry-run y luego --write con la sesión iniciada.",
+  "target_app": "BetStats Pro",
+  "source": "apuestas_royal_agent",
+  "sync_mode": "enrich_or_create",
+  "fecha_extraccion": "2026-11-23",
+  "zona_horaria": "America/Caracas",
+  "total_cotizaciones": 0,
+  "cotizaciones": []
+}
