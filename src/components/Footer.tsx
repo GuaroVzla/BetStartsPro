@@ -49,7 +49,7 @@ export function Footer({ mode }: FooterProps) {
         <div className="mt-8 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
           <div className="lg:col-span-2">
             <div className="flex items-center gap-2.5">
-              <span className="flex h-8 w-8 items-center justify-center rounded-xl bg-emerald-500 text-emerald-950">
+              <span className="flex h-8 w-8 items-center justify-center rounded-xl bg-blue-500 text-blue-950">
                 <svg
                   viewBox="0 0 24 24"
                   className="h-4 w-4"
@@ -104,7 +104,7 @@ export function Footer({ mode }: FooterProps) {
                   className={cn(
                     "font-semibold",
                     mode === "live"
-                      ? "text-emerald-600 dark:text-emerald-300"
+                      ? "text-blue-600 dark:text-blue-300"
                       : mode === "hybrid"
                         ? "text-sky-600 dark:text-sky-300"
                         : "text-amber-600 dark:text-amber-300",

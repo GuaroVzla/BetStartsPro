@@ -18,12 +18,14 @@ const config: Config = {
           700: "#172236",
         },
         neon: {
-          300: "#6ee7b7",
-          400: "#34d399",
-          500: "#10b981",
+          300: "#93c5fd",
+          400: "#3b82f6",
+          500: "#2563eb",
         },
-        lime: {
-          400: "#a3e635",
+        electric: {
+          300: "#67e8f9",
+          400: "#22d3ee",
+          500: "#06b6d4",
         },
       },
       fontFamily: {
@@ -45,7 +47,7 @@ const config: Config = {
         ],
       },
       boxShadow: {
-        glow: "0 0 0 1px rgba(52, 211, 153, 0.14), 0 18px 50px -24px rgba(16, 185, 129, 0.45)",
+        glow: "0 0 0 1px rgba(96, 165, 250, 0.16), 0 18px 50px -24px rgba(37, 99, 235, 0.5)",
         panel: "0 24px 80px -40px rgba(0, 0, 0, 0.65)",
       },
       backgroundImage: {

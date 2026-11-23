@@ -67,7 +67,7 @@ function FormPills({ form }: { form: FormResult[] }) {
           className={cn(
             "flex h-5 w-5 items-center justify-center rounded-md text-[9px] font-bold",
             result === "W"
-              ? "bg-emerald-500/15 text-emerald-600 dark:text-emerald-300"
+              ? "bg-blue-500/15 text-blue-600 dark:text-blue-300"
               : result === "D"
                 ? "bg-amber-400/15 text-amber-600 dark:text-amber-300"
                 : "bg-rose-500/15 text-rose-600 dark:text-rose-300",
@@ -136,7 +136,7 @@ function TeamSplitCard({
         className={cn(
           "mt-2 tabular-nums text-sm font-bold",
           accent === "home"
-            ? "text-emerald-600 dark:text-emerald-300"
+            ? "text-blue-600 dark:text-blue-300"
             : "text-sky-600 dark:text-sky-300",
         )}
       >
@@ -337,7 +337,7 @@ export function MatchIntelDrawer({ match, onClose }: MatchIntelDrawerProps) {
                   </div>
                   <div className="mt-1.5 h-1 overflow-hidden rounded-full bg-slate-200/80 dark:bg-white/[0.08]">
                     <div
-                      className="h-full rounded-full bg-emerald-500"
+                      className="h-full rounded-full bg-blue-500"
                       style={{ width: `${probability * 100}%` }}
                     />
                   </div>
@@ -362,7 +362,7 @@ export function MatchIntelDrawer({ match, onClose }: MatchIntelDrawerProps) {
                   className={cn(
                     "inline-flex items-center gap-1.5 border-b-2 px-3 py-3 text-[11px] font-semibold transition",
                     active
-                      ? "border-emerald-500 text-emerald-700 dark:text-emerald-300"
+                      ? "border-blue-500 text-blue-700 dark:text-blue-300"
                       : "border-transparent text-slate-500 hover:text-slate-800 dark:text-slate-400 dark:hover:text-slate-100",
                   )}
                 >
@@ -412,7 +412,7 @@ export function MatchIntelDrawer({ match, onClose }: MatchIntelDrawerProps) {
                           className={cn(
                             "tabular-nums text-lg font-bold",
                             tone === "home"
-                              ? "text-emerald-600 dark:text-emerald-300"
+                              ? "text-blue-600 dark:text-blue-300"
                               : "text-sky-600 dark:text-sky-300",
                           )}
                         >
@@ -472,7 +472,7 @@ export function MatchIntelDrawer({ match, onClose }: MatchIntelDrawerProps) {
                             className={cn(
                               "border-t border-slate-100 dark:border-white/[0.045]",
                               isHome
-                                ? "bg-emerald-500/[0.06] dark:bg-emerald-400/[0.055]"
+                                ? "bg-blue-500/[0.06] dark:bg-blue-400/[0.055]"
                                 : isAway
                                   ? "bg-sky-500/[0.05] dark:bg-sky-400/[0.045]"
                                   : "hover:bg-slate-50 dark:hover:bg-white/[0.015]",
@@ -487,7 +487,7 @@ export function MatchIntelDrawer({ match, onClose }: MatchIntelDrawerProps) {
                                   {row.teamName}
                                 </span>
                                 {isHome ? (
-                                  <span className="rounded bg-emerald-500/15 px-1 py-0.5 text-[8px] font-bold uppercase text-emerald-600 dark:text-emerald-300">
+                                  <span className="rounded bg-blue-500/15 px-1 py-0.5 text-[8px] font-bold uppercase text-blue-600 dark:text-blue-300">
                                     Local
                                   </span>
                                 ) : isAway ? (
@@ -526,7 +526,7 @@ export function MatchIntelDrawer({ match, onClose }: MatchIntelDrawerProps) {
                               className={cn(
                                 "px-2 py-2 text-right tabular-nums font-semibold",
                                 row.difference > 0
-                                  ? "text-emerald-600 dark:text-emerald-300"
+                                  ? "text-blue-600 dark:text-blue-300"
                                   : row.difference < 0
                                     ? "text-rose-500 dark:text-rose-300"
                                     : "text-slate-500",
@@ -608,7 +608,7 @@ export function MatchIntelDrawer({ match, onClose }: MatchIntelDrawerProps) {
                     <div className="mt-3 grid grid-cols-2 gap-2">
                       <div className="panel-inset p-2.5">
                         <p className="text-[9px] text-slate-400">Anotados/PJ</p>
-                        <p className="tabular-nums mt-0.5 text-lg font-bold text-emerald-600 dark:text-emerald-300">
+                        <p className="tabular-nums mt-0.5 text-lg font-bold text-blue-600 dark:text-blue-300">
                           {formatAverage(stats.avgScored, 1)}
                         </p>
                         <p className="text-[8px] text-slate-400">{unit}</p>
@@ -663,7 +663,7 @@ export function MatchIntelDrawer({ match, onClose }: MatchIntelDrawerProps) {
                       <p className="truncate text-[9px] text-slate-400">
                         {probabilityLabel(match, outcome)}
                       </p>
-                      <p className="tabular-nums mt-1 text-lg font-bold text-emerald-600 dark:text-emerald-300">
+                      <p className="tabular-nums mt-1 text-lg font-bold text-blue-600 dark:text-blue-300">
                         {formatPercent(analysis.probabilities[outcome])}
                       </p>
                       <p className="tabular-nums text-[8px] text-slate-400">
@@ -725,7 +725,7 @@ export function MatchIntelDrawer({ match, onClose }: MatchIntelDrawerProps) {
                     </div>
                     {injuries.length === 0 ? (
                       <div className="flex flex-col items-center justify-center px-4 py-8 text-center">
-                        <ShieldCheck className="h-6 w-6 text-emerald-500/70" />
+                        <ShieldCheck className="h-6 w-6 text-blue-500/70" />
                         <p className="mt-2 text-[11px] font-medium text-slate-600 dark:text-slate-300">
                           Sin bajas registradas
                         </p>

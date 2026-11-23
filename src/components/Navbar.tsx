@@ -106,8 +106,8 @@ export function Navbar({
       <div className="mx-auto max-w-[1480px] px-4 sm:px-6">
         <div className="flex h-[66px] items-center gap-3">
           <a href="#top" className="group flex shrink-0 items-center gap-2.5">
-            <span className="relative flex h-9 w-9 items-center justify-center overflow-hidden rounded-xl bg-emerald-500 text-emerald-950 shadow-[0_8px_26px_-10px_rgba(16,185,129,0.9)]">
-              <span className="absolute inset-0 bg-gradient-to-br from-emerald-300/80 via-emerald-500 to-teal-700" />
+            <span className="relative flex h-9 w-9 items-center justify-center overflow-hidden rounded-xl bg-blue-500 text-blue-950 shadow-[0_8px_26px_-10px_rgba(37, 99, 235,0.9)]">
+              <span className="absolute inset-0 bg-gradient-to-br from-blue-300/80 via-blue-500 to-sky-700" />
               <svg
                 viewBox="0 0 24 24"
                 className="relative z-[1] h-[19px] w-[19px]"
@@ -126,7 +126,7 @@ export function Navbar({
               <span className="text-[17px] font-bold tracking-tight text-slate-950 dark:text-white">
                 BetStats
               </span>
-              <span className="rounded-md border border-emerald-500/20 bg-emerald-400/10 px-1.5 py-0.5 text-[9px] font-extrabold uppercase tracking-[0.16em] text-emerald-700 dark:text-emerald-300">
+              <span className="rounded-md border border-blue-500/20 bg-blue-400/10 px-1.5 py-0.5 text-[9px] font-extrabold uppercase tracking-[0.16em] text-blue-700 dark:text-blue-300">
                 Pro
               </span>
             </span>
@@ -168,7 +168,7 @@ export function Navbar({
                       ? "bg-amber-400"
                       : meta.mode === "hybrid"
                         ? "bg-sky-400"
-                        : "bg-emerald-400 animate-pulse-soft",
+                        : "bg-blue-400 animate-pulse-soft",
                   )}
                 />
                 <Database className="h-3.5 w-3.5" />
@@ -187,7 +187,7 @@ export function Navbar({
                     <span className="eyebrow">Estado del motor</span>
                     <span
                       className={cn(
-                        "sport-chip border-emerald-400/20 bg-emerald-400/10 text-emerald-700 dark:text-emerald-300",
+                        "sport-chip border-blue-400/20 bg-blue-400/10 text-blue-700 dark:text-blue-300",
                         isDemo &&
                           "border-amber-400/20 bg-amber-400/10 text-amber-700 dark:text-amber-300",
                       )}
@@ -304,7 +304,7 @@ export function Navbar({
                   className={cn(
                     "inline-flex shrink-0 items-center gap-2 rounded-xl border px-3 py-2 text-[12px] font-semibold transition",
                     active
-                      ? "border-emerald-500/25 bg-emerald-400/10 text-emerald-700 dark:border-emerald-400/20 dark:bg-emerald-400/10 dark:text-emerald-300"
+                      ? "border-blue-500/25 bg-blue-400/10 text-blue-700 dark:border-blue-400/20 dark:bg-blue-400/10 dark:text-blue-300"
                       : "border-transparent text-slate-500 hover:bg-slate-100/80 hover:text-slate-800 dark:text-slate-400 dark:hover:bg-white/[0.05] dark:hover:text-slate-100",
                   )}
                 >
@@ -314,7 +314,7 @@ export function Navbar({
                     className={cn(
                       "tabular-nums rounded-md px-1.5 py-0.5 text-[10px]",
                       active
-                        ? "bg-emerald-500/15 text-emerald-700 dark:text-emerald-300"
+                        ? "bg-blue-500/15 text-blue-700 dark:text-blue-300"
                         : "bg-slate-100 text-slate-500 dark:bg-white/[0.06] dark:text-slate-400",
                     )}
                   >
@@ -327,7 +327,7 @@ export function Navbar({
 
           <div className="hidden shrink-0 items-center gap-2 xl:flex">
             <span className="flex items-center gap-1.5 text-[10px] font-medium uppercase tracking-wider text-slate-400 dark:text-slate-500">
-              <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
+              <span className="h-1.5 w-1.5 rounded-full bg-blue-400" />
               Motor probabilístico activo
             </span>
           </div>

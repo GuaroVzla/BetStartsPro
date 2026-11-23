@@ -14,11 +14,39 @@ export type OddsSource =
   | "api-sports"
   | "flashscore"
   | "triunfobet"
+  | "apuestas-royal"
   | "mock";
 
 export type OutcomeKey = "home" | "draw" | "away";
 
 export type MatchStatus = "scheduled" | "live" | "finished";
+
+/** Ventana operativa del radar pre-match: hoy y mañana (hora Venezuela). */
+export type MatchDay = "today" | "tomorrow";
+
+/**
+ * Resultado de las validaciones estadísticas obligatorias del KPI
+ * "Favorables con cuota alta". La cuota americana positiva (>= +100) equivale
+ * a una cuota decimal >= 2.00.
+ */
+export interface FavoriteValidation {
+  form: boolean;
+  standings: boolean;
+  venue: boolean;
+}
+
+export interface ValueFavoriteScore {
+  qualifies: boolean;
+  oddsThresholdMet: boolean;
+  validations: FavoriteValidation;
+  favoriteFormRate: number | null;
+  rivalFormRate: number | null;
+  favoritePosition: number | null;
+  rivalPosition: number | null;
+  venueRecord: VenueSplit | null;
+  venuePointsRate: number | null;
+  explanation: string[];
+}
 
 export interface SportMeta {
   key: SportKey;
@@ -134,6 +162,8 @@ export interface MarketSummary {
   best: OutcomePrices;
   average: OutcomePrices;
   spreadPercent: OutcomePrices;
+  /** Probabilidad consenso del mercado, normalizada sin margen (overround). */
+  consensus: Record<OutcomeKey, number>;
   bookmakers: BookmakerQuote[];
   bookmakerCount: number;
 }
@@ -159,6 +189,7 @@ export interface ApiSourceStatus {
   apiSports: boolean;
   flashscore?: boolean;
   triunfobet?: boolean;
+  apuestasRoyal?: boolean;
 }
 
 export interface DashboardMeta {
@@ -177,6 +208,8 @@ export interface DashboardData {
   leagues: LeagueInfo[];
   meta: DashboardMeta;
   sportCounts: Record<SportKey, number>;
+  /** Conteo de partidos pre-match por ventana operativa (hoy / mañana). */
+  dayCounts: Record<MatchDay, number>;
 }
 
 export interface OutcomeAnalysis {
@@ -197,6 +230,8 @@ export interface OutcomeAnalysis {
   isFavorite: boolean;
   /** Favorito (o selección fuerte) con cuota alta y valor esperado positivo. */
   isHembra: boolean;
+  /** Evaluación del KPI cuantitativo de favorito con cuota alta. */
+  valueFavorite: ValueFavoriteScore | null;
   bookmaker: string | null;
 }
 

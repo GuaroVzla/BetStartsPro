@@ -34,6 +34,22 @@ export function formatOdd(value: number | null | undefined): string {
   return oddFormatter.format(value);
 }
 
+/** Convierte cuota decimal a formato americano (+100, -150). */
+export function toAmericanOdd(decimal: number | null | undefined): number | null {
+  if (decimal === null || decimal === undefined || !Number.isFinite(decimal)) {
+    return null;
+  }
+  if (decimal >= 2) return Math.round((decimal - 1) * 100);
+  if (decimal > 1) return Math.round(-100 / (decimal - 1));
+  return null;
+}
+
+export function formatAmericanOdd(decimal: number | null | undefined): string {
+  const american = toAmericanOdd(decimal);
+  if (american === null) return "—";
+  return american > 0 ? `+${american}` : String(american);
+}
+
 export function formatPercent(value: number, digits = 1): string {
   if (!Number.isFinite(value)) return "—";
   return `${new Intl.NumberFormat("es-ES", {
@@ -74,10 +90,35 @@ export function dateInVET(value: string | Date = new Date()): string {
   }).format(typeof value === "string" ? new Date(value) : value);
 }
 
+/** Fecha VET de un día relativo a hoy (0 = hoy, 1 = mañana). */
+export function dateInVETOffset(days: number, base: Date = new Date()): string {
+  const shifted = new Date(base.getTime() + days * 86_400_000);
+  return dateInVET(shifted);
+}
+
 /** Comprueba que un partido pertenezca al día actual en hora de Venezuela. */
-export function isTodayVET(isoDate: string): boolean {
+export function isTodayVET(isoDate: string, now: Date = new Date()): boolean {
   const date = new Date(isoDate);
-  return Number.isFinite(date.getTime()) && dateInVET(date) === dateInVET();
+  return Number.isFinite(date.getTime()) && dateInVET(date) === dateInVET(now);
+}
+
+/** Comprueba que un partido pertenezca al día siguiente en hora de Venezuela. */
+export function isTomorrowVET(isoDate: string, now: Date = new Date()): boolean {
+  const date = new Date(isoDate);
+  return (
+    Number.isFinite(date.getTime()) &&
+    dateInVET(date) === dateInVETOffset(1, now)
+  );
+}
+
+/** Ventana operativa del partido: hoy, mañana o fuera del radar pre-match. */
+export function matchDayVET(
+  isoDate: string,
+  now: Date = new Date(),
+): "today" | "tomorrow" | null {
+  if (isTodayVET(isoDate, now)) return "today";
+  if (isTomorrowVET(isoDate, now)) return "tomorrow";
+  return null;
 }
 
 /**
@@ -100,6 +141,26 @@ export function isUpcomingMatch(
   now: Date = new Date(),
 ): boolean {
   return !hasMatchStarted(match, now);
+}
+
+/**
+ * Ventana estimada de un partido para actualizar el estado sin esperar a la API.
+ * Si ya pasaron ~3 horas desde el inicio se considera finalizado; entre el
+ * inicio y esa ventana, en vivo. Un partido programado pasado de hora nunca
+ * permanece como "Programado" en la vista pre-match.
+ */
+export function resolveMatchStatus(
+  match: { commenceTime: string; status: "scheduled" | "live" | "finished" },
+  now: Date = new Date(),
+  liveWindowMinutes = 180,
+): "scheduled" | "live" | "finished" {
+  if (match.status === "finished") return "finished";
+  if (match.status === "live") return "live";
+  const start = new Date(match.commenceTime).getTime();
+  if (!Number.isFinite(start)) return match.status;
+  if (start > now.getTime()) return "scheduled";
+  if (now.getTime() - start <= liveWindowMinutes * 60_000) return "live";
+  return "finished";
 }
 
 export function formatMatchDate(isoDate: string): string {

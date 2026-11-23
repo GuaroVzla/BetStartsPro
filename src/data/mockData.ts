@@ -1,5 +1,9 @@
 import { LEAGUES } from "@/config/sports";
-import { summarizeMarket } from "@/lib/marketSummary";
+import {
+  favoriteSideFromSummary,
+  summarizeMarket,
+} from "@/lib/marketSummary";
+import { matchDayVET, resolveMatchStatus } from "@/lib/format";
 import { clamp, initials } from "@/lib/utils";
 import type {
   BookmakerQuote,
@@ -1813,8 +1817,13 @@ function buildMockMatch(
   const home = buildTeam(homeSeed);
   const away = buildTeam(awaySeed);
   const fixtureId = `mock-${league.id}-${homeSeed.id}-${awaySeed.id}`;
+  // Una parte de los fixtures se programa para mañana para validar la ventana
+  // operativa hoy/mañana del radar en modo demo.
+  const dayShift = index % 4 === 3 ? 1 : 0;
   const commenceTime = new Date(
-    Date.now() + fixture.startOffsetMinutes * 60 * 1000,
+    Date.now() +
+      dayShift * 86_400_000 +
+      fixture.startOffsetMinutes * 60 * 1000,
   ).toISOString();
   const updatedAt = new Date(Date.now() - (5 + index) * 60 * 1000).toISOString();
   const homeStanding =
@@ -1851,6 +1860,7 @@ function buildMockMatch(
           : undefined,
   };
 
+  const odds = summarizeMarket(bookmakers);
   return {
     id: fixtureId,
     sport: league.sport,
@@ -1860,8 +1870,9 @@ function buildMockMatch(
     venue: fixture.venue,
     home,
     away,
-    odds: summarizeMarket(bookmakers),
+    odds,
     intel,
+    favoriteSide: favoriteSideFromSummary(odds),
   };
 }
 
@@ -1913,14 +1924,20 @@ function buildMockDashboard(): DashboardData {
     baseball: 0,
     hockey: 0,
   };
+  const dayCounts = { today: 0, tomorrow: 0 };
+  const now = new Date();
   for (const match of matches) {
     sportCounts[match.sport] += 1;
+    if (resolveMatchStatus(match, now) !== "scheduled") continue;
+    const day = matchDayVET(match.commenceTime, now);
+    if (day) dayCounts[day] += 1;
   }
 
   return {
     matches,
     leagues: LEAGUES.filter((league) => activeLeagueIds.has(league.id)),
     sportCounts,
+    dayCounts,
     meta: {
       mode: "mock",
       generatedAt: new Date().toISOString(),

@@ -8,14 +8,32 @@ import type {
   SportKey,
   SportsMatch,
   TeamAdvancedStats,
+  ValueFavoriteScore,
   ValuePick,
+  VenueSplit,
 } from "@/types/sports";
 import { clamp, round } from "@/lib/utils";
+import { matchDayVET, resolveMatchStatus } from "@/lib/format";
+import { formatInteger } from "@/lib/format";
 
 const DEFAULT_MIN_PROBABILITY = 0.5;
 const DEFAULT_MIN_ODDS = 1.6;
 /** Umbral reservado al distintivo "Hembra" (cuota realmente alta). */
 const HEMBRA_MIN_ODDS = 1.85;
+/** Cuota decimal mínima del KPI: 2.00 equivale a cuota americana +100. */
+export const VALUE_FAVORITE_MIN_ODDS = 2;
+/** Cantidad de partidos recientes para calcular la forma (rate). */
+export const VALUE_FAVORITE_FORM_WINDOW = 10;
+/** Peso del consenso de mercado (0-1) en la combinación probabilidad-modelo.
+ *  0.2 = el modelo propio tiene el 80% y el mercado 20%.
+ *  Se usa cuando no hay estadísticas de goles esperados (p. ej. Flashscore). */
+export const VALUE_FAVORITE_MARKET_WEIGHT = 0.2;
+/** Diferencia mínima de forma reciente (escala 0-1) frente al rival. */
+const VALUE_FAVORITE_FORM_GAP = 0.01;
+/** Rendimiento positivo en la condición: al menos 50% de los puntos en juego. */
+const VALUE_FAVORITE_MIN_VENUE_RATE = 0.5;
+/** Ventana operativa del KPI: solo "today" o "tomorrow" (hora Venezuela). */
+export const VALUE_FAVORITE_DAY: "today" | "tomorrow" = "today";
 
 interface SportModelConfig {
   baseline: number;
@@ -253,6 +271,18 @@ function marketProbabilities(
   match: SportsMatch,
   useAverage = false,
 ): Record<OutcomeKey, number> | null {
+  if (useAverage) {
+    const consensus = match.odds.consensus;
+    if (
+      consensus &&
+      (consensus.home > 0 || consensus.away > 0)
+    ) {
+      return normalizeProbabilities(
+        consensus,
+        match.sport === "soccer" && (match.odds.average.draw ?? 0) > 1,
+      );
+    }
+  }
   const summary = useAverage ? match.odds.average : match.odds.best;
   const prices: Record<OutcomeKey, number | null> = {
     home: summary.home > 1 ? summary.home : null,
@@ -283,6 +313,147 @@ function pickLabel(match: SportsMatch, outcome: OutcomeKey): string {
   return outcome === "home" ? match.home.name : match.away.name;
 }
 
+/** Favorito de mercado: la menor cuota entre local y visitante. */
+function marketFavorite(match: SportsMatch): "home" | "away" | null {
+  if (match.favoriteSide === "home" || match.favoriteSide === "away") {
+    return match.favoriteSide;
+  }
+  const home = match.odds.best.home;
+  const away = match.odds.best.away;
+  const homeValid = home > 1;
+  const awayValid = away > 1;
+  if (!homeValid && !awayValid) return null;
+  if (!homeValid) return "away";
+  if (!awayValid) return "home";
+  if (home < away) return "home";
+  if (away < home) return "away";
+  return null;
+}
+
+/** Puntos obtenidos / puntos en juego (0-1) en una racha W-D-L. */
+function formPointsRate(form: FormResult[]): number | null {
+  if (form.length === 0) return null;
+  const recent = form.slice(-VALUE_FAVORITE_FORM_WINDOW);
+  const points = recent.reduce((total, result) => {
+    if (result === "W") return total + 3;
+    if (result === "D") return total + 1;
+    return total;
+  }, 0);
+  return points / (recent.length * 3);
+}
+
+/** Puntos obtenidos / puntos en juego (0-1) en la condición local o visitante. */
+function venuePointsRate(split: VenueSplit | null): number | null {
+  if (!split || split.played <= 0) return null;
+  return (split.wins * 3 + split.draws) / (split.played * 3);
+}
+
+function recordLabel(split: VenueSplit | null): string {
+  if (!split || split.played <= 0) return "sin muestra";
+  const parts =
+    split.draws > 0
+      ? [split.wins, split.draws, split.losses]
+      : [split.wins, split.losses];
+  return `${parts.join("-")} (${split.played} PJ)`;
+}
+
+/**
+ * KPI "Favorables con cuota alta (Value Favorites)".
+ *
+ * Se cumplen simultáneamente:
+ * 1. El favorito paga al menos 2.00 decimal (americana +100).
+ * 2. Mejor forma reciente que el rival (últimos 10, normalizada).
+ * 3. Mejor posición en la tabla general.
+ * 4. Rendimiento positivo en su condición (local o visitante).
+ *
+ * Si falta cualquiera de las tres validaciones estadísticas, el partido no
+ * entra en el KPI: no se inventan datos para rellenar el radar.
+ */
+function evaluateValueFavorite(
+  match: SportsMatch,
+  outcome: OutcomeKey,
+  bestOdds: number | null,
+  day: "today" | "tomorrow" = "today",
+): ValueFavoriteScore | null {
+  // Filtrado estricto de ventana temporal: solo partidos de hoy o mañana (VET).
+  // Se descartan automáticamente encuentros programados a más de 1 día
+  // (pasado mañana en adelante) o que ya hayan comenzado/finalizado.
+  const matchDay = matchDayVET(match.commenceTime);
+  if (matchDay !== day) return null;
+  if (resolveMatchStatus(match) !== "scheduled") return null;
+  const favorite = marketFavorite(match);
+  if (outcome === "draw" || favorite !== outcome) return null;
+
+  const isHome = outcome === "home";
+  const favoriteStats = isHome ? match.intel.stats.home : match.intel.stats.away;
+  const rivalStats = isHome ? match.intel.stats.away : match.intel.stats.home;
+  const favoriteStanding = isHome
+    ? match.intel.standings.home
+    : match.intel.standings.away;
+  const rivalStanding = isHome
+    ? match.intel.standings.away
+    : match.intel.standings.home;
+  const venueRecord = isHome ? favoriteStats.home : favoriteStats.away;
+
+  const favoriteFormRate = formPointsRate(favoriteStats.form.slice(-10));
+  const rivalFormRate = formPointsRate(rivalStats.form.slice(-10));
+  const venueRate = venuePointsRate(venueRecord);
+
+  const form =
+    favoriteFormRate !== null &&
+    rivalFormRate !== null &&
+    favoriteFormRate >= rivalFormRate + VALUE_FAVORITE_FORM_GAP;
+
+  const standings =
+    favoriteStanding.position > 0 &&
+    rivalStanding.position > 0 &&
+    favoriteStanding.position < rivalStanding.position;
+
+  const venue =
+    venueRate !== null && venueRate >= VALUE_FAVORITE_MIN_VENUE_RATE;
+
+  const oddsThresholdMet = bestOdds !== null && bestOdds >= VALUE_FAVORITE_MIN_ODDS;
+  const explanation: string[] = [];
+
+  if (favoriteFormRate === null || rivalFormRate === null) {
+    explanation.push("Forma reciente insuficiente para comparar.");
+  } else {
+    explanation.push(
+      `Forma ${Math.round(favoriteFormRate * 100)}% vs ${Math.round(rivalFormRate * 100)}%.`,
+    );
+  }
+  if (favoriteStanding.position <= 0 || rivalStanding.position <= 0) {
+    explanation.push("Sin posición de tabla para ambos equipos.");
+  } else {
+    explanation.push(
+      `Tabla ${favoriteStanding.position}º vs ${rivalStanding.position}º.`,
+    );
+  }
+  explanation.push(
+    `${isHome ? "Casa" : "Visita"}: ${recordLabel(venueRecord)}.`,
+  );
+  explanation.push(
+    oddsThresholdMet
+      ? `Cuota ${bestOdds?.toFixed(2)} ≥ 2.00 (americana +100).`
+      : "Cuota por debajo de 2.00: no cumple el umbral.",
+  );
+
+  return {
+    qualifies: oddsThresholdMet && form && standings && venue,
+    oddsThresholdMet,
+    validations: { form, standings, venue },
+    favoriteFormRate,
+    rivalFormRate,
+    favoritePosition:
+      favoriteStanding.position > 0 ? favoriteStanding.position : null,
+    rivalPosition:
+      rivalStanding.position > 0 ? rivalStanding.position : null,
+    venueRecord,
+    venuePointsRate: venueRate,
+    explanation,
+  };
+}
+
 function buildOutcomeAnalyses(
   match: SportsMatch,
   probabilities: Record<OutcomeKey, number>,
@@ -303,12 +474,15 @@ function buildOutcomeAnalyses(
             Math.abs(quote.outcomes[outcome]! - usableBest) < 0.0001,
         )?.name ?? null)
       : null;
-    const isFavorite = match.favoriteSide === outcome;
+    const isFavorite = marketFavorite(match) === outcome;
     const isHembra =
       usableBest !== null &&
       usableBest >= HEMBRA_MIN_ODDS &&
       expectedValue > 0 &&
       (isFavorite || probability >= options.minProbability);
+    const valueFavorite = isFavorite
+      ? evaluateValueFavorite(match, outcome, usableBest)
+      : null;
 
     return {
       outcome,
@@ -333,6 +507,7 @@ function buildOutcomeAnalyses(
         usableBest >= options.minOdds,
       isFavorite,
       isHembra,
+      valueFavorite,
       bookmaker,
     };
   });
@@ -375,7 +550,7 @@ export function analyzeMatch(
   } else {
     const market = marketProbabilities(match);
     if (market) {
-      const marketWeight = 0.2;
+      const marketWeight = VALUE_FAVORITE_MARKET_WEIGHT;
       probabilities = normalizeProbabilities(
         {
           home: probabilities.home * (1 - marketWeight) + market.home * marketWeight,
@@ -436,6 +611,49 @@ export function buildValuePicks(
         }));
     })
     .sort((a, b) => b.analysis.expectedValue - a.analysis.expectedValue);
+}
+
+/**
+ * Radar "Favorables con cuota alta (Value Favorites)": solo favoritos con
+ * cuota decimal >= 2.00 que además superan las tres validaciones
+ * estadísticas obligatorias. No se relajan umbrales para llenar la vista.
+ */
+export function buildValueFavoritePicks(
+  matches: SportsMatch[],
+  day: "today" | "tomorrow" = "today",
+  options: AnalyzerOptions = {},
+): ValuePick[] {
+  // Filtrado estricto de ventana temporal: solo partidos de hoy o mañana (VET).
+  // Se descartan automáticamente encuentros programados a más de 1 día
+  // (pasado mañana en adelante) o que ya hayan comenzado/finalizados.
+  const filteredMatches = matches.filter((match) => {
+    const matchDay = matchDayVET(match.commenceTime);
+    return matchDay === day && resolveMatchStatus(match) === "scheduled";
+  });
+
+  return filteredMatches
+    .flatMap((match) => {
+      const analysis = analyzeMatch(match, options);
+      return analysis.picks
+        .filter(
+          (pick) =>
+            pick.isFavorite &&
+            pick.bestOdds !== null &&
+            pick.bestOdds >= VALUE_FAVORITE_MIN_ODDS &&
+            pick.valueFavorite?.qualifies === true,
+        )
+        .map((pick) => ({
+          id: `${match.id}-${pick.outcome}`,
+          match,
+          analysis: pick,
+          matchAnalysis: analysis,
+        }));
+    })
+    .sort(
+      (a, b) =>
+        (b.analysis.bestOdds ?? 0) - (a.analysis.bestOdds ?? 0) ||
+        b.analysis.expectedValue - a.analysis.expectedValue,
+    );
 }
 
 export function impliedProbability(decimalOdds: number): number {

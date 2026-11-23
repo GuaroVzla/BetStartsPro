@@ -34,6 +34,10 @@ Abre [http://localhost:3000](http://localhost:3000).
 
 Sin variables de entorno la aplicación arranca automáticamente en **modo demo** con partidos realistas de los cuatro deportes, cuotas de cinco casas, clasificaciones, estadísticas y bajas.
 
+### Depuración con F5 en VS Code
+
+Pulsa **F5** con la configuración `BetStats Pro: F5 (typecheck + Next.js + navegador)`. Ejecuta `npm run typecheck`, inicia `next dev` en `http://localhost:3000` y abre Chrome con depuración full-stack (también puedes depurar las rutas API). La configuración alternativa `BetStats Pro: solo navegador (inicia servidor)` usa la tarea de fondo `dev: next` si solo necesitas depurar el cliente.
+
 ## Cuotas de Triunfobet
 
 Triunfobet no expone un feed público de cuotas. La integración se hace por ingesta controlada:

@@ -1,4 +1,4 @@
-import { dateInVET } from "@/lib/format";
+import { dateInVET, matchDayVET } from "@/lib/format";
 import { summarizeMarket } from "@/lib/marketSummary";
 import { normalizeName } from "@/lib/utils";
 import type { StoredRecord } from "@/services/flashscoreIngestStore";
@@ -200,13 +200,12 @@ function toSportsMatch(record: StoredRecord): SportsMatch | null {
 
 /**
  * Convierte los registros ingeridos por el agente a partidos del dashboard.
- * Solo se incluyen los partidos correspondientes al día actual en VET.
+ * Se incluyen hoy y mañana (VET); el agregador descarta los ya iniciados.
  */
 export function flashscoreRecordsToMatches(records: StoredRecord[]): SportsMatch[] {
-  const hoy = dateInVET();
   return records
-    .filter((record) => record.fecha_extraccion === hoy)
     .map(toSportsMatch)
     .filter((match): match is SportsMatch => match !== null)
+    .filter((match) => matchDayVET(match.commenceTime) !== null)
     .sort((a, b) => a.commenceTime.localeCompare(b.commenceTime));
 }

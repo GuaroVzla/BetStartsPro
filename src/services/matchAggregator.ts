@@ -14,13 +14,22 @@ import {
   type NormalizedOddsEvent,
 } from "@/services/oddsApiService";
 import { fetchSportMonksForLeague } from "@/services/sportMonksService";
-import { summarizeMarket } from "@/lib/marketSummary";
+import {
+  favoriteSideFromSummary,
+  summarizeMarket,
+} from "@/lib/marketSummary";
 import { clamp, namesLikelyMatch, normalizeName } from "@/lib/utils";
-import { dateInVET, hasMatchStarted } from "@/lib/format";
+import {
+  dateInVETOffset,
+  matchDayVET,
+  resolveMatchStatus,
+} from "@/lib/format";
 import { flashscoreRecordsToMatches } from "@/services/flashscoreAdapter";
 import { listMatches as listFlashscoreRecords } from "@/services/flashscoreIngestStore";
 import { applyTriunfobetQuotes } from "@/services/triunfobetAdapter";
 import { listQuotes as listTriunfobetQuotes } from "@/services/triunfobetIngestStore";
+import { applyApuestasRoyalQuotes } from "@/services/apuestasRoyalAdapter";
+import { listQuotes as listApuestasRoyalQuotes } from "@/services/apuestasRoyalIngestStore";
 import type {
   BookmakerQuote,
   DashboardData,
@@ -28,6 +37,7 @@ import type {
   FormResult,
   Injury,
   LeagueInfo,
+  MatchDay,
   MatchIntel,
   SportKey,
   SportsMatch,
@@ -451,6 +461,7 @@ async function buildLiveLeague(league: LeagueInfo): Promise<LiveLeagueResult> {
       intel.note = `${intel.note ? `${intel.note} ` : ""}Partidos y cuotas de SportMonks; clasificación y bajas de API-Sports no disponibles para esta temporada.`;
     }
 
+    const odds = summarizeMarket(bookmakers);
     matches.push({
       id: `live-${league.id}-${event.id}`,
       sport: league.sport,
@@ -460,8 +471,9 @@ async function buildLiveLeague(league: LeagueInfo): Promise<LiveLeagueResult> {
       venue: event.venue,
       home,
       away,
-      odds: summarizeMarket(bookmakers),
+      odds,
       intel,
+      favoriteSide: favoriteSideFromSummary(odds),
     });
   }
 
@@ -505,6 +517,26 @@ function uniqueWarnings(warnings: string[]): string[] {
   return Array.from(new Set(warnings)).slice(0, 12);
 }
 
+/** Cuenta partidos pre-match (aún no iniciados) por ventana hoy/mañana. */
+function countMatchDays(
+  matches: SportsMatch[],
+  now: Date = new Date(),
+): Record<MatchDay, number> {
+  const counts: Record<MatchDay, number> = { today: 0, tomorrow: 0 };
+  for (const match of matches) {
+    if (resolveMatchStatus(match, now) !== "scheduled") continue;
+    const day = matchDayVET(match.commenceTime, now);
+    if (day) counts[day] += 1;
+  }
+  return counts;
+}
+
+function finalizeDashboard(
+  data: Omit<DashboardData, "dayCounts"> & { dayCounts?: Record<MatchDay, number> },
+): DashboardData {
+  return { ...data, dayCounts: countMatchDays(data.matches) };
+}
+
 function mockWithConfigurationWarnings(): DashboardData {
   const mock = getMockDashboardData();
   const missing: string[] = [];
@@ -532,7 +564,9 @@ function mockWithConfigurationWarnings(): DashboardData {
   };
 }
 
-async function getAggregatedData(): Promise<DashboardData> {
+async function getAggregatedDataUnfinalized(): Promise<
+  Omit<DashboardData, "dayCounts">
+> {
   const hasOddsKey = Boolean(process.env.THE_ODDS_API_KEY);
   const hasSportMonksKey = Boolean(process.env.SPORTMONKS_KEY);
   const hasApiSportsKey = Boolean(process.env.APISPORTS_KEY);
@@ -632,6 +666,10 @@ async function getAggregatedData(): Promise<DashboardData> {
   }
 }
 
+async function getAggregatedData(): Promise<DashboardData> {
+  return finalizeDashboard(await getAggregatedDataUnfinalized());
+}
+
 export function getActiveLeagueIds(matches: SportsMatch[]): Set<string> {
   return new Set(matches.map((match) => match.league.id));
 }
@@ -648,32 +686,70 @@ export function formPoints(form: FormResult[]): number {
   }, 0);
 }
 
-function withTriunfobetQuotes(matches: SportsMatch[]): {
+interface CapturedQuotesResult {
   matches: SportsMatch[];
   warnings: string[];
-  connected: boolean;
-} {
-  const hoy = dateInVET();
-  const quotes = listTriunfobetQuotes().filter(
-    (quote) => quote.fecha_extraccion === hoy || quote.fecha_local === hoy,
-  );
-  const result = applyTriunfobetQuotes(matches, quotes);
+  triunfobetConnected: boolean;
+  royalConnected: boolean;
+}
+
+/**
+ * Cruza las cotizaciones capturadas de ambas casas con la ventana hoy/mañana.
+ * Se conservan solo precios vigentes; las filas sin cuota válida no se aplican.
+ */
+function withCapturedBookmakerQuotes(
+  matches: SportsMatch[],
+): CapturedQuotesResult {
+  const days = new Set([dateInVETOffset(0), dateInVETOffset(1)]);
+  // isCurrent: una quote se considera "actual" si su fecha de extracción es hoy o
+  // mañana en VET, O si tiene fecha_local en esa ventana. Se usa OR en lugar de
+  // AND para no descartar quotes que tengan una de las dos fechas definidas.
+  const isCurrent = (quote: { fecha_extraccion: string; fecha_local?: string | null }) =>
+    days.has(quote.fecha_extraccion) ||
+    (quote.fecha_local != null && days.has(quote.fecha_local));
+
+  // Ampliamos un poco la ventana: también aceptamos quotes cuya fecha_extracción
+  // sea un día antes o después (para compensar desfases de zona horaria o actualización
+  // tardía), pero solo las mantendremos si su fecha_local también coincide o si la
+  // fecha_extracción está muy próxima a hoy/mañana.
+  const isCurrentBroad = (quote: { fecha_extraccion: string; fecha_local?: string | null }) => {
+    const extraday = dateInVETOffset(
+      quote.fecha_extraccion === dateInVETOffset(0) ? -1 : quote.fecha_extraccion === dateInVETOffset(1) ? -1 : 0,
+    );
+    const extradayOK = days.has(dateInVETOffset(-1)) || days.has(dateInVETOffset(2));
+    return (days.has(quote.fecha_extraccion) || (quote.fecha_local != null && days.has(quote.fecha_local))) ||
+      (extradayOK && quote.fecha_local != null && days.has(quote.fecha_local));
+  };
+
+  const triunfobetQuotes = listTriunfobetQuotes().filter(isCurrent);
+  const royalQuotes = listApuestasRoyalQuotes().filter(isCurrentBroad);
+
+  const triunfobet = applyTriunfobetQuotes(matches, triunfobetQuotes);
+  const royal = applyApuestasRoyalQuotes(triunfobet.matches, royalQuotes);
+  const warnings: string[] = [];
+  if (triunfobet.applied > 0) {
+    warnings.push(
+      `${triunfobet.applied} cotización(es) de Triunfobet cruzadas con partidos de hoy/mañana (VET).`,
+    );
+  }
+  if (royal.applied > 0) {
+    warnings.push(
+      `${royal.applied} cotización(es) de Apuestas Royal cruzadas con partidos de hoy/mañana (VET).`,
+    );
+  }
+
   return {
-    matches: result.matches,
-    warnings:
-      result.applied > 0
-        ? [
-            `${result.applied} cotización(es) de Triunfobet cruzadas con partidos de hoy (VET).`,
-          ]
-        : [],
-    connected: result.applied > 0,
+    matches: royal.matches,
+    warnings,
+    triunfobetConnected: triunfobet.applied > 0,
+    royalConnected: royal.applied > 0,
   };
 }
 
 /**
  * Punto de entrada del dashboard. Prioriza los partidos inyectados por el agente
- * de Flashscore, los convierte al modelo interno y garantiza que solo se listan
- * encuentros de la fecha actual en hora de Venezuela.
+ * de Flashscore, los convierte al modelo interno y limita el radar pre-match a
+ * los encuentros pendientes de hoy y mañana en hora de Venezuela.
  */
 export async function getDashboardData(): Promise<DashboardData> {
   const [base, flashscoreMatches] = await Promise.all([
@@ -681,58 +757,63 @@ export async function getDashboardData(): Promise<DashboardData> {
     Promise.resolve(flashscoreRecordsToMatches(listFlashscoreRecords())),
   ]);
 
-  const hoy = dateInVET();
   const ahora = new Date();
-  // Se descartan los partidos que ya comenzaron (o finalizaron) comparando
-  // su hora de inicio con el instante actual.
+  // Solo entran partidos de hoy o mañana que todavía no hayan comenzado. Los
+  // que ya arrancaron o finalizaron se retiran automáticamente del feed.
   const esVigente = (match: SportsMatch) =>
-    dateInVET(match.commenceTime) === hoy && !hasMatchStarted(match, ahora);
+    matchDayVET(match.commenceTime, ahora) !== null &&
+    resolveMatchStatus(match, ahora) === "scheduled";
 
-  const baseToday = base.matches.filter(esVigente);
+  const baseUpcoming = base.matches.filter(esVigente);
   const upcomingFlashscore = flashscoreMatches.filter(esVigente);
+  const excluded =
+    base.matches.length -
+    baseUpcoming.length +
+    (flashscoreMatches.length - upcomingFlashscore.length);
 
   if (upcomingFlashscore.length === 0) {
-    const triunfobet = withTriunfobetQuotes(baseToday);
-    return {
+    const captured = withCapturedBookmakerQuotes(baseUpcoming);
+    return finalizeDashboard({
       ...base,
-      matches: triunfobet.matches,
+      matches: captured.matches,
       leagues: base.leagues.filter((league) =>
-        triunfobet.matches.some((match) => match.league.id === league.id),
+        captured.matches.some((match) => match.league.id === league.id),
       ),
-      sportCounts: countSports(triunfobet.matches),
+      sportCounts: countSports(captured.matches),
       meta: {
         ...base.meta,
         warnings: uniqueWarnings([
-          `${base.matches.length - baseToday.length} partidos de hoy ya comenzaron y fueron excluidos.`,
-          ...triunfobet.warnings,
+          `${excluded} partidos ya comenzaron o están fuera de la ventana hoy/mañana y fueron excluidos.`,
+          ...captured.warnings,
           ...base.meta.warnings,
         ]),
         sources: {
           ...base.meta.sources,
-          triunfobet: triunfobet.connected,
+          triunfobet: captured.triunfobetConnected,
+          apuestasRoyal: captured.royalConnected,
         },
       },
-    };
+    });
   }
 
   const keyOf = (match: SportsMatch) =>
     `${normalizeName(match.home.name)}|${normalizeName(match.away.name)}`;
   const seen = new Set<string>();
   const matches: SportsMatch[] = [];
-  for (const match of [...upcomingFlashscore, ...baseToday]) {
+  for (const match of [...upcomingFlashscore, ...baseUpcoming]) {
     const key = keyOf(match);
     if (seen.has(key)) continue;
     seen.add(key);
     matches.push(match);
   }
 
-  const triunfobet = withTriunfobetQuotes(matches);
-  const finalMatches = triunfobet.matches;
+  const captured = withCapturedBookmakerQuotes(matches);
+  const finalMatches = captured.matches;
   const leagues = Array.from(
     new Map(finalMatches.map((match) => [match.league.id, match.league])).values(),
   );
 
-  return {
+  return finalizeDashboard({
     matches: finalMatches,
     leagues,
     sportCounts: countSports(finalMatches),
@@ -741,15 +822,16 @@ export async function getDashboardData(): Promise<DashboardData> {
       mode: "live",
       generatedAt: new Date().toISOString(),
       warnings: uniqueWarnings([
-        `${upcomingFlashscore.length} partidos de Flashscore pendientes hoy (VET).`,
-        ...triunfobet.warnings,
+        `${upcomingFlashscore.length} partidos de Flashscore pendientes hoy/mañana (VET).`,
+        ...captured.warnings,
         ...base.meta.warnings,
       ]),
       sources: {
         ...base.meta.sources,
         flashscore: true,
-        triunfobet: triunfobet.connected,
+        triunfobet: captured.triunfobetConnected,
+        apuestasRoyal: captured.royalConnected,
       },
     },
-  };
+  });
 }

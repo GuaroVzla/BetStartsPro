@@ -5,6 +5,7 @@ import {
   AlertTriangle,
   ArrowUpRight,
   Database,
+  ListFilter,
   RefreshCw,
   ShieldCheck,
   Sparkles,
@@ -13,12 +14,13 @@ import {
 } from "lucide-react";
 import type {
   DashboardData,
+  MatchDay,
   SportFilter,
   SportKey,
   SportsMatch,
 } from "@/types/sports";
 import { SPORTS, SPORT_BY_KEY } from "@/config/sports";
-import { buildValuePicks } from "@/lib/bettingAnalyzer";
+import { buildValuePicks, buildValueFavoritePicks } from "@/lib/bettingAnalyzer";
 import {
   formatMatchTime,
   formatPercent,
@@ -34,6 +36,13 @@ import { OddsComparator } from "@/components/OddsComparator";
 import { MatchIntelDrawer } from "@/components/MatchIntelDrawer";
 import { Footer } from "@/components/Footer";
 import { SportIcon } from "@/components/SportIcon";
+import { LeagueManager } from "@/components/LeagueManager";
+import { MatchAnalyticsTable } from "@/components/MatchAnalyticsTable";
+import { MatchAnalyticsFilterPanel } from "@/components/MatchAnalyticsFilterPanel";
+import type { Filters } from "@/components/MatchAnalyticsFilterPanel";
+import { MatchAnalyticsModal } from "@/components/MatchAnalyticsModal";
+import { getAnalyticsFromData } from "@/services/ingestionPipeline";
+import type { DashboardAnalytics } from "@/types/predictive";
 
 interface DashboardProps {
   initialData: DashboardData;
@@ -57,6 +66,29 @@ export function Dashboard({ initialData }: DashboardProps) {
   const [refreshError, setRefreshError] = useState<string | null>(null);
   const [showWarnings, setShowWarnings] = useState(true);
   const [now, setNow] = useState(() => new Date());
+  const [dayFilter, setDayFilter] = useState<MatchDay>("today");
+
+  // Gestión de ligas desactivadas: se excluyen del radar, los KPIs y el
+  // comparador; la selección se guarda en localStorage del navegador.
+  const [showLeagueManager, setShowLeagueManager] = useState(false);
+  const [disabledLeagues, setDisabledLeagues] = useState<string[]>(() => {
+    if (typeof window === "undefined") return [];
+    try {
+      const raw = window.localStorage.getItem("betstats-pro-disabled-leagues");
+      const parsed = raw ? (JSON.parse(raw) as unknown) : null;
+      return Array.isArray(parsed)
+        ? parsed.filter((id): id is string => typeof id === "string")
+        : [];
+    } catch {
+      return [];
+    }
+  });
+  const [analyticsDetail, setAnalyticsDetail] = useState<SportsMatch | null>(
+    null,
+  );
+  const [analyticsFilters, setAnalyticsFilters] = useState<Filters | null>(
+    null,
+  );
 
   // Reloj vivo: reevalúa periódicamente qué partidos ya comenzaron para
   // retirarlos de la interfaz sin necesidad de recargar la página.
@@ -67,13 +99,20 @@ export function Dashboard({ initialData }: DashboardProps) {
 
   // Red de seguridad en cliente: solo partidos de hoy en VET y que aún no
   // hayan comenzado respecto a la hora actual.
+  const disabledSet = useMemo(
+    () => new Set(disabledLeagues),
+    [disabledLeagues],
+  );
+
   const todayMatches = useMemo(
     () =>
       data.matches.filter(
         (match) =>
-          isTodayVET(match.commenceTime) && !hasMatchStarted(match, now),
+          !disabledSet.has(match.league.id) &&
+          isTodayVET(match.commenceTime) &&
+          !hasMatchStarted(match, now),
       ),
-    [data.matches, now],
+    [data.matches, now, disabledSet],
   );
 
   const todaySportCounts = useMemo(() => {
@@ -126,12 +165,114 @@ export function Dashboard({ initialData }: DashboardProps) {
     );
   }, [data.leagues, todayMatches, activeSport]);
 
+  // Analítica predictiva: snapshots por partido y desglose de mercado.
+  const analytics = useMemo<DashboardAnalytics>(
+    () => getAnalyticsFromData(data),
+    [data],
+  );
+
+  const matchCounts = useMemo(() => {
+    const counts: Record<string, number> = {};
+    for (const match of data.matches) {
+      counts[match.league.id] = (counts[match.league.id] ?? 0) + 1;
+    }
+    return counts;
+  }, [data.matches]);
+
+  const updateDisabledLeagues = useCallback(
+    (updater: (current: string[]) => string[]) => {
+      setDisabledLeagues((current) => {
+        const next = updater(current);
+        try {
+          window.localStorage.setItem(
+            "betstats-pro-disabled-leagues",
+            JSON.stringify(next),
+          );
+        } catch {
+          // Sin storage disponible la selección no persiste.
+        }
+        return next;
+      });
+    },
+    [],
+  );
+
+  // Filas de la tabla de analítica con los filtros avanzados aplicados.
+  const analyticsRows = useMemo(() => {
+    const rows = analytics.data.matches;
+    if (!analyticsFilters) return rows;
+    const f = analyticsFilters;
+    let out = rows;
+    if (f.sports.length > 0) {
+      out = out.filter((m) => f.sports.includes(m.sport));
+    }
+    if (f.leagueIds.length > 0) {
+      out = out.filter((m) => f.leagueIds.includes(m.league.id));
+    }
+    const query = normalizeQuery(f.search);
+    if (query) {
+      out = out.filter((m) =>
+        normalizeQuery(
+          [
+            m.home.name,
+            m.away.name,
+            m.home.shortName,
+            m.away.shortName,
+            m.league.name,
+            m.league.shortName,
+            m.league.country,
+          ].join(" "),
+        ).includes(query),
+      );
+    }
+    if (f.minOdds > 0) {
+      out = out.filter((m) => {
+        const best = Math.max(
+          m.odds.best.home,
+          m.odds.best.away,
+          m.odds.best.draw ?? 0,
+        );
+        return best >= f.minOdds;
+      });
+    }
+    out = out.filter((m) => {
+      const snapshot = analytics.snapshots.find((s) => s.matchId === m.id);
+      if (
+        f.confidence !== "all" &&
+        (!snapshot || snapshot.confidence !== f.confidence)
+      ) {
+        return false;
+      }
+      if (
+        f.recommendation !== "all" &&
+        (!snapshot || snapshot.recommendation !== f.recommendation)
+      ) {
+        return false;
+      }
+      const isValueCandidate =
+        snapshot &&
+        snapshot.confidence === "high" &&
+        snapshot.expectedValue >= 0.05;
+      if (f.valueBet === "value_bet" && !isValueCandidate) return false;
+      if (f.valueBet === "not_value_bet" && isValueCandidate) return false;
+      return true;
+    });
+    return out;
+  }, [analytics, analyticsFilters]);
+
   const bestValue = useMemo(() => {
     return buildValuePicks(filteredMatches, {
       minProbability: 0.5,
       minOdds: 1.6,
     })[0] ?? null;
   }, [filteredMatches]);
+
+  const valueFavorites = useMemo(
+    () => buildValueFavoritePicks(filteredMatches),
+    [filteredMatches],
+  );
+
+  const dayLabel = dayFilter === "today" ? "Hoy" : "Mañana";
 
   const selectedMatch = useMemo(() => {
     if (!selectedMatchId) return null;
@@ -359,6 +500,14 @@ export function Dashboard({ initialData }: DashboardProps) {
                   <Sparkles className="h-3.5 w-3.5 text-emerald-500" />
                   EV y probabilidad implícita
                 </span>
+                <button
+                  type="button"
+                  onClick={() => setShowLeagueManager(true)}
+                  className="flex items-center gap-1.5 rounded-full border border-slate-200 bg-white/65 px-2.5 py-1 text-[10px] font-medium text-slate-500 transition hover:border-blue-400/40 hover:text-blue-700 dark:border-white/10 dark:bg-white/[0.03] dark:text-slate-400 dark:hover:text-blue-300"
+                >
+                  <ListFilter className="h-3 w-3 text-slate-400 dark:text-slate-500" />
+                  Gestión de ligas
+                </button>
               </div>
             </div>
 
@@ -437,7 +586,39 @@ export function Dashboard({ initialData }: DashboardProps) {
             new Set(filteredMatches.map((match) => match.league.id)).size
           }
           bestPick={bestValue}
+          valueFavoriteCount={valueFavorites.length}
+          dayLabel={dayLabel}
         />
+
+        <div className="mt-9">
+          <MatchAnalyticsFilterPanel
+            analytics={analytics}
+            data={data}
+            activeLeague={activeLeague}
+            activeSport={activeSport}
+            onApplyFilters={setAnalyticsFilters}
+          />
+          <MatchAnalyticsTable
+            matches={analyticsRows}
+            analytics={analytics}
+            activeLeague={activeLeague}
+            activeSport={activeSport}
+            onOpenDetail={setAnalyticsDetail}
+          />
+          {analyticsDetail ? (
+            <MatchAnalyticsModal
+              match={analyticsDetail}
+              outcome={
+                analytics.snapshots.find(
+                  (s) => s.matchId === analyticsDetail.id,
+                )?.outcome ?? "home"
+              }
+              isOpen
+              onClose={() => setAnalyticsDetail(null)}
+              analytics={analytics}
+            />
+          ) : null}
+        </div>
 
         <div className="mt-5">
           <HighValueHighOddsList
@@ -445,6 +626,7 @@ export function Dashboard({ initialData }: DashboardProps) {
             activeSport={activeSport}
             onSportChange={handleSportChange}
             onOpenMatch={openMatch}
+            dayLabel={dayLabel}
           />
         </div>
 
@@ -457,6 +639,7 @@ export function Dashboard({ initialData }: DashboardProps) {
             activeSport={activeSport}
             onSportChange={handleSportChange}
             onOpenMatch={openMatch}
+            dayLabel={dayLabel}
           />
         </div>
 
@@ -506,6 +689,24 @@ export function Dashboard({ initialData }: DashboardProps) {
 
       <Footer mode={data.meta.mode} />
       <MatchIntelDrawer match={selectedMatch} onClose={closeMatch} />
+
+      {showLeagueManager ? (
+        <LeagueManager
+          leagues={data.leagues}
+          disabled={disabledLeagues}
+          matchCounts={matchCounts}
+          onToggle={(leagueId) =>
+            updateDisabledLeagues((current) =>
+              current.includes(leagueId)
+                ? current.filter((id) => id !== leagueId)
+                : [...current, leagueId],
+            )
+          }
+          onReset={() => updateDisabledLeagues(() => [])}
+          onEnableAll={() => updateDisabledLeagues(() => [])}
+          onClose={() => setShowLeagueManager(false)}
+        />
+      ) : null}
     </div>
   );
 }

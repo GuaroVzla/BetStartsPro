@@ -12,6 +12,9 @@ export default defineConfig({
     },
     env: {
       ASSETS: bindings.assets(),
+      VINEXT_KV_CACHE: bindings.kv({
+        id: "cd19dc747e4d434bab385fd6a01942b7",
+      }),
     },
   }),
 });
