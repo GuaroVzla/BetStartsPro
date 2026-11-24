@@ -2,7 +2,7 @@
   "target_app": "BetStats Pro",
   "source": "apuestas_royal_agent",
   "sync_mode": "enrich_or_create",
-  "fecha_extraccion": "2026-11-23",
+  "fecha_extraccion": "2026-11-24",
   "zona_horaria": "America/Caracas",
   "total_cotizaciones": 15,
   "cotizaciones": [
@@ -17,10 +17,10 @@
       "mercado": "1X2",
       "cuotas_1x2": {
         "local_1": 3.45,
-        "empate_x": 3.3,
-        "visitante_2": 1.98
+        "empate_x": 3.35,
+        "visitante_2": 1.96
       },
-      "capturado_en": "2026-11-23T23:07:03-04:00",
+      "capturado_en": "2026-11-24T13:17:22-04:00",
       "url": "https://app.apuestasroyal.com/",
       "nota": "Cuota 1X2 publicada por la API autenticada del lobby de Apuestas Royal"
     },
@@ -34,29 +34,47 @@
       "equipo_visitante": "IK Sirius",
       "mercado": "1X2",
       "cuotas_1x2": {
-        "local_1": 4.2,
-        "empate_x": 3.95,
-        "visitante_2": 1.71
+        "local_1": 4,
+        "empate_x": 4,
+        "visitante_2": 1.73
       },
-      "capturado_en": "2026-11-23T23:07:03-04:00",
+      "capturado_en": "2026-11-24T13:17:22-04:00",
       "url": "https://app.apuestasroyal.com/",
       "nota": "Cuota 1X2 publicada por la API autenticada del lobby de Apuestas Royal"
     },
     {
-      "match_slug": "2026-11-25_sagan-tosu_vs_oita-trinita",
+      "match_slug": "2026-11-25_sagamihara_vs_ehime",
       "deporte": "Fútbol",
-      "liga": "Liga J 2",
+      "liga": "JAPÓN: J3 League",
+      "fecha_local": "2026-11-25",
+      "hora_local": "05:30",
+      "equipo_local": "Sagamihara",
+      "equipo_visitante": "Ehime",
+      "mercado": "1X2",
+      "cuotas_1x2": {
+        "local_1": 2.06,
+        "empate_x": 3.4,
+        "visitante_2": 3.1
+      },
+      "capturado_en": "2026-11-24T13:17:22-04:00",
+      "url": "https://app.apuestasroyal.com/",
+      "nota": "Cuota 1X2 publicada por la API autenticada del lobby de Apuestas Royal"
+    },
+    {
+      "match_slug": "2026-11-25_sagan-tosu_vs_oita",
+      "deporte": "Fútbol",
+      "liga": "JAPÓN: J2 League",
       "fecha_local": "2026-11-25",
       "hora_local": "06:00",
       "equipo_local": "Sagan Tosu",
-      "equipo_visitante": "Oita Trinita",
+      "equipo_visitante": "Oita",
       "mercado": "1X2",
       "cuotas_1x2": {
-        "local_1": 1.59,
+        "local_1": 1.57,
         "empate_x": 3.7,
-        "visitante_2": 5.4
+        "visitante_2": 5.6
       },
-      "capturado_en": "2026-11-23T23:07:03-04:00",
+      "capturado_en": "2026-11-24T13:17:22-04:00",
       "url": "https://app.apuestasroyal.com/",
       "nota": "Cuota 1X2 publicada por la API autenticada del lobby de Apuestas Royal"
     },
@@ -70,11 +88,11 @@
       "equipo_visitante": "Billericay",
       "mercado": "1X2",
       "cuotas_1x2": {
-        "local_1": 1.49,
-        "empate_x": 4.4,
+        "local_1": 1.52,
+        "empate_x": 4.1,
         "visitante_2": 5
       },
-      "capturado_en": "2026-11-23T23:07:03-04:00",
+      "capturado_en": "2026-11-24T13:17:22-04:00",
       "url": "https://app.apuestasroyal.com/",
       "nota": "Cuota 1X2 publicada por la API autenticada del lobby de Apuestas Royal"
     },
@@ -88,11 +106,11 @@
       "equipo_visitante": "Coleraine",
       "mercado": "1X2",
       "cuotas_1x2": {
-        "local_1": 3.2,
-        "empate_x": 3.65,
-        "visitante_2": 1.96
+        "local_1": 3.55,
+        "empate_x": 4.2,
+        "visitante_2": 1.74
       },
-      "capturado_en": "2026-11-23T23:07:03-04:00",
+      "capturado_en": "2026-11-24T13:17:22-04:00",
       "url": "https://app.apuestasroyal.com/",
       "nota": "Cuota 1X2 publicada por la API autenticada del lobby de Apuestas Royal"
     },
@@ -106,11 +124,11 @@
       "equipo_visitante": "Buxton",
       "mercado": "1X2",
       "cuotas_1x2": {
-        "local_1": 2.3,
-        "empate_x": 3.45,
-        "visitante_2": 2.66
+        "local_1": 2.1,
+        "empate_x": 3.4,
+        "visitante_2": 3.05
       },
-      "capturado_en": "2026-11-23T23:07:03-04:00",
+      "capturado_en": "2026-11-24T13:17:22-04:00",
       "url": "https://app.apuestasroyal.com/",
       "nota": "Cuota 1X2 publicada por la API autenticada del lobby de Apuestas Royal"
     },
@@ -128,7 +146,7 @@
         "empate_x": 3.75,
         "visitante_2": 3.7
       },
-      "capturado_en": "2026-11-23T23:07:03-04:00",
+      "capturado_en": "2026-11-24T13:17:22-04:00",
       "url": "https://app.apuestasroyal.com/",
       "nota": "Cuota 1X2 publicada por la API autenticada del lobby de Apuestas Royal"
     },
@@ -142,11 +160,11 @@
       "equipo_visitante": "PSV Eindhoven",
       "mercado": "1X2",
       "cuotas_1x2": {
-        "local_1": 3.15,
+        "local_1": 3.2,
         "empate_x": 4,
-        "visitante_2": 1.97
+        "visitante_2": 1.96
       },
-      "capturado_en": "2026-11-23T23:07:03-04:00",
+      "capturado_en": "2026-11-24T13:17:22-04:00",
       "url": "https://app.apuestasroyal.com/",
       "nota": "Cuota 1X2 publicada por la API autenticada del lobby de Apuestas Royal"
     },
@@ -160,29 +178,29 @@
       "equipo_visitante": "GKS Katowice",
       "mercado": "1X2",
       "cuotas_1x2": {
-        "local_1": 2.84,
+        "local_1": 2.86,
         "empate_x": 3.5,
         "visitante_2": 2.28
       },
-      "capturado_en": "2026-11-23T23:07:03-04:00",
+      "capturado_en": "2026-11-24T13:17:22-04:00",
       "url": "https://app.apuestasroyal.com/",
       "nota": "Cuota 1X2 publicada por la API autenticada del lobby de Apuestas Royal"
     },
     {
-      "match_slug": "2026-11-25_fk-lokomotiv-moscu_vs_fk-rostov",
+      "match_slug": "2026-11-25_lokomotiv-moscu_vs_rostov",
       "deporte": "Fútbol",
-      "liga": "Cup",
+      "liga": "RUSIA: Copa de Rusia - Fase Grupos",
       "fecha_local": "2026-11-25",
       "hora_local": "13:30",
-      "equipo_local": "FK Lokomotiv Moscú",
-      "equipo_visitante": "FK Rostov",
+      "equipo_local": "Lokomotiv Moscú",
+      "equipo_visitante": "Rostov",
       "mercado": "1X2",
       "cuotas_1x2": {
         "local_1": 2.16,
         "empate_x": 3.45,
         "visitante_2": 3.15
       },
-      "capturado_en": "2026-11-23T23:07:03-04:00",
+      "capturado_en": "2026-11-24T13:17:22-04:00",
       "url": "https://app.apuestasroyal.com/",
       "nota": "Cuota 1X2 publicada por la API autenticada del lobby de Apuestas Royal"
     },
@@ -196,11 +214,11 @@
       "equipo_visitante": "Lechia Gdansk",
       "mercado": "1X2",
       "cuotas_1x2": {
-        "local_1": 2.12,
+        "local_1": 2.08,
         "empate_x": 3.55,
-        "visitante_2": 2.92
+        "visitante_2": 2.96
       },
-      "capturado_en": "2026-11-23T23:07:03-04:00",
+      "capturado_en": "2026-11-24T13:17:22-04:00",
       "url": "https://app.apuestasroyal.com/",
       "nota": "Cuota 1X2 publicada por la API autenticada del lobby de Apuestas Royal"
     },
@@ -214,11 +232,11 @@
       "equipo_visitante": "Bohemians Praga",
       "mercado": "1X2",
       "cuotas_1x2": {
-        "local_1": 1.87,
-        "empate_x": 3.5,
-        "visitante_2": 3.6
+        "local_1": 1.86,
+        "empate_x": 3.45,
+        "visitante_2": 3.65
       },
-      "capturado_en": "2026-11-23T23:07:03-04:00",
+      "capturado_en": "2026-11-24T13:17:22-04:00",
       "url": "https://app.apuestasroyal.com/",
       "nota": "Cuota 1X2 publicada por la API autenticada del lobby de Apuestas Royal"
     },
@@ -232,11 +250,11 @@
       "equipo_visitante": "Hebburn Town",
       "mercado": "1X2",
       "cuotas_1x2": {
-        "local_1": 1.79,
-        "empate_x": 3.6,
-        "visitante_2": 3.8
+        "local_1": 1.87,
+        "empate_x": 3.5,
+        "visitante_2": 3.6
       },
-      "capturado_en": "2026-11-23T23:07:03-04:00",
+      "capturado_en": "2026-11-24T13:17:22-04:00",
       "url": "https://app.apuestasroyal.com/",
       "nota": "Cuota 1X2 publicada por la API autenticada del lobby de Apuestas Royal"
     },
@@ -254,25 +272,7 @@
         "empate_x": 3.85,
         "visitante_2": 4.1
       },
-      "capturado_en": "2026-11-23T23:07:03-04:00",
-      "url": "https://app.apuestasroyal.com/",
-      "nota": "Cuota 1X2 publicada por la API autenticada del lobby de Apuestas Royal"
-    },
-    {
-      "match_slug": "2026-12-05_ssc-napoles_vs_us-lecce",
-      "deporte": "Fútbol",
-      "liga": "Serie A",
-      "fecha_local": "2026-12-05",
-      "hora_local": "15:45",
-      "equipo_local": "SSC Nápoles",
-      "equipo_visitante": "US Lecce",
-      "mercado": "1X2",
-      "cuotas_1x2": {
-        "local_1": 1.37,
-        "empate_x": 5.2,
-        "visitante_2": 8.8
-      },
-      "capturado_en": "2026-11-23T23:07:03-04:00",
+      "capturado_en": "2026-11-24T13:17:22-04:00",
       "url": "https://app.apuestasroyal.com/",
       "nota": "Cuota 1X2 publicada por la API autenticada del lobby de Apuestas Royal"
     }
