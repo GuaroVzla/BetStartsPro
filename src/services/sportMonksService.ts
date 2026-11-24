@@ -2,6 +2,7 @@ import type { ApiSportsEvent } from "@/services/apiSportsService";
 import type { NormalizedOddsEvent } from "@/services/oddsApiService";
 import type { BookmakerQuote, LeagueInfo, OutcomePrices } from "@/types/sports";
 import { dateInVET, dateInVETOffset, normalizeCommenceTime } from "@/lib/format";
+import { canonicalBookmakerName } from "@/lib/utils";
 
 const SPORTMONKS_BASE = "https://api.sportmonks.com/v3/football";
 const CACHE_SECONDS = 3600;
@@ -210,14 +211,21 @@ function buildBookmakerQuotes(
     const { home, draw, away } = group.outcomes;
     if (home === undefined || away === undefined) continue;
 
+    const rawHome = home > 1 ? 1 / home : 0;
+    const rawDraw = draw != null && draw > 1 ? 1 / draw : 0;
+    const rawAway = away > 1 ? 1 / away : 0;
+    const updatedAt = group.updatedAt
+      ? normalizeTimestamp(group.updatedAt)
+      : new Date().toISOString();
     quotes.push({
       id: `sportmonks-${bookmakerId}`,
       name: group.name,
+      canonicalName: canonicalBookmakerName(group.name, "sportmonks"),
       source: "sportmonks",
       outcomes: { home, draw: draw ?? null, away },
-      updatedAt: group.updatedAt
-        ? normalizeTimestamp(group.updatedAt)
-        : new Date().toISOString(),
+      updatedAt,
+      asOf: updatedAt,
+      overround: Math.max(0, rawHome + rawDraw + rawAway - 1),
     });
   }
 

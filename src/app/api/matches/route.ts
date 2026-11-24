@@ -41,14 +41,32 @@ export async function GET(request: NextRequest) {
               (league) => league.sport === sportParam,
             ),
           };
+    // Telemetría desactivada hasta migrarla de node:fs a KV/D1 o a un cron Node-only.
+    // Ver docs/RECOMENDACIONES_PENDIENTES.md (sección 4).
+
+    const nowMs = Date.now();
+    const nearestMs = filtered.matches
+      .map((match) => Date.parse(match.commenceTime))
+      .filter((ts) => Number.isFinite(ts) && ts >= nowMs)
+      .sort((a, b) => a - b)[0];
+    const minutesToKickoff =
+      nearestMs == null ? Number.POSITIVE_INFINITY : (nearestMs - nowMs) / 60_000;
+    const ttlSeconds = forceRefresh
+      ? 0
+      : minutesToKickoff <= 120
+        ? 120
+        : minutesToKickoff <= 24 * 60
+          ? 600
+          : 3600;
+    const swrSeconds = ttlSeconds === 0 ? 0 : Math.min(600, Math.max(60, Math.floor(ttlSeconds / 2)));
 
     return NextResponse.json(filtered, {
       headers: {
         "Cache-Control": forceRefresh
           ? "no-store, max-age=0"
-          : "public, s-maxage=3600, stale-while-revalidate=600",
+          : `public, s-maxage=${ttlSeconds}, stale-while-revalidate=${swrSeconds}`,
         "X-Data-Mode": data.meta.mode,
-        "X-Cache-TTL": String(data.meta.cacheTtlSeconds),
+        "X-Cache-TTL": String(ttlSeconds),
       },
     });
   } catch (error) {

@@ -186,7 +186,7 @@ src/
 3. Fútbol, béisbol y hockey usan distribución de Poisson. Básquet usa un modelo logístico sobre el margen proyectado.
 4. Probabilidad implícita = `1 / cuota`; valor esperado = `p × cuota − 1`.
 5. Sin goles esperados, la probabilidad usa consenso de mercado depurado de margen y se etiqueta como `Prob. mercado`.
-6. El radar filtra por defecto selecciones con `p ≥ 50%`, cuota `≥ 1.6` y `EV > 0` (ajustable desde la interfaz).
+6. El radar filtra selecciones con `p ≥ 50%`, cuota `≥ 1.6`, `edge desvigado ≥ 2%` y `EV > 0`. El edge canónico compara la probabilidad del modelo contra la implícita desvigada (proporcional); la implícita raw se conserva solo como observabilidad.
 
 ## Cloudflare Workers
 

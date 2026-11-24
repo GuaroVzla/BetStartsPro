@@ -83,7 +83,7 @@ export function TopPicks({ picks, onOpenMatch }: TopPicksProps) {
               </div>
               <div className="mt-2 flex items-center justify-between border-t border-slate-100 pt-2 text-[10px] text-slate-500 dark:border-white/[0.06] dark:text-slate-400">
                 <span className="truncate">
-                  {pick.selection} · {formatPercent(pick.statisticalProbability)} · {pick.probabilitySource}
+                  {pick.selection} · {formatPercent(pick.statisticalProbability)} · {pick.probabilitySource} · conf. {formatPercent(pick.confidence, 0)}
                 </span>
                 <ArrowUpRight className="h-3 w-3 shrink-0 transition group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
               </div>

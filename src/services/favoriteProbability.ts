@@ -9,9 +9,11 @@ import type {
 /**
  * Probabilidad de victoria del favorito con un modelo multifactorial.
  *
- * Pesos (suma 1): mercado 35%, forma reciente 25%, contexto 15%,
- * disponibilidad 15% y H2H 10%. Cuando un factor no tiene datos se imputa
- * de forma conservadora (preferentemente con el consenso de mercado) y se
+ * Pesos base: mercado 35%, forma reciente 25%, contexto 15%, disponibilidad 15%.
+ * El 10% de H2H se redistribuye al mercado hasta que exista un H2H
+ * estructurado (conteo de victorias/empates, no regex en texto).
+ *
+ * Cuando un factor no tiene datos se imputa con el consenso de mercado y se
  * marca `estimated` para que la tabla pueda mostrar `*`.
  */
 
@@ -25,11 +27,10 @@ export interface FavoriteProbability {
 type Distribucion = Record<OutcomeKey, number>;
 type Factor = { distribucion: Distribucion; imputado: boolean };
 
-const PESO_MERCADO = 0.35;
+const PESO_MERCADO = 0.45; // 0.35 base + 0.10 ex-H2H
 const PESO_FORMA = 0.25;
 const PESO_CONTEXTO = 0.15;
 const PESO_DISPONIBILIDAD = 0.15;
-const PESO_H2H = 0.1;
 
 const VENTANA_FORMA = 10;
 
@@ -121,14 +122,21 @@ function fuerzaForma(match: SportsMatch, stats: TeamAdvancedStats, local: boolea
   const xgTotal = xgLocal + xgVisitante;
   const xg = xgTotal > 0 ? (local ? xgLocal : xgVisitante) / xgTotal : null;
 
-  const valores = [form, sede, eficienciaBruta, xg].filter(
-    (valor): valor is number => valor != null,
+  // La corrección clave: antes se dividía por `valores.length`, así 3 señales
+  // devolvían (0.45+0.25+0.20)/3=0.30 en vez de normalizar por los pesos
+  // presentes. Ahora el denominador es la suma de pesos reales.
+  const candidatos: Array<{ valor: number | null; peso: number }> = [
+    { valor: form, peso: 0.45 },
+    { valor: sede, peso: 0.25 },
+    { valor: eficienciaBruta, peso: 0.2 },
+    { valor: xg, peso: 0.1 },
+  ];
+  const activos = candidatos.filter(
+    (c): c is { valor: number; peso: number } => c.valor != null,
   );
-  if (valores.length === 0) return null;
-
-  const pesos = [0.45, 0.25, 0.2, 0.1];
-  const pesoTotal = valores.length;
-  return valores.reduce((suma, valor, indice) => suma + valor * pesos[indice], 0) / pesoTotal;
+  if (activos.length === 0) return null;
+  const pesoTotal = activos.reduce((sum, current) => sum + current.peso, 0);
+  return activos.reduce((sum, current) => sum + current.valor * current.peso, 0) / pesoTotal;
 }
 
 function distribucionForma(match: SportsMatch, conEmpate: boolean): Factor | null {
@@ -140,7 +148,8 @@ function distribucionForma(match: SportsMatch, conEmpate: boolean): Factor | nul
 }
 
 function posicionScore(row: StandingRow, tamanoTabla: number): number | null {
-  if (!(row.position > 0)) return null;
+  // position=0 o played=0 = sin tabla real, no un 1º artificial.
+  if (!(row.position > 0) || !(row.played > 0)) return null;
   return clamp(1 - (row.position - 1) / Math.max(1, tamanoTabla - 1), 0, 1);
 }
 
@@ -203,18 +212,13 @@ function distribucionDisponibilidad(match: SportsMatch, conEmpate: boolean): Fac
   };
 }
 
-/** 5. H2H: se extrae una señal suave del resumen cuando existe. */
-function distribucionH2H(match: SportsMatch, conEmpate: boolean): Factor | null {
-  const nota = match.intel.note ?? "";
-  if (!/h2h|head[- ]to[- ]head|enfrentamiento/i.test(nota)) return null;
-
-  const mencionCasa = (nota.match(new RegExp(match.home.shortName, "gi")) ?? []).length;
-  const mencionFuera = (nota.match(new RegExp(match.away.shortName, "gi")) ?? []).length;
-  const ventaja = clamp((mencionCasa - mencionFuera) * 0.02, -0.12, 0.12);
-  return {
-    distribucion: desdeVentaja(ventaja, conEmpate),
-    imputado: mencionCasa === mencionFuera,
-  };
+/**
+ * 5. H2H desactivado por defecto: el conteo de menciones en texto no es
+ * estadística y era vulnerable a regex no escapadas. Cuando exista un campo
+ * estructurado `intel.h2h`, se puede reactivar con peso propio.
+ */
+function distribucionH2H(_match: SportsMatch, _conEmpate: boolean): Factor | null {
+  return null;
 }
 
 /** Devuelve el favorito y su probabilidad de victoria (1X2 cuando hay empate). */
@@ -228,15 +232,8 @@ export function favoriteProbability(match: SportsMatch): FavoriteProbability {
     distribucionForma(match, conEmpate) ?? { distribucion: base, imputado: true },
     distribucionContexto(match, conEmpate) ?? { distribucion: base, imputado: true },
     distribucionDisponibilidad(match, conEmpate) ?? { distribucion: base, imputado: true },
-    distribucionH2H(match, conEmpate) ?? { distribucion: base, imputado: true },
   ];
-  const pesos = [
-    PESO_MERCADO,
-    PESO_FORMA,
-    PESO_CONTEXTO,
-    PESO_DISPONIBILIDAD,
-    PESO_H2H,
-  ];
+  const pesos = [PESO_MERCADO, PESO_FORMA, PESO_CONTEXTO, PESO_DISPONIBILIDAD];
 
   const final: Distribucion = { home: 0, draw: 0, away: 0 };
   factores.forEach((factor, indice) => {
@@ -246,11 +243,15 @@ export function favoriteProbability(match: SportsMatch): FavoriteProbability {
   });
   const distribucion = normalizar(final, conEmpate);
 
-  const side: "home" | "away" =
-    distribucion.home === distribucion.away
-      ? match.favoriteSide === "away"
+  const canonical =
+    match.canonicalFavorite === "away" || match.canonicalFavorite === "home"
+      ? match.canonicalFavorite
+      : match.favoriteSide === "away"
         ? "away"
-        : "home"
+        : "home";
+  const side: "home" | "away" =
+    Math.abs(distribucion.home - distribucion.away) < 1e-9
+      ? canonical
       : distribucion.home > distribucion.away
         ? "home"
         : "away";

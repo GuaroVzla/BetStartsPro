@@ -1,5 +1,5 @@
 import { dateInVET, isWithinMatchWindow, normalizeCommenceTime } from "@/lib/format";
-import { summarizeMarket } from "@/lib/marketSummary";
+import { canonicalFavoriteFromSummary, summarizeMarket } from "@/lib/marketSummary";
 import { normalizeName } from "@/lib/utils";
 import type { StoredRecord } from "@/services/flashscoreIngestStore";
 import type {
@@ -163,16 +163,23 @@ function toSportsMatch(record: StoredRecord, now: Date = new Date()): SportsMatc
   const local = record.cuotas_1x2.local_1;
   const visitante = record.cuotas_1x2.visitante_2;
   if ((local !== null && local > 1) || (visitante !== null && visitante > 1)) {
+    const outcomes = {
+      home: local !== null && local > 1 ? local : 0,
+      draw: record.cuotas_1x2.empate_x,
+      away: visitante !== null && visitante > 1 ? visitante : 0,
+    };
+    const rawH = outcomes.home > 1 ? 1 / outcomes.home : 0;
+    const rawD = outcomes.draw && outcomes.draw > 1 ? 1 / outcomes.draw : 0;
+    const rawA = outcomes.away > 1 ? 1 / outcomes.away : 0;
     bookmakers.push({
       id: "flashscore-1x2",
       name: "Flashscore",
       source: "flashscore",
-      outcomes: {
-        home: local !== null && local > 1 ? local : 0,
-        draw: record.cuotas_1x2.empate_x,
-        away: visitante !== null && visitante > 1 ? visitante : 0,
-      },
+      canonicalName: "flashscore",
+      outcomes,
       updatedAt: record.actualizado_en,
+      asOf: record.actualizado_en,
+      overround: Math.max(0, rawH + rawD + rawA - 1),
     });
   }
 
@@ -190,6 +197,7 @@ function toSportsMatch(record: StoredRecord, now: Date = new Date()): SportsMatc
     note: stats.h2h_resumen ?? undefined,
   };
 
+  const odds = summarizeMarket(bookmakers);
   return {
     id: `flashscore-${record.match_slug}`,
     sport,
@@ -200,9 +208,10 @@ function toSportsMatch(record: StoredRecord, now: Date = new Date()): SportsMatc
     venue: "Sin especificar",
     home,
     away,
-    odds: summarizeMarket(bookmakers),
+    odds,
     intel,
-    favoriteSide: favoriteFromOdds(record),
+    favoriteSide: canonicalFavoriteFromSummary(odds),
+    canonicalFavorite: canonicalFavoriteFromSummary(odds),
   };
 }
 

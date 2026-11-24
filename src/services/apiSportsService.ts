@@ -9,7 +9,7 @@ import type {
   TeamAdvancedStats,
   VenueSplit,
 } from "@/types/sports";
-import { clamp } from "@/lib/utils";
+import { clamp, canonicalBookmakerName } from "@/lib/utils";
 import { dateInVET, dateInVETOffset, normalizeCommenceTime } from "@/lib/format";
 
 const CACHE_SECONDS = 3600;
@@ -573,12 +573,19 @@ function extractBookmakers(
     }
     if (outcomes.home <= 1 || outcomes.away <= 1) continue;
 
+    const rawHome = outcomes.home > 1 ? 1 / outcomes.home : 0;
+    const rawDraw = outcomes.draw && outcomes.draw > 1 ? 1 / outcomes.draw : 0;
+    const rawAway = outcomes.away > 1 ? 1 / outcomes.away : 0;
+    const name = asString(bookmaker.name, "API-Sports");
     result.push({
       id: `api-sports-${asString(bookmaker.id, asString(bookmaker.name))}`,
-      name: asString(bookmaker.name, "API-Sports"),
+      name,
+      canonicalName: canonicalBookmakerName(name, "api-sports"),
       source: "api-sports",
       outcomes,
       updatedAt,
+      asOf: updatedAt,
+      overround: Math.max(0, rawHome + rawDraw + rawAway - 1),
     });
   }
 

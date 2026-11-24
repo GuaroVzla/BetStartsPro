@@ -137,15 +137,55 @@ function sameSide(a: string, b: string): boolean {
 function teamsScore(
   insight: TheAnalystMatchInsight,
   source: AnalystCrossMatch,
-): number | null {
+): { score: number; swapped: boolean } | null {
   const direct =
     sameSide(insight.equipo_local, source.equipo_local) &&
     sameSide(insight.equipo_visitante, source.equipo_visitante);
   const swapped =
+    !direct &&
     sameSide(insight.equipo_local, source.equipo_visitante) &&
     sameSide(insight.equipo_visitante, source.equipo_local);
   if (!direct && !swapped) return null;
-  return swapped ? 8 : 10;
+  // Un insight invertido no se acepta: con liga coincidente sumaría 11 y
+  // ganaba a un cruce directo con liga distinta. Penalizarlo por debajo del
+  // mínScore evita meter el 45% del blend con local/visitante al revés.
+  return { score: swapped ? 1 : 10, swapped };
+}
+
+interface DetailedAnalystMatchScore {
+  score: number;
+  swapped: boolean;
+}
+
+function scoreTheAnalystMatchDetailed(
+  source: AnalystCrossMatch,
+  record: StoredTheAnalystRecord,
+): DetailedAnalystMatchScore {
+  const insight = record.insight;
+  if (!insight) return { score: 0, swapped: false };
+
+  if (source.match_slug && insight.match_slug && source.match_slug === insight.match_slug) {
+    return { score: 100, swapped: false };
+  }
+  if (
+    source.id &&
+    insight.match_slug &&
+    source.id === `flashscore-${insight.match_slug}`
+  ) {
+    return { score: 100, swapped: false };
+  }
+
+  const teams = teamsScore(insight, source);
+  if (teams === null) return { score: 0, swapped: false };
+  if (!datesWithinVETDay(sourceDate(source), insightDate(insight, record))) {
+    return { score: 0, swapped: false };
+  }
+
+  const sourceLeague = canonicalLeagueName(source.liga ?? null);
+  const insightLeague = canonicalLeagueName(insight.liga);
+  const sameLeague =
+    !sourceLeague || !insightLeague ? 0 : sourceLeague === insightLeague ? 3 : -2;
+  return { score: teams.score + sameLeague, swapped: teams.swapped };
 }
 
 /** Puntúa un cruce: 0 = no cruza, valores altos = coincidencia fiable. */
@@ -153,29 +193,7 @@ export function scoreTheAnalystMatch(
   source: AnalystCrossMatch,
   record: StoredTheAnalystRecord,
 ): number {
-  const insight = record.insight;
-  if (!insight) return 0;
-
-  if (source.match_slug && insight.match_slug && source.match_slug === insight.match_slug) {
-    return 100;
-  }
-  if (
-    source.id &&
-    insight.match_slug &&
-    source.id === `flashscore-${insight.match_slug}`
-  ) {
-    return 100;
-  }
-
-  const teams = teamsScore(insight, source);
-  if (teams === null) return 0;
-  if (!datesWithinVETDay(sourceDate(source), insightDate(insight, record))) return 0;
-
-  const sourceLeague = canonicalLeagueName(source.liga ?? null);
-  const insightLeague = canonicalLeagueName(insight.liga);
-  const sameLeague =
-    !sourceLeague || !insightLeague ? 0 : sourceLeague === insightLeague ? 3 : -2;
-  return teams + sameLeague;
+  return scoreTheAnalystMatchDetailed(source, record).score;
 }
 
 export type TheAnalystMatchResult<T extends AnalystCrossMatch> = {
@@ -184,6 +202,7 @@ export type TheAnalystMatchResult<T extends AnalystCrossMatch> = {
   insight: TheAnalystMatchInsight;
   fairOdds: Record<ProbabilityOutcome, number | null>;
   score: number;
+  swapped: boolean;
 };
 
 /** Busca el mejor insight para una fila de Flashscore/TriunfoBet/Apuestas Royal. */
@@ -195,15 +214,16 @@ export function findTheAnalystMatch<T extends AnalystCrossMatch>(
   let best: TheAnalystMatchResult<T> | null = null;
   for (const record of records) {
     if (!record.insight) continue;
-    const score = scoreTheAnalystMatch(source, record);
-    if (score < minScore) continue;
-    if (!best || score > best.score) {
+    const detailed = scoreTheAnalystMatchDetailed(source, record);
+    if (detailed.score < minScore) continue;
+    if (!best || detailed.score > best.score) {
       best = {
         source,
         record,
         insight: record.insight,
         fairOdds: fairOddsFromProbabilities(record.insight.probabilidades),
-        score,
+        score: detailed.score,
+        swapped: detailed.swapped,
       };
     }
   }

@@ -1,5 +1,5 @@
 import { LEAGUES } from "@/config/sports";
-import { getMockDashboardData, getMockMatchesForLeague } from "@/data/mockData";
+import { getMockDashboardData } from "@/data/mockData";
 import {
   fetchEventOdds,
   fetchLeagueEvents,
@@ -15,10 +15,15 @@ import {
 } from "@/services/oddsApiService";
 import { fetchSportMonksForLeague } from "@/services/sportMonksService";
 import {
-  favoriteSideFromSummary,
+  canonicalFavoriteFromSummary,
   summarizeMarket,
 } from "@/lib/marketSummary";
-import { clamp, namesLikelyMatch, normalizeName } from "@/lib/utils";
+import {
+  canonicalBookmakerName,
+  clamp,
+  namesLikelyMatch,
+  normalizeName,
+} from "@/lib/utils";
 import {
   dateInVET,
   dateInVETOffset,
@@ -38,7 +43,6 @@ import type {
   AnalystInsight,
   BookmakerQuote,
   DashboardData,
-  DashboardMeta,
   FormResult,
   Injury,
   LeagueInfo,
@@ -60,7 +64,6 @@ interface LiveLeagueResult {
   league: LeagueInfo;
   matches: SportsMatch[];
   warnings: string[];
-  fromMock: boolean;
   oddsCredits: number | null;
   sportmonksCredits: number | null;
   apiCredits: number | null;
@@ -135,7 +138,9 @@ function fallbackStanding(name: string, id: string, index: number): StandingRow 
     teamId: id,
     teamName: name,
     teamShortName: shortTeamName(name),
-    position: index + 1,
+    // Sin partidos jugados no hay posición real. Asignar index+1 hacía que el
+    // motor treated el orden de iteración como clasificación (sesgo local).
+    position: 0,
     played: 0,
     wins: 0,
     draws: 0,
@@ -174,6 +179,7 @@ function deriveStats(
       home: buildVenueSplit(0, 0, 0, 0, 0, 0),
       away: buildVenueSplit(0, 0, 0, 0, 0, 0),
       streak: "Sin datos",
+      provenance: "none",
     };
   }
 
@@ -191,31 +197,21 @@ function deriveStats(
   }, 0);
   const formRate = form.length > 0 ? points / (form.length * 3) : 0.5;
 
+  // Los splits casa/visita no vienen en la tabla básica. Antes se inventaban
+  // 53/47% y 58/55%, y eso pasaba hasGoalStatistics como "modelo real". Ahora
+  // declaramos la procedencia y dejamos ceros para que el motor no simule Poisson.
   return {
     teamId: row.teamId,
     form,
     avgScored: row.played > 0 ? row.scored / row.played : 0,
     avgConceded: row.played > 0 ? row.conceded / row.played : 0,
-    home: buildVenueSplit(
-      homePlayed,
-      homeWins,
-      homeDraws,
-      Math.max(0, homePlayed - homeWins - homeDraws),
-      row.scored * 0.53,
-      row.conceded * 0.47,
-    ),
-    away: buildVenueSplit(
-      awayPlayed,
-      awayWins,
-      awayDraws,
-      Math.max(0, awayPlayed - awayWins - awayDraws),
-      row.scored * 0.47,
-      row.conceded * 0.53,
-    ),
+    home: buildVenueSplit(0, 0, 0, 0, 0, 0),
+    away: buildVenueSplit(0, 0, 0, 0, 0, 0),
     streak:
       form.length > 0
         ? `${form[form.length - 1] === "W" ? "V" : form[form.length - 1] === "D" ? "E" : "D"} · forma ${Math.round(formRate * 100)}%`
         : "Sin datos",
+    provenance: "table-derived",
   };
 }
 
@@ -293,16 +289,40 @@ function buildIntel(params: {
   };
 }
 
-function dedupeBookmakers(bookmakers: BookmakerQuote[]): BookmakerQuote[] {
-  const seen = new Set<string>();
-  const result: BookmakerQuote[] = [];
-  for (const bookmaker of bookmakers) {
-    const key = `${bookmaker.source}:${bookmaker.name.toLowerCase()}`;
-    if (seen.has(key)) continue;
-    seen.add(key);
-    result.push(bookmaker);
+const MAX_QUOTE_AGE_MS = 24 * 60 * 60 * 1000;
+
+function dedupeBookmakers(bookmakers: BookmakerQuote[], now = Date.now()): BookmakerQuote[] {
+  const fresh = bookmakers.filter((bookmaker) => {
+    const ts = Date.parse(bookmaker.asOf ?? bookmaker.updatedAt);
+    return !Number.isFinite(ts) || now - ts <= MAX_QUOTE_AGE_MS;
+  });
+  const candidates = fresh.length > 0 ? fresh : bookmakers;
+  const byHouse = new Map<string, BookmakerQuote>();
+  for (const bookmaker of candidates) {
+    const canonical = canonicalBookmakerName(
+      bookmaker.canonicalName ?? bookmaker.name,
+      bookmaker.source,
+    );
+    const enriched = {
+      ...bookmaker,
+      canonicalName: canonical || bookmaker.name,
+      asOf: bookmaker.asOf ?? bookmaker.updatedAt,
+    };
+    const key = canonical || `${bookmaker.source}:${bookmaker.name.toLowerCase()}`;
+    const existing = byHouse.get(key);
+    if (!existing) {
+      byHouse.set(key, enriched);
+      continue;
+    }
+    // Misma casa desde otro proveedor: conservar la más reciente, pero sumar
+    // procedencia en el nombre si ayuda a depurar.
+    const existingTs = Date.parse(existing.asOf ?? existing.updatedAt);
+    const currentTs = Date.parse(enriched.asOf ?? enriched.updatedAt);
+    if (Number.isFinite(currentTs) && currentTs > (Number.isFinite(existingTs) ? existingTs : 0)) {
+      byHouse.set(key, enriched);
+    }
   }
-  return result;
+  return Array.from(byHouse.values());
 }
 
 function findOddsEvent(
@@ -354,22 +374,12 @@ async function buildLiveLeague(league: LeagueInfo): Promise<LiveLeagueResult> {
   ).slice(0, MAX_EVENTS_PER_LEAGUE);
 
   if (events.length === 0) {
-    if (eventsResult.error || sportMonksResult.error) {
-      return {
-        league,
-        matches: getMockMatchesForLeague(league.id),
-        warnings,
-        fromMock: true,
-        oddsCredits: null,
-        sportmonksCredits: sportMonksResult.creditsRemaining,
-        apiCredits: eventsResult.remaining,
-      };
-    }
+    // Una liga sin eventos reales no se rellena con fixtures simulados: eso
+    // generaba partidos inexistentes (p. ej. PSG vs Manchester City) en modo live.
     return {
       league,
       matches: [],
       warnings,
-      fromMock: false,
       oddsCredits: null,
       sportmonksCredits: sportMonksResult.creditsRemaining,
       apiCredits: eventsResult.remaining,
@@ -467,6 +477,7 @@ async function buildLiveLeague(league: LeagueInfo): Promise<LiveLeagueResult> {
     }
 
     const odds = summarizeMarket(bookmakers);
+    const canonicalFavorite = canonicalFavoriteFromSummary(odds);
     matches.push({
       id: `live-${league.id}-${event.id}`,
       sport: league.sport,
@@ -478,7 +489,8 @@ async function buildLiveLeague(league: LeagueInfo): Promise<LiveLeagueResult> {
       away,
       odds,
       intel,
-      favoriteSide: favoriteSideFromSummary(odds),
+      favoriteSide: canonicalFavorite,
+      canonicalFavorite,
     });
   }
 
@@ -498,7 +510,6 @@ async function buildLiveLeague(league: LeagueInfo): Promise<LiveLeagueResult> {
     league,
     matches,
     warnings,
-    fromMock: false,
     oddsCredits: oddsLeagueResult.creditsRemaining,
     sportmonksCredits: sportMonksResult.creditsRemaining,
     apiCredits: minNullable(credits),
@@ -587,45 +598,6 @@ async function getAggregatedDataUnfinalized(): Promise<
     const warnings = uniqueWarnings(
       results.flatMap((result) => result.warnings),
     );
-
-    if (results.every((result) => result.fromMock)) {
-      const mock = getMockDashboardData();
-      return {
-        ...mock,
-        meta: {
-          ...mock.meta,
-          mode: "mock",
-          generatedAt: new Date().toISOString(),
-          warnings: uniqueWarnings([
-            "Las APIs respondieron pero no entregaron eventos reales; se muestra el dataset de demostración.",
-            ...warnings,
-            ...mock.meta.warnings,
-          ]),
-          sources: { oddsApi: true, sportmonks: true, apiSports: true },
-        },
-      };
-    }
-
-    if (matches.length === 0) {
-      return {
-        ...getMockDashboardData(),
-        meta: {
-          ...getMockDashboardData().meta,
-          generatedAt: new Date().toISOString(),
-          warnings: uniqueWarnings([
-            "Las APIs no devolvieron eventos para hoy; se muestra el dataset de demostración.",
-            ...warnings,
-          ]),
-          sources: { oddsApi: true, sportmonks: true, apiSports: true },
-        },
-      };
-    }
-
-    const fromMock = results.some((result) => result.fromMock);
-    const mode: DashboardMeta["mode"] = fromMock ? "hybrid" : "live";
-    const activeLeagues = Array.from(
-      new Map(matches.map((match) => [match.league.id, match.league])).values(),
-    );
     const oddsCredits = minNullable(
       results.map((result) => result.oddsCredits),
     );
@@ -633,38 +605,66 @@ async function getAggregatedDataUnfinalized(): Promise<
       results.map((result) => result.sportmonksCredits),
     );
     const apiCredits = minNullable(results.map((result) => result.apiCredits));
+    const sources = { oddsApi: true, sportmonks: true, apiSports: true };
+
+    if (matches.length === 0) {
+      // Sin eventos reales no se cae al dataset simulado: las fuentes inyectadas
+      // (Flashscore, casas, The Analyst) pueden aportar partidos reales después.
+      return {
+        matches: [],
+        leagues: [],
+        sportCounts: countSports([]),
+        meta: {
+          mode: "live",
+          generatedAt: new Date().toISOString(),
+          cacheTtlSeconds: CACHE_SECONDS,
+          oddsCreditsRemaining: oddsCredits,
+          sportmonksRemaining: sportmonksCredits,
+          apiSportsRemaining: apiCredits,
+          warnings: uniqueWarnings([
+            "Las APIs no devolvieron partidos reales; no se muestran datos simulados.",
+            ...warnings,
+          ]),
+          sources,
+        },
+      };
+    }
+
+    const activeLeagues = Array.from(
+      new Map(matches.map((match) => [match.league.id, match.league])).values(),
+    );
 
     return {
       matches,
       leagues: activeLeagues,
       sportCounts: countSports(matches),
       meta: {
-        mode,
+        mode: "live",
         generatedAt: new Date().toISOString(),
         cacheTtlSeconds: CACHE_SECONDS,
         oddsCreditsRemaining: oddsCredits,
         sportmonksRemaining: sportmonksCredits,
         apiSportsRemaining: apiCredits,
         warnings,
-        sources: {
-          oddsApi: true,
-          sportmonks: true,
-          apiSports: true,
-        },
+        sources,
       },
     };
   } catch (error) {
     const message =
       error instanceof Error ? error.message : "Error desconocido de las APIs";
-    const mock = getMockDashboardData();
     return {
-      ...mock,
+      matches: [],
+      leagues: [],
+      sportCounts: countSports([]),
       meta: {
-        ...mock.meta,
+        mode: "live",
         generatedAt: new Date().toISOString(),
+        cacheTtlSeconds: CACHE_SECONDS,
+        oddsCreditsRemaining: null,
+        sportmonksRemaining: null,
+        apiSportsRemaining: null,
         warnings: uniqueWarnings([
-          `Se activó el modo demo por un fallo de las APIs: ${message}`,
-          ...mock.meta.warnings,
+          `Fallo de las APIs: ${message}. No se muestran datos simulados.`,
         ]),
         sources: { oddsApi: true, sportmonks: true, apiSports: true },
       },
@@ -779,26 +779,32 @@ function withTheAnalystInsights(matches: SportsMatch[]): TheAnalystResult {
     if (!found) return match;
 
     const { probabilidades, metricas, resumen, confianza } = found.insight;
+    const swapped = found.swapped;
+    const homeProb = swapped ? probabilidades.away : probabilidades.home;
+    const drawProb = probabilidades.draw;
+    const awayProb = swapped ? probabilidades.home : probabilidades.away;
     const winProbabilities =
-      probabilidades.home != null &&
-      probabilidades.draw != null &&
-      probabilidades.away != null
-        ? {
-            home: probabilidades.home,
-            draw: probabilidades.draw,
-            away: probabilidades.away,
-          }
+      homeProb != null && drawProb != null && awayProb != null
+        ? { home: homeProb, draw: drawProb, away: awayProb }
         : null;
+    const confidence =
+      confianza === "alta" ? 1 : confianza === "media" ? 0.6 : 0.15;
     const analyst: AnalystInsight = {
       source: "the-analyst",
-      xgHome: metricas.xg_local,
-      xgAway: metricas.xg_visitante,
+      xgHome: swapped ? metricas.xg_visitante : metricas.xg_local,
+      xgAway: swapped ? metricas.xg_local : metricas.xg_visitante,
       winProbabilities,
-      streakHome: metricas.racha_local ?? metricas.forma_local,
-      streakAway: metricas.racha_visitante ?? metricas.forma_visitante,
+      streakHome: swapped
+        ? metricas.racha_visitante ?? metricas.forma_visitante
+        : metricas.racha_local ?? metricas.forma_local,
+      streakAway: swapped
+        ? metricas.racha_local ?? metricas.forma_local
+        : metricas.racha_visitante ?? metricas.forma_visitante,
       headline: resumen ?? found.record.titulo,
       url: found.record.url || null,
       updatedAt: found.record.actualizado_en,
+      confidence,
+      provenance: "editorial",
     };
 
     applied += 1;
@@ -810,7 +816,7 @@ function withTheAnalystInsights(matches: SportsMatch[]): TheAnalystResult {
         note: [
           match.intel.note,
           winProbabilities
-            ? `The Analyst (confianza ${confianza}): ${(winProbabilities.home * 100).toFixed(1)}% / ${(winProbabilities.draw * 100).toFixed(1)}% / ${(winProbabilities.away * 100).toFixed(1)}%`
+            ? `The Analyst (confianza ${confianza}${swapped ? ", invertido" : ""}): ${(winProbabilities.home * 100).toFixed(1)}% / ${(winProbabilities.draw * 100).toFixed(1)}% / ${(winProbabilities.away * 100).toFixed(1)}%`
             : `The Analyst: ${resumen ?? found.record.titulo}`,
         ]
           .filter(Boolean)
@@ -836,6 +842,8 @@ export async function getDashboardData(): Promise<DashboardData> {
   // Solo entran partidos de hoy o mañana que todavía no hayan comenzado. Los
   // que ya arrancaron o finalizaron se retiran automáticamente del feed.
   const esVigente = (match: SportsMatch) =>
+    // Los fixtures simulados sólo son válidos en el modo demo explícito.
+    (base.meta.mode === "mock" || !match.id.startsWith("mock-")) &&
     isWithinMatchWindow(match.commenceTime, ahora) &&
     resolveMatchStatus(match, ahora) === "scheduled";
 

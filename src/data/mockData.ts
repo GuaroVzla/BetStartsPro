@@ -1,6 +1,6 @@
 import { LEAGUES } from "@/config/sports";
 import {
-  favoriteSideFromSummary,
+  canonicalFavoriteFromSummary,
   summarizeMarket,
 } from "@/lib/marketSummary";
 import { matchDayVET, resolveMatchStatus } from "@/lib/format";
@@ -1872,7 +1872,8 @@ function buildMockMatch(
     away,
     odds,
     intel,
-    favoriteSide: favoriteSideFromSummary(odds),
+    favoriteSide: canonicalFavoriteFromSummary(odds),
+    canonicalFavorite: canonicalFavoriteFromSummary(odds),
   };
 }
 

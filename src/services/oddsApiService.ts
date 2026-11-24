@@ -3,6 +3,7 @@ import type {
   LeagueInfo,
   OutcomePrices,
 } from "@/types/sports";
+import { canonicalBookmakerName } from "@/lib/utils";
 
 const ODDS_API_BASE = "https://api.the-odds-api.com/v4";
 const CACHE_SECONDS = 3600;
@@ -102,12 +103,18 @@ function normalizeEvent(
     );
     if (!outcomes) continue;
 
+    const rawHome = outcomes.home > 1 ? 1 / outcomes.home : 0;
+    const rawDraw = outcomes.draw && outcomes.draw > 1 ? 1 / outcomes.draw : 0;
+    const rawAway = outcomes.away > 1 ? 1 / outcomes.away : 0;
     bookmakers.push({
       id: `odds-api-${bookmaker.key}`,
       name: bookmaker.title,
+      canonicalName: canonicalBookmakerName(bookmaker.title, "the-odds-api"),
       source: "the-odds-api",
       outcomes,
       updatedAt: bookmaker.last_update,
+      asOf: bookmaker.last_update,
+      overround: Math.max(0, rawHome + rawDraw + rawAway - 1),
     });
   }
 

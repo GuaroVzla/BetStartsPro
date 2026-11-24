@@ -1,23 +1,9 @@
 import { dateInVET } from "@/lib/format";
-import { summarizeMarket } from "@/lib/marketSummary";
-import { namesLikelyMatch } from "@/lib/utils";
+import { canonicalFavoriteFromSummary, summarizeMarket } from "@/lib/marketSummary";
+import { canonicalBookmakerName, namesLikelyMatch } from "@/lib/utils";
 import type { StoredTriunfobetQuote } from "@/services/triunfobetIngestStore";
 import type { BookmakerQuote, SportsMatch } from "@/types/sports";
 
-function favoriteFromMarket(match: SportsMatch): "home" | "away" | null {
-  const home = match.odds.best.home;
-  const away = match.odds.best.away;
-  const homeValid = home > 1;
-  const awayValid = away > 1;
-  if (homeValid && awayValid) {
-    if (home < away) return "home";
-    if (away < home) return "away";
-    return null;
-  }
-  if (homeValid) return "home";
-  if (awayValid) return "away";
-  return null;
-}
 
 function sameTeams(quote: StoredTriunfobetQuote, match: SportsMatch): boolean {
   return (
@@ -62,16 +48,23 @@ function buildBookmaker(quote: StoredTriunfobetQuote): BookmakerQuote | null {
   const draw = quote.cuotas_1x2.empate_x;
   if (home <= 1 && away <= 1 && (draw === null || draw <= 1)) return null;
 
+  const updatedAt = quote.capturado_en ?? quote.actualizado_en;
+  const rawH = home > 1 ? 1 / home : 0;
+  const rawD = draw && draw > 1 ? 1 / draw : 0;
+  const rawA = away > 1 ? 1 / away : 0;
   return {
     id: `triunfobet-${quote.match_slug ?? `${quote.fecha_local ?? "sin-fecha"}-${quote.equipo_local}`}`,
     name: "Triunfobet",
+    canonicalName: canonicalBookmakerName("Triunfobet", "triunfobet"),
     source: "triunfobet",
     outcomes: {
       home,
       draw,
       away,
     },
-    updatedAt: quote.capturado_en ?? quote.actualizado_en,
+    updatedAt,
+    asOf: updatedAt,
+    overround: Math.max(0, rawH + rawD + rawA - 1),
   };
 }
 
@@ -116,7 +109,8 @@ export function applyTriunfobetQuotes(
       ...current,
       odds: summarizeMarket([...others, bookmaker]),
     };
-    updated.favoriteSide = favoriteFromMarket(updated);
+    updated.favoriteSide = canonicalFavoriteFromSummary(updated.odds);
+    updated.canonicalFavorite = updated.favoriteSide;
     byId.set(updated.id, updated);
     applied += 1;
   }

@@ -244,12 +244,15 @@ function ValueCard({
             </p>
           </div>
           <div className="text-right">
-            <p className="text-[9px] text-slate-500">Implícita / edge</p>
+            <p className="text-[9px] text-slate-500">Implícita desv. / edge</p>
             <p className="tabular-nums text-[10px] font-medium text-slate-300">
-              {formatPercent(analysis.impliedProbability, 1)} /{" "}
+              {formatPercent(analysis.impliedDevig, 1)} /{" "}
               <span className="text-blue-300">
                 {formatSignedPercent(analysis.edge)}
               </span>
+            </p>
+            <p className="text-[8px] text-slate-500">
+              conf. {formatPercent(matchAnalysis.confidence, 0)} · {analysis.blend.weights}
             </p>
           </div>
         </div>
@@ -482,9 +485,9 @@ export function HighValueHighOddsList({
 
         <div className="mt-4 flex flex-wrap items-center justify-between gap-2 text-[9px] text-slate-500">
           <p>
-            EV = probabilidad × cuota − 1. Cuota 2.00 equivale a +100 americana.
-            El KPI muestra el EV como contexto, pero filtra por las validaciones
-            estadísticas obligatorias, no por el EV.
+            EV = probabilidad × cuota − 1. Edge = p_modelo − implícita desvigada.
+            El KPI exige validaciones estadísticas, cuota ≥ 2.00 y EV &gt; 0;
+            el edge desvigado se muestra como señal de valor, no como certeza.
           </p>
         </div>
       </div>

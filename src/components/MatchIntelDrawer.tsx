@@ -647,7 +647,7 @@ export function MatchIntelDrawer({ match, onClose }: MatchIntelDrawerProps) {
                     Proyección estadística
                   </p>
                   <span className="text-[9px] text-slate-400 dark:text-slate-500">
-                    Modelo propio
+                    Conf. {formatPercent(analysis.confidence, 0)} · {analysis.topPick?.blend.weights ?? "modelo"}
                   </span>
                 </div>
                 <div className="grid grid-cols-2 gap-2 p-3 sm:grid-cols-3">

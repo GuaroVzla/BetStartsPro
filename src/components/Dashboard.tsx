@@ -23,6 +23,7 @@ import { buildCrossSourcePicks } from "@/services/valueEngine";
 
 interface DashboardProps {
   initialData: DashboardData;
+  renderedAt: string;
 }
 
 function normalizeQuery(value: string): string {
@@ -33,7 +34,7 @@ function normalizeQuery(value: string): string {
     .trim();
 }
 
-export function Dashboard({ initialData }: DashboardProps) {
+export function Dashboard({ initialData, renderedAt }: DashboardProps) {
   const [data, setData] = useState<DashboardData>(initialData);
   const [dayFilter, setDayFilter] = useState<MatchDay>("today");
   const [activeSport, setActiveSport] = useState<SportFilter>("all");
@@ -43,23 +44,30 @@ export function Dashboard({ initialData }: DashboardProps) {
   const [refreshing, setRefreshing] = useState(false);
   const [refreshError, setRefreshError] = useState<string | null>(null);
   const [showWarnings, setShowWarnings] = useState(true);
-  const [now, setNow] = useState(() => new Date());
+  // El primer render usa la misma marca de tiempo que el servidor para que el
+  // HTML hidratado coincida; después se sincroniza con el reloj del navegador.
+  const [now, setNow] = useState(() => new Date(renderedAt));
   const [showLeagueManager, setShowLeagueManager] = useState(false);
-  const [disabledLeagues, setDisabledLeagues] = useState<string[]>(() => {
-    if (typeof window === "undefined") return [];
+  const [disabledLeagues, setDisabledLeagues] = useState<string[]>([]);
+
+  // localStorage no existe en el servidor: se lee tras montar, nunca en render.
+  useEffect(() => {
     try {
       const raw = window.localStorage.getItem("betstats-pro-disabled-leagues");
       const parsed = raw ? (JSON.parse(raw) as unknown) : null;
-      return Array.isArray(parsed)
-        ? parsed.filter((id): id is string => typeof id === "string")
-        : [];
+      setDisabledLeagues(
+        Array.isArray(parsed)
+          ? parsed.filter((id): id is string => typeof id === "string")
+          : [],
+      );
     } catch {
-      return [];
+      setDisabledLeagues([]);
     }
-  });
+  }, []);
 
   // Reloj vivo: retira partidos iniciados sin recargar la página.
   useEffect(() => {
+    setNow(new Date());
     const timer = setInterval(() => setNow(new Date()), 30_000);
     return () => clearInterval(timer);
   }, []);

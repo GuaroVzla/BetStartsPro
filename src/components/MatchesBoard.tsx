@@ -115,7 +115,7 @@ export function MatchesBoard({ matches, picksByMatch, onOpenMatch }: MatchesBoar
           : analyst?.streakHome
             ? `Racha ${analyst.streakHome}`
             : "Modelo propio";
-        const edge = pick?.edge ?? 0;
+        const edge = pick?.edge ?? null;
         const timestamp = Date.parse(match.commenceTime);
 
         return {
@@ -133,7 +133,7 @@ export function MatchesBoard({ matches, picksByMatch, onOpenMatch }: MatchesBoar
             favorite: favorito.probability,
             metric: analyst?.xgHome != null && analyst.xgHome > 0 ? analyst.xgHome : -1,
             odds: pick?.bestOdds ?? match.odds.best.home ?? match.odds.best.away ?? 0,
-            value: edge,
+            value: edge ?? -999,
           } as Record<SortKey, number | string>,
         };
       }),
@@ -303,12 +303,12 @@ export function MatchesBoard({ matches, picksByMatch, onOpenMatch }: MatchesBoar
                       <span
                         className={cn(
                           "rounded-md px-1.5 py-0.5 text-[10px] font-bold tabular-nums",
-                          edge > 0
+                          edge != null && edge > 0
                             ? "bg-emerald-400/12 text-emerald-700 dark:text-emerald-300"
                             : "bg-slate-100 text-slate-500 dark:bg-white/[0.06] dark:text-slate-400",
                         )}
                       >
-                        {formatSignedPercent(edge)}
+                        {edge == null ? "—" : formatSignedPercent(edge)}
                       </span>
                       <span className="mt-0.5 block text-[10px] text-slate-400">
                         {pick?.supportingSources.length ?? match.odds.bookmakerCount} fuentes

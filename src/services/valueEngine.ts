@@ -1,4 +1,5 @@
-import { analyzeMatch, impliedProbability } from "@/lib/bettingAnalyzer";
+import { analyzeMatch } from "@/lib/bettingAnalyzer";
+import { devigProportional } from "@/lib/marketSummary";
 import { isMatchDayVET, resolveMatchStatus } from "@/lib/format";
 import type {
   AnalystInsight,
@@ -19,11 +20,14 @@ export interface CrossSourcePick {
   statisticalProbability: number;
   probabilitySource: "analista" | "modelo" | "mercado";
   impliedProbability: number;
+  impliedDevig: number;
   edge: number;
+  edgeVsMarket: number;
   expectedValue: number;
   supportingSources: string[];
   analyst: AnalystInsight | null | undefined;
   rationale: string;
+  confidence: number;
 }
 
 export interface ValueEngineOptions {
@@ -71,76 +75,53 @@ export function buildCrossSourcePicks(
       continue;
     }
 
-    const analyst = match.analyst;
-    const analystProbabilities = analyst?.winProbabilities;
     const analysis = analyzeMatch(match, {
       now,
       day,
+      minEdge,
+      minOdds,
       analystWeight: options.analystWeight ?? 0.45,
     });
 
-    const outcomes: OutcomeKey[] = match.sport === "soccer"
-      ? ["home", "draw", "away"]
-      : ["home", "away"];
-
-    for (const outcome of outcomes) {
-      const quotes: Array<{ name: string; source: OddsSource; price: number }> = [];
-      for (const bookmaker of match.odds.bookmakers) {
-        const price = bookmaker.outcomes[outcome];
-        if (typeof price === "number" && price > 1) {
-          quotes.push({ name: bookmaker.name, source: bookmaker.source, price });
-        }
-      }
-
-      if (quotes.length === 0) continue;
-
-      const best = quotes.reduce((current, quote) =>
-        quote.price > current.price ? quote : current,
-      );
-      if (best.price < minOdds) continue;
-
-      const modelPick = analysis.picks.find((pick) => pick.outcome === outcome);
-      const hasAnalyst =
-        analystProbabilities != null &&
-        Number.isFinite(analystProbabilities[outcome]) &&
-        analystProbabilities[outcome] > 0;
-      const statisticalProbability = hasAnalyst
-        ? analystProbabilities![outcome]
-        : (modelPick?.modelProbability ?? 0);
-      if (!Number.isFinite(statisticalProbability) || statisticalProbability <= 0) {
-        continue;
-      }
-
-      const implied = impliedProbability(best.price);
-      const edge = statisticalProbability - implied;
-      const expectedValue = statisticalProbability * best.price - 1;
-      if (edge < minEdge || expectedValue <= 0) continue;
+    for (const pick of analysis.picks) {
+      if (!pick.bestOdds || pick.bestOdds < minOdds) continue;
+      if (pick.edge < minEdge || pick.expectedValue <= 0) continue;
 
       const supportingSources = Array.from(
-        new Set(quotes.map((quote) => quote.source)),
+        new Set(
+          match.odds.bookmakers
+            .filter((bookmaker) => (bookmaker.outcomes[pick.outcome] ?? 0) > 1)
+            .map((bookmaker) => bookmaker.canonicalName ?? bookmaker.source),
+        ),
       );
-      const sourceLabel = hasAnalyst ? "The Analyst" : (modelPick?.probabilitySource ?? "modelo");
+      const sourceLabel = pick.probabilitySource;
       const rationale =
-        `${OUTCOME_LABEL[outcome]} a ${best.price.toFixed(2)} en ${best.name}: ` +
-        `prob. ${(statisticalProbability * 100).toFixed(1)}% (${sourceLabel}) vs. ` +
-        `implícita ${(implied * 100).toFixed(1)}%. Edge ${(edge * 100).toFixed(1)}%.`;
+        `${OUTCOME_LABEL[pick.outcome]} a ${pick.bestOdds.toFixed(2)} en ${pick.bookmaker ?? "casa"}: ` +
+        `prob. ${(pick.modelProbability * 100).toFixed(1)}% (${sourceLabel}) vs. ` +
+        `implícita desvigada ${(pick.impliedDevig * 100).toFixed(1)}%. Edge ${(pick.edge * 100).toFixed(1)}%.`;
 
       picks.push({
-        id: `${match.id}-${outcome}`,
+        id: `${match.id}-${pick.outcome}`,
         match,
-        outcome,
-        selection: selectionName(match, outcome),
-        bestOdds: best.price,
-        bookmaker: best.name,
-        bookmakerSource: best.source,
-        statisticalProbability,
-        probabilitySource: hasAnalyst ? "analista" : (modelPick?.probabilitySource ?? "modelo"),
-        impliedProbability: implied,
-        edge,
-        expectedValue,
+        outcome: pick.outcome,
+        selection: selectionName(match, pick.outcome),
+        bestOdds: pick.bestOdds,
+        bookmaker: pick.bookmaker ?? "—",
+        bookmakerSource:
+          match.odds.bookmakers.find(
+            (quote) => Math.abs((quote.outcomes[pick.outcome] ?? 0) - pick.bestOdds!) < 0.0001,
+          )?.source ?? null,
+        statisticalProbability: pick.modelProbability,
+        probabilitySource: pick.probabilitySource,
+        impliedProbability: pick.impliedProbability,
+        impliedDevig: pick.impliedDevig,
+        edge: pick.edge,
+        edgeVsMarket: pick.edgeVsMarket,
+        expectedValue: pick.expectedValue,
         supportingSources,
-        analyst,
+        analyst: match.analyst,
         rationale,
+        confidence: analysis.confidence,
       });
     }
   }

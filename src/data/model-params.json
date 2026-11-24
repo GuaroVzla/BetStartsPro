@@ -1,0 +1,20 @@
+{
+  "generatedAt": "2026-11-24T00:00:00.000Z",
+  "dixonColes": {
+    "params": {
+      "rho": -0.13,
+      "xiPerDay": 0.0018,
+      "homeAdvantage": 0.16
+    },
+    "leagueAverage": 1.4,
+    "attack": {},
+    "defense": {}
+  },
+  "elo": {},
+  "eloConfig": {
+    "k": 20,
+    "homeAdvantage": 80,
+    "decayPerDay": 0.0015,
+    "initialRating": 1500
+  }
+}

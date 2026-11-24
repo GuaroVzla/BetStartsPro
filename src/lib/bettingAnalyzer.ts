@@ -13,12 +13,94 @@ import type {
   ValuePick,
   VenueSplit,
 } from "@/types/sports";
-import { clamp, round } from "@/lib/utils";
+import { clamp, round, normalizeName } from "@/lib/utils";
 import { isMatchDayVET, resolveMatchStatus } from "@/lib/format";
 import { formatInteger } from "@/lib/format";
+import { devigProportional } from "@/lib/marketSummary";
+import { dixonColesProbabilities, lambdasForMatch } from "@/lib/dixonColes";
+import { eloProbabilities, decayRating } from "@/services/ratingService";
+import { loadModelArtifact } from "@/services/modelParamsStore";
 
 const DEFAULT_MIN_PROBABILITY = 0.5;
 const DEFAULT_MIN_ODDS = 1.6;
+const DEFAULT_MIN_EDGE = 0.02;
+const DC_ELO_BLEND = { dc: 0.7, elo: 0.3 } as const;
+
+let cachedArtifact: ReturnType<typeof loadModelArtifact> | null = null;
+function getModelArtifact() {
+  if (!cachedArtifact) cachedArtifact = loadModelArtifact();
+  return cachedArtifact;
+}
+
+function findTeamKey(
+  map: Record<string, unknown>,
+  candidates: string[],
+): string | null {
+  for (const candidate of candidates) {
+    if (Object.prototype.hasOwnProperty.call(map, candidate)) return candidate;
+  }
+  const normalizedCandidates = candidates.map((c) => normalizeName(c)).filter(Boolean);
+  for (const key of Object.keys(map)) {
+    const nk = normalizeName(key);
+    if (normalizedCandidates.some((c) => c === nk)) return key;
+  }
+  return null;
+}
+
+function modelProbabilities(
+  match: SportsMatch,
+): { probabilities: Record<OutcomeKey, number>; source: "modelo"; confidence: number } | null {
+  if (match.sport !== "soccer") return null;
+  const artifact = getModelArtifact();
+  const hasDc =
+    Object.keys(artifact.dixonColes.attack).length > 0 &&
+    Object.keys(artifact.dixonColes.defense).length > 0;
+  const hasElo = Object.keys(artifact.elo).length > 0;
+  if (!hasDc && !hasElo) return null;
+
+  const homeCandidates = [match.home.name, match.home.shortName, match.home.id];
+  const awayCandidates = [match.away.name, match.away.shortName, match.away.id];
+  const includeDraw = hasDrawMarket(match);
+
+  let dc: Record<OutcomeKey, number> | null = null;
+  if (hasDc) {
+    const homeKey = findTeamKey(artifact.dixonColes.attack, homeCandidates);
+    const awayKey = findTeamKey(artifact.dixonColes.attack, awayCandidates);
+    if (homeKey && awayKey) {
+      const lambdas = lambdasForMatch(artifact.dixonColes, homeKey, awayKey);
+      const raw = dixonColesProbabilities(lambdas.homeLambda, lambdas.awayLambda, artifact.dixonColes.params);
+      dc = includeDraw ? raw : normalizeProbabilities({ home: raw.home, draw: 0, away: raw.away }, false);
+    }
+  }
+
+  let elo: Record<OutcomeKey, number> | null = null;
+  if (hasElo) {
+    const homeKey = findTeamKey(artifact.elo, homeCandidates);
+    const awayKey = findTeamKey(artifact.elo, awayCandidates);
+    if (homeKey && awayKey) {
+      const homeSnap = artifact.elo[homeKey];
+      const awaySnap = artifact.elo[awayKey];
+      const asOf = match.commenceTime;
+      const homeRating = decayRating(homeSnap.rating, homeSnap.lastMatchAt, asOf, artifact.eloConfig);
+      const awayRating = decayRating(awaySnap.rating, awaySnap.lastMatchAt, asOf, artifact.eloConfig);
+      elo = eloProbabilities(homeRating, awayRating, includeDraw, artifact.eloConfig);
+    }
+  }
+
+  if (!dc && !elo) return null;
+  if (dc && !elo) return { probabilities: dc, source: "modelo", confidence: 0.45 };
+  if (!dc && elo) return { probabilities: elo, source: "modelo", confidence: 0.35 };
+
+  const blended = normalizeProbabilities(
+    {
+      home: dc!.home * DC_ELO_BLEND.dc + elo!.home * DC_ELO_BLEND.elo,
+      draw: dc!.draw * DC_ELO_BLEND.dc + elo!.draw * DC_ELO_BLEND.elo,
+      away: dc!.away * DC_ELO_BLEND.dc + elo!.away * DC_ELO_BLEND.elo,
+    },
+    includeDraw,
+  );
+  return { probabilities: blended, source: "modelo", confidence: 0.6 };
+}
 /** Umbral reservado al distintivo "Hembra" (cuota realmente alta). */
 const HEMBRA_MIN_ODDS = 1.85;
 /** Cuota decimal mínima del KPI: 2.00 equivale a cuota americana +100. */
@@ -263,45 +345,53 @@ function projectScores(
   };
 }
 
-/**
- * Probabilidades implícitas depuradas de margen (overround) a partir de las
- * cuotas observables. Se usan como prior cuando el partido no publica goles a
- * favor/en contra: es información real del mercado, no una estadística inventada.
- */
+function hasDrawMarket(match: SportsMatch): boolean {
+  return (
+    match.sport === "soccer" &&
+    ((match.odds.best.draw ?? 0) > 1 ||
+      (match.odds.average.draw ?? 0) > 1 ||
+      match.odds.consensus.draw > 0)
+  );
+}
+
 function marketProbabilities(
   match: SportsMatch,
   useAverage = false,
 ): Record<OutcomeKey, number> | null {
+  const includeDraw = hasDrawMarket(match);
   if (useAverage) {
     const consensus = match.odds.consensus;
-    if (
-      consensus &&
-      (consensus.home > 0 || consensus.away > 0)
-    ) {
-      return normalizeProbabilities(
-        consensus,
-        match.sport === "soccer" && (match.odds.average.draw ?? 0) > 1,
-      );
+    if (consensus && consensus.home + consensus.away + consensus.draw > 0) {
+      // Ya está desvigado; sólo aseguramos que el draw no se pierda por un bug
+      // de criterio de precio en average.
+      return normalizeProbabilities(consensus, includeDraw);
     }
   }
   const summary = useAverage ? match.odds.average : match.odds.best;
-  const prices: Record<OutcomeKey, number | null> = {
+  const prices = {
     home: summary.home > 1 ? summary.home : null,
-    draw: summary.draw,
+    draw: summary.draw !== null && summary.draw > 1 ? summary.draw : null,
     away: summary.away > 1 ? summary.away : null,
   };
-  const raw: Record<OutcomeKey, number> = {
-    home: prices.home ? 1 / prices.home : 0,
-    draw: prices.draw && prices.draw > 1 ? 1 / prices.draw : 0,
-    away: prices.away ? 1 / prices.away : 0,
-  };
-  if (raw.home <= 0 && raw.away <= 0) return null;
-  return normalizeProbabilities(raw, match.sport === "soccer" && (prices.draw ?? 0) > 1);
+  if (!prices.home && !prices.away) return null;
+  // Desvigamos con el mismo método que el consenso para comparar manzanas.
+  return devigProportional(
+    {
+      home: prices.home ?? 0,
+      draw: prices.draw ?? null,
+      away: prices.away ?? 0,
+    },
+    includeDraw,
+  );
 }
 
 function hasGoalStatistics(match: SportsMatch): boolean {
   return [match.intel.stats.home, match.intel.stats.away].every(
-    (stats) => stats.avgScored > 0 && stats.avgConceded > 0,
+    (stats) =>
+      stats.provenance !== "table-derived" &&
+      stats.provenance !== "none" &&
+      stats.avgScored > 0 &&
+      stats.avgConceded > 0,
   );
 }
 
@@ -314,11 +404,8 @@ function pickLabel(match: SportsMatch, outcome: OutcomeKey): string {
   return outcome === "home" ? match.home.name : match.away.name;
 }
 
-/** Favorito de mercado: la menor cuota entre local y visitante. */
+/** Favorito canónico: consenso desvigado; la cuota sólo desempata. */
 function marketFavorite(match: SportsMatch): "home" | "away" | null {
-  if (match.favoriteSide === "home" || match.favoriteSide === "away") {
-    return match.favoriteSide;
-  }
   const home = match.odds.best.home;
   const away = match.odds.best.away;
   const homeValid = home > 1;
@@ -326,9 +413,19 @@ function marketFavorite(match: SportsMatch): "home" | "away" | null {
   if (!homeValid && !awayValid) return null;
   if (!homeValid) return "away";
   if (!awayValid) return "home";
-  if (home < away) return "home";
-  if (away < home) return "away";
-  return null;
+
+  const consensus = match.odds.consensus;
+  if (consensus && Math.abs(consensus.home - consensus.away) > 1e-9) {
+    return consensus.home > consensus.away ? "home" : "away";
+  }
+  if (home !== away) return home < away ? "home" : "away";
+  if (match.canonicalFavorite === "home" || match.canonicalFavorite === "away") {
+    return match.canonicalFavorite;
+  }
+  if (match.favoriteSide === "home" || match.favoriteSide === "away") {
+    return match.favoriteSide;
+  }
+  return "home";
 }
 
 /** Puntos obtenidos / puntos en juego (0-1) en una racha W-D-L. */
@@ -408,12 +505,16 @@ function evaluateValueFavorite(
     favoriteFormRate >= rivalFormRate + VALUE_FAVORITE_FORM_GAP;
 
   const standings =
+    favoriteStanding.played > 0 &&
+    rivalStanding.played > 0 &&
     favoriteStanding.position > 0 &&
     rivalStanding.position > 0 &&
     favoriteStanding.position < rivalStanding.position;
 
   const venue =
-    venueRate !== null && venueRate >= VALUE_FAVORITE_MIN_VENUE_RATE;
+    venueRate !== null &&
+    (venueRecord?.played ?? 0) >= 3 &&
+    venueRate >= VALUE_FAVORITE_MIN_VENUE_RATE;
 
   const oddsThresholdMet = bestOdds !== null && bestOdds >= VALUE_FAVORITE_MIN_ODDS;
   const explanation: string[] = [];
@@ -425,8 +526,13 @@ function evaluateValueFavorite(
       `Forma ${Math.round(favoriteFormRate * 100)}% vs ${Math.round(rivalFormRate * 100)}%.`,
     );
   }
-  if (favoriteStanding.position <= 0 || rivalStanding.position <= 0) {
-    explanation.push("Sin posición de tabla para ambos equipos.");
+  if (
+    !(favoriteStanding.played > 0) ||
+    !(rivalStanding.played > 0) ||
+    favoriteStanding.position <= 0 ||
+    rivalStanding.position <= 0
+  ) {
+    explanation.push("Sin posición de tabla válida para ambos equipos.");
   } else {
     explanation.push(
       `Tabla ${favoriteStanding.position}º vs ${rivalStanding.position}º.`,
@@ -448,12 +554,38 @@ function evaluateValueFavorite(
     favoriteFormRate,
     rivalFormRate,
     favoritePosition:
-      favoriteStanding.position > 0 ? favoriteStanding.position : null,
+      favoriteStanding.position > 0 && favoriteStanding.played > 0
+        ? favoriteStanding.position
+        : null,
     rivalPosition:
-      rivalStanding.position > 0 ? rivalStanding.position : null,
-    venueRecord,
+      rivalStanding.position > 0 && rivalStanding.played > 0
+        ? rivalStanding.position
+        : null,
+    venueRecord: venueRecord.played > 0 ? venueRecord : null,
     venuePointsRate: venueRate,
     explanation,
+  };
+}
+
+function blendDescription(match: SportsMatch): OutcomeAnalysis["blend"] {
+  const hasGoals = hasGoalStatistics(match);
+  const hasAnalyst =
+    match.analyst?.winProbabilities &&
+    (match.analyst.confidence ?? 1) > 0 &&
+    Object.values(match.analyst.winProbabilities).some((value) => value > 0);
+  const analystWeight = hasAnalyst ? (match.analyst?.confidence ?? 1) * 0.45 : 0;
+  const marketWeight = hasGoals ? VALUE_FAVORITE_MARKET_WEIGHT : 1;
+  const modelWeight = hasGoals ? 1 - marketWeight : 0;
+  return {
+    model: hasGoals ? modelWeight * (1 - analystWeight) : 0,
+    market: hasGoals ? marketWeight * (1 - analystWeight) : 1 - analystWeight,
+    analyst: analystWeight,
+    weights: hasGoals
+      ? `modelo ${(modelWeight * 100).toFixed(0)}% · mercado ${(marketWeight * 100).toFixed(0)}%` +
+        (analystWeight > 0 ? ` · analista ${(analystWeight * 100).toFixed(0)}%` : "")
+      : analystWeight > 0
+        ? `mercado ${((1 - analystWeight) * 100).toFixed(0)}% · analista ${(analystWeight * 100).toFixed(0)}%`
+        : "mercado 100%",
   };
 }
 
@@ -462,6 +594,17 @@ function buildOutcomeAnalyses(
   probabilities: Record<OutcomeKey, number>,
   options: Required<AnalyzerOptions>,
 ): OutcomeAnalysis[] {
+  const includeDraw = hasDrawMarket(match);
+  const impliedDevigByOutcome = devigProportional(
+    {
+      home: match.odds.best.home > 1 ? match.odds.best.home : 0,
+      draw: match.odds.best.draw !== null && match.odds.best.draw > 1 ? match.odds.best.draw : null,
+      away: match.odds.best.away > 1 ? match.odds.best.away : 0,
+    },
+    includeDraw,
+  );
+  const blend = blendDescription(match);
+
   return availableOutcomes(match).map((outcome) => {
     const probability = probabilities[outcome];
     const bestOdds = match.odds.best[outcome];
@@ -470,7 +613,10 @@ function buildOutcomeAnalyses(
     const usableAverage =
       averageOdds !== null && averageOdds > 1 ? averageOdds : null;
     const impliedProbability = usableBest ? 1 / usableBest : 0;
+    const impliedDevig = impliedDevigByOutcome[outcome] ?? 0;
     const expectedValue = usableBest ? probability * usableBest - 1 : 0;
+    const edge = probability - impliedDevig;
+    const edgeVsMarket = usableBest ? probability - impliedProbability : 0;
     const bookmaker = usableBest
       ? (match.odds.bookmakers.find(
           (quote) =>
@@ -478,10 +624,17 @@ function buildOutcomeAnalyses(
         )?.name ?? null)
       : null;
     const isFavorite = marketFavorite(match) === outcome;
+    const qualifies =
+      probability >= options.minProbability &&
+      usableBest !== null &&
+      usableBest >= options.minOdds &&
+      edge >= options.minEdge &&
+      expectedValue > 0;
     const isHembra =
       usableBest !== null &&
       usableBest >= HEMBRA_MIN_ODDS &&
       expectedValue > 0 &&
+      edge >= options.minEdge &&
       (isFavorite || probability >= options.minProbability);
     const valueFavorite = isFavorite
       ? evaluateValueFavorite(match, outcome, usableBest, options)
@@ -497,21 +650,21 @@ function buildOutcomeAnalyses(
             : "Empate",
       selectionName: pickLabel(match, outcome),
       modelProbability: probability,
-      probabilitySource: match.analyst?.winProbabilities
+      probabilitySource: blend.analyst > blend.market && blend.analyst > blend.model
         ? "analista"
-        : hasGoalStatistics(match)
+        : blend.model > 0
           ? "modelo"
           : "mercado",
+      blend,
       impliedProbability,
+      impliedDevig,
       fairOdds: probability > 0 ? 1 / probability : 0,
       bestOdds: usableBest,
       averageOdds: usableAverage,
       expectedValue,
-      edge: usableBest ? probability - impliedProbability : 0,
-      qualifies:
-        probability >= options.minProbability &&
-        usableBest !== null &&
-        usableBest >= options.minOdds,
+      edge,
+      edgeVsMarket,
+      qualifies,
       isFavorite,
       isHembra,
       valueFavorite,
@@ -527,12 +680,14 @@ export function analyzeMatch(
   const resolvedOptions: Required<AnalyzerOptions> = {
     minProbability: options.minProbability ?? DEFAULT_MIN_PROBABILITY,
     minOdds: options.minOdds ?? DEFAULT_MIN_ODDS,
+    minEdge: options.minEdge ?? DEFAULT_MIN_EDGE,
     now: options.now ?? new Date(),
     day: options.day ?? "all",
     analystWeight: options.analystWeight ?? 0.45,
   };
   const projections = projectScores(match);
   const sportModel = SPORT_MODELS[match.sport];
+  const hasDraw = hasDrawMarket(match);
 
   let probabilities: Record<OutcomeKey, number>;
 
@@ -545,18 +700,32 @@ export function analyzeMatch(
   } else if (match.sport === "soccer") {
     probabilities = soccerProbabilities(projections.home, projections.away);
   } else {
-    probabilities = poissonWinProbabilities(
-      projections.home,
-      projections.away,
-    );
+    probabilities = poissonWinProbabilities(projections.home, projections.away);
   }
 
-  // Las fuentes sin goles esperados (p. ej. Flashscore) no pueden alimentar el
-  // modelo Poisson: usamos el consenso de mercado depurado de margen como
-  // probabilidad, que es información observable y no una estadística inventada.
+  const hasGoals = hasGoalStatistics(match);
+  const historicalModel = modelProbabilities(match);
   const consensus = marketProbabilities(match, true);
-  if (!hasGoalStatistics(match)) {
+  let confidence = 0.2;
+
+  if (historicalModel) {
+    probabilities = historicalModel.probabilities;
+    confidence = historicalModel.confidence;
+    const market = marketProbabilities(match);
+    if (market) {
+      const marketWeight = 0.25;
+      probabilities = normalizeProbabilities(
+        {
+          home: probabilities.home * (1 - marketWeight) + market.home * marketWeight,
+          draw: probabilities.draw * (1 - marketWeight) + market.draw * marketWeight,
+          away: probabilities.away * (1 - marketWeight) + market.away * marketWeight,
+        },
+        hasDraw,
+      );
+    }
+  } else if (!hasGoals) {
     if (consensus) probabilities = consensus;
+    confidence = 0.15;
   } else {
     const market = marketProbabilities(match);
     if (market) {
@@ -567,21 +736,23 @@ export function analyzeMatch(
           draw: probabilities.draw * (1 - marketWeight) + market.draw * marketWeight,
           away: probabilities.away * (1 - marketWeight) + market.away * marketWeight,
         },
-        match.sport === "soccer",
+        hasDraw,
       );
+      confidence = 0.55;
+    } else {
+      confidence = 0.45;
     }
   }
 
-  // The Analyst aporta probabilidades editoriales (xG, forma, rachas). Se
-  // combinan con el modelo+m mercado para que un partido sin estadísticas de
-  // goles locales también tenga una probabilidad estadística trazable.
   const analystProbabilities = match.analyst?.winProbabilities;
+  const analystConfidence = clamp(match.analyst?.confidence ?? 1, 0, 1);
   if (
     analystProbabilities &&
     Object.values(analystProbabilities).some((value) => value > 0) &&
-    resolvedOptions.analystWeight > 0
+    resolvedOptions.analystWeight > 0 &&
+    analystConfidence > 0
   ) {
-    const weight = clamp(resolvedOptions.analystWeight, 0, 1);
+    const weight = clamp(resolvedOptions.analystWeight * analystConfidence, 0, 0.8);
     probabilities = normalizeProbabilities(
       {
         home:
@@ -591,15 +762,17 @@ export function analyzeMatch(
         away:
           probabilities.away * (1 - weight) + analystProbabilities.away * weight,
       },
-      match.sport === "soccer",
+      hasDraw,
     );
+    confidence = Math.max(confidence, 0.35 + weight * 0.6);
   }
 
   const picks = buildOutcomeAnalyses(match, probabilities, resolvedOptions);
   const topPick = [...picks].sort(
     (a, b) =>
-      b.modelProbability - a.modelProbability ||
-      b.expectedValue - a.expectedValue,
+      b.expectedValue - a.expectedValue ||
+      b.edge - a.edge ||
+      b.modelProbability - a.modelProbability,
   )[0] ?? null;
 
   return {
@@ -607,6 +780,7 @@ export function analyzeMatch(
     probabilities,
     picks,
     topPick,
+    confidence: round(confidence, 3),
     projectedHome: projections.home,
     projectedAway: projections.away,
     injuryDrag: {
@@ -623,6 +797,7 @@ export function buildValuePicks(
   const resolvedOptions: Required<AnalyzerOptions> = {
     minProbability: options.minProbability ?? DEFAULT_MIN_PROBABILITY,
     minOdds: options.minOdds ?? DEFAULT_MIN_ODDS,
+    minEdge: options.minEdge ?? DEFAULT_MIN_EDGE,
     now: options.now ?? new Date(),
     day: options.day ?? "all",
     analystWeight: options.analystWeight ?? 0.45,
@@ -635,13 +810,7 @@ export function buildValuePicks(
     .flatMap((match) => {
       const analysis = analyzeMatch(match, resolvedOptions);
       return analysis.picks
-        .filter((pick) => pick.bestOdds !== null)
-        .filter(
-          (pick) =>
-            pick.modelProbability >= resolvedOptions.minProbability &&
-            (pick.bestOdds ?? 0) >= resolvedOptions.minOdds &&
-            pick.expectedValue > 0,
-        )
+        .filter((pick) => pick.qualifies)
         .map((pick) => ({
           id: `${match.id}-${pick.outcome}`,
           match,
@@ -649,7 +818,12 @@ export function buildValuePicks(
           matchAnalysis: analysis,
         }));
     })
-    .sort((a, b) => b.analysis.expectedValue - a.analysis.expectedValue);
+    .sort(
+      (a, b) =>
+        b.analysis.expectedValue - a.analysis.expectedValue ||
+        b.analysis.edge - a.analysis.edge ||
+        b.analysis.modelProbability - a.analysis.modelProbability,
+    );
 }
 
 /**
@@ -665,6 +839,7 @@ export function buildValueFavoritePicks(
   const resolvedOptions: Required<AnalyzerOptions> = {
     minProbability: options.minProbability ?? DEFAULT_MIN_PROBABILITY,
     minOdds: options.minOdds ?? DEFAULT_MIN_ODDS,
+    minEdge: options.minEdge ?? 0,
     now: options.now ?? new Date(),
     day: options.day ?? day,
     analystWeight: options.analystWeight ?? 0.45,
@@ -686,7 +861,8 @@ export function buildValueFavoritePicks(
             pick.isFavorite &&
             pick.bestOdds !== null &&
             pick.bestOdds >= VALUE_FAVORITE_MIN_ODDS &&
-            pick.valueFavorite?.qualifies === true,
+            pick.valueFavorite?.qualifies === true &&
+            pick.expectedValue > 0,
         )
         .map((pick) => ({
           id: `${match.id}-${pick.outcome}`,
@@ -697,8 +873,9 @@ export function buildValueFavoritePicks(
     })
     .sort(
       (a, b) =>
-        (b.analysis.bestOdds ?? 0) - (a.analysis.bestOdds ?? 0) ||
-        b.analysis.expectedValue - a.analysis.expectedValue,
+        b.analysis.expectedValue - a.analysis.expectedValue ||
+        b.analysis.edge - a.analysis.edge ||
+        (b.analysis.bestOdds ?? 0) - (a.analysis.bestOdds ?? 0),
     );
 }
 

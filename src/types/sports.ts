@@ -15,7 +15,17 @@ export type OddsSource =
   | "flashscore"
   | "triunfobet"
   | "apuestas-royal"
+  | "betfair"
+  | "polymarket"
   | "mock";
+
+export type AnalyticsSource =
+  | "the-analyst"
+  | "sportmonks"
+  | "api-sports"
+  | "modelo";
+
+export type DataProvenance = "api" | "table-derived" | "editorial" | "none";
 
 export type OutcomeKey = "home" | "draw" | "away";
 
@@ -25,7 +35,7 @@ export type OutcomeKey = "home" | "draw" | "away";
  * probabilidad estadística vs. probabilidad implícita del mercado.
  */
 export interface AnalystInsight {
-  source: "the-analyst";
+  source: AnalyticsSource;
   xgHome: number | null;
   xgAway: number | null;
   /** Probabilidad 1X2 calculada por la fuente editorial (0-1). */
@@ -35,6 +45,9 @@ export interface AnalystInsight {
   headline: string | null;
   url: string | null;
   updatedAt: string;
+  /** 0-1. Modula el peso del blend; baja confianza => peso ~0. */
+  confidence?: number;
+  provenance?: DataProvenance;
 }
 
 export type MatchStatus = "scheduled" | "live" | "finished";
@@ -135,6 +148,13 @@ export interface TeamAdvancedStats {
   away: VenueSplit;
   streak: string;
   cleanSheets?: number;
+  xgFor?: number;
+  xgAgainst?: number;
+  xgSample?: number;
+  xpts?: number;
+  pressureAvg?: number;
+  provenance?: DataProvenance;
+  asOf?: string;
 }
 
 export interface Injury {
@@ -145,6 +165,21 @@ export interface Injury {
   status: string;
   reason: string;
   impact: InjuryImpact;
+  positionGroup?: "goalkeeper" | "defender" | "midfielder" | "forward";
+  /** 0-1 de minutos esperados sobre el total del equipo. */
+  minutesShare?: number;
+  confirmedOut?: boolean;
+  asOf?: string;
+}
+
+export interface PredictedLineup {
+  teamId: string;
+  playerId: string;
+  playerName: string;
+  position: string;
+  isStarter: boolean;
+  source: AnalyticsSource;
+  updatedAt: string;
 }
 
 export interface MatchIntel {
@@ -161,7 +196,12 @@ export interface MatchIntel {
     home: Injury[];
     away: Injury[];
   };
+  lineups?: {
+    home: PredictedLineup[];
+    away: PredictedLineup[];
+  };
   note?: string;
+  provenance?: DataProvenance;
 }
 
 export interface OutcomePrices {
@@ -176,6 +216,10 @@ export interface BookmakerQuote {
   source: OddsSource;
   outcomes: OutcomePrices;
   updatedAt: string;
+  /** Casa canónica para dedupe (Bet365, Pinnacle...), sin prefijo de proveedor. */
+  canonicalName?: string;
+  asOf?: string;
+  overround?: number;
 }
 
 export interface MarketSummary {
@@ -184,6 +228,11 @@ export interface MarketSummary {
   spreadPercent: OutcomePrices;
   /** Probabilidad consenso del mercado, normalizada sin margen (overround). */
   consensus: Record<OutcomeKey, number>;
+  /** Implícita de mejor cuota desvigada con el MISMO método que `consensus`. */
+  impliedDevig: Record<OutcomeKey, number>;
+  /** Margen medio del mercado (suma de implícitas - 1). */
+  overround: number;
+  devigMethod: "proportional" | "shin";
   bookmakers: BookmakerQuote[];
   bookmakerCount: number;
 }
@@ -199,9 +248,15 @@ export interface SportsMatch {
   away: TeamRef;
   odds: MarketSummary;
   intel: MatchIntel;
-  /** Equipo con la cuota 1X2 más baja (favorito según el mercado). */
+  /** Favorito de mercado por cuota mínima (legado, derivado). */
   favoriteSide?: "home" | "away" | null;
-  /** Análisis previo y métricas avanzadas de The Analyst, cuando está disponible. */
+  /** Favorito canónico: consenso desvigado, con desempate de cuota. */
+  canonicalFavorite?: "home" | "away" | null;
+  /** 0-1: cuánta señal independiente del mercado tiene el partido. */
+  modelConfidence?: number;
+  /** Ratings Elo usados en la proyección, cuando hay artefacto disponible. */
+  elo?: { home: number; away: number } | null;
+  /** Análisis previo y métricas avanzadas, cuando está disponible. */
   analyst?: AnalystInsight | null;
 }
 
@@ -240,14 +295,21 @@ export interface OutcomeAnalysis {
   label: string;
   selectionName: string;
   modelProbability: number;
-  /** Origen de la probabilidad: modelo propio, mercado o The Analyst. */
+  /** Origen dominante de la probabilidad final. */
   probabilitySource: "modelo" | "mercado" | "analista";
+  /** Desglose trazable de la probabilidad final. */
+  blend: { model: number; market: number; analyst: number; weights: string };
+  /** Implícita raw (observable) y desvigada (comparable con `modelProbability`). */
   impliedProbability: number;
+  impliedDevig: number;
   fairOdds: number;
   bestOdds: number | null;
   averageOdds: number | null;
   expectedValue: number;
+  /** p_modelo - impliedDevig: métrica canónica de valor. */
   edge: number;
+  /** p_modelo - 1/bestOdds: métrica observable, no usada para ranking. */
+  edgeVsMarket: number;
   qualifies: boolean;
   /** El resultado corresponde al favorito de mercado del partido. */
   isFavorite: boolean;
@@ -263,6 +325,8 @@ export interface MatchAnalysis {
   probabilities: Record<OutcomeKey, number>;
   picks: OutcomeAnalysis[];
   topPick: OutcomeAnalysis | null;
+  /** 0-1 de fiabilidad de la probabilidad (señal no-mercado disponible). */
+  confidence: number;
   projectedHome: number;
   projectedAway: number;
   injuryDrag: {
@@ -281,6 +345,8 @@ export interface ValuePick {
 export interface AnalyzerOptions {
   minProbability?: number;
   minOdds?: number;
+  /** Edge mínimo sobre la implícita DESVIGADA. */
+  minEdge?: number;
   /** Instante de referencia compartido por toda la request (VET). */
   now?: Date;
   /** Ventana a analizar; "all" respeta la ventana del dashboard sin filtrar. */

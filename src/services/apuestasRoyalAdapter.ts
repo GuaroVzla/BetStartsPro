@@ -1,6 +1,6 @@
 import { dateInVET, dateInVETOffset } from "@/lib/format";
-import { favoriteSideFromSummary, summarizeMarket } from "@/lib/marketSummary";
-import { namesLikelyMatch, normalizeName } from "@/lib/utils";
+import { canonicalFavoriteFromSummary, summarizeMarket } from "@/lib/marketSummary";
+import { canonicalBookmakerName, namesLikelyMatch, normalizeName } from "@/lib/utils";
 import type { StoredApuestasRoyalQuote } from "@/services/apuestasRoyalIngestStore";
 import type { BookmakerQuote, SportsMatch } from "@/types/sports";
 
@@ -91,19 +91,26 @@ function buildBookmaker(
   const draw = quote.cuotas_1x2.empate_x;
   if (home <= 1 && away <= 1 && (draw === null || draw <= 1)) return null;
 
+  const updatedAt = quote.capturado_en ?? quote.actualizado_en;
+  const rawH = home > 1 ? 1 / home : 0;
+  const rawD = draw && draw > 1 ? 1 / draw : 0;
+  const rawA = away > 1 ? 1 / away : 0;
   return {
     id: `apuestas-royal-${
       quote.match_slug ??
       `${quote.fecha_local ?? "sin-fecha"}-${quote.equipo_local}`
     }`,
     name: "Apuestas Royal",
+    canonicalName: canonicalBookmakerName("Apuestas Royal", "apuestas-royal"),
     source: "apuestas-royal",
     outcomes: {
       home,
       draw,
       away,
     },
-    updatedAt: quote.capturado_en ?? quote.actualizado_en,
+    updatedAt,
+    asOf: updatedAt,
+    overround: Math.max(0, rawH + rawD + rawA - 1),
   };
 }
 
@@ -149,7 +156,8 @@ export function applyApuestasRoyalQuotes(
       ...current,
       odds: summarizeMarket([...others, bookmaker]),
     };
-    updated.favoriteSide = favoriteSideFromSummary(updated.odds);
+    updated.favoriteSide = canonicalFavoriteFromSummary(updated.odds);
+    updated.canonicalFavorite = updated.favoriteSide;
     byId.set(updated.id, updated);
     applied += 1;
   }
