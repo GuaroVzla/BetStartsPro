@@ -31,7 +31,7 @@ jobs:
         uses: actions/setup-node@v7
         with:
           node-version: 22
-          cache: npm
+          # Sin cache: el post-step de tar.exe falla en este runner Windows.
 
       - name: Instalar dependencias
         run: npm ci
