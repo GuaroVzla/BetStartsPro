@@ -1,4 +1,12 @@
 /** @type {import('next').NextConfig} */
+// Next dev usa eval para HMR/source maps: sin 'unsafe-eval' la hidratación
+// de React falla y los botones (análisis, gestión de ligas) no responden.
+// En producción se mantiene la política estricta.
+const esDesarrollo = process.env.NODE_ENV !== "production";
+const scriptSrc = esDesarrollo
+  ? "script-src 'self' 'unsafe-inline' 'unsafe-eval'"
+  : "script-src 'self' 'unsafe-inline'";
+
 const nextConfig = {
   reactStrictMode: true,
   poweredByHeader: false,
@@ -35,7 +43,7 @@ const nextConfig = {
           {
             key: "Content-Security-Policy",
             value:
-              "default-src 'self'; script-src 'self' 'unsafe-inline'; " +
+              `default-src 'self'; ${scriptSrc}; ` +
               "style-src 'self' 'unsafe-inline'; " +
               "img-src 'self' data: https://media.api-sports.io https://media-4.api-sports.io; " +
               "font-src 'self' data:; connect-src 'self' https:; " +
