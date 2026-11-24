@@ -110,6 +110,20 @@ Reglas:
 - Todo valor no visible se envía como `null`. El servidor rechaza cuotas `<= 1`.
 - `mercado` acepta `1X2`, `ganador` o `moneyline`.
 
+## Sesión real del Chrome
+
+`TRIUNFOBET_STORAGE_STATE` contiene la sesión exportada del Chrome del usuario
+(`whitelabels_session`), **sin credenciales**. Se obtiene con
+`scripts/triunfobet-export-cdp.mjs`, que se conecta por CDP (`9222`). Chrome 158
+no permite CDP con el perfil por defecto: hay que copiar `Local State` y
+`Profile 1` a un directorio temporal y abrir esa copia con
+`--user-data-dir=<copia> --profile-directory="Profile 1"`.
+
+El archivo exportado queda en `%TEMP%` y **nunca se commitea**; se publica solo
+como secret de GitHub. El workflow `refresh-triunfobet.yml` lo inyecta como
+`storageState` (`SESION_REUTILIZADA=storageState`) y reintenta una captura si el
+widget no cargó a tiempo.
+
 ## Carga y durabilidad
 
 ```bash

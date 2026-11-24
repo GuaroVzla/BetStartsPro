@@ -47,7 +47,13 @@ jobs:
           # El widget a veces no termina de cargar en 30 s. Reintentamos una vez
           # antes de dar el job por fallido, para no inyectar una semilla vieja.
           $ok = $false
-          for ($intento = 1; $intento -le 2; $intento++) {
+          for ($intento = 1; $intento -le 3; $intento++) {
+            # Si la cookie exportada expira, el tercer intento usa el widget
+            # público: así el cron sigue vivo sin pedir login ni resolver captcha.
+            if ($intento -eq 3) {
+              $env:TRIUNFOBET_STORAGE_STATE = ""
+              Write-Host "FALLBACK_PUBLICO (sin sesion)"
+            }
             Write-Host "CAPTURA_INTENTO=$intento"
             $salida = node scripts/triunfobet-capture.mjs --write --headed --wait 30000 2>&1
             $salida | ForEach-Object { Write-Host $_ }
