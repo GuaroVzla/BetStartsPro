@@ -59,12 +59,11 @@ jobs:
           git diff --cached --quiet
           if ($LASTEXITCODE -eq 0) { Write-Host "Sin cambios en la semilla de Triunfobet."; exit 0 }
           $stamp = (Get-Date).ToUniversalTime().ToString("yyyy-MM-ddTHH:mmZ")
+          # Commit ANTES del rebase: git pull --rebase rechaza un indice con cambios.
+          git commit -m "chore(triunfobet): actualizar cuotas $stamp"
+          if ($LASTEXITCODE -ne 0) { exit 1 }
           for ($intento = 1; $intento -le 3; $intento++) {
             git pull --rebase origin main
-            if ($LASTEXITCODE -ne 0) { exit 1 }
-            git diff --cached --quiet
-            if ($LASTEXITCODE -eq 0) { Write-Host "Sin cambios tras el rebase."; exit 0 }
-            git commit -m "chore(triunfobet): actualizar cuotas $stamp"
             if ($LASTEXITCODE -ne 0) { exit 1 }
             git push origin main
             if ($LASTEXITCODE -eq 0) { Write-Host "Semilla de Triunfobet publicada."; exit 0 }
