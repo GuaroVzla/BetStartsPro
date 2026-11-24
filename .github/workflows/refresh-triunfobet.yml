@@ -18,11 +18,11 @@ jobs:
     timeout-minutes: 30
     permissions:
       contents: write
+    # NO pasar TB_USER/TB_PASS: el widget público muestra cuotas sin login y
+    # un intento de login con Turnstile deja el widget sin renderizar (0 cuotas).
     env:
       INGEST_TOKEN: ${{ secrets.INGEST_TOKEN }}
       SITE_URL: ${{ secrets.SITE_URL }}
-      TB_USER: ${{ secrets.TB_USER }}
-      TB_PASS: ${{ secrets.TB_PASS }}
     steps:
       - name: Descargar repositorio
         uses: actions/checkout@v7
