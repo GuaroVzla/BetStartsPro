@@ -22,6 +22,7 @@ import { clamp, namesLikelyMatch, normalizeName } from "@/lib/utils";
 import {
   dateInVET,
   dateInVETOffset,
+  isWithinMatchWindow,
   matchDayVET,
   resolveMatchStatus,
 } from "@/lib/format";
@@ -835,7 +836,7 @@ export async function getDashboardData(): Promise<DashboardData> {
   // Solo entran partidos de hoy o mañana que todavía no hayan comenzado. Los
   // que ya arrancaron o finalizaron se retiran automáticamente del feed.
   const esVigente = (match: SportsMatch) =>
-    matchDayVET(match.commenceTime, ahora) !== null &&
+    isWithinMatchWindow(match.commenceTime, ahora) &&
     resolveMatchStatus(match, ahora) === "scheduled";
 
   const baseUpcoming = base.matches.filter(esVigente);

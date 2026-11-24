@@ -12,6 +12,8 @@ const integerFormatter = new Intl.NumberFormat("es-ES", {
 });
 
 const VET_TIME_ZONE = "America/Caracas";
+// Venezuela no observa horario de verano: el offset es siempre -04:00.
+const VET_OFFSET = "-04:00";
 
 const dateFormatter = new Intl.DateTimeFormat("es-ES", {
   weekday: "short",
@@ -82,12 +84,14 @@ export function formatCompact(value: number): string {
 
 /** Fecha (YYYY-MM-DD) en hora de Venezuela para un instante dado. */
 export function dateInVET(value: string | Date = new Date()): string {
+  const instante = typeof value === "string" ? new Date(value) : value;
+  if (!Number.isFinite(instante.getTime())) return "";
   return new Intl.DateTimeFormat("en-CA", {
     timeZone: VET_TIME_ZONE,
     year: "numeric",
     month: "2-digit",
     day: "2-digit",
-  }).format(typeof value === "string" ? new Date(value) : value);
+  }).format(instante);
 }
 
 /** Fecha VET de un día relativo a hoy (0 = hoy, 1 = mañana). */
@@ -131,10 +135,137 @@ export function isMatchDayVET(
   return matchDayVET(isoDate, now) === day;
 }
 
-/** Construye un instante ISO a partir de una fecha VET (YYYY-MM-DD) y hora local. */
+/** Construye un instante ISO con offset VET a partir de fecha y hora local. */
 export function fromVETDateTime(date: string, time: string): string {
   const normalizedTime = /^\d{2}:\d{2}$/.test(time) ? time : "12:00";
-  return `${date}T${normalizedTime}:00-04:00`;
+  if (!isValidIsoDate(date) || !isValidHour(normalizedTime)) return "";
+  return `${date}T${normalizedTime}:00${VET_OFFSET}`;
+}
+
+function pad2(value: number): string {
+  return String(value).padStart(2, "0");
+}
+
+function isValidHour(hour: string): boolean {
+  const match = /^(\d{2}):(\d{2})$/.exec(hour);
+  if (!match) return false;
+  return Number(match[1]) <= 23 && Number(match[2]) <= 59;
+}
+
+/** Valida una fecha civil YYYY-MM-DD (rechaza, p. ej., 2026-02-31). */
+export function isValidIsoDate(date: string): boolean {
+  const match = /^(\d{4})-(\d{2})-(\d{2})$/.exec(date);
+  if (!match) return false;
+  const [year, month, day] = [Number(match[1]), Number(match[2]), Number(match[3])];
+  if (month < 1 || month > 12 || day < 1 || day > 31) return false;
+  const roundTrip = new Date(Date.UTC(year, month - 1, day));
+  return (
+    roundTrip.getUTCFullYear() === year &&
+    roundTrip.getUTCMonth() === month - 1 &&
+    roundTrip.getUTCDate() === day
+  );
+}
+
+function toIsoZ(value: string): string | null {
+  const parsed = new Date(value);
+  if (!Number.isFinite(parsed.getTime())) return null;
+  // ISO 8601 canónico sin milisegundos: YYYY-MM-DDTHH:mm:ssZ.
+  return parsed.toISOString().replace(/\.\d{3}Z$/, "Z");
+}
+
+function normalizeOffset(offset: string): string {
+  if (/^Z$/i.test(offset)) return "Z";
+  const compact = offset.replace(":", "");
+  const sign = compact[0] === "-" ? "-" : "+";
+  const hours = compact.slice(1, 3);
+  const minutes = compact.slice(3, 5) || "00";
+  return `${sign}${hours}:${minutes}`;
+}
+
+/**
+ * Infiere el año de una fecha sin año (DD/MM) eligiendo el candidato más
+ * cercano a hoy en VET. Evita el error clásico de asignar el año siguiente
+ * en noviembre/diciembre. Solo acepta fechas dentro de la ventana radar.
+ */
+function inferYear(day: number, month: number, now: Date): number | null {
+  const hoy = dateInVET(now);
+  if (!hoy) return null;
+  const anioHoy = Number(hoy.slice(0, 4));
+  const hoyUtc = Date.parse(`${hoy}T12:00:00Z`);
+  let mejor: number | null = null;
+  let menorDiferencia = Infinity;
+
+  for (const anio of [anioHoy - 1, anioHoy, anioHoy + 1]) {
+    const candidato = `${anio}-${pad2(month)}-${pad2(day)}`;
+    if (!isValidIsoDate(candidato)) continue;
+    const diferencia =
+      Math.abs(Date.parse(`${candidato}T12:00:00Z`) - hoyUtc) / 86_400_000;
+    if (diferencia < menorDiferencia) {
+      menorDiferencia = diferencia;
+      mejor = anio;
+    }
+  }
+  return menorDiferencia <= 1 ? mejor : null;
+}
+
+/**
+ * Normaliza cualquier formato soportado a ISO 8601 UTC canónico, o `null`
+ * cuando la fecha es inválida/ambigua. La app es es-VE: DD/MM es canónico;
+ * MM/DD se rechaza en vez de invertirse silenciosamente.
+ */
+export function normalizeCommenceTime(
+  value: unknown,
+  now: Date = new Date(),
+): string | null {
+  const texto = String(value ?? "").trim();
+  if (!texto) return null;
+
+  // ISO completo (o "YYYY-MM-DD HH:mm"), con o sin offset.
+  const completo =
+    /^(\d{4}-\d{2}-\d{2})[T ](\d{2}:\d{2})(?::(\d{2}))?(?:\.\d{1,3})?(Z|[+-]\d{2}:?\d{2})?$/i.exec(
+      texto,
+    );
+  if (completo) {
+    const [, date, hour, seconds = "00", offset] = completo;
+    if (!isValidIsoDate(date) || !isValidHour(hour)) return null;
+    const zona = offset ? normalizeOffset(offset) : VET_OFFSET;
+    return toIsoZ(`${date}T${hour}:${seconds}${zona}`);
+  }
+
+  if (/^\d{4}-\d{2}-\d{2}$/.test(texto)) {
+    return isValidIsoDate(texto)
+      ? toIsoZ(`${texto}T12:00:00${VET_OFFSET}`)
+      : null;
+  }
+
+  // DD/MM(/YYYY), DD-MM-YYYY y DD.MM.YYYY. Sin año se infiere con inferYear.
+  const diaMes = /^(\d{1,2})[\/.\-](\d{1,2})(?:[\/.\-](\d{2}|\d{4}))?$/.exec(
+    texto,
+  );
+  if (diaMes) {
+    const dia = Number(diaMes[1]);
+    const mes = Number(diaMes[2]);
+    let anio: number | null;
+    if (diaMes[3]) {
+      anio =
+        diaMes[3].length === 2
+          ? 2000 + Number(diaMes[3])
+          : Number(diaMes[3]);
+    } else {
+      anio = inferYear(dia, mes, now);
+    }
+    if (anio == null || anio < 2000 || anio > 2100) return null;
+    const fecha = `${anio}-${pad2(mes)}-${pad2(dia)}`;
+    return isValidIsoDate(fecha) ? toIsoZ(`${fecha}T12:00:00${VET_OFFSET}`) : null;
+  }
+
+  return null;
+}
+
+/** True solo si el instante pertenece a hoy o mañana en hora de Venezuela. */
+export function isWithinMatchWindow(value: unknown, now: Date = new Date()): boolean {
+  const iso = normalizeCommenceTime(value, now);
+  return iso !== null && matchDayVET(iso, now) !== null;
 }
 
 /**

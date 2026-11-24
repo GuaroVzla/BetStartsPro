@@ -9,6 +9,8 @@
     "start": "next start",
     "pretypecheck": "next typegen",
     "typecheck": "tsc --noEmit",
+    "test:dates": "node --test scripts/date-window.test.mjs",
+    "clean:dates": "node scripts/purge-out-of-window.mjs",
     "capture:triunfobet": "node scripts/triunfobet-capture.mjs --write",
     "capture:royal": "node scripts/apuestas-royal-capture.mjs --write",
     "royal:login": "node scripts/royal-login-session.mjs",

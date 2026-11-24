@@ -4,7 +4,7 @@
   "sync_mode": "enrich_or_create",
   "fecha_extraccion": "2026-11-24",
   "zona_horaria": "America/Caracas",
-  "total_cotizaciones": 15,
+  "total_cotizaciones": 8,
   "cotizaciones": [
     {
       "match_slug": "2026-11-24_ayr_vs_inverness",
@@ -19,24 +19,6 @@
         "local_1": 3.45,
         "empate_x": 3.35,
         "visitante_2": 1.96
-      },
-      "capturado_en": "2026-11-24T13:24:33-04:00",
-      "url": "https://app.apuestasroyal.com/",
-      "nota": "Cuota 1X2 publicada por la API autenticada del lobby de Apuestas Royal"
-    },
-    {
-      "match_slug": "2026-11-29_ifk-goteborg_vs_ik-sirius",
-      "deporte": "Fútbol",
-      "liga": "Allsvenskan",
-      "fecha_local": "2026-11-29",
-      "hora_local": "10:00",
-      "equipo_local": "IFK Goteborg",
-      "equipo_visitante": "IK Sirius",
-      "mercado": "1X2",
-      "cuotas_1x2": {
-        "local_1": 4,
-        "empate_x": 4,
-        "visitante_2": 1.73
       },
       "capturado_en": "2026-11-24T13:24:33-04:00",
       "url": "https://app.apuestasroyal.com/",
@@ -133,60 +115,6 @@
       "nota": "Cuota 1X2 publicada por la API autenticada del lobby de Apuestas Royal"
     },
     {
-      "match_slug": "2026-12-02_aston-villa_vs_everton",
-      "deporte": "Fútbol",
-      "liga": "Premier League",
-      "fecha_local": "2026-12-02",
-      "hora_local": "16:15",
-      "equipo_local": "Aston Villa FC",
-      "equipo_visitante": "Everton FC",
-      "mercado": "1X2",
-      "cuotas_1x2": {
-        "local_1": 2.06,
-        "empate_x": 3.7,
-        "visitante_2": 3.65
-      },
-      "capturado_en": "2026-11-24T13:24:33-04:00",
-      "url": "https://app.apuestasroyal.com/",
-      "nota": "Cuota 1X2 publicada por la API autenticada del lobby de Apuestas Royal"
-    },
-    {
-      "match_slug": "2026-12-05_az-alkmar_vs_psv-eindhoven",
-      "deporte": "Fútbol",
-      "liga": "División de Honor",
-      "fecha_local": "2026-12-05",
-      "hora_local": "15:00",
-      "equipo_local": "AZ Alkmar",
-      "equipo_visitante": "PSV Eindhoven",
-      "mercado": "1X2",
-      "cuotas_1x2": {
-        "local_1": 3.2,
-        "empate_x": 4,
-        "visitante_2": 1.95
-      },
-      "capturado_en": "2026-11-24T13:24:33-04:00",
-      "url": "https://app.apuestasroyal.com/",
-      "nota": "Cuota 1X2 publicada por la API autenticada del lobby de Apuestas Royal"
-    },
-    {
-      "match_slug": "2026-11-28_slask-wroclaw_vs_gks-katowice",
-      "deporte": "Fútbol",
-      "liga": "Liga Ekstraklasa",
-      "fecha_local": "2026-11-28",
-      "hora_local": "12:30",
-      "equipo_local": "Slask Wroclaw",
-      "equipo_visitante": "GKS Katowice",
-      "mercado": "1X2",
-      "cuotas_1x2": {
-        "local_1": 2.8,
-        "empate_x": 3.55,
-        "visitante_2": 2.3
-      },
-      "capturado_en": "2026-11-24T13:24:33-04:00",
-      "url": "https://app.apuestasroyal.com/",
-      "nota": "Cuota 1X2 publicada por la API autenticada del lobby de Apuestas Royal"
-    },
-    {
       "match_slug": "2026-11-25_lokomotiv-moscu_vs_rostov",
       "deporte": "Fútbol",
       "liga": "RUSIA: Copa de Rusia - Fase Grupos",
@@ -205,42 +133,6 @@
       "nota": "Cuota 1X2 publicada por la API autenticada del lobby de Apuestas Royal"
     },
     {
-      "match_slug": "2026-11-29_lks-lodz_vs_lechia-gdansk",
-      "deporte": "Fútbol",
-      "liga": "Liga I",
-      "fecha_local": "2026-11-29",
-      "hora_local": "09:30",
-      "equipo_local": "LKS Lodz",
-      "equipo_visitante": "Lechia Gdansk",
-      "mercado": "1X2",
-      "cuotas_1x2": {
-        "local_1": 2.08,
-        "empate_x": 3.5,
-        "visitante_2": 3
-      },
-      "capturado_en": "2026-11-24T13:24:33-04:00",
-      "url": "https://app.apuestasroyal.com/",
-      "nota": "Cuota 1X2 publicada por la API autenticada del lobby de Apuestas Royal"
-    },
-    {
-      "match_slug": "2026-11-28_hradec-kralove_vs_bohemians-praga",
-      "deporte": "Fútbol",
-      "liga": "1ª Liga",
-      "fecha_local": "2026-11-28",
-      "hora_local": "13:00",
-      "equipo_local": "FC Hradec Kralove",
-      "equipo_visitante": "Bohemians Praga",
-      "mercado": "1X2",
-      "cuotas_1x2": {
-        "local_1": 1.87,
-        "empate_x": 3.45,
-        "visitante_2": 3.65
-      },
-      "capturado_en": "2026-11-24T13:24:33-04:00",
-      "url": "https://app.apuestasroyal.com/",
-      "nota": "Cuota 1X2 publicada por la API autenticada del lobby de Apuestas Royal"
-    },
-    {
       "match_slug": "2026-11-24_chorley_vs_hebburn",
       "deporte": "Fútbol",
       "liga": "INGLATERRA: National League North",
@@ -253,24 +145,6 @@
         "local_1": 1.87,
         "empate_x": 3.5,
         "visitante_2": 3.6
-      },
-      "capturado_en": "2026-11-24T13:24:33-04:00",
-      "url": "https://app.apuestasroyal.com/",
-      "nota": "Cuota 1X2 publicada por la API autenticada del lobby de Apuestas Royal"
-    },
-    {
-      "match_slug": "2026-12-03_tottenham-hotspur_vs_fulham",
-      "deporte": "Fútbol",
-      "liga": "Premier League",
-      "fecha_local": "2026-12-03",
-      "hora_local": "16:00",
-      "equipo_local": "Tottenham Hotspur FC",
-      "equipo_visitante": "FC Fulham",
-      "mercado": "1X2",
-      "cuotas_1x2": {
-        "local_1": 1.9,
-        "empate_x": 3.8,
-        "visitante_2": 4.1
       },
       "capturado_en": "2026-11-24T13:24:33-04:00",
       "url": "https://app.apuestasroyal.com/",

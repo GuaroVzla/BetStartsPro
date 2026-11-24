@@ -1,7 +1,7 @@
 import type { ApiSportsEvent } from "@/services/apiSportsService";
 import type { NormalizedOddsEvent } from "@/services/oddsApiService";
 import type { BookmakerQuote, LeagueInfo, OutcomePrices } from "@/types/sports";
-import { dateInVET, dateInVETOffset } from "@/lib/format";
+import { dateInVET, dateInVETOffset, normalizeCommenceTime } from "@/lib/format";
 
 const SPORTMONKS_BASE = "https://api.sportmonks.com/v3/football";
 const CACHE_SECONDS = 3600;
@@ -72,10 +72,8 @@ function minNullable(values: Array<number | null>): number | null {
 }
 
 function normalizeTimestamp(value: string): string {
-  const candidate = value.includes("T") ? value : value.replace(" ", "T");
-  const dated = candidate.endsWith("Z") ? candidate : `${candidate}Z`;
-  const parsed = new Date(dated);
-  return Number.isNaN(parsed.getTime()) ? dated : parsed.toISOString();
+  // Sin offset asumimos VET (donde opera el radar), nunca la zona del servidor.
+  return normalizeCommenceTime(value) ?? "";
 }
 
 async function request<T>(

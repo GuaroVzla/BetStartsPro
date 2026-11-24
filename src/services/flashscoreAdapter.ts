@@ -1,4 +1,4 @@
-import { dateInVET, matchDayVET } from "@/lib/format";
+import { dateInVET, isWithinMatchWindow, normalizeCommenceTime } from "@/lib/format";
 import { summarizeMarket } from "@/lib/marketSummary";
 import { normalizeName } from "@/lib/utils";
 import type { StoredRecord } from "@/services/flashscoreIngestStore";
@@ -130,7 +130,7 @@ function favoriteFromOdds(record: StoredRecord): "home" | "away" | null {
   return null;
 }
 
-function toSportsMatch(record: StoredRecord): SportsMatch | null {
+function toSportsMatch(record: StoredRecord, now: Date = new Date()): SportsMatch | null {
   if (!record.equipo_local?.trim() || !record.equipo_visitante?.trim()) return null;
 
   const sport = SPORT_BY_LABEL[normalizeSportLabel(record.deporte)] ?? "soccer";
@@ -143,6 +143,9 @@ function toSportsMatch(record: StoredRecord): SportsMatch | null {
       ? record.fecha_extraccion
       : dateInVET());
   const hora = /^\d{2}:\d{2}$/.test(record.hora_local ?? "") ? record.hora_local! : "12:00";
+  // Fecha y hora se validan juntas; un día/mes ambiguo o un año lejano se descarta.
+  const commenceTime = normalizeCommenceTime(`${fecha} ${hora}`, now);
+  if (!commenceTime) return null;
   const status =
     record.estado === "En Vivo"
       ? "live"
@@ -190,9 +193,9 @@ function toSportsMatch(record: StoredRecord): SportsMatch | null {
   return {
     id: `flashscore-${record.match_slug}`,
     sport,
-    league: buildLeague(record.liga, sport, fecha),
-    // Hora de Venezuela expressada como instante real (-04:00).
-    commenceTime: `${fecha}T${hora}:00-04:00`,
+    league: buildLeague(record.liga, sport, commenceTime),
+    // ISO 8601 UTC canónico; la UI lo convierte a VET al formatear.
+    commenceTime,
     status,
     venue: "Sin especificar",
     home,
@@ -212,8 +215,8 @@ export function flashscoreRecordsToMatches(
   now: Date = new Date(),
 ): SportsMatch[] {
   return records
-    .map(toSportsMatch)
+    .map((record) => toSportsMatch(record, now))
     .filter((match): match is SportsMatch => match !== null)
-    .filter((match) => matchDayVET(match.commenceTime, now) !== null)
+    .filter((match) => isWithinMatchWindow(match.commenceTime, now))
     .sort((a, b) => a.commenceTime.localeCompare(b.commenceTime));
 }

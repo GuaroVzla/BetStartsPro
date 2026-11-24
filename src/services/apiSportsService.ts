@@ -10,7 +10,7 @@ import type {
   VenueSplit,
 } from "@/types/sports";
 import { clamp } from "@/lib/utils";
-import { dateInVET, dateInVETOffset, fromVETDateTime } from "@/lib/format";
+import { dateInVET, dateInVETOffset, normalizeCommenceTime } from "@/lib/format";
 
 const CACHE_SECONDS = 3600;
 
@@ -212,12 +212,14 @@ function minNullable(values: Array<number | null>): number | null {
 }
 
 function normalizeApiCommenceTime(date: string, time?: string): string {
-  if (!date) return new Date().toISOString();
-  if (date.includes("T")) {
-    return /(?:Z|[+-]\d{2}:?\d{2})$/.test(date) ? date : `${date}-04:00`;
-  }
-  if (time && /^\d{2}:\d{2}/.test(time)) return fromVETDateTime(date, time.slice(0, 5));
-  return fromVETDateTime(date, "12:00");
+  if (!date) return "";
+  // Cuando la API separa fecha y hora se unen antes de validar; si la fecha
+  // ya trae hora/offset se normaliza tal cual. Inválido => "" (se descarta).
+  const value =
+    !date.includes("T") && time && /^\d{2}:\d{2}/.test(time)
+      ? `${date} ${time.slice(0, 5)}`
+      : date;
+  return normalizeCommenceTime(value) ?? "";
 }
 
 function mapStatus(short: unknown, long: unknown): MatchStatus {
