@@ -45,35 +45,31 @@ jobs:
 
       - name: Inyectar cuotas en la web desplegada
         if: env.SITE_URL != ''
-        shell: bash
+        shell: powershell
         run: |
-          node scripts/ingest-triunfobet.mjs scripts/triunfobet-quotes.json \
-            --url "$SITE_URL/api/ingest/triunfobet" \
-            || echo "WARN: no se pudo inyectar Triunfobet (semilla fuera de ventana VET)"
+          node scripts/ingest-triunfobet.mjs scripts/triunfobet-quotes.json --url "$env:SITE_URL/api/ingest/triunfobet"
+          if ($LASTEXITCODE -ne 0) { Write-Host "WARN: no se pudo inyectar Triunfobet (semilla fuera de ventana VET)" }
 
       - name: Guardar semilla actualizada
-        shell: bash
+        shell: powershell
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add scripts/triunfobet-quotes.json
-          if git diff --cached --quiet; then
-            echo "Sin cambios en la semilla de Triunfobet."
-            exit 0
-          fi
-          for intento in 1 2 3; do
-            git pull --rebase origin main || exit 1
-            if git diff --cached --quiet; then
-              echo "Sin cambios tras el rebase."
-              exit 0
-            fi
-            git commit -m "chore(triunfobet): actualizar cuotas $(date -u +%Y-%m-%dT%H:%MZ)" || exit 1
-            if git push origin main; then
-              echo "Semilla de Triunfobet publicada."
-              exit 0
-            fi
-            echo "Reintento de push $intento..."
-            sleep 5
-          done
-          echo "ERROR: no se pudo publicar la semilla de Triunfobet."
+          git diff --cached --quiet
+          if ($LASTEXITCODE -eq 0) { Write-Host "Sin cambios en la semilla de Triunfobet."; exit 0 }
+          $stamp = (Get-Date).ToUniversalTime().ToString("yyyy-MM-ddTHH:mmZ")
+          for ($intento = 1; $intento -le 3; $intento++) {
+            git pull --rebase origin main
+            if ($LASTEXITCODE -ne 0) { exit 1 }
+            git diff --cached --quiet
+            if ($LASTEXITCODE -eq 0) { Write-Host "Sin cambios tras el rebase."; exit 0 }
+            git commit -m "chore(triunfobet): actualizar cuotas $stamp"
+            if ($LASTEXITCODE -ne 0) { exit 1 }
+            git push origin main
+            if ($LASTEXITCODE -eq 0) { Write-Host "Semilla de Triunfobet publicada."; exit 0 }
+            Write-Host "Reintento de push $intento..."
+            Start-Sleep -Seconds 5
+          }
+          Write-Host "ERROR: no se pudo publicar la semilla de Triunfobet."
           exit 1
