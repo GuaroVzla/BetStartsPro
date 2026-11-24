@@ -84,6 +84,8 @@ export interface LeagueInfo {
   name: string;
   shortName: string;
   country: string;
+  /** Indica competición no nacional; si se omite se infiere de country/nombre. */
+  isInternational?: boolean;
   season: string;
 }
 

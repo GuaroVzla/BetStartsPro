@@ -5,6 +5,7 @@ import { Check, ListFilter, RotateCcw, X } from "lucide-react";
 import type { LeagueInfo } from "@/types/sports";
 import { SPORTS } from "@/config/sports";
 import { SportIcon } from "@/components/SportIcon";
+import { leagueOrigin } from "@/lib/leagueOrigin";
 import { cn } from "@/lib/utils";
 
 interface LeagueManagerProps {
@@ -137,47 +138,73 @@ export function LeagueManager({
                   {sport.label}
                 </p>
               </div>
-              <ul className="divide-y divide-slate-100/80 overflow-hidden rounded-2xl border border-slate-200/80 bg-white/60 dark:divide-white/[0.05] dark:border-white/[0.06] dark:bg-white/[0.015]">
-                {groupLeagues.map((league) => {
-                  const enabled = !disabledSet.has(league.id);
-                  return (
-                    <li
-                      key={league.id}
-                      className="flex items-center justify-between gap-3 px-3 py-2.5"
-                    >
-                      <div className="min-w-0">
-                        <p className="truncate text-[11px] font-semibold text-slate-800 dark:text-slate-100">
-                          {league.name}
-                        </p>
-                        <p className="text-[9px] text-slate-400 dark:text-slate-500">
-                          {league.country} · {matchCounts[league.id] ?? 0}{" "}
-                          partido(s) en ventana
-                        </p>
-                      </div>
-                      <button
-                        type="button"
-                        role="switch"
-                        aria-checked={enabled}
-                        aria-label={`${enabled ? "Desactivar" : "Activar"} ${league.name}`}
-                        onClick={() => onToggle(league.id)}
-                        className={cn(
-                          "relative h-5 w-9 shrink-0 rounded-full border transition focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-400/40",
-                          enabled
-                            ? "border-blue-400/40 bg-blue-500"
-                            : "border-slate-300 bg-slate-200 dark:border-white/15 dark:bg-white/10",
-                        )}
+              <div className="overflow-hidden rounded-2xl border border-slate-200/80 bg-white/60 dark:border-white/[0.06] dark:bg-white/[0.015]">
+                <div className="grid grid-cols-[minmax(0,1fr)_minmax(0,6rem)_auto] items-center gap-x-2 border-b border-slate-200/70 px-3 py-1.5 text-[9px] font-bold uppercase tracking-[0.12em] text-slate-400 dark:border-white/[0.06] dark:text-slate-500 sm:grid-cols-[minmax(0,1fr)_minmax(0,7.5rem)_auto]">
+                  <span>Liga</span>
+                  <span>País / Torneo</span>
+                  <span className="w-9">
+                    <span className="sr-only">Estado</span>
+                  </span>
+                </div>
+                <ul className="divide-y divide-slate-100/80 dark:divide-white/[0.05]">
+                  {groupLeagues.map((league) => {
+                    const enabled = !disabledSet.has(league.id);
+                    const origin = leagueOrigin(league);
+                    return (
+                      <li
+                        key={league.id}
+                        className="grid grid-cols-[minmax(0,1fr)_minmax(0,6rem)_auto] items-center gap-x-2 px-3 py-2.5 sm:grid-cols-[minmax(0,1fr)_minmax(0,7.5rem)_auto]"
                       >
-                        <span
+                        <div className="min-w-0">
+                          <p
+                            className="truncate text-[11px] font-semibold text-slate-800 dark:text-slate-100"
+                            title={league.name}
+                          >
+                            {league.name}
+                          </p>
+                          <p className="mt-0.5 text-[9px] text-slate-400 dark:text-slate-500">
+                            {matchCounts[league.id] ?? 0} partido(s) en ventana
+                          </p>
+                        </div>
+                        <div className="min-w-0">
+                          <span
+                            className={cn(
+                              "inline-flex max-w-full items-center gap-1 rounded-md border px-1.5 py-0.5 text-[9px] font-semibold",
+                              origin.isInternational
+                                ? "border-violet-400/25 bg-violet-400/10 text-violet-700 dark:border-violet-300/20 dark:bg-violet-300/10 dark:text-violet-200"
+                                : "border-slate-200 bg-slate-50 text-slate-600 dark:border-white/10 dark:bg-white/[0.04] dark:text-slate-300",
+                            )}
+                            title={origin.iso2 ? `${origin.label} (${origin.iso2})` : origin.label}
+                          >
+                            <span aria-hidden="true">{origin.flag}</span>
+                            <span className="truncate">{origin.label}</span>
+                          </span>
+                        </div>
+                        <button
+                          type="button"
+                          role="switch"
+                          aria-checked={enabled}
+                          aria-label={`${enabled ? "Desactivar" : "Activar"} ${league.name}`}
+                          onClick={() => onToggle(league.id)}
                           className={cn(
-                            "absolute top-0.5 h-3.5 w-3.5 rounded-full bg-white shadow transition-all",
-                            enabled ? "left-[18px]" : "left-0.5",
+                            "relative h-5 w-9 shrink-0 rounded-full border transition focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-400/40",
+                            enabled
+                              ? "border-blue-400/40 bg-blue-500"
+                              : "border-slate-300 bg-slate-200 dark:border-white/15 dark:bg-white/10",
                           )}
-                        />
-                      </button>
-                    </li>
-                  );
-                })}
-              </ul>
+                        >
+                          <span
+                            className={cn(
+                              "absolute top-0.5 h-3.5 w-3.5 rounded-full bg-white shadow transition-all",
+                              enabled ? "left-[18px]" : "left-0.5",
+                            )}
+                          />
+                        </button>
+                      </li>
+                    );
+                  })}
+                </ul>
+              </div>
             </div>
           ))}
         </div>
