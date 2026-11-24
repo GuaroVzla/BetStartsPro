@@ -41,9 +41,23 @@ jobs:
       - name: Asegurar Chromium de Playwright
         run: npx playwright install chromium
 
-      - name: Capturar Triunfobet (navegador visible)
-        continue-on-error: true
-        run: node scripts/triunfobet-capture.mjs --write --headed --wait 30000
+      - name: Capturar Triunfobet (sesión real, navegador visible)
+        shell: powershell
+        run: |
+          # El widget a veces no termina de cargar en 30 s. Reintentamos una vez
+          # antes de dar el job por fallido, para no inyectar una semilla vieja.
+          $ok = $false
+          for ($intento = 1; $intento -le 2; $intento++) {
+            Write-Host "CAPTURA_INTENTO=$intento"
+            $salida = node scripts/triunfobet-capture.mjs --write --headed --wait 30000 2>&1
+            $salida | ForEach-Object { Write-Host $_ }
+            if (("$salida" -join "`n") -match "COTIZACIONES_DETECTADAS=[1-9]") {
+              $ok = $true
+              break
+            }
+            Write-Host "SIN_COTIZACIONES en el intento $intento; reintentando..."
+          }
+          if (-not $ok) { Write-Host "ERROR: la captura no obtuvo cotizaciones."; exit 1 }
 
       - name: Inyectar cuotas en la web desplegada
         if: env.SITE_URL != ''
