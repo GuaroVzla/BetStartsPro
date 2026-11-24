@@ -5,7 +5,8 @@ import { TeamBadge } from "@/components/TeamBadge";
 import { SportIcon } from "@/components/SportIcon";
 import type { SportsMatch } from "@/types/sports";
 import type { CrossSourcePick } from "@/services/valueEngine";
-import { formatMatchTime, formatOdd, formatSignedPercent } from "@/lib/format";
+import { favoriteProbability } from "@/services/favoriteProbability";
+import { formatMatchTime, formatOdd, formatPercent, formatSignedPercent } from "@/lib/format";
 import { cn } from "@/lib/utils";
 
 interface MatchesBoardProps {
@@ -37,11 +38,12 @@ export function MatchesBoard({ matches, picksByMatch, onOpenMatch }: MatchesBoar
         </p>
       ) : (
         <div className="overflow-x-auto">
-          <table className="w-full min-w-[720px] border-collapse text-left">
+          <table className="w-full min-w-[880px] border-collapse text-left">
             <thead>
               <tr className="border-b border-slate-100 text-[10px] font-semibold uppercase tracking-wider text-slate-400 dark:border-white/[0.06] dark:text-slate-500">
                 <th className="px-4 py-2.5">Hora</th>
                 <th className="px-3 py-2.5">Partido</th>
+                <th className="px-3 py-2.5">Favorito y Probabilidad</th>
                 <th className="px-3 py-2.5">Métrica clave</th>
                 <th className="px-3 py-2.5">Mejor cuota</th>
                 <th className="px-3 py-2.5">Valor</th>
@@ -51,6 +53,7 @@ export function MatchesBoard({ matches, picksByMatch, onOpenMatch }: MatchesBoar
             <tbody>
               {matches.map((match) => {
                 const pick = picksByMatch.get(match.id);
+                const favorito = favoriteProbability(match);
                 const analyst = match.analyst;
                 const hasXg =
                   analyst?.xgHome != null &&
@@ -101,6 +104,30 @@ export function MatchesBoard({ matches, picksByMatch, onOpenMatch }: MatchesBoar
                           {match.away.shortName}
                         </span>
                         <TeamBadge team={match.away} size="sm" />
+                      </div>
+                    </td>
+                    <td className="px-3 py-3 align-middle">
+                      <div className="flex flex-col gap-0.5">
+                        <span
+                          className="whitespace-nowrap text-[11px] font-semibold text-slate-800 dark:text-slate-100"
+                          title={favorito.team}
+                        >
+                          {favorito.side === "home" ? match.home.shortName : match.away.shortName}
+                          <span className="ml-1 font-bold tabular-nums text-emerald-700 dark:text-emerald-300">
+                            ({formatPercent(favorito.probability)})
+                          </span>
+                          {favorito.estimated ? (
+                            <sup
+                              className="ml-0.5 text-[10px] text-amber-600"
+                              title="Estimación con datos imputados. Pesos: mercado 35%, forma 25%, contexto 15%, bajas 15%, H2H 10%."
+                            >
+                              *
+                            </sup>
+                          ) : null}
+                        </span>
+                        <span className="text-[9px] text-slate-400 dark:text-slate-500">
+                          Estimación ponderada
+                        </span>
                       </div>
                     </td>
                     <td className="px-3 py-3 align-middle">
