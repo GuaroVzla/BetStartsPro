@@ -58,7 +58,7 @@ const cotizaciones = (payload.cotizaciones ?? []).map((quote, index) => {
 });
 
 const current = cotizaciones.filter((quote) => [today, tomorrow].includes(quote.fecha_local));
-const quoteSet = cli.flags["allow-stale"] ? cotizaciones : current;
+const quoteSet = cli.flags.has("allow-stale") ? cotizaciones : current;
 payload.cotizaciones = dedupeBySlug(
   quoteSet.map(({ _indice, ...quote }) => quote),
 );
@@ -91,7 +91,12 @@ if (cli.dryRun) {
 try {
   const response = await fetch(URL_INGEST, {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
+    headers: {
+      "Content-Type": "application/json",
+      ...(process.env.INGEST_TOKEN
+        ? { Authorization: `Bearer ${process.env.INGEST_TOKEN}` }
+        : {}),
+    },
     body: JSON.stringify(payload),
     signal: AbortSignal.timeout(15000),
   });

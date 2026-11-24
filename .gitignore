@@ -48,3 +48,7 @@ scripts/triunfobet-api-calls.txt
 scripts/triunfobet-body.txt
 scripts/triunfobet-explore*.mjs
 scripts/ui-verification.png
+scripts/the-analyst-payload.json
+.royal-profile/
+.royal-storage-state.json
+scripts/.royal-*

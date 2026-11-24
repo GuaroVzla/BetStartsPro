@@ -12,7 +12,6 @@ import {
   Percent,
   Stethoscope,
   Target,
-  TrendingUp,
 } from "lucide-react";
 import type {
   MatchDay,
@@ -487,13 +486,6 @@ export function HighValueHighOddsList({
             El KPI muestra el EV como contexto, pero filtra por las validaciones
             estadísticas obligatorias, no por el EV.
           </p>
-          <a
-            href="#comparador"
-            className="inline-flex items-center gap-1 font-semibold text-blue-400 transition hover:text-blue-300"
-          >
-            <TrendingUp className="h-3 w-3" />
-            Explorar todas las cuotas
-          </a>
         </div>
       </div>
     </section>

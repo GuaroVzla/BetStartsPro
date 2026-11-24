@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { revalidatePath } from "next/cache";
+import { ingestAuthError } from "@/lib/ingestAuth";
 import {
   clearMatches,
   listMatches,
@@ -112,6 +113,9 @@ function validatePayload(value: unknown): { payload?: FlashscorePayload; error?:
 }
 
 export async function POST(request: NextRequest) {
+  const unauthorized = ingestAuthError(request);
+  if (unauthorized) return unauthorized;
+
   let body: unknown;
   try {
     body = await request.json();
@@ -137,7 +141,10 @@ export async function POST(request: NextRequest) {
   );
 }
 
-export async function DELETE() {
+export async function DELETE(request: NextRequest) {
+  const unauthorized = ingestAuthError(request);
+  if (unauthorized) return unauthorized;
+
   clearMatches();
   revalidatePath("/");
   revalidatePath("/api/matches");

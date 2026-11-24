@@ -4,11 +4,11 @@ import type { Metadata, Viewport } from "next";
 export const metadata: Metadata = {
   title: "BetStats Pro | Inteligencia y valor en cuotas deportivas",
   description:
-    "Comparador de cuotas y modelo probabilístico para fútbol, básquet, béisbol y hockey. Datos, clasificaciones, bajas y valor esperado en un solo lugar.",
+    "Análisis deportivo y valor esperado para fútbol, básquet, béisbol y hockey. Datos, clasificaciones, bajas y cuotas en un solo lugar.",
   applicationName: "BetStats Pro",
   keywords: [
     "apuestas deportivas",
-    "comparador de cuotas",
+    "análisis deportivo",
     "valor esperado",
     "fútbol",
     "NBA",

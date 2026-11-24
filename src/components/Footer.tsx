@@ -73,7 +73,7 @@ export function Footer({ mode }: FooterProps) {
             </div>
             <p className="mt-3 max-w-md text-[11px] leading-relaxed text-slate-500 dark:text-slate-400">
               Inteligencia de mercado para fútbol, básquet, béisbol y hockey.
-              Comparamos cuotas, medimos el valor esperado y ponemos el contexto
+              Cruzamos cuotas, medimos el valor esperado y ponemos el contexto
               estadístico al servicio de decisiones más informadas.
             </p>
             <div className="mt-3 flex flex-wrap gap-2">

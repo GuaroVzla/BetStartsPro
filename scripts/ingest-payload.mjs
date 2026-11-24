@@ -54,7 +54,7 @@ for (const file of files) {
   payload.total_partidos = payload.partidos.length;
   const errors = validatePayloadShape(payload, "flashscore");
 
-  if (!cli.flags["allow-stale"] && ![today, tomorrow].includes(payload.fecha_extraccion)) {
+  if (!cli.flags.has("allow-stale") && ![today, tomorrow].includes(payload.fecha_extraccion)) {
     errors.push(
       `fecha_extraccion=${payload.fecha_extraccion} no es hoy (${today}) ni mañana (${tomorrow}); use --allow-stale solo para datos históricos`,
     );
@@ -82,7 +82,12 @@ for (const file of files) {
   try {
     const response = await fetch(URL_INGEST, {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: {
+        "Content-Type": "application/json",
+        ...(process.env.INGEST_TOKEN
+          ? { Authorization: `Bearer ${process.env.INGEST_TOKEN}` }
+          : {}),
+      },
       body: JSON.stringify(payload),
       signal: AbortSignal.timeout(15000),
     });

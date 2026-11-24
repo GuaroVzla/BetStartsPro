@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { revalidatePath } from "next/cache";
+import { ingestAuthError } from "@/lib/ingestAuth";
 import {
   clearQuotes,
   listQuotes,
@@ -101,6 +102,9 @@ function validateQuote(
 }
 
 export async function POST(request: NextRequest) {
+  const unauthorized = ingestAuthError(request);
+  if (unauthorized) return unauthorized;
+
   let body: unknown;
   try {
     body = await request.json();
@@ -201,7 +205,10 @@ export async function GET() {
   });
 }
 
-export async function DELETE() {
+export async function DELETE(request: NextRequest) {
+  const unauthorized = ingestAuthError(request);
+  if (unauthorized) return unauthorized;
+
   clearQuotes();
   revalidatePath("/");
   revalidatePath("/api/matches");

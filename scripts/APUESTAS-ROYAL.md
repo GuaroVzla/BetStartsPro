@@ -1,54 +1,106 @@
 # Integración de Apuestas Royal
 
-No se publica una URL por defecto: en la revisión del **23/11/2026** no se
-encontró un sitio público verificable de Apuestas Royal. Por eso
-`scripts/bookmaker-capture.mjs --casa apuestas-royal` exige `--url` (o la variable
-`BOOKMAKER_URL`) y **no se inventa ningún endpoint ni ninguna cuota**.
+Apuestas Royal protege el acceso con Cloudflare Turnstile, así que **el login
+automático con usuario/clave no es fiable** (termina en
+`CAPTCHA_TOKEN_NO_DISPONIBLE`). La integración usa una **sesión real iniciada por
+el usuario** y lee las cuotas de la API autenticada que consume el propio lobby:
 
-La fuente debe ser una página real del sitio del usuario, abierta con sesión
-iniciada. El capturador lee únicamente cuotas visibles en el DOM (incluidos
-shadow roots) y lista las respuestas XHR como diagnóstico; no las usa como
-precio si no están en pantalla.
-
-## Captura
-
-```bash
-# 1) Diagnóstico sin escribir nada. Reemplace SITIO-VERIFICADO por la URL real.
-node scripts/apuestas-royal-capture.mjs --url https://SITIO-VERIFICADO --dry-run
-
-# 2) Con perfil persistente (sesión ya iniciada en esa carpeta):
-node scripts/apuestas-royal-capture.mjs --url https://SITIO-VERIFICADO --profile C:/ruta/perfil-apuestas-royal --dry-run
-
-# 3) Si el perfil no basta, inspeccione el estado de sesión en modo visible:
-node scripts/apuestas-royal-capture.mjs --url https://SITIO-VERIFICADO --headed --profile C:/ruta/perfil-apuestas-royal --wait 25000 --dry-run
-
-# 4) Solo cuando las cuotas impresas sean correctas:
-node scripts/apuestas-royal-capture.mjs --url https://SITIO-VERIFICADO --profile C:/ruta/perfil-apuestas-royal --write
+```
+GET https://apuestasroyal.com/apiFunctions/lobby/sportWidget
+Authorization: Bearer <token de localStorage.auth.token>
 ```
 
-También se acepta `--state <storageState.json>` en lugar de `--profile`.
+La respuesta trae `Fútbol.eventos[]` con `competidor1`, `competidor2`,
+`fecha_hora`, `liga` y `odd_1x2` (`1`, `X`, `2`). Solo se publican esos precios:
+**no se inventa ninguna cuota ni ningún partido**.
 
-Opciones útiles: `--wait 25000` (espera del widget), `--fecha YYYY-MM-DD`
-(default: hoy en VET), `--out <archivo>`, `--headed`, `--dry-run`, `--write`.
+## 1. Exportar la sesión (una vez, y cada vez que caduque)
 
-El capturador:
+Abre un Chrome nuevo con depuración remota (perfil separado, no afecta tu Chrome
+habitual) en PowerShell:
 
-- usa Playwright con `locale: es-VE`, `timezoneId: America/Caracas` y un
-  User-Agent de Chrome realista;
-- pulsa `APUESTAS DEPORTIVAS` si aparece ese acceso;
-- recorre shadow DOM y busca `EventBoxRoot` / `EventBox`, `OddValue`, `OddLabel`,
-  participantes y marcas de hora/fecha;
-- acepta cuotas decimales y americanas (`-184` → `1.543`) y descarta valores
-  `<= 1`;
-- cruza nombres con `flashscore-payload.json` y
-  `flashscore-payload-manana.json` para reutilizar el `match_slug` oficial. Si
-  no hay cruce, genera uno con el mismo `slugify` de la UI;
-- imprime `XHR_RELEVANTES` **solo para diagnosticar** selectores o sesión;
-- omite eventos sin al menos dos equipos y dos cuotas y los muestra en
-  `EVENTOS_OMITIDOS`.
+```powershell
+& "C:\Program Files\Google\Chrome\Application\chrome.exe" `
+  --remote-debugging-port=9222 `
+  --user-data-dir="$env:TEMP\royal-cdp-profile" `
+  "https://www.apuestasroyal.com/index.php"
+```
 
-`--dry-run` nunca sobreescribe la semilla. Si imprime `SIN_COTIZACIONES`, no se
-escribe nada.
+Inicia sesión en esa ventana (captcha incluido) y déjala abierta. Desde la raíz
+del proyecto:
+
+```bash
+npm run royal:export
+```
+
+Eso genera `.royal-storage-state.json` con las cookies de `apuestasroyal.com` y
+solo las claves de `localStorage` necesarias (`auth`, `operation`,
+`geo.countryCode`, `location_confirmation_accepted`, `settings`,
+`pageViewCookie`). El archivo pesa ~7.5 KB y está en `.gitignore`.
+
+Si prefieres hacer login desde el propio script (sin Chrome previo), existe
+`npm run royal:login`: abre una ventana visible con perfil `.royal-profile`,
+espera a que completes el captcha y guarda el mismo archivo. La ventana debe
+permanecer abierta hasta que el script termine.
+
+### Secret de GitHub
+
+Pega **todo el contenido** de `.royal-storage-state.json` como valor del secret
+`ROYAL_STORAGE_STATE` (Settings → Secrets and variables → Actions → New
+repository secret). El workflow lo inyecta como variable de entorno y el
+capturador lo reconoce automáticamente porque empieza con `{`.
+
+También puedes usar el archivo en local con `--state .royal-storage-state.json`
+o con `ROYAL_STORAGE_STATE` apuntando a la ruta del archivo.
+
+> Nunca subas `.royal-storage-state.json`, `.royal-profile/` ni `.env.local` al
+> repositorio. Si la sesión expira, vuelve a exportarla y actualiza el secret.
+
+## 2. Capturar cuotas reales
+
+```bash
+# Diagnóstico (no escribe nada)
+node scripts/apuestas-royal-capture.mjs --state .royal-storage-state.json --dry-run
+
+# Guardar la semilla oficial
+node scripts/apuestas-royal-capture.mjs --state .royal-storage-state.json --write
+```
+
+También está el atajo `npm run capture:royal`, que usa la config por defecto
+(`https://app.apuestasroyal.com/`). Salida esperada:
+
+```
+SESION_REUTILIZADA=storageState
+API_ROYAL_HTTP=200
+API_ROYAL_EVENTOS=15
+COTIZACIONES_DETECTADAS=15
+PAYLOAD=scripts/apuestas-royal-quotes.json TOTAL=15
+```
+
+El capturador cruza cada evento con `flashscore-payload.json` y
+`flashscore-payload-manana.json` para reutilizar el `match_slug` oficial. Si no
+hay cruce, genera uno con el mismo `slugify` de la UI. Opciones útiles: `--wait`,
+`--fecha YYYY-MM-DD`, `--out <archivo>`, `--headed`, `--dry-run`, `--write`.
+
+## 3. Inyectar en la web
+
+```bash
+# Token desde .env.local (no versionado)
+$env:INGEST_TOKEN = ((Get-Content '.env.local' | Where-Object { $_ -match '^INGEST_TOKEN=' }) -replace '^INGEST_TOKEN=','').Trim()
+node scripts/ingest-apuestas-royal.mjs --url http://localhost:3100/api/ingest/apuestas-royal
+```
+
+El validador recanonicaliza `match_slug`, descarta cotizaciones fuera de la
+ventana hoy/mañana VET (salvo `--allow-stale`) y hace `POST` a
+`/api/ingest/apuestas-royal`. `HTTP_STATUS: 201` confirma la ingesta.
+
+### Persistencia
+
+`src/services/apuestasRoyalIngestStore.ts` importa
+`scripts/apuestas-royal-quotes.json` como semilla al arrancar. Así las cuotas
+sobreviven al reinicio de isolates de Next.js/Cloudflare. El workflow de GitHub
+Actions hace `git commit` de esa semilla cuando cambia; el push dispara el
+deploy y la web queda actualizada sin depender del estado en memoria.
 
 ## Formato del payload
 
@@ -72,66 +124,50 @@ escribe nada.
       "equipo_local": "Arsenal",
       "equipo_visitante": "Borussia Dortmund",
       "mercado": "1X2",
-      "cuotas_1x2": { "local_1": null, "empate_x": null, "visitante_2": null },
+      "cuotas_1x2": { "local_1": 2.1, "empate_x": 3.4, "visitante_2": 3.6 },
       "capturado_en": "2026-11-23T15:30:00-04:00",
-      "url": "https://SITIO-VERIFICADO",
-      "nota": "Cuota visible en el widget con sesión iniciada"
+      "url": "https://app.apuestasroyal.com/",
+      "nota": "Cuota 1X2 publicada por la API autenticada del lobby de Apuestas Royal"
     }
   ]
 }
 ```
 
-Los `null` del ejemplo son solo ilustrativos: la API exige **al menos una cuota
-decimal > 1** por cotización. El capturador rellena únicamente los precios que
-ve en pantalla; nunca los estima.
+Reglas: `source` debe ser exactamente `apuestas_royal_agent`, `target_app`
+`BetStats Pro`, `match_slug` `YYYY-MM-DD_equipo_vs_equipo`, `hora_local` `HH:mm`
+y al menos una cuota decimal > 1 por cotización. Los `null` se conservan como
+ausencia de precio y nunca sustituyen un valor válido.
 
-Reglas:
+## Actualización automática
 
-- `source` debe ser exactamente `apuestas_royal_agent` y `target_app`,
-  `BetStats Pro`.
-- `match_slug` se recalcula en la ingesta con el mismo `slugify` de la UI
-  (`YYYY-MM-DD_equipo_vs_equipo`, sin tildes ni stopwords como `fc`, `real`,
-  `city`). No hace falta escribirlo a mano.
-- `fecha_local` debe ser hoy o mañana en VET (`America/Caracas`, UTC-4); la
-  ingesta descarta cotizaciones fuera de esa ventana salvo `--allow-stale`.
-- `hora_local` usa `HH:mm`; `capturado_en`, ISO con offset `-04:00`.
-- `mercado` acepta `1X2`, `ganador` o `moneyline`.
+`.github/workflows/refresh-data.yml` corre cada 3 horas y también con
+`workflow_dispatch`:
 
-## Carga
+1. Captura Triunfobet (si hay secretos `TB_USER`/`TB_PASS`).
+2. Captura Apuestas Royal con `ROYAL_STORAGE_STATE`.
+3. Refresca The Analyst y actualiza su semilla.
+4. Inyecta todo en `SITE_URL` mediante `POST /api/ingest/*` con `INGEST_TOKEN`.
+5. Commitea las semillas cambiadas; el push dispara el deploy.
 
-```bash
-node scripts/ingest-apuestas-royal.mjs --dry-run
-node scripts/ingest-apuestas-royal.mjs scripts/apuestas-royal-quotes.json
-```
-
-El validador recanonicaliza `match_slug`, elimina duplicados, comprueba la
-ventana VET y hace `POST` a `http://localhost:3000/api/ingest/apuestas-royal`
-(o a `--url` / `ROYAL_INGEST_URL`). `HTTP_STATUS: 201` significa ingesta válida;
-`422`, esquema inválido.
-
-> `scripts/apuestas-royal-quotes.json` es hoy un marcador de posición con
-> `total_cotizaciones: 0`. Hasta que se haga una captura real con `--write`, la
-> carga termina con `sin cotizaciones vigentes`. No se agregaron precios
-> ficticios para "rellenar" el archivo.
-
-Los stores son en memoria: después de reiniciar la app hay que repetir la
-ingesta.
+Secrets necesarios: `ROYAL_STORAGE_STATE`, `INGEST_TOKEN`, `SITE_URL` (y los de
+Triunfobet si se usa). El mismo `INGEST_TOKEN` debe existir como secret del
+Worker; si falta, los endpoints responden `503`.
 
 ## Qué hace el motor después del cruce
 
 1. Agrega Apuestas Royal como casa al resumen `1X2` del partido.
 2. Recalcula mejor cuota, media y spread, y actualiza el favorito.
-3. Compara la cuota de Apuestas Royal contra Triunfobet y el resto del mercado.
-4. El comparador resalta cuando el mejor precio viene de Apuestas Royal.
+3. Compara el precio de Royal contra Triunfobet y el resto del mercado.
+4. El resumen `1X2` conserva a Royal como casa cuando su precio es el mejor.
 
 ## Solución de problemas
 
 | Síntoma | Causa probable | Acción |
 | --- | --- | --- |
-| `URL_REQUERIDA` | No se pasó la página verificada | Agregar `--url https://...` o exportar `BOOKMAKER_URL` |
-| `SIN_COTIZACIONES` | Sin sesión / widget no renderiza | `--headed`, iniciar sesión, subir `--wait` |
-| `EVENT_BOXES=0` | Cambiaron los selectores del sitio | Inspeccionar el DOM y ajustar `bookmaker-capture.mjs` (solo `scripts/`) |
-| `COTIZACIONES_DETECTADAS=0` con eventos | No hay `OddValue` visibles o faltan equipos | Revisar `EVENTOS_OMITIDOS` y la sesión |
-| `sin cotizaciones vigentes` | Semilla vacía o fecha fuera de hoy/mañana VET | Captura nueva con `--write`; no usar `--allow-stale` salvo diagnóstico |
-| `match_slug inválido` | Nombres vacíos o caracteres raros | El capturador normaliza; revise el JSON si se editó a mano |
-| `422` en la API | `source` incorrecto, cuotas `<= 1` o `hora_local` inválida | Enviar `null` / `HH:mm` y conservar `source: apuestas_royal_agent` |
+| `SIN_SESION` al exportar | Chrome sin depuración o login no completado | Repetir el paso 1 y dejar la ventana abierta |
+| `TOKEN_ROYAL_NO_DISPONIBLE` | Falta `auth` en el storageState | Repetir `npm run royal:export` con la sesión iniciada |
+| `CAPTCHA_TOKEN_NO_DISPONIBLE` | Intentó login automático | Usar `--state` / `ROYAL_STORAGE_STATE` |
+| `API_ROYAL_HTTP=401` | Token expirado | Volver a iniciar sesión y reexportar; actualizar el secret |
+| `SIN_COTIZACIONES` | Widget sin eventos | Revisar sesión y ejecutar con `--headed` |
+| `sin cotizaciones vigentes` | Fecha fuera de hoy/mañana VET | Nueva captura con `--write`; no usar `--allow-stale` salvo diagnóstico |
+| `503` en `/api/ingest/*` | `INGEST_TOKEN` ausente o distinto | Configurar el mismo valor en `.env.local`, GitHub y el Worker |

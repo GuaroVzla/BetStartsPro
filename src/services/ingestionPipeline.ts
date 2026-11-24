@@ -19,13 +19,6 @@ import type {
   DashboardMeta,
 } from "@/types/sports";
 
-import type {
-  PredictiveSnapshot,
-  MatchMarketAnalysis,
-  MarketAnalysis,
-  DashboardAnalytics,
-} from "@/types/predictive";
-
 import { getMockDashboardData } from "@/data/mockData";
 import { applyTriunfobetQuotes } from "@/services/triunfobetAdapter";
 import { listQuotes as listTriunfobetQuotes } from "@/services/triunfobetIngestStore";
@@ -35,7 +28,6 @@ import { flashscoreRecordsToMatches } from "@/services/flashscoreAdapter";
 import { listMatches as listFlashscoreRecords } from "@/services/flashscoreIngestStore";
 
 import { getDashboardData as getLiveDashboardData } from "@/services/matchAggregator";
-import { computePredictiveSnapshots, computeMarketAnalyses, computeRiskAssessments } from "@/services/matchPredictiveEngine";
 
 const CACHE_TTL_SECONDS = 3600; // 1 hora
 
@@ -101,54 +93,10 @@ export async function ingestAllData(): Promise<{ data: DashboardData; stats: Ing
   return { data, stats };
 }
 
-/**
- * Public Interface - getDashboardWithAnalytics
- * Obtiene DashboardData + análisis predictivo integrado.
- */
-export async function getDashboardWithAnalytics(): Promise<{
-  data: DashboardData;
-  snapshots: PredictiveSnapshot[];
-  marketAnalyses: MarketAnalysis[];
-  stats: IngestionStats;
-}> {
-  const { data, stats } = await ingestAllData();
-  
-  const snapshots = data.matches.flatMap(match => computePredictiveSnapshots(match));
-  const marketAnalyses = computeMarketAnalyses(data.matches);
-  
-  return { data, snapshots, marketAnalyses, stats };
-}
-
 /** Public Interface - executeFullIngestion */
 export async function runFullIngestion(): Promise<IngestionStats> {
   const { stats } = await ingestAllData();
   return stats;
-}
-
-/** Public Interface - getAnalytics */
-export function getAnalyticsFromData(data: DashboardData): DashboardAnalytics {
-  const snapshots = data.matches.flatMap(match => computePredictiveSnapshots(match));
-  return {
-    data,
-    snapshots,
-    matchMarkets: data.matches.map((match): MatchMarketAnalysis => ({
-      matchId: match.id,
-      analysis: { matchId: match.id, bestOdds: {home: match.odds.best.home, draw: match.odds.best.draw || 0, away: match.odds.best.away}, bestImpliedProb: {home: 0, draw: 0, away: 0}, valueSpreadPct: {home: 0, draw: 0, away: 0}, sourceCount: {home: match.odds.bookmakerCount, draw: 0, away: 0}, sourcesByOutcome: {home: [], draw: [], away: []}, riskLevel: {home: "safe", draw: "safe", away: "safe"} },
-      valueBet: false,
-      isHembra: false,
-      minEV: 0.05,
-      riskLevel: "medium",
-      bookmakerSynergy: "Sin información",
-    })),
-    generatedAt: new Date(),
-    stats: {
-      totalMatches: data.matches.length,
-      totalValueBets: 0,
-      highConfidenceCount: 0,
-      avgEV: 0,
-      topRecommendations: [],
-    },
-  };
 }
 
 // Export types

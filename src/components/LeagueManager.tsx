@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo } from "react";
+import { useEffect, useMemo, useRef } from "react";
 import { Check, ListFilter, RotateCcw, X } from "lucide-react";
 import type { LeagueInfo } from "@/types/sports";
 import { SPORTS } from "@/config/sports";
@@ -26,6 +26,7 @@ export function LeagueManager({
   onEnableAll,
   onClose,
 }: LeagueManagerProps) {
+  const closeButtonRef = useRef<HTMLButtonElement>(null);
   const disabledSet = useMemo(() => new Set(disabled), [disabled]);
   const grouped = useMemo(
     () =>
@@ -37,6 +38,24 @@ export function LeagueManager({
       })).filter((group) => group.leagues.length > 0),
     [leagues],
   );
+
+  useEffect(() => {
+    const previousFocus = document.activeElement as HTMLElement | null;
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    closeButtonRef.current?.focus();
+
+    function handleKeyDown(event: KeyboardEvent) {
+      if (event.key === "Escape") onClose();
+    }
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener("keydown", handleKeyDown);
+      previousFocus?.focus();
+    };
+  }, [onClose]);
 
   const actionButtonClass =
     "rounded-xl border border-slate-200 bg-white/70 px-2.5 py-1.5 text-[10px] font-semibold text-slate-600 shadow-sm transition hover:border-slate-300 hover:bg-white dark:border-white/10 dark:bg-white/[0.04] dark:text-slate-300 dark:hover:border-white/20 dark:hover:bg-white/[0.07]";
@@ -68,12 +87,13 @@ export function LeagueManager({
                 Gestión de ligas
               </h2>
               <p className="mt-0.5 text-[10px] leading-relaxed text-slate-500 dark:text-slate-400">
-                Las ligas desactivadas se excluyen del radar, KPIs y comparador.
+                Las ligas desactivadas se excluyen del radar y los KPIs.
                 La selección se guarda en este navegador.
               </p>
             </div>
           </div>
           <button
+            ref={closeButtonRef}
             type="button"
             onClick={onClose}
             className="icon-button shrink-0"

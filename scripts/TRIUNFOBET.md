@@ -26,6 +26,26 @@ Opciones útiles: `--wait 25000` (espera del widget), `--profile <directorio>` (
 persistente con la sesión ya iniciada) o `--state <storageState.json>`,
 `--fecha YYYY-MM-DD` (por defecto, hoy en VET), `--out <archivo>`.
 
+### Login con credenciales (automatización)
+
+Si `TB_USER` y `TB_PASS` están definidos, el capturador abre
+`TRIUNFOBET_LOGIN_URL` (por defecto `https://triunfobet.com/login`), rellena el
+formulario y continúa hacia el widget. No necesitas `--profile` ni `--state`.
+
+```bash
+TB_USER=tu_usuario TB_PASS=tu_clave node scripts/triunfobet-capture.mjs --write
+```
+
+Los selectores por defecto son genéricos (`input[name="username"]`,
+`input[type="password"]`, `button[type="submit"]`, ...). Si el formulario real
+difiere, ajusta `TB_USER_SELECTOR`, `TB_PASS_SELECTOR` y `TB_SUBMIT_SELECTOR`.
+El script imprime `LOGIN_OK`, `LOGIN_FALLIDO` o
+`LOGIN_SELECTORES_NO_ENCONTRADOS` para que sepas qué pasó. Con CAPTCHA o 2FA no
+se escriben semillas.
+
+El workflow `.github/workflows/refresh-data.yml` usa este modo cada 3 horas con
+los secrets `TB_USER` y `TB_PASS`.
+
 El capturador:
 
 - intercepta las respuestas XHR de `sb2frontend-altenar2.biahosted.com` y lista
@@ -101,8 +121,8 @@ node scripts/ingest-triunfobet.mjs scripts/triunfobet-quotes.json
 3. Compara la cuota de Triunfobet contra el resto del mercado.
 4. Marca como **🔥 Hembra** las selecciones favoritas (o con probabilidad ≥ 60%)
    con cuota ≥ 1.85 y valor esperado positivo.
-5. En el comparador, **🔥 Hembra · Triunfobet** destaca al favorito con cuota
-   ≥ 1.80 cuyo mejor precio viene de Triunfobet.
+5. El resumen `1X2` conserva a Triunfobet como casa cuando su precio es el mejor
+   del mercado, para que el radar pueda mostrarlo como origen de la cuota.
 
 ## Solución de problemas
 

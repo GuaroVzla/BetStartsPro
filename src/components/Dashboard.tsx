@@ -19,14 +19,7 @@ import { MatchesBoard } from "@/components/MatchesBoard";
 import { MatchIntelDrawer } from "@/components/MatchIntelDrawer";
 import { Footer } from "@/components/Footer";
 import { LeagueManager } from "@/components/LeagueManager";
-import { MatchAnalyticsTable } from "@/components/MatchAnalyticsTable";
-import { MatchAnalyticsFilterPanel } from "@/components/MatchAnalyticsFilterPanel";
-import type { Filters } from "@/components/MatchAnalyticsFilterPanel";
-import { MatchAnalyticsModal } from "@/components/MatchAnalyticsModal";
-import { OddsComparator } from "@/components/OddsComparator";
-import { getAnalyticsFromData } from "@/services/ingestionPipeline";
 import { buildCrossSourcePicks } from "@/services/valueEngine";
-import type { DashboardAnalytics } from "@/types/predictive";
 
 interface DashboardProps {
   initialData: DashboardData;
@@ -64,8 +57,6 @@ export function Dashboard({ initialData }: DashboardProps) {
       return [];
     }
   });
-  const [analyticsDetail, setAnalyticsDetail] = useState<SportsMatch | null>(null);
-  const [analyticsFilters, setAnalyticsFilters] = useState<Filters | null>(null);
 
   // Reloj vivo: retira partidos iniciados sin recargar la página.
   useEffect(() => {
@@ -146,11 +137,6 @@ export function Dashboard({ initialData }: DashboardProps) {
     );
   }, [data.leagues, dayMatches, activeSport]);
 
-  const analytics = useMemo<DashboardAnalytics>(
-    () => getAnalyticsFromData(data),
-    [data],
-  );
-
   const crossPicks = useMemo(
     () =>
       buildCrossSourcePicks(upcomingMatches, {
@@ -171,57 +157,6 @@ export function Dashboard({ initialData }: DashboardProps) {
     }
     return map;
   }, [crossPicks]);
-
-  const snapshotsByMatch = useMemo(() => {
-    const map = new Map<string, (typeof analytics.snapshots)[number]>();
-    for (const snapshot of analytics.snapshots) {
-      const current = map.get(snapshot.matchId);
-      if (!current || snapshot.estimatedProbability > current.estimatedProbability) {
-        map.set(snapshot.matchId, snapshot);
-      }
-    }
-    return map;
-  }, [analytics.snapshots]);
-
-  const analyticsRows = useMemo(() => {
-    const rows = analytics.data.matches.filter(
-      (match) => matchDayVET(match.commenceTime, now) === dayFilter,
-    );
-    if (!analyticsFilters) return rows;
-    const f = analyticsFilters;
-    let out = rows;
-    if (f.sports.length > 0) out = out.filter((m) => f.sports.includes(m.sport));
-    if (f.leagueIds.length > 0) out = out.filter((m) => f.leagueIds.includes(m.league.id));
-    const query = normalizeQuery(f.search);
-    if (query) {
-      out = out.filter((m) =>
-        normalizeQuery(
-          [
-            m.home.name,
-            m.away.name,
-            m.home.shortName,
-            m.away.shortName,
-            m.league.name,
-            m.league.shortName,
-            m.league.country,
-          ].join(" "),
-        ).includes(query),
-      );
-    }
-    if (f.minOdds > 0) {
-      out = out.filter((m) =>
-        Math.max(m.odds.best.home, m.odds.best.away, m.odds.best.draw ?? 0) >= f.minOdds,
-      );
-    }
-    return out.filter((m) => {
-      const snapshot = analytics.snapshots.find((s) => s.matchId === m.id);
-      if (f.confidence !== "all" && snapshot?.confidence !== f.confidence) return false;
-      if (f.recommendation !== "all" && snapshot?.recommendation !== f.recommendation) {
-        return false;
-      }
-      return true;
-    });
-  }, [analytics, analyticsFilters, dayFilter, now]);
 
   const matchCounts = useMemo(() => {
     const counts: Record<string, number> = {};
@@ -377,50 +312,9 @@ export function Dashboard({ initialData }: DashboardProps) {
           <MatchesBoard
             matches={filteredMatches}
             picksByMatch={picksByMatch}
-            snapshotsByMatch={snapshotsByMatch}
             onOpenMatch={openMatch}
           />
         </div>
-
-        <details className="panel mt-3 p-3.5 sm:p-4">
-          <summary className="cursor-pointer rounded text-[11px] font-semibold text-slate-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400/50 dark:text-slate-200">
-            Análisis predictivo avanzado
-          </summary>
-          <div className="mt-3">
-            <MatchAnalyticsFilterPanel
-              analytics={analytics}
-              data={data}
-              activeLeague={activeLeague}
-              activeSport={activeSport}
-              onApplyFilters={setAnalyticsFilters}
-            />
-            <MatchAnalyticsTable
-              matches={analyticsRows}
-              analytics={analytics}
-              activeLeague={activeLeague}
-              activeSport={activeSport}
-              onOpenDetail={setAnalyticsDetail}
-            />
-          </div>
-        </details>
-
-        <details className="panel mt-3 p-3.5 sm:p-4">
-          <summary className="cursor-pointer rounded text-[11px] font-semibold text-slate-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400/50 dark:text-slate-200">
-            Comparador de cuotas por casa
-          </summary>
-          <div className="mt-3">
-            <OddsComparator
-              matches={filteredMatches}
-              leagues={availableLeagues}
-              activeLeague={activeLeague}
-              onLeagueChange={setActiveLeague}
-              activeSport={activeSport}
-              onSportChange={handleSportChange}
-              onOpenMatch={openMatch}
-              dayLabel={dayFilter === "today" ? "Hoy" : "Mañana"}
-            />
-          </div>
-        </details>
 
         <div className="mt-3 flex flex-col items-start justify-between gap-3 rounded-2xl border border-slate-200/80 bg-white/60 px-4 py-3 dark:border-white/[0.07] dark:bg-white/[0.02] sm:flex-row sm:items-center">
           <div className="flex items-start gap-2.5">
@@ -454,18 +348,6 @@ export function Dashboard({ initialData }: DashboardProps) {
 
       <Footer mode={data.meta.mode} />
       <MatchIntelDrawer match={selectedMatch} onClose={closeMatch} />
-
-      {analyticsDetail ? (
-        <MatchAnalyticsModal
-          match={analyticsDetail}
-          outcome={
-            analytics.snapshots.find((s) => s.matchId === analyticsDetail.id)?.outcome ?? "home"
-          }
-          isOpen
-          onClose={() => setAnalyticsDetail(null)}
-          analytics={analytics}
-        />
-      ) : null}
 
       {showLeagueManager ? (
         <LeagueManager

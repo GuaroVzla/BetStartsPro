@@ -70,8 +70,10 @@ node scripts/ingest-payload.mjs scripts/flashscore-payload-manana.json
 ```
 
 `ingest-payload.mjs` valida `fecha_extraccion` (hoy/mañana VET), el formato de
-`match_slug`, duplicados y cuotas > 1 antes de hacer POST. Los stores son en
-memoria: tras `npm run start` hay que repetir la ingesta.
+`match_slug`, duplicados y cuotas > 1 antes de hacer POST. El store importa
+`flashscore-payload.json` como semilla al arrancar, y el workflow
+`.github/workflows/refresh-data.yml` actualiza ambos payloads cada 3 horas; el
+push resultante dispara el deploy para que el Worker incluya los partidos nuevos.
 
 ## Estructura del payload
 

@@ -1,4 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
+import { revalidatePath } from "next/cache";
+import { ingestAuthError } from "@/lib/ingestAuth";
 import {
   clearRecords,
   listRecords,
@@ -261,6 +263,9 @@ function validatePayload(value: unknown): { payload?: TheAnalystPayload; error?:
 }
 
 export async function POST(request: NextRequest) {
+  const unauthorized = ingestAuthError(request);
+  if (unauthorized) return unauthorized;
+
   let body: unknown;
   try {
     body = await request.json();
@@ -274,6 +279,8 @@ export async function POST(request: NextRequest) {
   }
 
   const result = upsertRecords(payload);
+  revalidatePath("/");
+  revalidatePath("/api/matches");
   return NextResponse.json(
     {
       ok: true,
@@ -295,7 +302,10 @@ export async function GET() {
   });
 }
 
-export async function DELETE() {
+export async function DELETE(request: NextRequest) {
+  const unauthorized = ingestAuthError(request);
+  if (unauthorized) return unauthorized;
+
   clearRecords();
   return NextResponse.json({
     ok: true,

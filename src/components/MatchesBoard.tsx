@@ -3,31 +3,19 @@
 import { ArrowUpRight, Table2 } from "lucide-react";
 import { TeamBadge } from "@/components/TeamBadge";
 import { SportIcon } from "@/components/SportIcon";
-import type { PredictiveSnapshot } from "@/types/predictive";
 import type { SportsMatch } from "@/types/sports";
 import type { CrossSourcePick } from "@/services/valueEngine";
-import {
-  formatMatchTime,
-  formatOdd,
-  formatPercent,
-  formatSignedPercent,
-} from "@/lib/format";
+import { formatMatchTime, formatOdd, formatSignedPercent } from "@/lib/format";
 import { cn } from "@/lib/utils";
 
 interface MatchesBoardProps {
   matches: SportsMatch[];
   picksByMatch: Map<string, CrossSourcePick>;
-  snapshotsByMatch: Map<string, PredictiveSnapshot>;
   onOpenMatch: (match: SportsMatch) => void;
 }
 
 /** Tabla escaneable: hora, partido, métrica clave, mejor precio y valor. */
-export function MatchesBoard({
-  matches,
-  picksByMatch,
-  snapshotsByMatch,
-  onOpenMatch,
-}: MatchesBoardProps) {
+export function MatchesBoard({ matches, picksByMatch, onOpenMatch }: MatchesBoardProps) {
   return (
     <section aria-labelledby="matches-board-title" className="panel overflow-hidden">
       <div className="flex items-center justify-between gap-3 border-b border-slate-100 px-4 py-3 dark:border-white/[0.06]">
@@ -63,7 +51,6 @@ export function MatchesBoard({
             <tbody>
               {matches.map((match) => {
                 const pick = picksByMatch.get(match.id);
-                const snapshot = snapshotsByMatch.get(match.id);
                 const analyst = match.analyst;
                 const hasXg =
                   analyst?.xgHome != null &&
@@ -71,15 +58,13 @@ export function MatchesBoard({
                   (analyst.xgHome > 0 || analyst.xgAway > 0);
                 const metricLabel = hasXg
                   ? `xG ${analyst!.xgHome!.toFixed(2)} – ${analyst!.xgAway!.toFixed(2)}`
-                  : snapshot
-                    ? `Prob. ${formatPercent(snapshot.estimatedProbability)} · ${snapshot.confidence === "high" ? "alta" : snapshot.confidence === "medium" ? "media" : "baja"}`
-                    : "Sin métrica";
+                  : "Sin métrica";
                 const metricSource = hasXg
                   ? "The Analyst"
                   : analyst?.streakHome
                     ? `Racha ${analyst.streakHome}`
-                    : snapshot?.rationale?.slice(0, 42) ?? "Modelo propio";
-                const edge = pick?.edge ?? snapshot?.valueSpreadPct ?? 0;
+                    : "Modelo propio";
+                const edge = pick?.edge ?? 0;
 
                 return (
                   <tr

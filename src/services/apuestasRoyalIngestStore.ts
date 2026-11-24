@@ -133,3 +133,15 @@ export function listQuotes(): StoredApuestasRoyalQuote[] {
 export function clearQuotes(): void {
   store.clear();
 }
+
+/**
+ * Semilla incluida en el bundle: en Cloudflare Workers el almacén en memoria
+ * arranca vacío en cada isolate, así que las cotizaciones capturadas se cargan
+ * desde este archivo para que la web muestre las cuotas reales verificadas.
+ */
+import seedPayload from "../../scripts/apuestas-royal-quotes.json";
+
+const seeded = seedPayload as unknown as ApuestasRoyalPayload;
+if (store.size === 0) {
+  upsertQuotes(seeded);
+}

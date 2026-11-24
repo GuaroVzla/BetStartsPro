@@ -448,7 +448,7 @@ for (const day of days) {
   }
 }
 
-if (!cli.flags["no-desktop"]) {
+if (!cli.flags.has("no-desktop")) {
   let browser;
   try {
     browser = await chromium.launch({ headless: true });
