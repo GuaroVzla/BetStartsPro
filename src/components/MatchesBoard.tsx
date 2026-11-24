@@ -1,11 +1,13 @@
 "use client";
 
+import { useCallback, useMemo, useState } from "react";
 import { ArrowUpRight, Table2 } from "lucide-react";
 import { TeamBadge } from "@/components/TeamBadge";
 import { SportIcon } from "@/components/SportIcon";
 import type { SportsMatch } from "@/types/sports";
 import type { CrossSourcePick } from "@/services/valueEngine";
 import { favoriteProbability } from "@/services/favoriteProbability";
+import { leagueOrigin } from "@/lib/leagueOrigin";
 import { formatMatchTime, formatOdd, formatPercent, formatSignedPercent } from "@/lib/format";
 import { cn } from "@/lib/utils";
 
@@ -15,8 +17,147 @@ interface MatchesBoardProps {
   onOpenMatch: (match: SportsMatch) => void;
 }
 
-/** Tabla escaneable: hora, partido, métrica clave, mejor precio y valor. */
+type SortKey =
+  | "time"
+  | "tournament"
+  | "match"
+  | "favorite"
+  | "metric"
+  | "odds"
+  | "value";
+
+interface SortState {
+  key: SortKey;
+  direction: "asc" | "desc";
+}
+
+const COLUMNAS: Array<{ key: SortKey; label: string }> = [
+  { key: "time", label: "Hora" },
+  { key: "tournament", label: "Torneo" },
+  { key: "match", label: "Partido" },
+  { key: "favorite", label: "Favorito y Probabilidad" },
+  { key: "metric", label: "Métrica clave" },
+  { key: "odds", label: "Mejor cuota" },
+  { key: "value", label: "Valor" },
+];
+
+/** Normaliza para comparar texto sin distinguir mayúsculas ni acentos. */
+function textoOrden(value: string): string {
+  return value
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase();
+}
+
+interface SortHeaderProps {
+  label: string;
+  sortKey: SortKey;
+  sort: SortState;
+  onSort: (key: SortKey) => void;
+  className?: string;
+}
+
+function SortHeader({ label, sortKey, sort, onSort, className }: SortHeaderProps) {
+  const activo = sort.key === sortKey;
+  return (
+    <th
+      scope="col"
+      aria-sort={activo ? (sort.direction === "asc" ? "ascending" : "descending") : "none"}
+      className={cn("py-2.5", className)}
+    >
+      <button
+        type="button"
+        onClick={() => onSort(sortKey)}
+        aria-label={`Ordenar por ${label}`}
+        title={`Ordenar por ${label}`}
+        className={cn(
+          "inline-flex items-center gap-1 whitespace-nowrap rounded transition hover:text-slate-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400/50 dark:hover:text-slate-200",
+          activo && "text-blue-600 dark:text-blue-300",
+        )}
+      >
+        <span>{label}</span>
+        <span aria-hidden="true" className="text-[10px] leading-none tabular-nums">
+          {activo ? (sort.direction === "asc" ? "↑" : "↓") : "↕"}
+        </span>
+      </button>
+    </th>
+  );
+}
+
+/** Tabla escaneable: torneo, hora, partido, probabilidad, precio y valor. */
 export function MatchesBoard({ matches, picksByMatch, onOpenMatch }: MatchesBoardProps) {
+  const [sort, setSort] = useState<SortState>({ key: "time", direction: "asc" });
+
+  const handleSort = useCallback((key: SortKey) => {
+    setSort((actual) =>
+      actual.key === key
+        ? { key, direction: actual.direction === "asc" ? "desc" : "asc" }
+        : { key, direction: "asc" },
+    );
+  }, []);
+
+  const filas = useMemo(
+    () =>
+      matches.map((match) => {
+        const pick = picksByMatch.get(match.id);
+        const favorito = favoriteProbability(match);
+        const origin = leagueOrigin(match.league);
+        const analyst = match.analyst;
+        const hasXg =
+          analyst?.xgHome != null &&
+          analyst?.xgAway != null &&
+          (analyst.xgHome > 0 || analyst.xgAway > 0);
+        const metricLabel = hasXg
+          ? `xG ${analyst!.xgHome!.toFixed(2)} – ${analyst!.xgAway!.toFixed(2)}`
+          : "Sin métrica";
+        const metricSource = hasXg
+          ? "The Analyst"
+          : analyst?.streakHome
+            ? `Racha ${analyst.streakHome}`
+            : "Modelo propio";
+        const edge = pick?.edge ?? 0;
+        const timestamp = Date.parse(match.commenceTime);
+
+        return {
+          match,
+          pick,
+          favorito,
+          origin,
+          metricLabel,
+          metricSource,
+          edge,
+          valores: {
+            time: Number.isFinite(timestamp) ? timestamp : Number.MAX_SAFE_INTEGER,
+            tournament: textoOrden(`${match.league.shortName} ${origin.label}`),
+            match: textoOrden(`${match.home.shortName} ${match.away.shortName}`),
+            favorite: favorito.probability,
+            metric: analyst?.xgHome != null && analyst.xgHome > 0 ? analyst.xgHome : -1,
+            odds: pick?.bestOdds ?? match.odds.best.home ?? match.odds.best.away ?? 0,
+            value: edge,
+          } as Record<SortKey, number | string>,
+        };
+      }),
+    [matches, picksByMatch],
+  );
+
+  const filasOrdenadas = useMemo(() => {
+    const signo = sort.direction === "asc" ? 1 : -1;
+    return [...filas].sort((a, b) => {
+      const va = a.valores[sort.key];
+      const vb = b.valores[sort.key];
+      const comparacion =
+        typeof va === "number" && typeof vb === "number"
+          ? va - vb
+          : String(va).localeCompare(String(vb), "es", {
+              sensitivity: "base",
+              numeric: true,
+            });
+      if (comparacion !== 0) return comparacion * signo;
+      // Desempate cronológico para que filas equivalentes mantengan coherencia.
+      return Number(a.valores.time) - Number(b.valores.time);
+    });
+  }, [filas, sort]);
+
   return (
     <section aria-labelledby="matches-board-title" className="panel overflow-hidden">
       <div className="flex items-center justify-between gap-3 border-b border-slate-100 px-4 py-3 dark:border-white/[0.06]">
@@ -28,7 +169,7 @@ export function MatchesBoard({ matches, picksByMatch, onOpenMatch }: MatchesBoar
           <span className="tabular-nums text-[10px] text-slate-400">{matches.length}</span>
         </div>
         <p className="hidden text-[10px] text-slate-400 dark:text-slate-500 sm:block">
-          Hora Venezuela (VET) · clic en la fila para el análisis completo
+          Hora Venezuela (VET) · clic en encabezados para ordenar
         </p>
       </div>
 
@@ -38,38 +179,32 @@ export function MatchesBoard({ matches, picksByMatch, onOpenMatch }: MatchesBoar
         </p>
       ) : (
         <div className="overflow-x-auto">
-          <table className="w-full min-w-[880px] border-collapse text-left">
+          <table className="w-full min-w-[1040px] border-collapse text-left">
             <thead>
               <tr className="border-b border-slate-100 text-[10px] font-semibold uppercase tracking-wider text-slate-400 dark:border-white/[0.06] dark:text-slate-500">
-                <th className="px-4 py-2.5">Hora</th>
-                <th className="px-3 py-2.5">Partido</th>
-                <th className="px-3 py-2.5">Favorito y Probabilidad</th>
-                <th className="px-3 py-2.5">Métrica clave</th>
-                <th className="px-3 py-2.5">Mejor cuota</th>
-                <th className="px-3 py-2.5">Valor</th>
+                {COLUMNAS.map((columna, indice) => (
+                  <SortHeader
+                    key={columna.key}
+                    label={columna.label}
+                    sortKey={columna.key}
+                    sort={sort}
+                    onSort={handleSort}
+                    className={indice === 0 ? "px-4" : "px-3"}
+                  />
+                ))}
                 <th className="px-3 py-2.5 text-right">Análisis</th>
               </tr>
             </thead>
             <tbody>
-              {matches.map((match) => {
-                const pick = picksByMatch.get(match.id);
-                const favorito = favoriteProbability(match);
-                const analyst = match.analyst;
-                const hasXg =
-                  analyst?.xgHome != null &&
-                  analyst?.xgAway != null &&
-                  (analyst.xgHome > 0 || analyst.xgAway > 0);
-                const metricLabel = hasXg
-                  ? `xG ${analyst!.xgHome!.toFixed(2)} – ${analyst!.xgAway!.toFixed(2)}`
-                  : "Sin métrica";
-                const metricSource = hasXg
-                  ? "The Analyst"
-                  : analyst?.streakHome
-                    ? `Racha ${analyst.streakHome}`
-                    : "Modelo propio";
-                const edge = pick?.edge ?? 0;
-
-                return (
+              {filasOrdenadas.map(({
+                match,
+                pick,
+                favorito,
+                origin,
+                metricLabel,
+                metricSource,
+                edge,
+              }) => (
                   <tr
                     key={match.id}
                     onClick={() => onOpenMatch(match)}
@@ -88,10 +223,27 @@ export function MatchesBoard({ matches, picksByMatch, onOpenMatch }: MatchesBoar
                       <span className="text-[13px] font-bold tabular-nums text-slate-900 dark:text-white">
                         {formatMatchTime(match.commenceTime)}
                       </span>
-                      <span className="mt-0.5 block text-[10px] text-slate-400">
-                        <SportIcon sport={match.sport} className="mr-1 inline h-3 w-3" />
-                        {match.league.shortName}
-                      </span>
+                    </td>
+                    <td className="max-w-[210px] px-3 py-3 align-middle">
+                      <div className="flex min-w-0 flex-col gap-0.5">
+                        <span
+                          className="truncate text-[11px] font-semibold text-slate-700 dark:text-slate-200"
+                          title={match.league.name}
+                        >
+                          <SportIcon
+                            sport={match.sport}
+                            className="mr-1 inline h-3 w-3 align-[-1px]"
+                          />
+                          {match.league.shortName}
+                        </span>
+                        <span
+                          className="flex min-w-0 items-center gap-1 text-[10px] text-slate-400 dark:text-slate-500"
+                          title={origin.iso2 ? `${origin.label} (${origin.iso2})` : origin.label}
+                        >
+                          <span aria-hidden="true">{origin.flag}</span>
+                          <span className="truncate">{origin.label}</span>
+                        </span>
+                      </div>
                     </td>
                     <td className="px-3 py-3 align-middle">
                       <div className="flex items-center gap-2">
@@ -168,8 +320,7 @@ export function MatchesBoard({ matches, picksByMatch, onOpenMatch }: MatchesBoar
                       </span>
                     </td>
                   </tr>
-                );
-              })}
+                ))}
             </tbody>
           </table>
         </div>
