@@ -13,6 +13,7 @@
     "capture:royal": "node scripts/apuestas-royal-capture.mjs --write",
     "royal:login": "node scripts/royal-login-session.mjs",
     "royal:export": "node scripts/royal-export-cdp.mjs",
+    "triunfobet:login": "node scripts/triunfobet-login-session.mjs",
     "refresh:the-analyst": "node scripts/the-analyst-scrape.mjs scripts/the-analyst-payload.json 20 prediction",
     "ingest:triunfobet": "node scripts/ingest-triunfobet.mjs",
     "ingest:royal": "node scripts/ingest-apuestas-royal.mjs",

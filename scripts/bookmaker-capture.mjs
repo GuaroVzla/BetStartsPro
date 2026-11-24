@@ -309,7 +309,8 @@ function americanToDecimal(value) {
   const text = String(value ?? "").trim();
   if (!/^[+-]\d+$/.test(text)) return null;
   const number = Number(text);
-  return Math.round((1 + 100 / Math.abs(number)) * 1000) / 1000;
+  const decimal = number > 0 ? 1 + number / 100 : 1 + 100 / Math.abs(number);
+  return Math.round(decimal * 1000) / 1000;
 }
 
 /** Acepta decimales y americano; devuelve {decimal, americana|null}. */
@@ -369,7 +370,12 @@ const WAIT_MS = Number(cli.values.wait ?? 18000);
 const FECHA_FORZADA = cli.values.fecha ?? dateInVETOffset(0);
 const HEADLESS = !cli.flags.has("headed");
 
-const estadoRaw = cli.values.state ?? process.env.ROYAL_STORAGE_STATE ?? "";
+const estadoRaw =
+  cli.values.state ??
+  (casa === "triunfobet"
+    ? process.env.TRIUNFOBET_STORAGE_STATE
+    : process.env.ROYAL_STORAGE_STATE) ??
+  "";
 let storageState;
 if (estadoRaw) {
   try {

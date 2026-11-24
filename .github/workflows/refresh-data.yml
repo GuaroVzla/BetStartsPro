@@ -23,9 +23,12 @@ jobs:
       TB_USER_SELECTOR: ${{ secrets.TB_USER_SELECTOR }}
       TB_PASS_SELECTOR: ${{ secrets.TB_PASS_SELECTOR }}
       TB_SUBMIT_SELECTOR: ${{ secrets.TB_SUBMIT_SELECTOR }}
-      # Royal usa Turnstile: el login automático no es fiable. Se reutiliza una
-      # sesión real exportada desde Chrome (npm run royal:export).
+      # Royal usa Turnstile: se reutiliza una sesión real exportada desde Chrome.
+      # Triunfobet: el widget público muestra cuotas, pero el WAF de Altenar
+      # bloquea IPs de datacenter (403), así que este cron no suele refrescarlo.
+      # Si no detecta cuotas, el capturador NO sobrescribe la semilla.
       ROYAL_STORAGE_STATE: ${{ secrets.ROYAL_STORAGE_STATE }}
+      TRIUNFOBET_STORAGE_STATE: ${{ secrets.TRIUNFOBET_STORAGE_STATE }}
       BOOKMAKER_URL: ${{ secrets.BOOKMAKER_URL }}
     steps:
       - name: Descargar repositorio
@@ -47,7 +50,7 @@ jobs:
         continue-on-error: true
         run: node scripts/flashscore-scrape.mjs
 
-      - name: Capturar Triunfobet con credenciales
+      - name: Capturar Triunfobet (requiere IP residencial)
         continue-on-error: true
         run: node scripts/triunfobet-capture.mjs --write
 
