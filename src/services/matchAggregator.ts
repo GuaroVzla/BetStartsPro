@@ -1227,12 +1227,15 @@ export async function getDashboardData(): Promise<DashboardData> {
 
   const keyOf = (match: SportsMatch) =>
     `${dateInVET(match.commenceTime)}|${normalizeName(match.home.name)}|${normalizeName(match.away.name)}`;
-  const mergedMatches: SportsMatch[] = [];
+  // Merge en O(n) con clave precalculada: el anterior `.find` dentro del bucle
+  // reconstruía la clave (y un `Intl.DateTimeFormat`) por cada comparación,
+  // superando el límite de CPU del Worker al haber cientos de partidos.
+  const mergedByKey = new Map<string, SportsMatch>();
   for (const match of [...ingested, ...baseUpcoming]) {
     const key = keyOf(match);
-    const existing = mergedMatches.find((item) => keyOf(item) === key);
+    const existing = mergedByKey.get(key);
     if (!existing) {
-      mergedMatches.push(match);
+      mergedByKey.set(key, match);
       continue;
     }
     // El partido ganador conserva la identidad; las fuentes se suman para que
@@ -1241,6 +1244,7 @@ export async function getDashboardData(): Promise<DashboardData> {
       new Set([...(existing.sourceTags ?? []), ...(match.sourceTags ?? [])]),
     );
   }
+  const mergedMatches = Array.from(mergedByKey.values());
 
   const captured = withCapturedBookmakerQuotes(mergedMatches, ahora);
   const analyst = withTheAnalystInsights(captured.matches);

@@ -15,6 +15,29 @@ const VET_TIME_ZONE = "America/Caracas";
 // Venezuela no observa horario de verano: el offset es siempre -04:00.
 const VET_OFFSET = "-04:00";
 
+// Crear un `Intl.DateTimeFormat` por llamada era el principal consumidor de CPU
+// del pipeline (se invocaba en cada comparación del merge de partidos).
+const vetDateFormatter = new Intl.DateTimeFormat("en-CA", {
+  timeZone: VET_TIME_ZONE,
+  year: "numeric",
+  month: "2-digit",
+  day: "2-digit",
+});
+
+const percentFormatters = new Map<number, Intl.NumberFormat>();
+
+function numberFormatterFor(digits: number): Intl.NumberFormat {
+  let formatter = percentFormatters.get(digits);
+  if (!formatter) {
+    formatter = new Intl.NumberFormat("es-ES", {
+      minimumFractionDigits: digits,
+      maximumFractionDigits: digits,
+    });
+    percentFormatters.set(digits, formatter);
+  }
+  return formatter;
+}
+
 const dateFormatter = new Intl.DateTimeFormat("es-ES", {
   weekday: "short",
   day: "2-digit",
@@ -54,10 +77,7 @@ export function formatAmericanOdd(decimal: number | null | undefined): string {
 
 export function formatPercent(value: number, digits = 1): string {
   if (!Number.isFinite(value)) return "—";
-  return `${new Intl.NumberFormat("es-ES", {
-    minimumFractionDigits: digits,
-    maximumFractionDigits: digits,
-  }).format(value * 100)}%`;
+  return `${numberFormatterFor(digits).format(value * 100)}%`;
 }
 
 export function formatSignedPercent(value: number, digits = 1): string {
@@ -72,10 +92,7 @@ export function formatInteger(value: number): string {
 
 export function formatAverage(value: number, digits = 1): string {
   if (!Number.isFinite(value)) return "—";
-  return new Intl.NumberFormat("es-ES", {
-    minimumFractionDigits: digits,
-    maximumFractionDigits: digits,
-  }).format(value);
+  return numberFormatterFor(digits).format(value);
 }
 
 export function formatCompact(value: number): string {
@@ -86,12 +103,7 @@ export function formatCompact(value: number): string {
 export function dateInVET(value: string | Date = new Date()): string {
   const instante = typeof value === "string" ? new Date(value) : value;
   if (!Number.isFinite(instante.getTime())) return "";
-  return new Intl.DateTimeFormat("en-CA", {
-    timeZone: VET_TIME_ZONE,
-    year: "numeric",
-    month: "2-digit",
-    day: "2-digit",
-  }).format(instante);
+  return vetDateFormatter.format(instante);
 }
 
 /** Fecha VET de un día relativo a hoy (0 = hoy, 1 = mañana). */
