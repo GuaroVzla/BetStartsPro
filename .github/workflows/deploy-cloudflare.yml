@@ -50,7 +50,7 @@ jobs:
           FOOTBALL_DATA_API_KEY: ${{ secrets.FOOTBALL_DATA_API_KEY }}
           SPORTMONKS_KEY: ${{ secrets.SPORTMONKS_KEY }}
           THERUNDOWN_API_KEY: ${{ secrets.THERUNDOWN_API_KEY }}
-          THESPORTSDB_KEY: ${{ secrets.THESPORTSDB_KEY || '123' }}
+          THESPORTSDB_KEY: ${{ secrets.THESPORTSDB_KEY }}
           SITE_URL: ${{ secrets.SITE_URL }}
         run: |
           node -e '
@@ -67,11 +67,25 @@ jobs:
           const secrets = {};
           for (const name of names) {
             const value = process.env[name];
-            if (value) secrets[name] = value;
+            // La key pública "123" de TheSportsDB dispara 429 y dispara demasiado
+            // trabajo por request en el Worker; el propio adapter la ignora.
+            if (value && !(name === "THESPORTSDB_KEY" && value === "123")) {
+              secrets[name] = value;
+            }
           }
           fs.writeFileSync(".worker-secrets.json", JSON.stringify(secrets));
           console.log(`secrets preparados: ${Object.keys(secrets).length}`);
           '
+
+      - name: Quitar secret obsoleto de TheSportsDB
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          THESPORTSDB_KEY: ${{ secrets.THESPORTSDB_KEY }}
+        run: |
+          if [ -z "$THESPORTSDB_KEY" ] || [ "$THESPORTSDB_KEY" = "123" ]; then
+            npx cf workers secrets delete --worker betstatspro THESPORTSDB_KEY --force || true
+          fi
 
       - name: Compilar y publicar Worker
         run: npx cf deploy --secrets-file .worker-secrets.json
