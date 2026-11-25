@@ -60,7 +60,20 @@ export async function GET(request: NextRequest) {
           : 3600;
     const swrSeconds = ttlSeconds === 0 ? 0 : Math.min(600, Math.max(60, Math.floor(ttlSeconds / 2)));
 
-    return NextResponse.json(filtered, {
+    // El ranking se filtra junto con el feed para que `sport=...` no devuelva
+    // favoritos de otros deportes; se renumera después del filtro.
+    const rankedFavorites = filtered.rankedFavorites
+      ? {
+          ...filtered.rankedFavorites,
+          entries: filtered.rankedFavorites.entries
+            .filter(
+              (entry) => sportParam === "all" || entry.sport === sportParam,
+            )
+            .map((entry, index) => ({ ...entry, rank: index + 1 })),
+        }
+      : undefined;
+
+    return NextResponse.json({ ...filtered, rankedFavorites }, {
       headers: {
         "Cache-Control": forceRefresh
           ? "no-store, max-age=0"

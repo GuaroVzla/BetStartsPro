@@ -37,6 +37,9 @@ jobs:
       - name: Tests de modelo
         run: npm run test:model
 
+      - name: Tests de fusión y circuit breaker
+        run: npm run test:fusion
+
       - name: Tests ETL
         run: npm run test:etl
 

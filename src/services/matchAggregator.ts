@@ -40,9 +40,20 @@ import { listInsights as listTheAnalystInsights } from "@/services/theAnalystSto
 import { findTheAnalystMatch } from "@/services/theAnalystAdapter";
 import { curatedRecordsToMatches } from "@/services/curatedAdapter";
 import { listCuratedMatches } from "@/services/curatedIngestStore";
+import { fetchAllSportsApiMatches } from "@/services/allSportsApiService";
 import { fetchFreeSourceMatches } from "@/services/freeSourcesService";
+import { enrichWithTheSportsDbStats } from "@/services/theSportsDbStatsService";
+import { fetchTheRundownMatches } from "@/services/theRundownService";
+import { buildRankedFavorites } from "@/services/favoriteRankingService";
+import {
+  failedSourceResult,
+  healthSnapshot,
+  runResilientSource,
+  type SourceResult,
+} from "@/services/sourceResilience";
 import type {
   AnalystInsight,
+  DataSourceId,
   BookmakerQuote,
   DashboardData,
   FormResult,
@@ -50,6 +61,7 @@ import type {
   LeagueInfo,
   MatchDay,
   MatchIntel,
+  SourceHealthSnapshot,
   SportKey,
   SportsMatch,
   StandingRow,
@@ -90,6 +102,32 @@ function colorForTeam(name: string): { color: string; secondaryColor: string } {
     hash = (hash * 31 + name.charCodeAt(index)) % 997;
   }
   return TEAM_PALETTE[hash % TEAM_PALETTE.length];
+}
+
+/** Marca cada partido con las fuentes reales que aportaron datos. */
+function tagMatches(
+  matches: SportsMatch[],
+  ...sources: DataSourceId[]
+): SportsMatch[] {
+  if (sources.length === 0) return matches;
+  return matches.map((match) => ({
+    ...match,
+    sourceTags: Array.from(new Set([...(match.sourceTags ?? []), ...sources])),
+  }));
+}
+
+/** Convierte el resultado de un adapter en el snapshot de salud del dashboard. */
+function snapshotFromResult(result: SourceResult<unknown>): SourceHealthSnapshot {
+  return {
+    source: result.source,
+    status: result.status,
+    ok: result.ok,
+    latencyMs: result.latencyMs,
+    dataPoints: result.dataPoints,
+    partial: result.partial,
+    failures: result.failures,
+    reason: result.reason,
+  };
 }
 
 function shortTeamName(name: string): string {
@@ -763,7 +801,11 @@ function withCapturedBookmakerQuotes(
   }
 
   return {
-    matches: royal.matches,
+    matches: tagMatches(
+      royal.matches,
+      ...(triunfobet.applied > 0 ? (["triunfobet"] as const) : []),
+      ...(royal.applied > 0 ? (["apuestas-royal"] as const) : []),
+    ),
     warnings,
     triunfobetConnected: triunfobet.applied > 0,
     royalConnected: royal.applied > 0,
@@ -838,6 +880,9 @@ function withTheAnalystInsights(matches: SportsMatch[]): TheAnalystResult {
     return {
       ...match,
       analyst,
+      sourceTags: Array.from(
+        new Set([...(match.sourceTags ?? []), "the-analyst" as const]),
+      ),
       intel: {
         ...match.intel,
         note: [
@@ -859,118 +904,396 @@ function withTheAnalystInsights(matches: SportsMatch[]): TheAnalystResult {
  * Punto de entrada del dashboard. Prioriza los partidos inyectados por el agente
  * de Flashscore, los convierte al modelo interno y limita el radar pre-match a
  * los encuentros pendientes de hoy y mañana en hora de Venezuela.
+ *
+ * Todas las fuentes se consultan en paralelo con `Promise.allSettled` y se
+ * envuelven en `runResilientSource`: si una falla, se omite y el ranking se
+ * calcula solo con las que respondieron.
  */
 export async function getDashboardData(): Promise<DashboardData> {
   const ahora = new Date();
-  const [base, flashscoreMatches, curatedMatches, freeSources] = await Promise.all([
-    getAggregatedData(ahora),
-    Promise.resolve(flashscoreRecordsToMatches(listFlashscoreRecords(), ahora)),
-    Promise.resolve(curatedRecordsToMatches(listCuratedMatches(), ahora)),
-    fetchFreeSourceMatches(ahora),
+  const emptyDashboard = (): DashboardData =>
+    finalizeDashboard(
+      {
+        matches: [],
+        leagues: LEAGUES,
+        sportCounts: countSports([]),
+        meta: {
+          mode: "live",
+          generatedAt: ahora.toISOString(),
+          cacheTtlSeconds: CACHE_SECONDS,
+          oddsCreditsRemaining: null,
+          sportmonksRemaining: null,
+          apiSportsRemaining: null,
+          warnings: [],
+          sources: { oddsApi: false, sportmonks: false, apiSports: false },
+        },
+      },
+      ahora,
+    );
+
+  const settled = await Promise.allSettled([
+    runResilientSource(
+      "api-sports",
+      async () => {
+        const data = await getAggregatedData(ahora);
+        return {
+          data,
+          warnings: data.meta.warnings,
+          partial: data.matches.length === 0,
+          dataPoints: data.matches.length,
+        };
+      },
+      { fallback: emptyDashboard() },
+    ),
+    runResilientSource(
+      "flashscore",
+      async () => {
+        const data = flashscoreRecordsToMatches(listFlashscoreRecords(), ahora);
+        return { data, dataPoints: data.length };
+      },
+      { fallback: [] as SportsMatch[] },
+    ),
+    runResilientSource(
+      "curated",
+      async () => {
+        const data = curatedRecordsToMatches(listCuratedMatches(), ahora);
+        return { data, dataPoints: data.length };
+      },
+      { fallback: [] as SportsMatch[] },
+    ),
+    runResilientSource(
+      "espn",
+      async () => {
+        const data = await fetchFreeSourceMatches(ahora);
+        return {
+          data,
+          warnings: data.warnings,
+          partial: data.matches.length === 0,
+          dataPoints: data.matches.length,
+        };
+      },
+      {
+        fallback: {
+          matches: [],
+          warnings: [],
+          sources: { espn: false, sportsdb: false, openligadb: false },
+        } as Awaited<ReturnType<typeof fetchFreeSourceMatches>>,
+      },
+    ),
+    runResilientSource(
+      "allsportsapi",
+      async () => {
+        const data = await fetchAllSportsApiMatches(ahora);
+        return {
+          data,
+          warnings: data.warnings,
+          partial: data.matches.length === 0,
+          dataPoints: data.matches.length,
+        };
+      },
+      {
+        fallback: {
+          matches: [],
+          warnings: [],
+          connected: false,
+        } as Awaited<ReturnType<typeof fetchAllSportsApiMatches>>,
+      },
+    ),
+    runResilientSource(
+      "therundown",
+      async () => {
+        const data = await fetchTheRundownMatches(ahora);
+        return {
+          data,
+          warnings: data.warnings,
+          partial: data.matches.length === 0,
+          dataPoints: data.matches.length,
+        };
+      },
+      {
+        fallback: {
+          matches: [],
+          warnings: [],
+          connected: false,
+        } as Awaited<ReturnType<typeof fetchTheRundownMatches>>,
+      },
+    ),
   ]);
+
+  const baseSettled = settled[0] as PromiseSettledResult<SourceResult<DashboardData>>;
+  const flashscore = settled[1] as PromiseSettledResult<SourceResult<SportsMatch[]>>;
+  const curated = settled[2] as PromiseSettledResult<SourceResult<SportsMatch[]>>;
+  const free = settled[3] as PromiseSettledResult<
+    SourceResult<Awaited<ReturnType<typeof fetchFreeSourceMatches>>>
+  >;
+  const allSports = settled[4] as PromiseSettledResult<
+    SourceResult<Awaited<ReturnType<typeof fetchAllSportsApiMatches>>>
+  >;
+  const rundownSettled = settled[5] as PromiseSettledResult<
+    SourceResult<Awaited<ReturnType<typeof fetchTheRundownMatches>>>
+  >;
+
+  const baseResult =
+    baseSettled.status === "fulfilled"
+      ? baseSettled.value
+      : failedSourceResult("api-sports", emptyDashboard(), "Promise.allSettled rechazado");
+  const flashscoreResult =
+    flashscore.status === "fulfilled"
+      ? flashscore.value
+      : failedSourceResult("flashscore", [] as SportsMatch[], "Promise.allSettled rechazado");
+  const curatedResult =
+    curated.status === "fulfilled"
+      ? curated.value
+      : failedSourceResult("curated", [] as SportsMatch[], "Promise.allSettled rechazado");
+  const freeResult =
+    free.status === "fulfilled"
+      ? free.value
+      : failedSourceResult(
+          "espn",
+          {
+            matches: [],
+            warnings: [],
+            sources: { espn: false, sportsdb: false, openligadb: false },
+          } as Awaited<ReturnType<typeof fetchFreeSourceMatches>>,
+          "Promise.allSettled rechazado",
+        );
+  const allSportsResult =
+    allSports.status === "fulfilled"
+      ? allSports.value
+      : failedSourceResult(
+          "allsportsapi",
+          { matches: [], warnings: [], connected: false } as Awaited<ReturnType<typeof fetchAllSportsApiMatches>>,
+          "Promise.allSettled rechazado",
+        );
+  const rundownResult =
+    rundownSettled.status === "fulfilled"
+      ? rundownSettled.value
+      : failedSourceResult(
+          "therundown",
+          { matches: [], warnings: [], connected: false } as Awaited<ReturnType<typeof fetchTheRundownMatches>>,
+          "Promise.allSettled rechazado",
+        );
+
+  const adapters = [
+    baseResult,
+    flashscoreResult,
+    curatedResult,
+    freeResult,
+    allSportsResult,
+    rundownResult,
+  ];
+  const sourceHealth = {} as Record<DataSourceId, SourceHealthSnapshot>;
+  for (const adapter of adapters) {
+    sourceHealth[adapter.source] = snapshotFromResult(adapter);
+  }
+  // Las tres APIs premium se consultan dentro del mismo adapter; se refleja su
+  // configuración sin duplicar peticiones.
+  for (const id of ["the-odds-api", "sportmonks"] as const) {
+    const configured =
+      id === "the-odds-api"
+        ? baseResult.data.meta.sources.oddsApi
+        : baseResult.data.meta.sources.sportmonks;
+    if (configured) {
+      sourceHealth[id] = {
+        ...healthSnapshot(id),
+        ok: baseResult.ok,
+        status: baseResult.status,
+        latencyMs: baseResult.latencyMs,
+      };
+    }
+  }
+  const resilienceWarnings = adapters
+    .filter((adapter) => !adapter.ok)
+    .map((adapter) => adapter.warnings[0] ?? `${adapter.source}: fuente omitida`);
+
+  const withRanking = (data: DashboardData): DashboardData => {
+    const ranked = buildRankedFavorites(data.matches, {
+      now: ahora,
+      sourceHealth,
+      day: "all",
+      extraWarnings: resilienceWarnings,
+    });
+    return {
+      ...data,
+      rankedFavorites: ranked,
+      meta: {
+        ...data.meta,
+        warnings: uniqueWarnings([...data.meta.warnings, ...ranked.warnings]),
+        sourceHealth,
+      },
+    };
+  };
+
+  const base = baseResult.data;
+  const flashscoreMatches = tagMatches(flashscoreResult.data, "flashscore");
+  const curatedMatches = tagMatches(curatedResult.data, "curated");
+  const freeSources = freeResult.data;
+  const allSportsApi = allSportsResult.data;
+  const rundown = rundownResult.data;
+
+  const baseSources: DataSourceId[] = [];
+  if (base.meta.sources.apiSports) baseSources.push("api-sports");
+  if (base.meta.sources.sportmonks) baseSources.push("sportmonks");
+  if (base.meta.sources.oddsApi) baseSources.push("the-odds-api");
+  const taggedBase = tagMatches(base.matches, ...baseSources);
+  const freeActiveSources = (
+    Object.entries(freeSources.sources) as Array<[DataSourceId, boolean]>
+  )
+    .filter(([, active]) => active)
+    .map(([id]) => id);
+  const taggedFree = tagMatches(freeSources.matches, ...freeActiveSources);
+  const taggedAllSports = tagMatches(allSportsApi.matches, "allsportsapi");
+  const taggedRundown = tagMatches(rundown.matches, "therundown");
+
   // Solo entran partidos de hoy o mañana que todavía no hayan comenzado. Los
   // que ya arrancaron o finalizaron se retiran automáticamente del feed.
   const esVigente = (match: SportsMatch) =>
     isWithinMatchWindow(match.commenceTime, ahora) &&
     resolveMatchStatus(match, ahora) === "scheduled";
 
-  const baseUpcoming = base.matches.filter(esVigente);
+  const baseUpcoming = taggedBase.filter(esVigente);
   const upcomingFlashscore = flashscoreMatches.filter(esVigente);
   const upcomingCurated = curatedMatches.filter(esVigente);
-  const upcomingFree = freeSources.matches.filter(esVigente);
+  const upcomingFree = taggedFree.filter(esVigente);
+  const upcomingAllSports = taggedAllSports.filter(esVigente);
+  const upcomingRundown = taggedRundown.filter(esVigente);
   const excluded =
-    base.matches.length - baseUpcoming.length +
+    taggedBase.length - baseUpcoming.length +
     (flashscoreMatches.length - upcomingFlashscore.length) +
     (curatedMatches.length - upcomingCurated.length) +
-    (freeSources.matches.length - upcomingFree.length);
+    (taggedFree.length - upcomingFree.length) +
+    (taggedAllSports.length - upcomingAllSports.length) +
+    (taggedRundown.length - upcomingRundown.length);
 
-  const ingested = [...upcomingCurated, ...upcomingFlashscore, ...upcomingFree];
+  const ingested = [
+    ...upcomingCurated,
+    ...upcomingFlashscore,
+    ...upcomingAllSports,
+    ...upcomingRundown,
+    ...upcomingFree,
+  ];
   if (ingested.length === 0) {
     const captured = withCapturedBookmakerQuotes(baseUpcoming, ahora);
     const analyst = withTheAnalystInsights(captured.matches);
-    return finalizeDashboard({
-      ...base,
-      matches: analyst.matches,
-      leagues: base.leagues.filter((league) =>
-        analyst.matches.some((match) => match.league.id === league.id),
-      ),
-      sportCounts: countSports(analyst.matches),
-      meta: {
-        ...base.meta,
-        warnings: uniqueWarnings([
-          ...(excluded > 0
-            ? [`${excluded} partidos ya comenzaron o están fuera de la ventana hoy/mañana y fueron excluidos.`]
-            : []),
-          ...captured.warnings,
-          ...freeSources.warnings,
-          ...(analyst.applied > 0
-            ? [`${analyst.applied} análisis de The Analyst cruzados con partidos.`]
-            : []),
-          ...base.meta.warnings,
-        ]),
-        sources: {
-          ...base.meta.sources,
-          flashscore: upcomingFlashscore.length > 0,
-          curated: upcomingCurated.length > 0,
-          espn: freeSources.sources.espn,
-          sportsdb: freeSources.sources.sportsdb,
-          openligadb: freeSources.sources.openligadb,
-          theAnalyst: analyst.connected,
-          triunfobet: captured.triunfobetConnected,
-          apuestasRoyal: captured.royalConnected,
+    const enriched = await enrichWithTheSportsDbStats(analyst.matches);
+    return withRanking(
+      finalizeDashboard(
+        {
+          ...base,
+          matches: enriched.matches,
+          leagues: base.leagues.filter((league) =>
+            enriched.matches.some((match) => match.league.id === league.id),
+          ),
+          sportCounts: countSports(enriched.matches),
+          meta: {
+            ...base.meta,
+            warnings: uniqueWarnings([
+              ...(excluded > 0
+                ? [`${excluded} partidos ya comenzaron o están fuera de la ventana hoy/mañana y fueron excluidos.`]
+                : []),
+              ...(upcomingAllSports.length > 0 ? [`${upcomingAllSports.length} partidos de AllSportsAPI pendientes hoy/mañana (VET).`] : []),
+              ...(upcomingRundown.length > 0 ? [`${upcomingRundown.length} partidos de TheRundown pendientes hoy/mañana (VET).`] : []),
+              ...captured.warnings,
+              ...freeSources.warnings,
+              ...allSportsApi.warnings,
+              ...rundown.warnings,
+              ...(analyst.applied > 0
+                ? [`${analyst.applied} análisis de The Analyst cruzados con partidos.`]
+                : []),
+              ...(enriched.applied > 0
+                ? [`${enriched.applied} partido(s) con posiciones/forma de TheSportsDB (tier gratuito).`]
+                : []),
+              ...base.meta.warnings,
+            ]),
+            sources: {
+              ...base.meta.sources,
+              flashscore: upcomingFlashscore.length > 0,
+              curated: upcomingCurated.length > 0,
+              espn: freeSources.sources.espn,
+              sportsdb: freeSources.sources.sportsdb,
+              openligadb: freeSources.sources.openligadb,
+              allsportsapi: allSportsApi.connected,
+              therundown: rundown.connected,
+              theAnalyst: analyst.connected,
+              triunfobet: captured.triunfobetConnected,
+              apuestasRoyal: captured.royalConnected,
+            },
+          },
         },
-      },
-    }, ahora);
+        ahora,
+      ),
+    );
   }
 
   const keyOf = (match: SportsMatch) =>
     `${dateInVET(match.commenceTime)}|${normalizeName(match.home.name)}|${normalizeName(match.away.name)}`;
-  const seen = new Set<string>();
-  const matches: SportsMatch[] = [];
+  const mergedMatches: SportsMatch[] = [];
   for (const match of [...ingested, ...baseUpcoming]) {
     const key = keyOf(match);
-    if (seen.has(key)) continue;
-    seen.add(key);
-    matches.push(match);
+    const existing = mergedMatches.find((item) => keyOf(item) === key);
+    if (!existing) {
+      mergedMatches.push(match);
+      continue;
+    }
+    // El partido ganador conserva la identidad; las fuentes se suman para que
+    // el motor de fusión sepa quién respaldó cada señal.
+    existing.sourceTags = Array.from(
+      new Set([...(existing.sourceTags ?? []), ...(match.sourceTags ?? [])]),
+    );
   }
 
-  const captured = withCapturedBookmakerQuotes(matches, ahora);
+  const captured = withCapturedBookmakerQuotes(mergedMatches, ahora);
   const analyst = withTheAnalystInsights(captured.matches);
-  const finalMatches = analyst.matches;
+  const enriched = await enrichWithTheSportsDbStats(analyst.matches);
+  const finalMatches = enriched.matches;
   const leagues = Array.from(
     new Map(finalMatches.map((match) => [match.league.id, match.league])).values(),
   );
 
-  return finalizeDashboard({
-    matches: finalMatches,
-    leagues,
-    sportCounts: countSports(finalMatches),
-    meta: {
-      ...base.meta,
-      mode: "live",
-      generatedAt: new Date().toISOString(),
-      warnings: uniqueWarnings([
-        ...(upcomingCurated.length > 0 ? [`${upcomingCurated.length} partidos curados ETL pendientes hoy/mañana (VET).`] : []),
-        ...(upcomingFlashscore.length > 0 ? [`${upcomingFlashscore.length} partidos de Flashscore pendientes hoy/mañana (VET).`] : []),
-        ...(upcomingFree.length > 0 ? [`${upcomingFree.length} partidos de fuentes gratuitas (ESPN/TheSportsDB/OpenLigaDB) pendientes hoy/mañana (VET).`] : []),
-        ...captured.warnings,
-        ...freeSources.warnings,
-        ...(analyst.applied > 0
-          ? [`${analyst.applied} análisis de The Analyst cruzados con partidos.`]
-          : []),
-        ...base.meta.warnings,
-      ]),
-      sources: {
-        ...base.meta.sources,
-        flashscore: upcomingFlashscore.length > 0,
-        curated: upcomingCurated.length > 0,
-        espn: freeSources.sources.espn,
-        sportsdb: freeSources.sources.sportsdb,
-        openligadb: freeSources.sources.openligadb,
-        theAnalyst: analyst.connected,
-        triunfobet: captured.triunfobetConnected,
-        apuestasRoyal: captured.royalConnected,
+  return withRanking(
+    finalizeDashboard(
+      {
+        matches: finalMatches,
+        leagues,
+        sportCounts: countSports(finalMatches),
+        meta: {
+          ...base.meta,
+          mode: "live",
+          generatedAt: new Date().toISOString(),
+          warnings: uniqueWarnings([
+            ...(upcomingCurated.length > 0 ? [`${upcomingCurated.length} partidos curados ETL pendientes hoy/mañana (VET).`] : []),
+            ...(upcomingFlashscore.length > 0 ? [`${upcomingFlashscore.length} partidos de Flashscore pendientes hoy/mañana (VET).`] : []),
+            ...(upcomingFree.length > 0 ? [`${upcomingFree.length} partidos de fuentes gratuitas (ESPN/TheSportsDB/OpenLigaDB) pendientes hoy/mañana (VET).`] : []),
+            ...(upcomingAllSports.length > 0 ? [`${upcomingAllSports.length} partidos de AllSportsAPI pendientes hoy/mañana (VET).`] : []),
+            ...(upcomingRundown.length > 0 ? [`${upcomingRundown.length} partidos de TheRundown pendientes hoy/mañana (VET).`] : []),
+            ...captured.warnings,
+            ...freeSources.warnings,
+            ...allSportsApi.warnings,
+            ...rundown.warnings,
+            ...(analyst.applied > 0
+              ? [`${analyst.applied} análisis de The Analyst cruzados con partidos.`]
+              : []),
+            ...(enriched.applied > 0
+              ? [`${enriched.applied} partido(s) con posiciones/forma de TheSportsDB (tier gratuito).`]
+              : []),
+            ...base.meta.warnings,
+          ]),
+          sources: {
+            ...base.meta.sources,
+            flashscore: upcomingFlashscore.length > 0,
+            curated: upcomingCurated.length > 0,
+            espn: freeSources.sources.espn,
+            sportsdb: freeSources.sources.sportsdb,
+            openligadb: freeSources.sources.openligadb,
+            allsportsapi: allSportsApi.connected,
+            therundown: rundown.connected,
+            theAnalyst: analyst.connected,
+            triunfobet: captured.triunfobetConnected,
+            apuestasRoyal: captured.royalConnected,
+          },
+        },
       },
-    },
-  }, ahora);
+      ahora,
+    ),
+  );
 }

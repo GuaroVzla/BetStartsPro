@@ -11,6 +11,7 @@
     "typecheck": "tsc --noEmit",
     "test:dates": "node --test scripts/date-window.test.mjs scripts/purge-out-of-window.test.mjs",
     "test:model": "node --experimental-strip-types --test scripts/model-core.test.mjs scripts/model-historical.test.mjs",
+    "test:fusion": "node --experimental-strip-types --test scripts/fusion-engine.test.mjs scripts/circuit-breaker.test.mjs",
     "test:etl": "node --test scripts/etl-payload.test.mjs",
     "clean:dates": "node scripts/purge-out-of-window.mjs --write",
     "capture:triunfobet": "node scripts/triunfobet-capture.mjs --write",

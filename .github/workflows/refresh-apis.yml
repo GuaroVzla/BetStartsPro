@@ -20,6 +20,11 @@ jobs:
       THE_ODDS_API_KEY: ${{ secrets.THE_ODDS_API_KEY }}
       SPORTMONKS_KEY: ${{ secrets.SPORTMONKS_KEY }}
       APISPORTS_KEY: ${{ secrets.APISPORTS_KEY }}
+      ALLSPORTSAPI_KEY: ${{ secrets.ALLSPORTSAPI_KEY }}
+      FOOTBALL_DATA_API_KEY: ${{ secrets.FOOTBALL_DATA_API_KEY }}
+      THERUNDOWN_API_KEY: ${{ secrets.THERUNDOWN_API_KEY }}
+      # TheSportsDB: clave pública 123 (se puede override con un secret propio).
+      THESPORTSDB_KEY: ${{ secrets.THESPORTSDB_KEY || '123' }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4

@@ -101,6 +101,48 @@ function modelProbabilities(
   );
   return { probabilities: blended, source: "modelo", confidence: 0.6 };
 }
+
+/**
+ * Señal del modelo local sin mezclar cuotas. La capa de fusión la usa como
+ * entrada independiente para no contar dos veces el mercado. Si no hay
+ * artefacto Elo/Dixon-Coles, se usa la proyección por sport, declarando su
+ * menor confianza en lugar de inventar un consenso.
+ */
+export function getModelSignal(match: SportsMatch): {
+  probabilities: Record<OutcomeKey, number>;
+  confidence: number;
+  source: "modelo";
+} | null {
+  const historical = modelProbabilities(match);
+  if (historical) return historical;
+
+  const projections = projectScores(match);
+  const sportModel = SPORT_MODELS[match.sport];
+  if (match.sport === "basketball") {
+    return {
+      probabilities: basketballProbabilities(
+        projections.home,
+        projections.away,
+        sportModel.spreadScale ?? 10.5,
+      ),
+      confidence: hasGoalStatistics(match) ? 0.45 : 0.25,
+      source: "modelo",
+    };
+  }
+  if (match.sport === "soccer") {
+    return {
+      probabilities: soccerProbabilities(projections.home, projections.away),
+      confidence: hasGoalStatistics(match) ? 0.45 : 0.2,
+      source: "modelo",
+    };
+  }
+  return {
+    probabilities: poissonWinProbabilities(projections.home, projections.away),
+    confidence: hasGoalStatistics(match) ? 0.4 : 0.2,
+    source: "modelo",
+  };
+}
+
 /** Umbral reservado al distintivo "Hembra" (cuota realmente alta). */
 const HEMBRA_MIN_ODDS = 1.85;
 /** Cuota decimal mínima del KPI: 2.00 equivale a cuota americana +100. */

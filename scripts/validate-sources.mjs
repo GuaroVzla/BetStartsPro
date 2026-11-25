@@ -124,6 +124,59 @@ async function probeTheSportsDb() {
   }
 }
 
+async function probeAllSportsApi() {
+  const key = process.env.ALLSPORTSAPI_KEY;
+  if (!key) return record("AllSportsAPI", "not_configured", "falta ALLSPORTSAPI_KEY");
+  try {
+    const result = await fetchJson(
+      `https://apiv2.allsportsapi.com/football/?met=Fixtures&APIkey=${encodeURIComponent(key)}&from=${dateVET(0)}&to=${dateVET(1)}`,
+    );
+    const fixtures = Array.isArray(result.json?.result) ? result.json.result.length : 0;
+    const ok = result.ok && result.json?.success === 1;
+    record("AllSportsAPI", ok ? "ok" : "fail", ok ? `${fixtures} fixtures hoy/mañana` : `HTTP ${result.status}`);
+  } catch {
+    record("AllSportsAPI", "fail", "error de red al validar AllSportsAPI");
+  }
+}
+
+async function probeFootballData() {
+  const key = process.env.FOOTBALL_DATA_API_KEY;
+  if (!key) return record("football-data.org", "not_configured", "falta FOOTBALL_DATA_API_KEY");
+  try {
+    const result = await fetchJson("https://api.football-data.org/v4/competitions", {
+      headers: { Authorization: `Bearer ${key}`, Accept: "application/json" },
+    });
+    const competitions = Array.isArray(result.json?.competitions) ? result.json.competitions.length : 0;
+    record(
+      "football-data.org",
+      result.ok ? "ok" : "fail",
+      result.ok
+        ? `${competitions} competiciones; standings/equipos requieren plan superior`
+        : `HTTP ${result.status}`,
+    );
+  } catch {
+    record("football-data.org", "fail", "error de red al validar football-data.org");
+  }
+}
+
+async function probeTheRundown() {
+  const key = process.env.THERUNDOWN_API_KEY;
+  if (!key) return record("TheRundown", "not_configured", "falta THERUNDOWN_API_KEY");
+  try {
+    const result = await fetchJson("https://therundown.io/api/v2/markets?sport_id=4&limit=1", {
+      headers: { "X-TheRundown-Key": key, Accept: "application/json" },
+    });
+    const markets = Array.isArray(result.json) ? result.json.length : 0;
+    record(
+      "TheRundown",
+      result.ok ? "ok" : "fail",
+      result.ok ? `${markets} markets; plan con límite de 1 req/s` : `HTTP ${result.status}`,
+    );
+  } catch {
+    record("TheRundown", "fail", "error de red al validar TheRundown");
+  }
+}
+
 async function probeOpenLigaDb() {
   try {
     const result = await fetchJson("https://api.openligadb.de/getmatchdata/bl1");
@@ -140,6 +193,9 @@ await Promise.all([
   probeSportMonks(),
   probeEspn(),
   probeTheSportsDb(),
+  probeAllSportsApi(),
+  probeFootballData(),
+  probeTheRundown(),
   probeOpenLigaDb(),
 ]);
 

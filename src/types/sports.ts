@@ -14,6 +14,8 @@ export type OddsSource =
   | "api-sports"
   | "espn"
   | "flashscore"
+  | "allsportsapi"
+  | "therundown"
   | "triunfobet"
   | "apuestas-royal";
 
@@ -24,6 +26,31 @@ export type AnalyticsSource =
   | "modelo";
 
 export type DataProvenance = "api" | "table-derived" | "editorial" | "none";
+
+/** Identificador estable de cada adapter/fuente que participa en la fusión. */
+export type DataSourceId =
+  | "the-odds-api"
+  | "api-sports"
+  | "sportmonks"
+  | "espn"
+  | "sportsdb"
+  | "openligadb"
+  | "allsportsapi"
+  | "therundown"
+  | "flashscore"
+  | "curated"
+  | "triunfobet"
+  | "apuestas-royal"
+  | "the-analyst"
+  | "modelo";
+
+export type FusionLayer =
+  | "market"
+  | "model"
+  | "form"
+  | "standings"
+  | "venueH2h"
+  | "editorial";
 
 export type OutcomeKey = "home" | "draw" | "away";
 
@@ -258,6 +285,8 @@ export interface SportsMatch {
   elo?: { home: number; away: number } | null;
   /** Análisis previo y métricas avanzadas, cuando está disponible. */
   analyst?: AnalystInsight | null;
+  /** Fuentes reales que aportaron señal a este partido (para trazabilidad). */
+  sourceTags?: DataSourceId[];
 }
 
 export interface ApiSourceStatus {
@@ -272,6 +301,21 @@ export interface ApiSourceStatus {
   espn?: boolean;
   sportsdb?: boolean;
   openligadb?: boolean;
+  allsportsapi?: boolean;
+  therundown?: boolean;
+}
+
+export type SourceHealthStatus = "closed" | "open" | "half-open";
+
+export interface SourceHealthSnapshot {
+  source: DataSourceId;
+  status: SourceHealthStatus;
+  ok: boolean;
+  latencyMs: number;
+  dataPoints: number;
+  partial: boolean;
+  failures: number;
+  reason?: string;
 }
 
 export interface DashboardMeta {
@@ -283,6 +327,8 @@ export interface DashboardMeta {
   apiSportsRemaining: number | null;
   warnings: string[];
   sources: ApiSourceStatus;
+  /** Estado del circuit breaker y rendimiento de cada adapter en esta request. */
+  sourceHealth?: Record<DataSourceId, SourceHealthSnapshot>;
 }
 
 export interface DashboardData {
@@ -292,6 +338,58 @@ export interface DashboardData {
   sportCounts: Record<SportKey, number>;
   /** Conteo de partidos pre-match por ventana operativa (hoy / mañana). */
   dayCounts: Record<MatchDay, number>;
+  /** Ranking unificado de favoritos con probabilidad real, edge y confianza. */
+  rankedFavorites?: RankedFavoritesResult;
+}
+
+export interface FavoriteMetrics {
+  form: FormResult[];
+  rivalForm: FormResult[];
+  goalsFor: number | null;
+  goalsAgainst: number | null;
+  xgFor: number | null;
+  xgAgainst: number | null;
+  streak: string | null;
+  position: number | null;
+  rivalPosition: number | null;
+  homeAdvantage: number;
+  venueRecord: VenueSplit | null;
+  h2hAvailable: false;
+  bookmakerCount: number;
+  marketOverround: number;
+}
+
+export interface RankedFavorite {
+  rank: number;
+  matchId: string;
+  sport: SportKey;
+  league: string;
+  commenceTime: string;
+  outcome: "home" | "away";
+  team: string;
+  opponent: string;
+  modelProbability: number;
+  marketImpliedProbability: number;
+  marketImpliedRaw: number;
+  edge: number;
+  edgeVsRaw: number;
+  expectedValue: number;
+  fairOdds: number | null;
+  bestOdds: number | null;
+  bookmaker: string | null;
+  isValueBet: boolean;
+  confidence: number;
+  supportingSources: DataSourceId[];
+  /** Pesos efectivos tras redistribuir las capas sin datos. */
+  layerWeights: Record<FusionLayer, number>;
+  metrics: FavoriteMetrics;
+}
+
+export interface RankedFavoritesResult {
+  generatedAt: string;
+  weights: Record<FusionLayer, number>;
+  entries: RankedFavorite[];
+  warnings: string[];
 }
 
 export interface OutcomeAnalysis {

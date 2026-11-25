@@ -95,7 +95,7 @@ async function extractOddsApi() {
         if (!h2h) continue;
         let home = null, draw = null, away = null;
         for (const o of h2h.outcomes ?? []) {
-          const name = String(o.name ?? "").toLower();
+          const name = String(o.name ?? "").toLowerCase();
           if (name === String(ev.home_team).toLowerCase()) home = o.price;
           else if (name === String(ev.away_team).toLowerCase()) away = o.price;
           else if (name === "draw" || name === "tie") draw = o.price;

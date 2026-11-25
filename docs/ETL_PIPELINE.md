@@ -15,7 +15,9 @@ Ingerir partidos, cuotas y estadísticas diarias desde APIs oficiales y fuentes 
 | Apuestas Royal | P2 | Playwright storageState | 3h | cuotas locales | Turnstile/sesión expira |
 | The Analyst | P3 | scrape/seed + refresh | 3h | probabilidades/insights | Señal editorial, no verdad única |
 | ESPN (pública) | P1 | REST pública no oficial | 30 min | fixtures, estado, sede, moneyline; `soccer/all` + feeds NBA/NCAA/NHL/MLB | **Sin key**; validar términos de uso |
-| TheSportsDB | P2 | REST pública | 30-60 min | cartelera multi-deporte | Requiere `THESPORTSDB_KEY` propia; la key `123` da 429 |
+| TheSportsDB | P2 | REST pública | 30-60 min | cartelera, posiciones (`lookuptable`) y forma (`eventslast`); sin cuotas | `THESPORTSDB_KEY` (clave pública `123` revalidada HTTP 200 el 2026-11-24). Tier gratis: 30 req/min, tabla de 5 filas |
+| AllSportsAPI | P1 | REST oficial (tier gratis) | 30-60 min | fixtures/odds 1X2/standings de fútbol | Requiere `ALLSPORTSAPI_KEY`; caché 15 min, máx. 6 standings por update; sin xG/lesiones |
+| TheRundown | P1 | REST oficial (tier gratis) | 30-60 min | fixtures multi-deporte y cuotas 1X2 de DraftKings/BetMGM/FanDuel | `THERUNDOWN_API_KEY`; 1 req/s, 5 min de retraso, cache 30 min, 1 reintento en 429/5xx |
 | OpenLigaDB | P3 | REST pública | 30-60 min | fixtures/estado Bundesliga | **Sin key**; respaldo de ESPN |
 
 ## Contrato canónico
@@ -43,7 +45,8 @@ Reglas:
 2. **Validate**: `scripts/validate-ingest-payload.mjs` verifica forma, ventana VET, cuotas, duplicados.
 3. **Normalize**: `scripts/ingest-utils.mjs` + adaptadores; slugs/fechas VET consistentes.
 4. **Load**: `POST /api/ingest/*` con `Authorization: Bearer $INGEST_TOKEN`.
-5. **Observe**: reportes JSON en `data/etl-reports/`, logs de workflow, warnings en `meta.warnings`.
+5. **Observe**: reportes JSON en `data/etl-reports/`, logs de workflow, warnings en `meta.warnings` y `meta.sourceHealth` en `/api/matches`.
+6. **Fuse**: `src/lib/fusionEngine.ts` combina mercado, modelo, forma/xG, tabla, localía y editorial; renormifica pesos si una fuente cae y emite `rankedFavorites`.
 
 ## Comandos
 
@@ -53,6 +56,7 @@ npm run etl:validate -- scripts/flashscore-payload.json
 npm run etl:apis -- --dry-run
 npm run etl:apis -- --write --ingest
 npm run refresh:all
+npm run test:fusion
 ```
 
 ## Validación de fuentes
@@ -60,8 +64,12 @@ npm run refresh:all
 `npm run sources:check` prueba en vivo:
 
 - The Odds API, API-Sports y SportMonks solo si su key está configurada.
-- ESPN y TheSportsDB siempre, porque no requieren key propia.
+- ESPN siempre (sin key); TheSportsDB si `THESPORTSDB_KEY` está configurada (la clave pública `123` es válida).
+- AllSportsAPI si `ALLSPORTSAPI_KEY` está configurada (`Fixtures`/`Odds`/`Standings`).
 - OpenLigaDB como respaldo público.
+- `FOOTBALL_DATA_API_KEY` se guarda para uso futuro: el token actual autoriza `/v4/competitions` y `/v4/matches`, pero no standings/equipos (HTTP 403).
+- `THERUNDOWN_API_KEY` se valida con `X-TheRundown-Key` contra `/api/v2/markets`; su adaptador usa `market_ids=1`, 3 casas, `offset=-240`, espaciado de 1.6 s y un reintento en 429/5xx.
+- `npm run test:fusion` cubre la renormificación de pesos, el circuit breaker, la ausencia de datos inventados y la detección de value bets.
 
 Si una fuente configurada falla, el comando devuelve exit code 1 con el detalle. Las fuentes gratuitas están integradas al dashboard aunque no existan claves premium.
 
@@ -74,7 +82,7 @@ Si una fuente configurada falla, el comando devuelve exit code 1 con el detalle.
 
 ## Seguridad y operación
 
-- Secrets: `INGEST_TOKEN`, `SITE_URL`, `THE_ODDS_API_KEY`, `SPORTMONKS_KEY`, `APISPORTS_KEY`, `ROYAL_STORAGE_STATE`, `TRIUNFOBET_STORAGE_STATE`.
+- Secrets: `INGEST_TOKEN`, `SITE_URL`, `THE_ODDS_API_KEY`, `SPORTMONKS_KEY`, `APISPORTS_KEY`, `THESPORTSDB_KEY` (opcional; el workflow usa `123` por defecto), `ROYAL_STORAGE_STATE`, `TRIUNFOBET_STORAGE_STATE`.
 - No guardar credenciales en repo. No exponer `INGEST_TOKEN` al cliente.
 - Scrapers: rate limit, backoff, `continue-on-error`, kill-switch por secret ausente.
 - Producción: preferir KV/D1/R2 para raw/curated; seeds git solo respaldo.
@@ -82,5 +90,5 @@ Si una fuente configurada falla, el comando devuelve exit code 1 con el detalle.
 ## Aceptación
 
 - Payloads válidos según validador.
-- `npm run typecheck`, `npm run test:dates`, `npm run test:model` en verde.
+- `npm run typecheck`, `npm run test:dates`, `npm run test:model`, `npm run test:fusion` en verde.
 - Dashboard sin modo demo; warnings claros cuando falten fuentes.
