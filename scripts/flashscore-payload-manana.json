@@ -6,8 +6,8 @@
   "fecha_local": "2026-11-25",
   "dia": "manana",
   "zona_horaria": "America/Caracas",
-  "capturado_en": "2026-11-24T13:24:14-04:00",
-  "total_partidos": 258,
+  "capturado_en": "2026-11-24T21:55:38-04:00",
+  "total_partidos": 259,
   "partidos": [
     {
       "match_slug": "2026-11-25_sabah_vs_barcelona",
@@ -19,9 +19,9 @@
       "equipo_local": "Sabah FC",
       "equipo_visitante": "Barcelona",
       "cuotas_1x2": {
-        "local_1": 21,
-        "empate_x": 10,
-        "visitante_2": 1.09
+        "local_1": 23,
+        "empate_x": 11,
+        "visitante_2": 1.07
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -45,7 +45,7 @@
       "cuotas_1x2": {
         "local_1": 3,
         "empate_x": 3.9,
-        "visitante_2": 2.15
+        "visitante_2": 2.1
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -91,9 +91,9 @@
       "equipo_local": "Club Brujas",
       "equipo_visitante": "Liverpool",
       "cuotas_1x2": {
-        "local_1": 4.2,
+        "local_1": 4.33,
         "empate_x": 4.75,
-        "visitante_2": 1.65
+        "visitante_2": 1.62
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -163,9 +163,9 @@
       "equipo_local": "PSG",
       "equipo_visitante": "Roma",
       "cuotas_1x2": {
-        "local_1": 1.44,
+        "local_1": 1.45,
         "empate_x": 4.75,
-        "visitante_2": 6.5
+        "visitante_2": 6.25
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -211,9 +211,9 @@
       "equipo_local": "Sporting CP",
       "equipo_visitante": "Manchester Utd",
       "cuotas_1x2": {
-        "local_1": 2.55,
+        "local_1": 2.6,
         "empate_x": 3.6,
-        "visitante_2": 2.6
+        "visitante_2": 2.55
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -595,9 +595,9 @@
       "equipo_local": "Boca Jrs.",
       "equipo_visitante": "Independiente Rivadavia",
       "cuotas_1x2": {
-        "local_1": 1.57,
-        "empate_x": 3.6,
-        "visitante_2": 6.25
+        "local_1": 1.61,
+        "empate_x": 3.5,
+        "visitante_2": 6
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -763,9 +763,9 @@
       "equipo_local": "Persib (Ina)",
       "equipo_visitante": "Seoul (Kor)",
       "cuotas_1x2": {
-        "local_1": 4.14,
-        "empate_x": 3.64,
-        "visitante_2": 1.79
+        "local_1": 4.58,
+        "empate_x": 3.8,
+        "visitante_2": 1.69
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -883,9 +883,9 @@
       "equipo_local": "Al-Jazira (Uae)",
       "equipo_visitante": "Gol Gohar (Irn)",
       "cuotas_1x2": {
-        "local_1": 1.4,
-        "empate_x": 4.44,
-        "visitante_2": 7.48
+        "local_1": 1.39,
+        "empate_x": 4.48,
+        "visitante_2": 7.65
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -1003,9 +1003,9 @@
       "equipo_local": "Real Potosí",
       "equipo_visitante": "Always Ready",
       "cuotas_1x2": {
-        "local_1": null,
-        "empate_x": null,
-        "visitante_2": null
+        "local_1": 2.1,
+        "empate_x": 3.48,
+        "visitante_2": 2.89
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -1380,7 +1380,7 @@
     {
       "match_slug": "2026-11-25_rb-bragantino-sub-20-f_vs_mg-sub-20-f",
       "deporte": "Fútbol",
-      "liga": "BRASIL: Copinha Women",
+      "liga": "BRASIL: Copinha Femenina",
       "fecha_local": "2026-11-25",
       "hora_local": "10:00",
       "estado": "Programado",
@@ -1404,7 +1404,7 @@
     {
       "match_slug": "2026-11-25_corinthians-sub-20-f_vs_acao-sub-20-f",
       "deporte": "Fútbol",
-      "liga": "BRASIL: Copinha Women",
+      "liga": "BRASIL: Copinha Femenina",
       "fecha_local": "2026-11-25",
       "hora_local": "14:00",
       "estado": "Programado",
@@ -1428,7 +1428,7 @@
     {
       "match_slug": "2026-11-25_santos-sub-20-f_vs_sport-recife-sub-20-f",
       "deporte": "Fútbol",
-      "liga": "BRASIL: Copinha Women",
+      "liga": "BRASIL: Copinha Femenina",
       "fecha_local": "2026-11-25",
       "hora_local": "17:00",
       "estado": "Programado",
@@ -1452,7 +1452,7 @@
     {
       "match_slug": "2026-11-25_botafogo-sub-20-f_vs_internacional-sub-20-f",
       "deporte": "Fútbol",
-      "liga": "BRASIL: Copinha Women",
+      "liga": "BRASIL: Copinha Femenina",
       "fecha_local": "2026-11-25",
       "hora_local": "20:00",
       "estado": "Programado",
@@ -1819,9 +1819,9 @@
       "equipo_local": "Ghazl El Mahallah",
       "equipo_visitante": "Petrojet",
       "cuotas_1x2": {
-        "local_1": 2.76,
-        "empate_x": 2.77,
-        "visitante_2": 2.53
+        "local_1": 2.85,
+        "empate_x": 2.65,
+        "visitante_2": 2.56
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -1963,9 +1963,9 @@
       "equipo_local": "Intercity",
       "equipo_visitante": "Real Murcia B",
       "cuotas_1x2": {
-        "local_1": 1.53,
-        "empate_x": 3.66,
-        "visitante_2": 5.57
+        "local_1": 1.51,
+        "empate_x": 3.6,
+        "visitante_2": 6.03
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -1987,9 +1987,9 @@
       "equipo_local": "Sevilla B",
       "equipo_visitante": "Recreativo de Huelva",
       "cuotas_1x2": {
-        "local_1": null,
-        "empate_x": null,
-        "visitante_2": null
+        "local_1": 3.51,
+        "empate_x": 3.24,
+        "visitante_2": 1.95
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -2059,9 +2059,9 @@
       "equipo_local": "Sporting Huelva F",
       "equipo_visitante": "Badalona F",
       "cuotas_1x2": {
-        "local_1": null,
-        "empate_x": null,
-        "visitante_2": null
+        "local_1": 6.25,
+        "empate_x": 4.33,
+        "visitante_2": 1.4
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -2131,9 +2131,9 @@
       "equipo_local": "Sabah FC Sub-19",
       "equipo_visitante": "Barcelona Sub-19",
       "cuotas_1x2": {
-        "local_1": null,
-        "empate_x": null,
-        "visitante_2": null
+        "local_1": 100,
+        "empate_x": 41,
+        "visitante_2": 1.01
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -2155,9 +2155,9 @@
       "equipo_local": "Shakhtar Sub-19",
       "equipo_visitante": "Fenerbahçe Sub-19",
       "cuotas_1x2": {
-        "local_1": 2.49,
-        "empate_x": 3.72,
-        "visitante_2": 2.29
+        "local_1": 2.34,
+        "empate_x": 3.6,
+        "visitante_2": 2.42
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -2179,9 +2179,9 @@
       "equipo_local": "Slavia Praga Sub-19",
       "equipo_visitante": "Villarreal Sub-19",
       "cuotas_1x2": {
-        "local_1": 2.3,
-        "empate_x": 3.88,
-        "visitante_2": 2.35
+        "local_1": 2.42,
+        "empate_x": 3.86,
+        "visitante_2": 2.24
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -2227,9 +2227,9 @@
       "equipo_local": "Club Brujas Sub-19",
       "equipo_visitante": "Liverpool Sub-19",
       "cuotas_1x2": {
-        "local_1": 1.9,
+        "local_1": 1.91,
         "empate_x": 3.84,
-        "visitante_2": 3.13
+        "visitante_2": 3.11
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -2251,9 +2251,9 @@
       "equipo_local": "Inter Sub-19",
       "equipo_visitante": "Stuttgart Sub-19",
       "cuotas_1x2": {
-        "local_1": 1.71,
-        "empate_x": 4.05,
-        "visitante_2": 3.67
+        "local_1": 1.66,
+        "empate_x": 4.1,
+        "visitante_2": 3.86
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -2275,9 +2275,9 @@
       "equipo_local": "Lille Sub-19",
       "equipo_visitante": "Bayern Múnich Sub-19",
       "cuotas_1x2": {
-        "local_1": 3.06,
-        "empate_x": 3.88,
-        "visitante_2": 1.92
+        "local_1": 2.91,
+        "empate_x": 3.84,
+        "visitante_2": 1.99
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -2299,9 +2299,9 @@
       "equipo_local": "Atlético de Madrid Sub-19",
       "equipo_visitante": "Viking Sub-19",
       "cuotas_1x2": {
-        "local_1": null,
-        "empate_x": null,
-        "visitante_2": null
+        "local_1": 1.12,
+        "empate_x": 6.8,
+        "visitante_2": 13.5
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -2323,9 +2323,9 @@
       "equipo_local": "PSG Sub-19",
       "equipo_visitante": "Roma Sub-19",
       "cuotas_1x2": {
-        "local_1": 1.76,
-        "empate_x": 4.1,
-        "visitante_2": 3.41
+        "local_1": 1.63,
+        "empate_x": 4.3,
+        "visitante_2": 3.87
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -2347,9 +2347,9 @@
       "equipo_local": "Legia Sub-19",
       "equipo_visitante": "Super Nova Sub-19",
       "cuotas_1x2": {
-        "local_1": 1.16,
-        "empate_x": 6.3,
-        "visitante_2": 11.6
+        "local_1": 1.1,
+        "empate_x": 7.1,
+        "visitante_2": 14
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -2371,9 +2371,9 @@
       "equipo_local": "Dinamo Zagreb Sub-19",
       "equipo_visitante": "Benfica Sub-19",
       "cuotas_1x2": {
-        "local_1": null,
-        "empate_x": null,
-        "visitante_2": null
+        "local_1": 5.39,
+        "empate_x": 5.25,
+        "visitante_2": 1.37
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -2395,9 +2395,9 @@
       "equipo_local": "Salzburgo Sub-19",
       "equipo_visitante": "Estrella Roja Sub-19",
       "cuotas_1x2": {
-        "local_1": null,
-        "empate_x": null,
-        "visitante_2": null
+        "local_1": 1.18,
+        "empate_x": 6.21,
+        "visitante_2": 9.6
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -2443,9 +2443,9 @@
       "equipo_local": "HJK Sub-19",
       "equipo_visitante": "Stabaek Sub-19",
       "cuotas_1x2": {
-        "local_1": 2.88,
-        "empate_x": 3.65,
-        "visitante_2": 2.06
+        "local_1": 3.01,
+        "empate_x": 3.56,
+        "visitante_2": 2.03
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -2491,9 +2491,9 @@
       "equipo_local": "Sheriff Sub-19",
       "equipo_visitante": "Maccabi Tel Aviv Sub-19",
       "cuotas_1x2": {
-        "local_1": null,
-        "empate_x": null,
-        "visitante_2": null
+        "local_1": 6.32,
+        "empate_x": 4.6,
+        "visitante_2": 1.37
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -2515,9 +2515,9 @@
       "equipo_local": "Flora Sub-19",
       "equipo_visitante": "St. Patricks Sub-19",
       "cuotas_1x2": {
-        "local_1": 1.29,
-        "empate_x": 4.8,
-        "visitante_2": 8.2
+        "local_1": 1.3,
+        "empate_x": 4.9,
+        "visitante_2": 7.55
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -2539,9 +2539,9 @@
       "equipo_local": "Hoffenheim Sub-19",
       "equipo_visitante": "PAOK Sub-19",
       "cuotas_1x2": {
-        "local_1": null,
-        "empate_x": null,
-        "visitante_2": null
+        "local_1": 1.26,
+        "empate_x": 5.45,
+        "visitante_2": 7.75
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -2587,9 +2587,9 @@
       "equipo_local": "Samgurali",
       "equipo_visitante": "Torpedo Kutaisi",
       "cuotas_1x2": {
-        "local_1": null,
-        "empate_x": null,
-        "visitante_2": null
+        "local_1": 2.62,
+        "empate_x": 3.4,
+        "visitante_2": 2.24
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -2827,9 +2827,9 @@
       "equipo_local": "Persiku Kudus",
       "equipo_visitante": "PSIM Yogyakarta",
       "cuotas_1x2": {
-        "local_1": 11.1,
-        "empate_x": 5.8,
-        "visitante_2": 1.18
+        "local_1": 16.5,
+        "empate_x": 8.6,
+        "visitante_2": 1.06
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -2875,9 +2875,9 @@
       "equipo_local": "Arema",
       "equipo_visitante": "Isenmulang Kalteng",
       "cuotas_1x2": {
-        "local_1": 1.27,
-        "empate_x": 4.95,
-        "visitante_2": 8.35
+        "local_1": 1.29,
+        "empate_x": 4.75,
+        "visitante_2": 8.1
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -2899,8 +2899,8 @@
       "equipo_local": "Bali United",
       "equipo_visitante": "Barito Putera",
       "cuotas_1x2": {
-        "local_1": 1.12,
-        "empate_x": 6.6,
+        "local_1": 1.13,
+        "empate_x": 6.55,
         "visitante_2": 12.5
       },
       "estadisticas_complementarias": {
@@ -2924,8 +2924,8 @@
       "equipo_visitante": "Persipura",
       "cuotas_1x2": {
         "local_1": 1.22,
-        "empate_x": 5.35,
-        "visitante_2": 9.75
+        "empate_x": 5.4,
+        "visitante_2": 9.55
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -2947,9 +2947,9 @@
       "equipo_local": "Sidoarjo",
       "equipo_visitante": "Persik Kediri",
       "cuotas_1x2": {
-        "local_1": 7.7,
-        "empate_x": 4.5,
-        "visitante_2": 1.32
+        "local_1": 7.9,
+        "empate_x": 4.55,
+        "visitante_2": 1.31
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -2995,9 +2995,9 @@
       "equipo_local": "Burnley",
       "equipo_visitante": "Birmingham",
       "cuotas_1x2": {
-        "local_1": 2.9,
-        "empate_x": 3.4,
-        "visitante_2": 2.35
+        "local_1": 2.7,
+        "empate_x": 3.3,
+        "visitante_2": 2.5
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -3020,8 +3020,8 @@
       "equipo_visitante": "Blackburn",
       "cuotas_1x2": {
         "local_1": 2.55,
-        "empate_x": 3.4,
-        "visitante_2": 2.63
+        "empate_x": 3.3,
+        "visitante_2": 2.7
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -3128,6 +3128,30 @@
       },
       "mid": "6PdAlfuh",
       "url": "http://m.flashscore.com.ve/partido/6PdAlfuh/?d=1"
+    },
+    {
+      "match_slug": "2026-11-25_fleetwood_vs_leeds-sub-21",
+      "deporte": "Fútbol",
+      "liga": "INGLATERRA: EFL Trophy",
+      "fecha_local": "2026-11-25",
+      "hora_local": "15:00",
+      "estado": "Programado",
+      "equipo_local": "Fleetwood",
+      "equipo_visitante": "Leeds Utd Sub-21",
+      "cuotas_1x2": {
+        "local_1": null,
+        "empate_x": null,
+        "visitante_2": null
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "fR49Kr8C",
+      "url": "http://m.flashscore.com.ve/partido/fR49Kr8C/?d=1"
     },
     {
       "match_slug": "2026-11-25_peterborough-sub-21_vs_hull-sub-21",
@@ -3379,8 +3403,8 @@
       "equipo_local": "Mito",
       "equipo_visitante": "Verdy",
       "cuotas_1x2": {
-        "local_1": 2.8,
-        "empate_x": 3.2,
+        "local_1": 3,
+        "empate_x": 3,
         "visitante_2": 2.4
       },
       "estadisticas_complementarias": {
@@ -3404,8 +3428,8 @@
       "equipo_visitante": "Shimizu",
       "cuotas_1x2": {
         "local_1": 2,
-        "empate_x": 3.3,
-        "visitante_2": 3.75
+        "empate_x": 3.25,
+        "visitante_2": 3.8
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -3451,9 +3475,9 @@
       "equipo_local": "V-Varen Nagasaki",
       "equipo_visitante": "Kawasaki",
       "cuotas_1x2": {
-        "local_1": 3.7,
+        "local_1": 3.9,
         "empate_x": 3.9,
-        "visitante_2": 1.81
+        "visitante_2": 1.76
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -3523,9 +3547,9 @@
       "equipo_local": "Vanraure",
       "equipo_visitante": "Albirex Niigata",
       "cuotas_1x2": {
-        "local_1": 2.75,
+        "local_1": 2.65,
         "empate_x": 3.3,
-        "visitante_2": 2.35
+        "visitante_2": 2.4
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -3547,7 +3571,7 @@
       "equipo_local": "Iwaki",
       "equipo_visitante": "Toyama",
       "cuotas_1x2": {
-        "local_1": 2.3,
+        "local_1": 2.33,
         "empate_x": 3.6,
         "visitante_2": 2.65
       },
@@ -3621,7 +3645,7 @@
       "cuotas_1x2": {
         "local_1": 1.86,
         "empate_x": 3.5,
-        "visitante_2": 3.8
+        "visitante_2": 3.75
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -3667,9 +3691,9 @@
       "equipo_local": "Tochigi City",
       "equipo_visitante": "Blaublitz",
       "cuotas_1x2": {
-        "local_1": 2.2,
+        "local_1": 2.25,
         "empate_x": 3.5,
-        "visitante_2": 2.87
+        "visitante_2": 2.75
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -3715,9 +3739,9 @@
       "equipo_local": "Yokohama FC",
       "equipo_visitante": "Vegalta Sendai",
       "cuotas_1x2": {
-        "local_1": 2.65,
+        "local_1": 2.55,
         "empate_x": 3.5,
-        "visitante_2": 2.35
+        "visitante_2": 2.45
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -4435,9 +4459,9 @@
       "equipo_local": "Monterrey",
       "equipo_visitante": "Club América",
       "cuotas_1x2": {
-        "local_1": 2.25,
+        "local_1": 2.2,
         "empate_x": 3.5,
-        "visitante_2": 2.87
+        "visitante_2": 3
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -4675,9 +4699,9 @@
       "equipo_local": "UNAN-Managua",
       "equipo_visitante": "Sport Sebaco",
       "cuotas_1x2": {
-        "local_1": null,
-        "empate_x": null,
-        "visitante_2": null
+        "local_1": 2.44,
+        "empate_x": 3.37,
+        "visitante_2": 2.8
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -4699,9 +4723,9 @@
       "equipo_local": "Managua",
       "equipo_visitante": "Walter Ferretti",
       "cuotas_1x2": {
-        "local_1": null,
-        "empate_x": null,
-        "visitante_2": null
+        "local_1": 1.45,
+        "empate_x": 4.4,
+        "visitante_2": 6.75
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -4723,9 +4747,9 @@
       "equipo_local": "Real Estelí",
       "equipo_visitante": "Rancho Santana",
       "cuotas_1x2": {
-        "local_1": null,
-        "empate_x": null,
-        "visitante_2": null
+        "local_1": 1.09,
+        "empate_x": 10.4,
+        "visitante_2": 21
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -5227,9 +5251,9 @@
       "equipo_local": "Akhmat Grozny",
       "equipo_visitante": "Krasnodar",
       "cuotas_1x2": {
-        "local_1": 2.32,
-        "empate_x": 3.68,
-        "visitante_2": 3
+        "local_1": 2.21,
+        "empate_x": 3.71,
+        "visitante_2": 3.18
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -5251,9 +5275,9 @@
       "equipo_local": "Dynamo Makhachkala",
       "equipo_visitante": "Baltika",
       "cuotas_1x2": {
-        "local_1": 4.14,
-        "empate_x": 3.43,
-        "visitante_2": 1.99
+        "local_1": 4.74,
+        "empate_x": 3.57,
+        "visitante_2": 1.84
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -5659,9 +5683,9 @@
       "equipo_local": "Kryvbas",
       "equipo_visitante": "FC Kharkiv",
       "cuotas_1x2": {
-        "local_1": 5.35,
-        "empate_x": 4.3,
-        "visitante_2": 1.59
+        "local_1": 5.75,
+        "empate_x": 4.42,
+        "visitante_2": 1.54
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -5995,9 +6019,9 @@
       "equipo_local": "Dep. Táchira",
       "equipo_visitante": "Carabobo",
       "cuotas_1x2": {
-        "local_1": null,
-        "empate_x": null,
-        "visitante_2": null
+        "local_1": 2,
+        "empate_x": 3.08,
+        "visitante_2": 3.55
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
