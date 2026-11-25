@@ -2,7 +2,7 @@
   "target_app": "BetStats Pro",
   "source": "apuestas_royal_agent",
   "sync_mode": "enrich_or_create",
-  "fecha_extraccion": "2026-11-24",
+  "fecha_extraccion": "2026-11-25",
   "zona_horaria": "America/Caracas",
   "total_cotizaciones": 15,
   "cotizaciones": [
@@ -16,47 +16,47 @@
       "equipo_visitante": "IK Sirius",
       "mercado": "1X2",
       "cuotas_1x2": {
-        "local_1": 4.2,
-        "empate_x": 4.1,
-        "visitante_2": 1.69
+        "local_1": 4.3,
+        "empate_x": 4.3,
+        "visitante_2": 1.65
       },
-      "capturado_en": "2026-11-24T21:55:39-04:00",
+      "capturado_en": "2026-11-25T08:07:50-04:00",
       "url": "https://app.apuestasroyal.com/",
       "nota": "Cuota 1X2 publicada por la API autenticada del lobby de Apuestas Royal"
     },
     {
-      "match_slug": "2026-11-25_sagamihara_vs_ehime",
+      "match_slug": "2026-11-26_al-sekka_vs_proxy",
       "deporte": "Fútbol",
-      "liga": "JAPÓN: J3 League",
-      "fecha_local": "2026-11-25",
-      "hora_local": "05:30",
-      "equipo_local": "Sagamihara",
-      "equipo_visitante": "Ehime",
+      "liga": "EGIPTO: Division 2 A",
+      "fecha_local": "2026-11-26",
+      "hora_local": "08:30",
+      "equipo_local": "Al Sekka",
+      "equipo_visitante": "Proxy",
       "mercado": "1X2",
       "cuotas_1x2": {
         "local_1": 2.02,
-        "empate_x": 3.45,
-        "visitante_2": 3.2
+        "empate_x": 2.94,
+        "visitante_2": 3.8
       },
-      "capturado_en": "2026-11-24T21:55:39-04:00",
+      "capturado_en": "2026-11-25T08:07:50-04:00",
       "url": "https://app.apuestasroyal.com/",
       "nota": "Cuota 1X2 publicada por la API autenticada del lobby de Apuestas Royal"
     },
     {
-      "match_slug": "2026-11-25_sagan-tosu_vs_oita",
+      "match_slug": "2026-11-25_australia-sub-17_vs_mozambique-sub-17",
       "deporte": "Fútbol",
-      "liga": "JAPÓN: J2 League",
+      "liga": "MUNDIAL: Mundial Sub-17",
       "fecha_local": "2026-11-25",
-      "hora_local": "06:00",
-      "equipo_local": "Sagan Tosu",
-      "equipo_visitante": "Oita",
+      "hora_local": "11:30",
+      "equipo_local": "Australia Sub-17",
+      "equipo_visitante": "Mozambique Sub-17",
       "mercado": "1X2",
       "cuotas_1x2": {
-        "local_1": 1.58,
-        "empate_x": 3.7,
-        "visitante_2": 5.4
+        "local_1": 2.52,
+        "empate_x": 3.3,
+        "visitante_2": 2.52
       },
-      "capturado_en": "2026-11-24T21:55:39-04:00",
+      "capturado_en": "2026-11-25T08:07:50-04:00",
       "url": "https://app.apuestasroyal.com/",
       "nota": "Cuota 1X2 publicada por la API autenticada del lobby de Apuestas Royal"
     },
@@ -74,7 +74,7 @@
         "empate_x": 3.7,
         "visitante_2": 3.65
       },
-      "capturado_en": "2026-11-24T21:55:39-04:00",
+      "capturado_en": "2026-11-25T08:07:50-04:00",
       "url": "https://app.apuestasroyal.com/",
       "nota": "Cuota 1X2 publicada por la API autenticada del lobby de Apuestas Royal"
     },
@@ -92,7 +92,7 @@
         "empate_x": 4,
         "visitante_2": 1.95
       },
-      "capturado_en": "2026-11-24T21:55:39-04:00",
+      "capturado_en": "2026-11-25T08:07:50-04:00",
       "url": "https://app.apuestasroyal.com/",
       "nota": "Cuota 1X2 publicada por la API autenticada del lobby de Apuestas Royal"
     },
@@ -110,7 +110,7 @@
         "empate_x": 3.55,
         "visitante_2": 2.3
       },
-      "capturado_en": "2026-11-24T21:55:39-04:00",
+      "capturado_en": "2026-11-25T08:07:50-04:00",
       "url": "https://app.apuestasroyal.com/",
       "nota": "Cuota 1X2 publicada por la API autenticada del lobby de Apuestas Royal"
     },
@@ -128,7 +128,7 @@
         "empate_x": 8.2,
         "visitante_2": 25
       },
-      "capturado_en": "2026-11-24T21:55:39-04:00",
+      "capturado_en": "2026-11-25T08:07:50-04:00",
       "url": "https://app.apuestasroyal.com/",
       "nota": "Cuota 1X2 publicada por la API autenticada del lobby de Apuestas Royal"
     },
@@ -142,11 +142,29 @@
       "equipo_visitante": "Rostov",
       "mercado": "1X2",
       "cuotas_1x2": {
-        "local_1": 2.16,
-        "empate_x": 3.5,
-        "visitante_2": 3.15
+        "local_1": 2.26,
+        "empate_x": 3.4,
+        "visitante_2": 3.05
       },
-      "capturado_en": "2026-11-24T21:55:39-04:00",
+      "capturado_en": "2026-11-25T08:07:50-04:00",
+      "url": "https://app.apuestasroyal.com/",
+      "nota": "Cuota 1X2 publicada por la API autenticada del lobby de Apuestas Royal"
+    },
+    {
+      "match_slug": "2026-11-26_south-melbourne_vs_oakleigh",
+      "deporte": "Fútbol",
+      "liga": "AUSTRALIA: Australian Championship - Playoffs",
+      "fecha_local": "2026-11-26",
+      "hora_local": "04:30",
+      "equipo_local": "South Melbourne",
+      "equipo_visitante": "Oakleigh",
+      "mercado": "1X2",
+      "cuotas_1x2": {
+        "local_1": 2,
+        "empate_x": 3.55,
+        "visitante_2": 3.3
+      },
+      "capturado_en": "2026-11-25T08:07:50-04:00",
       "url": "https://app.apuestasroyal.com/",
       "nota": "Cuota 1X2 publicada por la API autenticada del lobby de Apuestas Royal"
     },
@@ -164,7 +182,43 @@
         "empate_x": 3.5,
         "visitante_2": 3
       },
-      "capturado_en": "2026-11-24T21:55:39-04:00",
+      "capturado_en": "2026-11-25T08:07:50-04:00",
+      "url": "https://app.apuestasroyal.com/",
+      "nota": "Cuota 1X2 publicada por la API autenticada del lobby de Apuestas Royal"
+    },
+    {
+      "match_slug": "2026-11-25_santos-sub-20-f_vs_sport-recife-sub-20-f",
+      "deporte": "Fútbol",
+      "liga": "BRASIL: Copinha Femenina",
+      "fecha_local": "2026-11-25",
+      "hora_local": "17:00",
+      "equipo_local": "Santos Sub-20 F",
+      "equipo_visitante": "Sport Recife Sub-20 F",
+      "mercado": "1X2",
+      "cuotas_1x2": {
+        "local_1": 1.1,
+        "empate_x": 8.2,
+        "visitante_2": 15
+      },
+      "capturado_en": "2026-11-25T08:07:50-04:00",
+      "url": "https://app.apuestasroyal.com/",
+      "nota": "Cuota 1X2 publicada por la API autenticada del lobby de Apuestas Royal"
+    },
+    {
+      "match_slug": "2026-11-26_serbia-sub-19-f_vs_azerbaiyan-sub-19-f",
+      "deporte": "Fútbol",
+      "liga": "EUROPA: Europeo Femenino Sub-19 - Clasificación - Ronda 1 - Liga B",
+      "fecha_local": "2026-11-26",
+      "hora_local": "06:00",
+      "equipo_local": "Serbia Sub-19 F",
+      "equipo_visitante": "Azerbaiyán Sub-19 F",
+      "mercado": "1X2",
+      "cuotas_1x2": {
+        "local_1": 1.01,
+        "empate_x": 13,
+        "visitante_2": 30
+      },
+      "capturado_en": "2026-11-25T08:07:50-04:00",
       "url": "https://app.apuestasroyal.com/",
       "nota": "Cuota 1X2 publicada por la API autenticada del lobby de Apuestas Royal"
     },
@@ -182,7 +236,7 @@
         "empate_x": 3.45,
         "visitante_2": 3.6
       },
-      "capturado_en": "2026-11-24T21:55:39-04:00",
+      "capturado_en": "2026-11-25T08:07:50-04:00",
       "url": "https://app.apuestasroyal.com/",
       "nota": "Cuota 1X2 publicada por la API autenticada del lobby de Apuestas Royal"
     },
@@ -196,83 +250,29 @@
       "equipo_visitante": "Benfica Sub-19",
       "mercado": "1X2",
       "cuotas_1x2": {
-        "local_1": 9.4,
-        "empate_x": 5,
-        "visitante_2": 1.26
+        "local_1": 6.8,
+        "empate_x": 4.9,
+        "visitante_2": 1.34
       },
-      "capturado_en": "2026-11-24T21:55:39-04:00",
+      "capturado_en": "2026-11-25T08:07:50-04:00",
       "url": "https://app.apuestasroyal.com/",
       "nota": "Cuota 1X2 publicada por la API autenticada del lobby de Apuestas Royal"
     },
     {
-      "match_slug": "2026-12-03_tottenham-hotspur_vs_fulham",
+      "match_slug": "2026-11-26_nong-bua-pitchaya_vs_muang-loei",
       "deporte": "Fútbol",
-      "liga": "Premier League",
-      "fecha_local": "2026-12-03",
-      "hora_local": "16:00",
-      "equipo_local": "Tottenham Hotspur FC",
-      "equipo_visitante": "FC Fulham",
+      "liga": "TAILANDIA: Thai League 2",
+      "fecha_local": "2026-11-26",
+      "hora_local": "08:00",
+      "equipo_local": "Nong Bua Pitchaya",
+      "equipo_visitante": "Muang Loei",
       "mercado": "1X2",
       "cuotas_1x2": {
-        "local_1": 1.9,
-        "empate_x": 3.8,
-        "visitante_2": 4.1
+        "local_1": 1.62,
+        "empate_x": 3.85,
+        "visitante_2": 4.5
       },
-      "capturado_en": "2026-11-24T21:55:39-04:00",
-      "url": "https://app.apuestasroyal.com/",
-      "nota": "Cuota 1X2 publicada por la API autenticada del lobby de Apuestas Royal"
-    },
-    {
-      "match_slug": "2026-12-05_ssc-napoles_vs_us-lecce",
-      "deporte": "Fútbol",
-      "liga": "Serie A",
-      "fecha_local": "2026-12-05",
-      "hora_local": "15:45",
-      "equipo_local": "SSC Nápoles",
-      "equipo_visitante": "US Lecce",
-      "mercado": "1X2",
-      "cuotas_1x2": {
-        "local_1": 1.37,
-        "empate_x": 5.2,
-        "visitante_2": 8.8
-      },
-      "capturado_en": "2026-11-24T21:55:39-04:00",
-      "url": "https://app.apuestasroyal.com/",
-      "nota": "Cuota 1X2 publicada por la API autenticada del lobby de Apuestas Royal"
-    },
-    {
-      "match_slug": "2026-11-25_qatar-qat_vs_al-nasr-uae",
-      "deporte": "Fútbol",
-      "liga": "ASIA: Gulf Club Champions League",
-      "fecha_local": "2026-11-25",
-      "hora_local": "14:00",
-      "equipo_local": "Qatar SC (Qat)",
-      "equipo_visitante": "Al Nasr (Uae)",
-      "mercado": "1X2",
-      "cuotas_1x2": {
-        "local_1": 4.4,
-        "empate_x": 4.1,
-        "visitante_2": 1.62
-      },
-      "capturado_en": "2026-11-24T21:55:39-04:00",
-      "url": "https://app.apuestasroyal.com/",
-      "nota": "Cuota 1X2 publicada por la API autenticada del lobby de Apuestas Royal"
-    },
-    {
-      "match_slug": "2026-11-25_willand-rovers_vs_portland",
-      "deporte": "Fútbol",
-      "liga": "Southern League Division One Central",
-      "fecha_local": "2026-11-25",
-      "hora_local": "15:30",
-      "equipo_local": "Willand Rovers FC",
-      "equipo_visitante": "Portland United",
-      "mercado": "1X2",
-      "cuotas_1x2": {
-        "local_1": 2.12,
-        "empate_x": 3.6,
-        "visitante_2": 2.86
-      },
-      "capturado_en": "2026-11-24T21:55:39-04:00",
+      "capturado_en": "2026-11-25T08:07:50-04:00",
       "url": "https://app.apuestasroyal.com/",
       "nota": "Cuota 1X2 publicada por la API autenticada del lobby de Apuestas Royal"
     }
