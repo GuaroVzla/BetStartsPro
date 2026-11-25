@@ -1,8 +1,12 @@
 import { NextRequest, NextResponse } from "next/server";
-import { unstable_noStore as noStore } from "next/cache";
 import { getDashboardData } from "@/services/matchAggregator";
 import type { SportFilter } from "@/types/sports";
 
+// El route handler se calcula por request; el cache público se controla con
+// `Cache-Control` abajo. `unstable_noStore()` se eliminó porque el runtime de
+// Cloudflare lo lanza fuera del try y terminaba en 503 (error 1102) al usar
+// `?refresh=1`. Las fuentes ya tienen sus propios TTL para no saturar APIs.
+export const dynamic = "force-dynamic";
 export const revalidate = 3600;
 export const runtime = "nodejs";
 
@@ -16,7 +20,6 @@ const VALID_SPORTS = new Set<SportFilter>([
 
 export async function GET(request: NextRequest) {
   const forceRefresh = request.nextUrl.searchParams.get("refresh") === "1";
-  if (forceRefresh) noStore();
 
   const sportParam = request.nextUrl.searchParams.get("sport") ?? "all";
   if (!VALID_SPORTS.has(sportParam as SportFilter)) {
