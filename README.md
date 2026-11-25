@@ -13,7 +13,7 @@ La interfaz prioriza los partidos de hoy en `America/Caracas` que aún no han co
 - Ingesta validada de cuotas de Triunfobet y Apuestas Royal
 - Insights reales de The Analyst (xG, probabilidades y rachas)
 - Cloudflare Workers mediante `vinext`
-- Dataset mock automático sin claves
+- Sin datos simulados: si faltan fuentes/claves, la UI muestra estado vacío y advertencias
 
 ## Deportes y ligas
 
@@ -33,7 +33,7 @@ npm run dev
 
 Abre [http://localhost:3000](http://localhost:3000).
 
-Sin variables de entorno la aplicación arranca automáticamente en **modo demo** con partidos realistas de los cuatro deportes, cuotas de cinco casas, clasificaciones, estadísticas y bajas.
+Sin variables de entorno o sin datos de fuentes, la aplicación no usa datos simulados: mostrará advertencias y un estado vacío hasta configurar claves/fuentes reales.
 
 ### Depuración con F5 en VS Code
 
@@ -111,9 +111,33 @@ npm run ingest:triunfobet
 npm run ingest:royal
 ```
 
+## Modo solo fuentes gratuitas (sin claves)
+
+Configuración activa por defecto: el motor funciona sin ninguna clave premium.
+
+```env
+# .env.local mínimo
+INGEST_TOKEN=token_largo_y_aleatorio
+SITE_URL=http://localhost:3000
+```
+
+Con eso el dashboard se alimenta de:
+
+- **ESPN** (pública, sin key): fixtures, estado, sede y moneyline 1X2. Usa `soccer/all` para cubrir todas las competiciones de fútbol del día y feeds de NBA, Euroliga, NCAA, MLB, ligas invernales y NHL.
+- **OpenLigaDB** (pública, sin key): respaldo de Bundesliga.
+- **Ingestas locales** ya capturadas (Flashscore, The Analyst, TriunfoBet, Apuestas Royal) y ETL curado.
+
+Verificación:
+
+```bash
+npm run sources:check
+```
+
+Las fuentes premium se omiten solas si sus variables están vacías; no se inventan cuotas ni partidos. `THESPORTSDB_KEY` es opcional: sin una key propia la fuente se desactiva (la key pública `123` responde HTTP 429).
+
 ## Variables de entorno
 
-Crea `.env.local` a partir de `.env.example`:
+Crea `.env.local` a partir de `.env.example`. Para habilitar cobertura premium añade:
 
 ```env
 THE_ODDS_API_KEY=tu_clave_de_the_odds_api
@@ -131,7 +155,7 @@ SITE_URL=https://betstatspro.tu-cuenta.workers.dev
 - **The Odds API** se consulta con `regions=us,eu`, `markets=h2h` y `oddsFormat=decimal`. La interfaz muestra los créditos restantes de `x-requests-remaining`.
 - **SportMonks** se consulta en Football v3 con el header `Authorization`. Aporta partidos y cuotas 1X2 de Premier League y Bundesliga en el plan free; sus créditos se leen de `rate_limit.remaining` / `x-ratelimit-remaining`. Si API-Sports no entrega eventos, SportMonks puede servir como fuente de partidos para esas ligas.
 - **API-Sports** usa una única clave con el header `x-apisports-key` y enruta al host correspondiente: Football v3, Basketball v1, Baseball v1 y Hockey v1.
-- Si una clave falta, la cuota se agota o una llamada falla, la capa de agregación activa el fallback mock sin romper la interfaz.
+- Si una clave falta, la cuota se agota o una llamada falla, la capa de agregación devuelve advertencias y estado vacío (sin datos simulados).
 
 ## Caché y protección de cuotas
 
@@ -162,7 +186,7 @@ src/
 │  ├─ SportIcon.tsx
 │  └─ TeamBadge.tsx
 ├─ config/sports.ts
-├─ data/mockData.ts
+├─ data/ (datos generados; sin mock estático)
 ├─ lib/
 │  ├─ bettingAnalyzer.ts
 │  ├─ format.ts
@@ -232,7 +256,7 @@ El repositorio `https://github.com/GuaroVzla/BetStartsPro` incluye el workflow `
 
 Al terminar el workflow, abre **Workers y Pages → betstatspro → Dominios y rutas** en https://dash.cloudflare.com/ y encontrarás la URL `https://betstatspro.<tu-cuenta>.workers.dev`. El mismo enlace se imprime en el log del job de GitHub Actions.
 
-La app arranca en **modo demo** sin claves, así que no necesitas configurar nada más para verla. Si quieres cuotas reales, agrega `THE_ODDS_API_KEY`, `SPORTMONKS_KEY` y `APISPORTS_KEY` como **Variables y secretos del Worker** en Cloudflare (no como secretos de GitHub), porque se leen en tiempo de ejecución dentro del Worker.
+La app no usa datos simulados. Sin claves/fuentes configuradas mostrará estado vacío y advertencias; para datos reales agrega `THE_ODDS_API_KEY`, `SPORTMONKS_KEY` y `APISPORTS_KEY` como **Variables y secretos del Worker** en Cloudflare (no como secretos de GitHub), porque se leen en tiempo de ejecución dentro del Worker.
 
 ## Scripts
 
@@ -241,10 +265,25 @@ npm run dev
 npm run build
 npm run start
 npm run typecheck
+npm run test:dates
+npm run test:model
+npm run test:etl
+npm run sources:check
+npm run etl:validate -- scripts/flashscore-payload.json
+npm run etl:apis -- --dry-run
 npm run dev:vinext
 npm run build:vinext
 npm run deploy:vinext
 ```
+
+## ETL automatizado
+
+La estrategia de ingesta diaria (fuentes, esquema canónico, validación, idempotencia y workflows) está documentada en [`docs/ETL_PIPELINE.md`](docs/ETL_PIPELINE.md).
+
+- `refresh-apis.yml`: extrae APIs oficiales cada 30 min y puede ingestar payload curado en `/api/ingest/curated`.
+- `refresh-data.yml`: scrapers/seeds (Flashscore, Apuestas Royal, The Analyst) cada 3h.
+- `refresh-triunfobet.yml`: captura TriunfoBet en runner residencial.
+- `deploy-cloudflare.yml`: typecheck + tests + deploy.
 
 ## Notas de QA y producción
 
@@ -256,3 +295,4 @@ npm run deploy:vinext
 ## Aviso
 
 BetStartsPro es una herramienta informativa y estadística. No es una casa de apuestas ni garantiza resultados. Solo para mayores de 18 años. Juega con responsabilidad.
+

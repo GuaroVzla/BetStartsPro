@@ -24,10 +24,10 @@ jobs:
       BOOKMAKER_URL: ${{ secrets.BOOKMAKER_URL }}
     steps:
       - name: Descargar repositorio
-        uses: actions/checkout@v7
+        uses: actions/checkout@v4
 
       - name: Configurar Node.js
-        uses: actions/setup-node@v7
+        uses: actions/setup-node@v4
         with:
           node-version: 22
           cache: npm
@@ -54,6 +54,9 @@ jobs:
           node -e "const p=JSON.parse(require('fs').readFileSync('scripts/the-analyst-payload.json','utf8')); if(!p.registros || p.registros.length===0) process.exit(1)"
           cp scripts/the-analyst-payload.json scripts/the-analyst-seed.json
 
+      - name: Validar payloads generados
+        run: |
+          node scripts/validate-ingest-payload.mjs --allow-stale scripts/flashscore-payload.json scripts/flashscore-payload-manana.json scripts/apuestas-royal-quotes.json scripts/the-analyst-seed.json || echo "WARN: validacion con observaciones"
       - name: Inyectar datos en la web desplegada
         if: env.SITE_URL != ''
         run: |
@@ -76,3 +79,5 @@ jobs:
             git commit -m "chore(refresh): actualizar cuotas e insights $(date -u +%Y-%m-%dT%H:%MZ)"
             git push
           fi
+
+

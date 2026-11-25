@@ -103,18 +103,12 @@ export function Footer({ mode }: FooterProps) {
                 <span
                   className={cn(
                     "font-semibold",
-                    mode === "live"
-                      ? "text-blue-600 dark:text-blue-300"
-                      : mode === "hybrid"
-                        ? "text-sky-600 dark:text-sky-300"
-                        : "text-amber-600 dark:text-amber-300",
+                    mode === "hybrid"
+                      ? "text-sky-600 dark:text-sky-300"
+                      : "text-blue-600 dark:text-blue-300",
                   )}
                 >
-                  {mode === "live"
-                    ? "Datos en vivo"
-                    : mode === "hybrid"
-                      ? "Datos híbridos"
-                      : "Modo demo"}
+                  {mode === "hybrid" ? "Datos híbridos" : "Datos en vivo"}
                 </span>
               </li>
             </ul>

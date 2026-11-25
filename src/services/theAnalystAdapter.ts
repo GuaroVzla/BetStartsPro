@@ -146,10 +146,8 @@ function teamsScore(
     sameSide(insight.equipo_local, source.equipo_visitante) &&
     sameSide(insight.equipo_visitante, source.equipo_local);
   if (!direct && !swapped) return null;
-  // Un insight invertido no se acepta: con liga coincidente sumaría 11 y
-  // ganaba a un cruce directo con liga distinta. Penalizarlo por debajo del
-  // mínScore evita meter el 45% del blend con local/visitante al revés.
-  return { score: swapped ? 1 : 10, swapped };
+  // Penalizar invertidos, pero permitirlos solo con liga/slug fuerte.
+  return { score: swapped ? 4 : 10, swapped };
 }
 
 interface DetailedAnalystMatchScore {
@@ -185,7 +183,9 @@ function scoreTheAnalystMatchDetailed(
   const insightLeague = canonicalLeagueName(insight.liga);
   const sameLeague =
     !sourceLeague || !insightLeague ? 0 : sourceLeague === insightLeague ? 3 : -2;
-  return { score: teams.score + sameLeague, swapped: teams.swapped };
+  const score = teams.score + sameLeague;
+  if (teams.swapped && score < 7) return { score: 0, swapped: false };
+  return { score, swapped: teams.swapped };
 }
 
 /** Puntúa un cruce: 0 = no cruza, valores altos = coincidencia fiable. */

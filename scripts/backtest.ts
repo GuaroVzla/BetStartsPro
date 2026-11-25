@@ -7,14 +7,14 @@ import {
   fitDixonColesModel,
   lambdasForMatch,
   type HistoricalMatch,
-} from "../src/lib/dixonColes";
+} from "../src/lib/dixonColes.ts";
 import {
   buildEloSnapshots,
   decayRating,
   DEFAULT_ELO_CONFIG,
   eloProbabilities,
   type EloSnapshot,
-} from "../src/services/ratingService";
+} from "../src/services/ratingService.ts";
 
 type Outcome = "home" | "draw" | "away";
 

@@ -84,8 +84,9 @@ export function devigShin(
   for (const key of ["home", "draw", "away"] as const) {
     if (key === "draw" && !includeDraw) continue;
     const p = raw[key] / total;
-    const numerator = Math.sqrt(z * z + 4 * (1 - z) * p * p);
-    result[key] = (numerator - z) / (2 * (1 - z));
+    const numerator = Math.sqrt(clampedZ * clampedZ + 4 * (1 - clampedZ) * p * p);
+    const denominator = 2 * (1 - clampedZ);
+    result[key] = denominator > 0 ? (numerator - clampedZ) / denominator : p;
   }
   const sum = result.home + result.draw + result.away;
   return sum > 0

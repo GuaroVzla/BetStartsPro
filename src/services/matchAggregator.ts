@@ -1,5 +1,4 @@
 import { LEAGUES } from "@/config/sports";
-import { getMockDashboardData } from "@/data/mockData";
 import {
   fetchEventOdds,
   fetchLeagueEvents,
@@ -39,6 +38,9 @@ import { applyApuestasRoyalQuotes } from "@/services/apuestasRoyalAdapter";
 import { listQuotes as listApuestasRoyalQuotes } from "@/services/apuestasRoyalIngestStore";
 import { listInsights as listTheAnalystInsights } from "@/services/theAnalystStore";
 import { findTheAnalystMatch } from "@/services/theAnalystAdapter";
+import { curatedRecordsToMatches } from "@/services/curatedAdapter";
+import { listCuratedMatches } from "@/services/curatedIngestStore";
+import { fetchFreeSourceMatches } from "@/services/freeSourcesService";
 import type {
   AnalystInsight,
   BookmakerQuote,
@@ -183,12 +185,7 @@ function deriveStats(
     };
   }
 
-  const homePlayed = Math.ceil(row.played / 2);
-  const awayPlayed = row.played - homePlayed;
-  const homeWins = Math.round(row.wins * 0.58);
-  const awayWins = Math.max(0, row.wins - homeWins);
-  const homeDraws = Math.round(row.draws * 0.55);
-  const awayDraws = Math.max(0, row.draws - homeDraws);
+  // Splits casa/visita reales no disponibles en la tabla básica; se dejan en 0.
   const form = row.form.length > 0 ? row.form : [];
   const points = form.reduce((total, result) => {
     if (result === "W") return total + 3;
@@ -554,23 +551,28 @@ function finalizeDashboard(
   return { ...data, dayCounts: countMatchDays(data.matches, now) };
 }
 
-function mockWithConfigurationWarnings(): DashboardData {
-  const mock = getMockDashboardData();
+function missingKeysDashboard(now: Date = new Date()): DashboardData {
   const missing: string[] = [];
   if (!process.env.THE_ODDS_API_KEY) missing.push("THE_ODDS_API_KEY");
   if (!process.env.SPORTMONKS_KEY) missing.push("SPORTMONKS_KEY");
   if (!process.env.APISPORTS_KEY) missing.push("APISPORTS_KEY");
 
   return {
-    ...mock,
+    matches: [],
+    leagues: LEAGUES,
+    sportCounts: { soccer: 0, basketball: 0, baseball: 0, hockey: 0 },
+    dayCounts: { today: 0, tomorrow: 0 },
     meta: {
-      ...mock.meta,
-      generatedAt: new Date().toISOString(),
+      mode: "live",
+      generatedAt: now.toISOString(),
+      cacheTtlSeconds: CACHE_SECONDS,
+      oddsCreditsRemaining: null,
+      sportmonksRemaining: null,
+      apiSportsRemaining: null,
       warnings: [
         missing.length > 0
-          ? `Modo demo: falta configurar ${missing.join(" y ")} en .env.local.`
-          : "Modo demo activo.",
-        ...mock.meta.warnings,
+          ? `Claves API premium no configuradas: ${missing.join(", ")}. Se usarán fuentes gratuitas e ingestas disponibles.`
+          : "No hay datos reales disponibles.",
       ],
       sources: {
         oddsApi: Boolean(process.env.THE_ODDS_API_KEY),
@@ -588,12 +590,30 @@ async function getAggregatedDataUnfinalized(): Promise<
   const hasSportMonksKey = Boolean(process.env.SPORTMONKS_KEY);
   const hasApiSportsKey = Boolean(process.env.APISPORTS_KEY);
 
-  if (!hasOddsKey || !hasSportMonksKey || !hasApiSportsKey) {
-    return mockWithConfigurationWarnings();
+  const missing: string[] = [];
+  if (!hasOddsKey) missing.push("THE_ODDS_API_KEY");
+  if (!hasSportMonksKey) missing.push("SPORTMONKS_KEY");
+  if (!hasApiSportsKey) missing.push("APISPORTS_KEY");
+
+  if (!hasOddsKey && !hasSportMonksKey && !hasApiSportsKey) {
+    const base = missingKeysDashboard();
+    return {
+      matches: base.matches,
+      leagues: base.leagues,
+      sportCounts: base.sportCounts,
+      meta: base.meta,
+    };
   }
 
   try {
     const results = await Promise.all(LEAGUES.map((league) => buildLiveLeague(league)));
+    if (missing.length > 0) {
+      for (const result of results) {
+        result.warnings.push(
+          `Fuentes API no configuradas: ${missing.join(", ")}. Se usan las fuentes disponibles.`,
+        );
+      }
+    }
     const matches = results.flatMap((result) => result.matches);
     const warnings = uniqueWarnings(
       results.flatMap((result) => result.warnings),
@@ -605,11 +625,14 @@ async function getAggregatedDataUnfinalized(): Promise<
       results.map((result) => result.sportmonksCredits),
     );
     const apiCredits = minNullable(results.map((result) => result.apiCredits));
-    const sources = { oddsApi: true, sportmonks: true, apiSports: true };
+    const sources = {
+      oddsApi: hasOddsKey,
+      sportmonks: hasSportMonksKey,
+      apiSports: hasApiSportsKey,
+    };
 
     if (matches.length === 0) {
-      // Sin eventos reales no se cae al dataset simulado: las fuentes inyectadas
-      // (Flashscore, casas, The Analyst) pueden aportar partidos reales después.
+      // Sin eventos reales no se usa dataset simulado; se devuelven advertencias reales.
       return {
         matches: [],
         leagues: [],
@@ -664,9 +687,13 @@ async function getAggregatedDataUnfinalized(): Promise<
         sportmonksRemaining: null,
         apiSportsRemaining: null,
         warnings: uniqueWarnings([
-          `Fallo de las APIs: ${message}. No se muestran datos simulados.`,
+          `Fallo de las APIs premium: ${message}. No se muestran datos simulados.`,
         ]),
-        sources: { oddsApi: true, sportmonks: true, apiSports: true },
+        sources: {
+          oddsApi: Boolean(process.env.THE_ODDS_API_KEY),
+          sportmonks: Boolean(process.env.SPORTMONKS_KEY),
+          apiSports: Boolean(process.env.APISPORTS_KEY),
+        },
       },
     };
   }
@@ -835,26 +862,30 @@ function withTheAnalystInsights(matches: SportsMatch[]): TheAnalystResult {
  */
 export async function getDashboardData(): Promise<DashboardData> {
   const ahora = new Date();
-  const [base, flashscoreMatches] = await Promise.all([
+  const [base, flashscoreMatches, curatedMatches, freeSources] = await Promise.all([
     getAggregatedData(ahora),
     Promise.resolve(flashscoreRecordsToMatches(listFlashscoreRecords(), ahora)),
+    Promise.resolve(curatedRecordsToMatches(listCuratedMatches(), ahora)),
+    fetchFreeSourceMatches(ahora),
   ]);
   // Solo entran partidos de hoy o mañana que todavía no hayan comenzado. Los
   // que ya arrancaron o finalizaron se retiran automáticamente del feed.
   const esVigente = (match: SportsMatch) =>
-    // Los fixtures simulados sólo son válidos en el modo demo explícito.
-    (base.meta.mode === "mock" || !match.id.startsWith("mock-")) &&
     isWithinMatchWindow(match.commenceTime, ahora) &&
     resolveMatchStatus(match, ahora) === "scheduled";
 
   const baseUpcoming = base.matches.filter(esVigente);
   const upcomingFlashscore = flashscoreMatches.filter(esVigente);
+  const upcomingCurated = curatedMatches.filter(esVigente);
+  const upcomingFree = freeSources.matches.filter(esVigente);
   const excluded =
-    base.matches.length -
-    baseUpcoming.length +
-    (flashscoreMatches.length - upcomingFlashscore.length);
+    base.matches.length - baseUpcoming.length +
+    (flashscoreMatches.length - upcomingFlashscore.length) +
+    (curatedMatches.length - upcomingCurated.length) +
+    (freeSources.matches.length - upcomingFree.length);
 
-  if (upcomingFlashscore.length === 0) {
+  const ingested = [...upcomingCurated, ...upcomingFlashscore, ...upcomingFree];
+  if (ingested.length === 0) {
     const captured = withCapturedBookmakerQuotes(baseUpcoming, ahora);
     const analyst = withTheAnalystInsights(captured.matches);
     return finalizeDashboard({
@@ -867,8 +898,11 @@ export async function getDashboardData(): Promise<DashboardData> {
       meta: {
         ...base.meta,
         warnings: uniqueWarnings([
-          `${excluded} partidos ya comenzaron o están fuera de la ventana hoy/mañana y fueron excluidos.`,
+          ...(excluded > 0
+            ? [`${excluded} partidos ya comenzaron o están fuera de la ventana hoy/mañana y fueron excluidos.`]
+            : []),
           ...captured.warnings,
+          ...freeSources.warnings,
           ...(analyst.applied > 0
             ? [`${analyst.applied} análisis de The Analyst cruzados con partidos.`]
             : []),
@@ -876,6 +910,11 @@ export async function getDashboardData(): Promise<DashboardData> {
         ]),
         sources: {
           ...base.meta.sources,
+          flashscore: upcomingFlashscore.length > 0,
+          curated: upcomingCurated.length > 0,
+          espn: freeSources.sources.espn,
+          sportsdb: freeSources.sources.sportsdb,
+          openligadb: freeSources.sources.openligadb,
           theAnalyst: analyst.connected,
           triunfobet: captured.triunfobetConnected,
           apuestasRoyal: captured.royalConnected,
@@ -885,10 +924,10 @@ export async function getDashboardData(): Promise<DashboardData> {
   }
 
   const keyOf = (match: SportsMatch) =>
-    `${normalizeName(match.home.name)}|${normalizeName(match.away.name)}`;
+    `${dateInVET(match.commenceTime)}|${normalizeName(match.home.name)}|${normalizeName(match.away.name)}`;
   const seen = new Set<string>();
   const matches: SportsMatch[] = [];
-  for (const match of [...upcomingFlashscore, ...baseUpcoming]) {
+  for (const match of [...ingested, ...baseUpcoming]) {
     const key = keyOf(match);
     if (seen.has(key)) continue;
     seen.add(key);
@@ -911,8 +950,11 @@ export async function getDashboardData(): Promise<DashboardData> {
       mode: "live",
       generatedAt: new Date().toISOString(),
       warnings: uniqueWarnings([
-        `${upcomingFlashscore.length} partidos de Flashscore pendientes hoy/mañana (VET).`,
+        ...(upcomingCurated.length > 0 ? [`${upcomingCurated.length} partidos curados ETL pendientes hoy/mañana (VET).`] : []),
+        ...(upcomingFlashscore.length > 0 ? [`${upcomingFlashscore.length} partidos de Flashscore pendientes hoy/mañana (VET).`] : []),
+        ...(upcomingFree.length > 0 ? [`${upcomingFree.length} partidos de fuentes gratuitas (ESPN/TheSportsDB/OpenLigaDB) pendientes hoy/mañana (VET).`] : []),
         ...captured.warnings,
+        ...freeSources.warnings,
         ...(analyst.applied > 0
           ? [`${analyst.applied} análisis de The Analyst cruzados con partidos.`]
           : []),
@@ -920,7 +962,11 @@ export async function getDashboardData(): Promise<DashboardData> {
       ]),
       sources: {
         ...base.meta.sources,
-        flashscore: true,
+        flashscore: upcomingFlashscore.length > 0,
+        curated: upcomingCurated.length > 0,
+        espn: freeSources.sources.espn,
+        sportsdb: freeSources.sources.sportsdb,
+        openligadb: freeSources.sources.openligadb,
         theAnalyst: analyst.connected,
         triunfobet: captured.triunfobetConnected,
         apuestasRoyal: captured.royalConnected,

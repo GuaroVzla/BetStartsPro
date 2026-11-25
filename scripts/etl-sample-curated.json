@@ -1,0 +1,28 @@
+{
+  "target_app": "BetStats Pro",
+  "source": "etl_curated",
+  "sync_mode": "enrich_or_create",
+  "fecha_extraccion": "2026-11-24",
+  "zona_horaria": "America/Caracas",
+  "window_vet": { "start": "2026-11-24", "end": "2026-11-25" },
+  "total_matches": 1,
+  "matches": [
+    {
+      "match_key": "2026-11-24_soccer_epl_arsenal_vs_chelsea",
+      "match_slug": "2026-11-24_arsenal_vs_chelsea",
+      "sport": "soccer",
+      "league": { "id": "epl", "name": "Premier League" },
+      "commence_time_utc": "2026-11-24T23:00:00Z",
+      "date_local_vet": "2026-11-24",
+      "time_local_vet": "19:00",
+      "status": "scheduled",
+      "home": { "name": "Arsenal" },
+      "away": { "name": "Chelsea" },
+      "odds_1x2": [
+        { "bookmaker": "Bet365", "canonical": "bet365", "home": 1.95, "draw": 3.4, "away": 4.1, "updated_at": "2026-11-24T19:55:00Z", "source": "the-odds-api" }
+      ],
+      "provenance": "api"
+    }
+  ],
+  "advertencias": []
+}

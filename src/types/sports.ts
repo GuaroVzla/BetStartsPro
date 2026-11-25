@@ -6,18 +6,16 @@ export type FormResult = "W" | "D" | "L";
 
 export type InjuryImpact = "high" | "medium" | "low";
 
-export type DataMode = "mock" | "live" | "hybrid";
+export type DataMode = "live" | "hybrid";
 
 export type OddsSource =
   | "the-odds-api"
   | "sportmonks"
   | "api-sports"
+  | "espn"
   | "flashscore"
   | "triunfobet"
-  | "apuestas-royal"
-  | "betfair"
-  | "polymarket"
-  | "mock";
+  | "apuestas-royal";
 
 export type AnalyticsSource =
   | "the-analyst"
@@ -94,6 +92,8 @@ export interface LeagueInfo {
   oddsApiKey: string;
   apiSportsId: number;
   sportmonksLeagueId?: number;
+  /** Ruta ESPN usada por la fuente gratuita (p. ej. soccer/eng.1). */
+  espnPath?: string;
   name: string;
   shortName: string;
   country: string;
@@ -268,6 +268,10 @@ export interface ApiSourceStatus {
   theAnalyst?: boolean;
   triunfobet?: boolean;
   apuestasRoyal?: boolean;
+  curated?: boolean;
+  espn?: boolean;
+  sportsdb?: boolean;
+  openligadb?: boolean;
 }
 
 export interface DashboardMeta {

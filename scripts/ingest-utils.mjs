@@ -33,7 +33,7 @@ export function dateInVET(value = new Date()) {
   return `${p.year}-${p.month}-${p.day}`;
 }
 
-/** YYYY-MM-DD en VET para hoy (0) / mañana (1), sin usar UTC como proxy. */
+/** YYYY-MM-DD en VET para hoy (0) / maA�ana (1), sin usar UTC como proxy. */
 export function dateInVETOffset(days = 0, base = new Date()) {
   return dateInVET(new Date(base.getTime() + days * 86_400_000));
 }
@@ -82,7 +82,7 @@ export function cleanText(value) {
     .trim();
 }
 
-/** Decodifica entidades HTML mínimas presentes en el HTML del sitio móvil. */
+/** Decodifica entidades HTML mA-nimas presentes en el HTML del sitio mA3vil. */
 export function decodeHtml(value) {
   return String(value ?? "")
     .replace(/&nbsp;/g, " ")
@@ -93,15 +93,15 @@ export function decodeHtml(value) {
     .replace(/&#(\d+);/g, (_, dec) => String.fromCodePoint(Number(dec)))
     .replace(/&lt;/g, "<")
     .replace(/&gt;/g, ">")
-    .replace(/&aacute;/g, "á")
-    .replace(/&eacute;/g, "é")
-    .replace(/&iacute;/g, "í")
-    .replace(/&oacute;/g, "ó")
-    .replace(/&uacute;/g, "ú")
-    .replace(/&ntilde;/g, "ñ");
+    .replace(/&aacute;/g, "A�")
+    .replace(/&eacute;/g, "Ac")
+    .replace(/&iacute;/g, "A-")
+    .replace(/&oacute;/g, "A3")
+    .replace(/&uacute;/g, "A�")
+    .replace(/&ntilde;/g, "A�");
 }
 
-/** merged = último gana, pero conserva cuotas/estadísticas no nulas del anterior. */
+/** merged = A�ltimo gana, pero conserva cuotas/estadA-sticas no nulas del anterior. */
 export function dedupeBySlug(items) {
   const map = new Map();
   for (const item of items) {
@@ -138,6 +138,8 @@ export function parseCliArgs(argv = process.argv.slice(2)) {
   const flags = new Set();
   const values = {};
   const positional = [];
+  const booleanFlags = new Set(["dry-run", "diagnostico", "allow-stale", "write", "ingest", "help"]);
+  const valueFlags = new Set(["file", "url", "out", "report", "site", "kind", "wait"]);
   for (let index = 0; index < argv.length; index += 1) {
     const token = argv[index];
     if (!token.startsWith("--")) {
@@ -146,11 +148,12 @@ export function parseCliArgs(argv = process.argv.slice(2)) {
     }
     const [name, inline] = token.slice(2).split("=", 2);
     if (inline !== undefined) {
-      values[name] = inline;
+      if (booleanFlags.has(name)) flags.add(name);
+      else values[name] = inline;
       continue;
     }
     const next = argv[index + 1];
-    if (next !== undefined && !next.startsWith("--")) {
+    if (!booleanFlags.has(name) && next !== undefined && !next.startsWith("--")) {
       values[name] = next;
       index += 1;
     } else {
@@ -169,22 +172,25 @@ export async function writeJson(file, data) {
 export function validatePayloadShape(payload, kind) {
   const errors = [];
   if (payload?.target_app !== TARGET_APP) errors.push("target_app debe ser 'BetStats Pro'");
-  if (!DATE_RE.test(payload?.fecha_extraccion ?? "")) errors.push("fecha_extraccion inválida");
-  const key = kind === "flashscore" ? "partidos" : "cotizaciones";
-  if (!Array.isArray(payload?.[key]) || payload[key].length === 0) {
-    errors.push(`${key} debe ser un arreglo no vacío`);
+  if (!DATE_RE.test(payload?.fecha_extraccion ?? "")) errors.push("fecha_extraccion invA�lida");
+  const key = kind === "flashscore" ? "partidos" : kind === "quotes" ? "cotizaciones" : kind === "analyst" ? "registros" : "matches";
+  const items = payload?.[key];
+  if (!Array.isArray(items) || items.length === 0) {
+    errors.push(`${key} debe ser un arreglo no vacA-o`);
     return errors;
   }
-  payload[key].forEach((item, index) => {
-    if (!item?.equipo_local?.trim() || !item?.equipo_visitante?.trim()) {
-      errors.push(`${key}[${index}]: equipos vacíos`);
+  items.forEach((item, index) => {
+    const home = item?.equipo_local ?? item?.home?.name ?? item?.home;
+    const away = item?.equipo_visitante ?? item?.away?.name ?? item?.away;
+    if (!String(home ?? "").trim() || !String(away ?? "").trim()) {
+      errors.push(`${key}[${index}]: equipos vacA-os`);
     }
     if (item?.match_slug && !SLUG_RE.test(item.match_slug)) {
-      errors.push(`${key}[${index}]: match_slug inválido "${item.match_slug}"`);
+      errors.push(`${key}[${index}]: match_slug invA�lido "${item.match_slug}"`);
     }
   });
-  const slugs = payload[key].map((item) => item.match_slug).filter(Boolean);
-  if (slugs.length !== new Set(slugs).size) errors.push("hay match_slug duplicados");
+  const slugs = items.map((item) => item.match_slug ?? item.match_key).filter(Boolean);
+  if (slugs.length !== new Set(slugs).size) errors.push("hay match_slug/match_key duplicados");
   return errors;
 }
 

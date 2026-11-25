@@ -54,3 +54,8 @@ scripts/the-analyst-payload.json
 scripts/.royal-*
 .triunfobet-profile/
 .triunfobet-storage-state.json
+
+# ETL runtime artifacts
+data/raw/
+data/curated/
+data/etl-reports/

@@ -19,13 +19,13 @@ import type {
   DashboardMeta,
 } from "@/types/sports";
 
-import { getMockDashboardData } from "@/data/mockData";
 import { applyTriunfobetQuotes } from "@/services/triunfobetAdapter";
 import { listQuotes as listTriunfobetQuotes } from "@/services/triunfobetIngestStore";
 import { applyApuestasRoyalQuotes } from "@/services/apuestasRoyalAdapter";
 import { listQuotes as listApuestasRoyalQuotes } from "@/services/apuestasRoyalIngestStore";
 import { flashscoreRecordsToMatches } from "@/services/flashscoreAdapter";
-import { listMatches as listFlashscoreRecords } from "@/services/flashscoreIngestStore";
+import { listMatches as listFlashscoreRecords } from "./flashscoreIngestStore";
+import { listCuratedMatches } from "./curatedIngestStore";
 
 import { getDashboardData as getLiveDashboardData } from "@/services/matchAggregator";
 
@@ -58,7 +58,7 @@ function setToCache(data: DashboardData, stats: IngestionStats) {
 async function executeFullIngestion(): Promise<{ data: DashboardData; stats: IngestionStats; warnings: string[] }> {
   const warnings: string[] = [];
   const stats: IngestionStats = {
-    totalSources: 5,
+    totalSources: 8,
     enabledSources: [],
     appliedTriunfobet: 0,
     appliedRoyal: 0,
@@ -69,18 +69,47 @@ async function executeFullIngestion(): Promise<{ data: DashboardData; stats: Ing
 
   try {
     const liveData = await getLiveDashboardData();
-    stats.appliedTriunfobet = liveData.matches.length > 0 ? liveData.matches.length : 0;
-    stats.appliedRoyal = liveData.matches.length > 0 ? liveData.matches.length : 0;
-    stats.enabledSources.push("the-odds-api", "sportmonks", "api-sports", "triunfobet", "apuestas-royal", "flashscore");
+    stats.appliedTriunfobet = listTriunfobetQuotes().length;
+    stats.appliedRoyal = listApuestasRoyalQuotes().length;
+    stats.appliedFlashscore = listFlashscoreRecords().length;
+    stats.enabledSources.push(
+      ...(liveData.meta.sources.oddsApi ? ["the-odds-api"] : []),
+      ...(liveData.meta.sources.sportmonks ? ["sportmonks"] : []),
+      ...(liveData.meta.sources.apiSports ? ["api-sports"] : []),
+      ...(liveData.meta.sources.flashscore ? ["flashscore"] : []),
+      ...(liveData.meta.sources.triunfobet ? ["triunfobet"] : []),
+      ...(liveData.meta.sources.apuestasRoyal ? ["apuestas-royal"] : []),
+      ...(liveData.meta.sources.theAnalyst ? ["the-analyst"] : []),
+      ...(liveData.meta.sources.curated || listCuratedMatches().length > 0 ? ["curated-etl"] : []),
+      ...(liveData.meta.sources.espn ? ["espn"] : []),
+      ...(liveData.meta.sources.sportsdb ? ["thesportsdb"] : []),
+      ...(liveData.meta.sources.openligadb ? ["openligadb"] : []),
+    );
     return { data: liveData, stats, warnings: liveData.meta.warnings };
   } catch (error) {
     warnings.push(`Error en APIs live: ${error instanceof Error ? error.message : "Desconocido"}`);
   }
 
-  // Fallback: datos mock
-  const mockData = getMockDashboardData();
-  stats.enabledSources.push("mock", "triunfobet", "apuestas-royal");
-  return { data: mockData, stats, warnings };
+  return {
+    data: {
+      matches: [],
+      leagues: [],
+      sportCounts: { soccer: 0, basketball: 0, baseball: 0, hockey: 0 },
+      dayCounts: { today: 0, tomorrow: 0 },
+      meta: {
+        mode: "live",
+        generatedAt: new Date().toISOString(),
+        cacheTtlSeconds: CACHE_TTL_SECONDS,
+        oddsCreditsRemaining: null,
+        sportmonksRemaining: null,
+        apiSportsRemaining: null,
+        warnings,
+        sources: { oddsApi: false, sportmonks: false, apiSports: false },
+      },
+    },
+    stats,
+    warnings,
+  };
 }
 
 /**

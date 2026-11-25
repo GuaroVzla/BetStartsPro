@@ -567,25 +567,31 @@ function evaluateValueFavorite(
   };
 }
 
-function blendDescription(match: SportsMatch): OutcomeAnalysis["blend"] {
-  const hasGoals = hasGoalStatistics(match);
+function blendDescription(
+  match: SportsMatch,
+  baseModelWeight: number,
+  baseMarketWeight: number,
+): OutcomeAnalysis["blend"] {
   const hasAnalyst =
     match.analyst?.winProbabilities &&
     (match.analyst.confidence ?? 1) > 0 &&
     Object.values(match.analyst.winProbabilities).some((value) => value > 0);
-  const analystWeight = hasAnalyst ? (match.analyst?.confidence ?? 1) * 0.45 : 0;
-  const marketWeight = hasGoals ? VALUE_FAVORITE_MARKET_WEIGHT : 1;
-  const modelWeight = hasGoals ? 1 - marketWeight : 0;
+  const analystWeight = hasAnalyst ? clamp((match.analyst?.confidence ?? 1) * 0.45, 0, 0.8) : 0;
+  const nonAnalystWeight = 1 - analystWeight;
+  const totalBase = Math.max(0, baseModelWeight) + Math.max(0, baseMarketWeight);
+  const safeModel = totalBase > 0 ? Math.max(0, baseModelWeight) / totalBase : 0;
+  const safeMarket = totalBase > 0 ? Math.max(0, baseMarketWeight) / totalBase : 1;
+  const model = safeModel * nonAnalystWeight;
+  const market = safeMarket * nonAnalystWeight;
+  const parts: string[] = [];
+  if (model > 0.001) parts.push(`modelo ${(model * 100).toFixed(0)}%`);
+  if (market > 0.001) parts.push(`mercado ${(market * 100).toFixed(0)}%`);
+  if (analystWeight > 0.001) parts.push(`analista ${(analystWeight * 100).toFixed(0)}%`);
   return {
-    model: hasGoals ? modelWeight * (1 - analystWeight) : 0,
-    market: hasGoals ? marketWeight * (1 - analystWeight) : 1 - analystWeight,
+    model,
+    market,
     analyst: analystWeight,
-    weights: hasGoals
-      ? `modelo ${(modelWeight * 100).toFixed(0)}% · mercado ${(marketWeight * 100).toFixed(0)}%` +
-        (analystWeight > 0 ? ` · analista ${(analystWeight * 100).toFixed(0)}%` : "")
-      : analystWeight > 0
-        ? `mercado ${((1 - analystWeight) * 100).toFixed(0)}% · analista ${(analystWeight * 100).toFixed(0)}%`
-        : "mercado 100%",
+    weights: parts.length > 0 ? parts.join(" · ") : "mercado 100%",
   };
 }
 
@@ -593,6 +599,7 @@ function buildOutcomeAnalyses(
   match: SportsMatch,
   probabilities: Record<OutcomeKey, number>,
   options: Required<AnalyzerOptions>,
+  blend: OutcomeAnalysis["blend"],
 ): OutcomeAnalysis[] {
   const includeDraw = hasDrawMarket(match);
   const impliedDevigByOutcome = devigProportional(
@@ -603,7 +610,7 @@ function buildOutcomeAnalyses(
     },
     includeDraw,
   );
-  const blend = blendDescription(match);
+  // blend provided by analyzeMatch
 
   return availableOutcomes(match).map((outcome) => {
     const probability = probabilities[outcome];
@@ -707,13 +714,18 @@ export function analyzeMatch(
   const historicalModel = modelProbabilities(match);
   const consensus = marketProbabilities(match, true);
   let confidence = 0.2;
+  let modelBlendWeight = hasGoals ? 1 - VALUE_FAVORITE_MARKET_WEIGHT : 0;
+  let marketBlendWeight = hasGoals ? VALUE_FAVORITE_MARKET_WEIGHT : 1;
 
   if (historicalModel) {
     probabilities = historicalModel.probabilities;
     confidence = historicalModel.confidence;
+    modelBlendWeight = 1;
+    marketBlendWeight = 0;
     const market = marketProbabilities(match);
     if (market) {
-      const marketWeight = 0.25;
+      // Historical model is currently weaker than market baseline; keep it as a small signal.
+      const marketWeight = 0.85;
       probabilities = normalizeProbabilities(
         {
           home: probabilities.home * (1 - marketWeight) + market.home * marketWeight,
@@ -722,10 +734,15 @@ export function analyzeMatch(
         },
         hasDraw,
       );
+      modelBlendWeight = 1 - marketWeight;
+      marketBlendWeight = marketWeight;
+      confidence = Math.max(confidence, 0.45);
     }
   } else if (!hasGoals) {
     if (consensus) probabilities = consensus;
     confidence = 0.15;
+    modelBlendWeight = 0;
+    marketBlendWeight = 1;
   } else {
     const market = marketProbabilities(match);
     if (market) {
@@ -739,8 +756,12 @@ export function analyzeMatch(
         hasDraw,
       );
       confidence = 0.55;
+      modelBlendWeight = 1 - marketWeight;
+      marketBlendWeight = marketWeight;
     } else {
       confidence = 0.45;
+      modelBlendWeight = 1;
+      marketBlendWeight = 0;
     }
   }
 
@@ -758,7 +779,7 @@ export function analyzeMatch(
         home:
           probabilities.home * (1 - weight) + analystProbabilities.home * weight,
         draw:
-          probabilities.draw * (1 - weight) + analystProbabilities.draw * weight,
+          probabilities.draw * (1 - weight) + (analystProbabilities.draw ?? 0) * weight,
         away:
           probabilities.away * (1 - weight) + analystProbabilities.away * weight,
       },
@@ -766,8 +787,9 @@ export function analyzeMatch(
     );
     confidence = Math.max(confidence, 0.35 + weight * 0.6);
   }
+  const blend = blendDescription(match, modelBlendWeight, marketBlendWeight);
 
-  const picks = buildOutcomeAnalyses(match, probabilities, resolvedOptions);
+  const picks = buildOutcomeAnalyses(match, probabilities, resolvedOptions, blend);
   const topPick = [...picks].sort(
     (a, b) =>
       b.expectedValue - a.expectedValue ||
@@ -839,7 +861,7 @@ export function buildValueFavoritePicks(
   const resolvedOptions: Required<AnalyzerOptions> = {
     minProbability: options.minProbability ?? DEFAULT_MIN_PROBABILITY,
     minOdds: options.minOdds ?? DEFAULT_MIN_ODDS,
-    minEdge: options.minEdge ?? 0,
+    minEdge: options.minEdge ?? DEFAULT_MIN_EDGE,
     now: options.now ?? new Date(),
     day: options.day ?? day,
     analystWeight: options.analystWeight ?? 0.45,
@@ -862,7 +884,8 @@ export function buildValueFavoritePicks(
             pick.bestOdds !== null &&
             pick.bestOdds >= VALUE_FAVORITE_MIN_ODDS &&
             pick.valueFavorite?.qualifies === true &&
-            pick.expectedValue > 0,
+            pick.expectedValue > 0 &&
+            pick.edge >= DEFAULT_MIN_EDGE,
         )
         .map((pick) => ({
           id: `${match.id}-${pick.outcome}`,

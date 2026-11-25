@@ -1,16 +1,203 @@
 {
-  "generatedAt": "2026-11-24T00:00:00.000Z",
+  "generatedAt": "2026-11-24T23:33:35.587Z",
   "dixonColes": {
     "params": {
       "rho": -0.13,
       "xiPerDay": 0.0018,
-      "homeAdvantage": 0.16
+      "homeAdvantage": 0.34318915433315095
     },
-    "leagueAverage": 1.4,
-    "attack": {},
-    "defense": {}
+    "leagueAverage": 0.8285540327761886,
+    "attack": {
+      "Burnley": 0.8744653589843168,
+      "Man City": 1.2790616593771262,
+      "Arsenal": 1.2439756296452813,
+      "Nott'm Forest": 1.0140510700267957,
+      "Bournemouth": 1.0378084242224943,
+      "West Ham": 0.9689633331986136,
+      "Brighton": 1.0672947688171939,
+      "Luton": 0.9748714768112657,
+      "Everton": 0.9144465227740836,
+      "Fulham": 0.9959864670513333,
+      "Newcastle": 1.1871161787786786,
+      "Aston Villa": 1.0957505900717923,
+      "Sheffield United": 0.8054210036198406,
+      "Crystal Palace": 1.0175475820385282,
+      "Brentford": 1.0756064189487533,
+      "Tottenham": 1.095707518876955,
+      "Chelsea": 1.1417269736187183,
+      "Liverpool": 1.3174689036605631,
+      "Man United": 0.951816903390589,
+      "Wolves": 0.9856608648620461,
+      "Ipswich": 0.8113447547199155,
+      "Southampton": 0.6795395965591313,
+      "Leicester": 0.7608372643016788
+    },
+    "defense": {
+      "Burnley": 1.9962531426733992,
+      "Man City": 0.3012477917673874,
+      "Arsenal": 0.3012477917673874,
+      "Nott'm Forest": 0.8526163867520198,
+      "Bournemouth": 0.7705679253602588,
+      "West Ham": 1.7114965911976756,
+      "Brighton": 1.3604981712468356,
+      "Luton": 1.9962531426733992,
+      "Everton": 0.3012477917673874,
+      "Fulham": 1.0776048093794581,
+      "Newcastle": 0.7735166588537637,
+      "Aston Villa": 0.8716410600036598,
+      "Sheffield United": 1.9962531426733992,
+      "Crystal Palace": 0.8110975466617436,
+      "Brentford": 1.2503121045461856,
+      "Tottenham": 1.712091476305965,
+      "Chelsea": 0.577803392754659,
+      "Liverpool": 0.3012477917673874,
+      "Man United": 1.002477251335034,
+      "Wolves": 1.7164543429499117,
+      "Ipswich": 1.9962531426733992,
+      "Southampton": 1.9962531426733992,
+      "Leicester": 1.9962531426733992
+    }
   },
-  "elo": {},
+  "elo": {
+    "Burnley": {
+      "rating": 1388.8318574781895,
+      "n": 38,
+      "lastMatchAt": "2024-05-19T00:00:00.000Z",
+      "leagueId": "EPL"
+    },
+    "Man City": {
+      "rating": 1638.98230793094,
+      "n": 76,
+      "lastMatchAt": "2025-05-25T00:00:00.000Z",
+      "leagueId": "EPL"
+    },
+    "Arsenal": {
+      "rating": 1648.8345246394695,
+      "n": 76,
+      "lastMatchAt": "2025-05-25T00:00:00.000Z",
+      "leagueId": "EPL"
+    },
+    "Nott'm Forest": {
+      "rating": 1525.4791443621868,
+      "n": 76,
+      "lastMatchAt": "2025-05-25T00:00:00.000Z",
+      "leagueId": "EPL"
+    },
+    "Bournemouth": {
+      "rating": 1529.055004893379,
+      "n": 76,
+      "lastMatchAt": "2025-05-25T00:00:00.000Z",
+      "leagueId": "EPL"
+    },
+    "West Ham": {
+      "rating": 1466.034430318219,
+      "n": 76,
+      "lastMatchAt": "2025-05-25T00:00:00.000Z",
+      "leagueId": "EPL"
+    },
+    "Brighton": {
+      "rating": 1539.3977839086651,
+      "n": 76,
+      "lastMatchAt": "2025-05-25T00:00:00.000Z",
+      "leagueId": "EPL"
+    },
+    "Luton": {
+      "rating": 1391.9742837344763,
+      "n": 38,
+      "lastMatchAt": "2024-05-19T00:00:00.000Z",
+      "leagueId": "EPL"
+    },
+    "Everton": {
+      "rating": 1508.6892888322177,
+      "n": 76,
+      "lastMatchAt": "2025-05-25T00:00:00.000Z",
+      "leagueId": "EPL"
+    },
+    "Fulham": {
+      "rating": 1494.4459645056547,
+      "n": 76,
+      "lastMatchAt": "2025-05-25T00:00:00.000Z",
+      "leagueId": "EPL"
+    },
+    "Newcastle": {
+      "rating": 1566.6347552920429,
+      "n": 76,
+      "lastMatchAt": "2025-05-25T00:00:00.000Z",
+      "leagueId": "EPL"
+    },
+    "Aston Villa": {
+      "rating": 1564.5384857721358,
+      "n": 76,
+      "lastMatchAt": "2025-05-25T00:00:00.000Z",
+      "leagueId": "EPL"
+    },
+    "Sheffield United": {
+      "rating": 1324.7300946301038,
+      "n": 38,
+      "lastMatchAt": "2024-05-19T00:00:00.000Z",
+      "leagueId": "EPL"
+    },
+    "Crystal Palace": {
+      "rating": 1534.168038243554,
+      "n": 76,
+      "lastMatchAt": "2025-05-25T00:00:00.000Z",
+      "leagueId": "EPL"
+    },
+    "Brentford": {
+      "rating": 1521.0340919166879,
+      "n": 76,
+      "lastMatchAt": "2025-05-25T00:00:00.000Z",
+      "leagueId": "EPL"
+    },
+    "Tottenham": {
+      "rating": 1461.733340889528,
+      "n": 76,
+      "lastMatchAt": "2025-05-25T00:00:00.000Z",
+      "leagueId": "EPL"
+    },
+    "Chelsea": {
+      "rating": 1582.6101616116832,
+      "n": 76,
+      "lastMatchAt": "2025-05-25T00:00:00.000Z",
+      "leagueId": "EPL"
+    },
+    "Liverpool": {
+      "rating": 1653.7509455932675,
+      "n": 76,
+      "lastMatchAt": "2025-05-25T00:00:00.000Z",
+      "leagueId": "EPL"
+    },
+    "Man United": {
+      "rating": 1455.500499845953,
+      "n": 76,
+      "lastMatchAt": "2025-05-25T00:00:00.000Z",
+      "leagueId": "EPL"
+    },
+    "Wolves": {
+      "rating": 1464.6562285030059,
+      "n": 76,
+      "lastMatchAt": "2025-05-25T00:00:00.000Z",
+      "leagueId": "EPL"
+    },
+    "Ipswich": {
+      "rating": 1366.0672404472052,
+      "n": 38,
+      "lastMatchAt": "2025-05-25T00:00:00.000Z",
+      "leagueId": "EPL"
+    },
+    "Southampton": {
+      "rating": 1332.553470711202,
+      "n": 38,
+      "lastMatchAt": "2025-05-25T00:00:00.000Z",
+      "leagueId": "EPL"
+    },
+    "Leicester": {
+      "rating": 1371.94557540494,
+      "n": 38,
+      "lastMatchAt": "2025-05-25T00:00:00.000Z",
+      "leagueId": "EPL"
+    }
+  },
   "eloConfig": {
     "k": 20,
     "homeAdvantage": 80,

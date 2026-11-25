@@ -1,10 +1,8 @@
 import { analyzeMatch } from "@/lib/bettingAnalyzer";
-import { devigProportional } from "@/lib/marketSummary";
 import { isMatchDayVET, resolveMatchStatus } from "@/lib/format";
 import type {
   AnalystInsight,
   MatchDay,
-  OddsSource,
   OutcomeKey,
   SportsMatch,
 } from "@/types/sports";

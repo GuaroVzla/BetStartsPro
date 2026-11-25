@@ -1,7 +1,7 @@
 /**
  * Almacén en memoria para los registros inyectados por el agente de Flashscore.
  * Se mantiene separado del agregador de APIs y sobrevive entre peticiones
- * dentro del mismo proceso de Next.js (útil para el modo demo local).
+ * dentro del mismo proceso de Next.js (útil para desarrollo local).
  */
 
 export type FlashscoreOdds = {

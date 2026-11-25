@@ -14,9 +14,7 @@ interface NavbarProps {
 }
 
 function modeLabel(mode: DashboardMeta["mode"]): string {
-  if (mode === "live") return "Live";
-  if (mode === "hybrid") return "Híbrido";
-  return "Demo";
+  return mode === "hybrid" ? "Híbrido" : "Live";
 }
 
 /** Barra global: marca, estado de las fuentes, tema y recarga. Los filtros
@@ -53,7 +51,14 @@ export function Navbar({ meta, todayCount, onRefresh, refreshing }: NavbarProps)
     }
   }
 
-  const isDemo = meta.mode === "mock";
+  const hasLiveSources =
+    meta.sources.oddsApi ||
+    meta.sources.sportmonks ||
+    meta.sources.apiSports ||
+    meta.sources.espn ||
+    meta.sources.sportsdb ||
+    meta.sources.curated ||
+    meta.sources.flashscore;
 
   return (
     <header className="sticky top-0 z-40 border-b border-slate-200/80 bg-white/85 backdrop-blur-2xl supports-[backdrop-filter]:bg-white/75 dark:border-white/[0.06] dark:bg-ink-950/85 dark:supports-[backdrop-filter]:bg-ink-950/75">
@@ -89,11 +94,7 @@ export function Navbar({ meta, todayCount, onRefresh, refreshing }: NavbarProps)
           <span
             className={cn(
               "h-1.5 w-1.5 rounded-full",
-              isDemo
-                ? "bg-amber-400"
-                : meta.mode === "hybrid"
-                  ? "bg-sky-400"
-                  : "bg-emerald-400 animate-pulse-soft",
+              meta.mode === "hybrid" ? "bg-sky-400" : "bg-emerald-400 animate-pulse-soft",
             )}
           />
           {modeLabel(meta.mode)} · {formatInteger(todayCount)} hoy
@@ -115,34 +116,58 @@ export function Navbar({ meta, todayCount, onRefresh, refreshing }: NavbarProps)
                   </span>
                 </div>
                 <p className="mt-2 text-xs leading-relaxed text-slate-500 dark:text-slate-400">
-                  {isDemo
-                    ? "Datos simulados. Configura las claves de las APIs para usar datos reales."
-                    : "Datos de eventos y cuotas de las fuentes conectadas."}
+                  {hasLiveSources
+                    ? "Datos de eventos y cuotas de las fuentes conectadas."
+                    : "Faltan claves/fuentes configuradas. Configura las APIs para obtener datos reales."}
                 </p>
               </div>
               <dl className="divide-y divide-slate-100 px-3 dark:divide-white/[0.06]">
                   <div className="flex items-center justify-between gap-3 py-2.5">
                   <dt className="text-xs text-slate-500 dark:text-slate-400">The Odds API</dt>
                   <dd className="tabular-nums text-xs font-semibold text-slate-900 dark:text-white">
-                    {isDemo ? "N/D" : formatCredits(meta.oddsCreditsRemaining, false)}
+                    {formatCredits(meta.oddsCreditsRemaining)}
                   </dd>
                 </div>
                 <div className="flex items-center justify-between gap-3 py-2.5">
                   <dt className="text-xs text-slate-500 dark:text-slate-400">SportMonks</dt>
                   <dd className="tabular-nums text-xs font-semibold text-slate-900 dark:text-white">
-                    {isDemo ? "N/D" : formatCredits(meta.sportmonksRemaining, false)}
+                    {formatCredits(meta.sportmonksRemaining)}
                   </dd>
                 </div>
                 <div className="flex items-center justify-between gap-3 py-2.5">
                   <dt className="text-xs text-slate-500 dark:text-slate-400">API-Sports</dt>
                   <dd className="tabular-nums text-xs font-semibold text-slate-900 dark:text-white">
-                    {isDemo ? "N/D" : formatCredits(meta.apiSportsRemaining, false)}
+                    {formatCredits(meta.apiSportsRemaining)}
+                  </dd>
+                </div>
+                <div className="flex items-center justify-between gap-3 py-2.5">
+                  <dt className="text-xs text-slate-500 dark:text-slate-400">ESPN (gratis)</dt>
+                  <dd className="text-xs font-semibold text-slate-900 dark:text-white">
+                    {meta.sources.espn ? "Conectado" : "Sin datos hoy"}
+                  </dd>
+                </div>
+                <div className="flex items-center justify-between gap-3 py-2.5">
+                  <dt className="text-xs text-slate-500 dark:text-slate-400">TheSportsDB (gratis)</dt>
+                  <dd className="text-xs font-semibold text-slate-900 dark:text-white">
+                    {meta.sources.sportsdb ? "Conectado" : "Sin key/datos"}
+                  </dd>
+                </div>
+                <div className="flex items-center justify-between gap-3 py-2.5">
+                  <dt className="text-xs text-slate-500 dark:text-slate-400">OpenLigaDB (gratis)</dt>
+                  <dd className="text-xs font-semibold text-slate-900 dark:text-white">
+                    {meta.sources.openligadb ? "Conectado" : "Sin datos hoy"}
                   </dd>
                 </div>
                 <div className="flex items-center justify-between gap-3 py-2.5">
                   <dt className="text-xs text-slate-500 dark:text-slate-400">Flashscore</dt>
                   <dd className="text-xs font-semibold text-slate-900 dark:text-white">
                     {meta.sources.flashscore ? "Conectado" : "Sin captura"}
+                  </dd>
+                </div>
+                <div className="flex items-center justify-between gap-3 py-2.5">
+                  <dt className="text-xs text-slate-500 dark:text-slate-400">ETL curado</dt>
+                  <dd className="text-xs font-semibold text-slate-900 dark:text-white">
+                    {meta.sources.curated ? "Conectado" : "Sin captura"}
                   </dd>
                 </div>
                 <div className="flex items-center justify-between gap-3 py-2.5">

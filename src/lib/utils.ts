@@ -62,10 +62,11 @@ export function namesLikelyMatch(first: string, second: string): boolean {
   if (common === aSet.size && common === bSet.size) return true;
   // Un nombre explícitamente más corto sólo vale si es suficientemente largo
   // y no es un subtoken de un rival con sufijo (B, U23, Femenino...).
-  const shorterStr = aTokens.length <= bTokens.length ? a : b;
-  const longerStr = aTokens.length <= bTokens.length ? b : a;
-  const shorterTokens = aTokens.length <= bTokens.length ? aTokens : bTokens;
-  const longerTokens = aTokens.length <= bTokens.length ? bTokens : aTokens;
+  const shorterFirst = aTokens.length <= bTokens.length;
+  const shorterStr = shorterFirst ? a : b;
+  const longerStr = shorterFirst ? b : a;
+  const shorterTokens = shorterFirst ? aTokens : bTokens;
+  const longerTokens = shorterFirst ? bTokens : aTokens;
   if (shorterStr.length >= 6 && longerStr.startsWith(`${shorterStr} `) && longerTokens.length - shorterTokens.length <= 1) {
     return true;
   }

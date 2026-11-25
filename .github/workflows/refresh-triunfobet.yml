@@ -27,10 +27,10 @@ jobs:
       TRIUNFOBET_STORAGE_STATE: ${{ secrets.TRIUNFOBET_STORAGE_STATE }}
     steps:
       - name: Descargar repositorio
-        uses: actions/checkout@v7
+        uses: actions/checkout@v4
 
       - name: Configurar Node.js
-        uses: actions/setup-node@v7
+        uses: actions/setup-node@v4
         with:
           node-version: 22
           # Sin cache: el post-step de tar.exe falla en este runner Windows.
@@ -94,3 +94,4 @@ jobs:
           }
           Write-Host "ERROR: no se pudo publicar la semilla de Triunfobet."
           exit 1
+

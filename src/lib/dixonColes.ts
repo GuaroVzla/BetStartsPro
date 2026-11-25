@@ -263,15 +263,30 @@ export function fitDixonColesModel(
     defense.set(team, 1);
   }
 
-  let fitGamma = Math.log1p(resolved.homeAdvantage);
-  let mu = Math.log(DEFAULT_LEAGUE_AVERAGE);
+  let totalWeight = 0;
+  let weightedGoals = 0;
+  let weightedHomeGoals = 0;
+  let weightedAwayGoals = 0;
+  for (const row of rows) {
+    totalWeight += row.weight;
+    weightedGoals += row.weight * (row.homeGoals + row.awayGoals);
+    weightedHomeGoals += row.weight * row.homeGoals;
+    weightedAwayGoals += row.weight * row.awayGoals;
+  }
+  const observedPerTeam = totalWeight > 0 ? weightedGoals / (2 * totalWeight) : DEFAULT_LEAGUE_AVERAGE;
+  const observedHomePerTeam = totalWeight > 0 ? weightedHomeGoals / totalWeight : observedPerTeam;
+  const observedAwayPerTeam = totalWeight > 0 ? weightedAwayGoals / totalWeight : observedPerTeam;
+
+  let mu = Math.log(clamp(observedPerTeam, 0.8, 2.2));
+  let fitGamma = Math.log(
+    clamp(observedHomePerTeam / Math.max(EPSILON, observedAwayPerTeam), 0.75, 1.6),
+  );
 
   for (let iteration = 0; iteration < FIT_ITERATIONS; iteration += 1) {
     let totalGoals = 0;
     let totalExpected = 0;
     let homeGoals = 0;
     let homeExpected = 0;
-
     const goalsFor = new Map<string, number>();
     const expectedFor = new Map<string, number>();
     const goalsAgainst = new Map<string, number>();
@@ -289,9 +304,12 @@ export function fitDixonColesModel(
       const awayAttack = attack.get(row.away) ?? 1;
       const homeDefense = defense.get(row.home) ?? 1;
 
-      const homeLambda =
-        Math.exp(mu + fitGamma) * (homeAttack / Math.max(EPSILON, awayDefense));
-      const awayLambda = Math.exp(mu) * (awayAttack / Math.max(EPSILON, homeDefense));
+      const homeLambda = clamp(
+        Math.exp(mu + fitGamma) * (homeAttack / Math.max(EPSILON, awayDefense)),
+        0.05,
+        6,
+      );
+      const awayLambda = clamp(Math.exp(mu) * (awayAttack / Math.max(EPSILON, homeDefense)), 0.05, 6);
       const weight = row.weight;
       const hg = row.homeGoals;
       const ag = row.awayGoals;
@@ -312,34 +330,49 @@ export function fitDixonColesModel(
       expectedAgainst.set(row.away, (expectedAgainst.get(row.away) ?? 0) + weight * homeLambda);
     }
 
-    const leaguePrior = PRIOR_MATCHES * DEFAULT_LEAGUE_AVERAGE;
-    mu += Math.log((totalGoals + 2 * leaguePrior) / (totalExpected + 2 * leaguePrior));
-    mu = clamp(mu, Math.log(0.2), Math.log(8));
+    const totalWeight = rows.reduce((sum, row) => sum + row.weight, 0);
+    const observedAvg = totalGoals / Math.max(EPSILON, 2 * totalWeight);
+    const muTarget = Math.log(clamp(observedAvg, 0.8, 2.2));
+    const muStep = clamp(
+      0.35 * Math.log((totalGoals + 8) / Math.max(EPSILON, totalExpected + 8)),
+      -0.08,
+      0.08,
+    );
+    mu = clamp(mu + muStep + 0.15 * (muTarget - mu), Math.log(0.8), Math.log(2.2));
 
-    const neutralHomeExpected = PRIOR_MATCHES * Math.exp(mu);
-    const priorHomeGoals = neutralHomeExpected * Math.exp(fitGamma);
-    fitGamma += Math.log((homeGoals + priorHomeGoals) / (homeExpected + neutralHomeExpected));
-    fitGamma = clamp(fitGamma, -0.7, 1);
+    const gammaStep = clamp(
+      0.35 * Math.log((homeGoals + 4) / Math.max(EPSILON, homeExpected + 4)),
+      -0.08,
+      0.08,
+    );
+    fitGamma = clamp(fitGamma + gammaStep, -0.4, 0.7);
 
-    const teamPrior = PRIOR_TEAM_MATCHES * Math.exp(mu);
+    const teamPrior = Math.max(6, 8 * Math.exp(mu));
     for (const team of teams) {
       const currentAttack = attack.get(team) ?? 1;
       const currentDefense = defense.get(team) ?? 1;
+      const gf = goalsFor.get(team) ?? 0;
+      const ef = expectedFor.get(team) ?? 0;
+      const ga = goalsAgainst.get(team) ?? 0;
+      const ea = expectedAgainst.get(team) ?? 0;
 
       const nextAttack =
-        currentAttack *
-        ((goalsFor.get(team) ?? 0) + teamPrior) /
-        ((expectedFor.get(team) ?? 0) + teamPrior);
+        (gf + teamPrior) / Math.max(EPSILON, ef + teamPrior / Math.max(EPSILON, currentAttack));
       const nextDefense =
-        currentDefense *
-        ((goalsAgainst.get(team) ?? 0) + teamPrior) /
-        ((expectedAgainst.get(team) ?? 0) + teamPrior);
+        (ga + teamPrior) / Math.max(EPSILON, ea + teamPrior / Math.max(EPSILON, currentDefense));
 
-      attack.set(team, clamp(nextAttack, MIN_STRENGTH, MAX_STRENGTH));
-      defense.set(team, clamp(nextDefense, MIN_STRENGTH, MAX_STRENGTH));
+      const smoothAttack = Math.exp(
+        clamp(Math.log(Math.max(EPSILON, nextAttack / Math.max(EPSILON, currentAttack))), -0.15, 0.15),
+      );
+      const smoothDefense = Math.exp(
+        clamp(Math.log(Math.max(EPSILON, nextDefense / Math.max(EPSILON, currentDefense))), -0.15, 0.15),
+      );
+
+      attack.set(team, clamp(currentAttack * smoothAttack, 0.35, 2.8));
+      defense.set(team, clamp(currentDefense * smoothDefense, 0.35, 2.8));
     }
 
-    mu = clamp(normalizeStrengths(attack, defense, mu), Math.log(0.2), Math.log(8));
+    mu = clamp(normalizeStrengths(attack, defense, mu), Math.log(0.8), Math.log(2.2));
   }
 
   const fitted: DixonColesModel = {

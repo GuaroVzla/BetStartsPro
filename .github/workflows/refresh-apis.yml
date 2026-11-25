@@ -1,0 +1,56 @@
+name: Refresh APIs (ETL)
+
+on:
+  schedule:
+    - cron: "*/30 * * * *"
+  workflow_dispatch:
+
+concurrency:
+  group: refresh-apis
+  cancel-in-progress: false
+
+jobs:
+  refresh-apis:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    env:
+      INGEST_TOKEN: ${{ secrets.INGEST_TOKEN }}
+      SITE_URL: ${{ secrets.SITE_URL }}
+      THE_ODDS_API_KEY: ${{ secrets.THE_ODDS_API_KEY }}
+      SPORTMONKS_KEY: ${{ secrets.SPORTMONKS_KEY }}
+      APISPORTS_KEY: ${{ secrets.APISPORTS_KEY }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Validate sources
+        continue-on-error: true
+        run: npm run sources:check
+
+      - name: Validate existing seeds
+        run: |
+          node scripts/validate-ingest-payload.mjs --allow-stale scripts/flashscore-payload.json scripts/triunfobet-quotes.json scripts/apuestas-royal-quotes.json || true
+      - name: Extract API sources
+        run: node scripts/etl-extract-apis.mjs --write --out data/curated/api-extract.json --report data/etl-reports/api-extract.json
+      - name: Validate curated payload
+        run: node scripts/validate-ingest-payload.mjs --kind curated --allow-stale data/curated/api-extract.json
+      - name: Ingest curated payload
+        if: env.SITE_URL != '' && env.INGEST_TOKEN != ''
+        run: |
+          curl --fail --silent --show-error -X POST \
+            -H "Content-Type: application/json" \
+            -H "Authorization: Bearer $INGEST_TOKEN" \
+            --data @data/curated/api-extract.json \
+            "$SITE_URL/api/ingest/curated"
+      - name: Upload ETL artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: etl-api-report
+          path: |
+            data/curated/api-extract.json
+            data/etl-reports/api-extract.json
+          if-no-files-found: warn

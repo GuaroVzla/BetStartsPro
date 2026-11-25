@@ -225,13 +225,7 @@ export function Dashboard({ initialData, renderedAt }: DashboardProps) {
     }
   }, []);
 
-  const isDemo = data.meta.mode === "mock";
-  const modeCopy =
-    data.meta.mode === "live"
-      ? "Datos en vivo"
-      : data.meta.mode === "hybrid"
-        ? "Datos híbridos"
-        : "Modo demostración";
+  const modeCopy = data.meta.mode === "hybrid" ? "Datos híbridos" : "Datos en vivo";
   const topPick = crossPicks[0];
 
   return (
@@ -252,15 +246,8 @@ export function Dashboard({ initialData, renderedAt }: DashboardProps) {
           </div>
         ) : null}
 
-        {showWarnings && (isDemo || data.meta.warnings.length > 0) ? (
-          <div
-            className={cn(
-              "mb-3 flex items-start justify-between gap-3 rounded-xl border px-3.5 py-2.5",
-              isDemo
-                ? "border-amber-400/25 bg-amber-400/[0.065]"
-                : "border-sky-400/20 bg-sky-400/[0.055]",
-            )}
-          >
+        {showWarnings && data.meta.warnings.length > 0 ? (
+          <div className="mb-3 flex items-start justify-between gap-3 rounded-xl border border-sky-400/20 bg-sky-400/[0.055] px-3.5 py-2.5">
             <div className="min-w-0">
               <p className="text-[11px] font-semibold text-slate-700 dark:text-slate-200">
                 {modeCopy} · actualizado a las {formatMatchTime(data.meta.generatedAt)} VET

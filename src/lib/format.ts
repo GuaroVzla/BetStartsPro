@@ -336,8 +336,7 @@ export function formatRelativeRefresh(isoDate: string): string {
   return hours === 1 ? "hace 1 h" : `hace ${hours} h`;
 }
 
-export function formatCredits(value: number | null, isMock: boolean): string {
-  if (isMock) return "Demo";
+export function formatCredits(value: number | null): string {
   if (value === null) return "N/D";
   return `${formatInteger(value)} cr.`;
 }

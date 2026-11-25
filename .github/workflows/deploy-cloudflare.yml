@@ -31,6 +31,15 @@ jobs:
       - name: Verificar tipos
         run: npm run typecheck
 
+      - name: Tests de fechas
+        run: npm run test:dates
+
+      - name: Tests de modelo
+        run: npm run test:model
+
+      - name: Tests ETL
+        run: npm run test:etl
+
       - name: Compilar y publicar Worker
         run: npx cf deploy
         env:

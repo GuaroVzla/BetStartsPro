@@ -73,7 +73,7 @@ export function TopPicks({ picks, onOpenMatch }: TopPicksProps) {
                 <span
                   className={cn(
                     "rounded-md px-1.5 py-0.5 text-[10px] font-bold tabular-nums",
-                    pick.edge >= 0.08
+                    pick.edge >= 0.05
                       ? "bg-emerald-400/15 text-emerald-700 dark:text-emerald-300"
                       : "bg-sky-400/15 text-sky-700 dark:text-sky-300",
                   )}
