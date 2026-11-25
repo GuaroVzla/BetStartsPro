@@ -156,6 +156,7 @@ export function MatchIntelDrawer({ match, onClose }: MatchIntelDrawerProps) {
   const [tab, setTab] = useState<DrawerTab>("standings");
   const closeButtonRef = useRef<HTMLButtonElement>(null);
   const analysis = useMemo(() => (match ? analyzeMatch(match) : null), [match]);
+  const hasRealStandings = (match?.intel.standings.table ?? []).some((row) => row.played > 0);
 
   useEffect(() => {
     setTab("standings");
@@ -382,6 +383,18 @@ export function MatchIntelDrawer({ match, onClose }: MatchIntelDrawerProps) {
         <div className="min-h-0 flex-1 overflow-y-auto px-4 py-5 sm:px-6">
           {tab === "standings" ? (
             <div className="space-y-4">
+              {!hasRealStandings ? (
+                <div className="panel-inset p-5 text-center">
+                  <p className="text-sm font-semibold text-slate-800 dark:text-slate-100">
+                    Clasificación no disponible
+                  </p>
+                  <p className="mt-1.5 text-[11px] leading-relaxed text-slate-500 dark:text-slate-400">
+                    No encontramos la tabla de {match.league.name} para este partido en las fuentes activas.
+                    Cuando la liga tenga clasificación disponible, aparecerá aquí automáticamente.
+                  </p>
+                </div>
+              ) : (
+                <>
               <div className="grid grid-cols-2 gap-2">
                 {[
                   {
@@ -565,6 +578,8 @@ export function MatchIntelDrawer({ match, onClose }: MatchIntelDrawerProps) {
                 Clasificación de la temporada actual. En ligas con conferencias o
                 grupos, la posición corresponde al grupo indicado.
               </p>
+                </>
+              )}
             </div>
           ) : null}
 

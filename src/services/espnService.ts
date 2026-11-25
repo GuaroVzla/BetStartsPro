@@ -246,6 +246,18 @@ const DEFAULT_LABEL: Record<SportKey, string> = {
   hockey: "Hockey internacional",
 };
 
+/** Extrae el slug ESPN de liga (p. ej. uefa.champions, eng.1) desde links. */
+function extractEspnLeagueSlug(event: JsonObject, competition: JsonObject): string | undefined {
+  for (const source of [event, competition]) {
+    for (const rawLink of asArray(asObject(source).links)) {
+      const href = asString(asObject(rawLink).href);
+      const match = href.match(/\/league\/([a-z0-9._-]+)/i);
+      if (match?.[1]) return match[1].toLowerCase();
+    }
+  }
+  return undefined;
+}
+
 /** Etiqueta de competición: `altGameNote` suele traer "Liga, Fase". */
 function competitionLabel(payload: JsonObject, event: JsonObject, sport: SportKey): string {
   const competition = asObject(asArray(event.competitions)[0]);
@@ -293,6 +305,13 @@ async function fetchFeed(feed: EspnFeed, date: string, now: Date) {
       const label = competitionLabel(payload, event, feed.sport);
       const eventSeason = asNumber(asObject(event.season).year) ?? seasonYear;
       const league = resolveLeague(feed, label, eventSeason);
+      if (!league.espnPath) {
+        const slug = extractEspnLeagueSlug(event, competition);
+        if (slug) {
+          const sportSegment = feed.path.split("/")[0] || feed.sport;
+          league.espnPath = `${sportSegment}/${slug}`;
+        }
+      }
       const updatedAt = new Date().toISOString();
       const bookmakers = oddsFromCompetition(competition, updatedAt);
       const homeStanding = buildStanding(home);

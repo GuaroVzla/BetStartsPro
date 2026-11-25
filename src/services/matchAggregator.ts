@@ -42,6 +42,7 @@ import { curatedRecordsToMatches } from "@/services/curatedAdapter";
 import { listCuratedMatches } from "@/services/curatedIngestStore";
 import { fetchAllSportsApiMatches } from "@/services/allSportsApiService";
 import { fetchFreeSourceMatches } from "@/services/freeSourcesService";
+import { enrichWithEspnStandings } from "@/services/espnStandingsService";
 import { enrichWithTheSportsDbStats } from "@/services/theSportsDbStatsService";
 import { fetchTheRundownMatches } from "@/services/theRundownService";
 import { buildRankedFavorites } from "@/services/favoriteRankingService";
@@ -1205,7 +1206,8 @@ async function buildDashboardData(): Promise<DashboardData> {
   if (ingested.length === 0) {
     const captured = withCapturedBookmakerQuotes(baseUpcoming, ahora);
     const analyst = withTheAnalystInsights(captured.matches);
-    const enriched = await enrichWithTheSportsDbStats(analyst.matches);
+    const tsdbEnriched = await enrichWithTheSportsDbStats(analyst.matches);
+    const enriched = await enrichWithEspnStandings(tsdbEnriched.matches);
     return withRanking(
       finalizeDashboard(
         {
@@ -1278,7 +1280,8 @@ async function buildDashboardData(): Promise<DashboardData> {
 
   const captured = withCapturedBookmakerQuotes(mergedMatches, ahora);
   const analyst = withTheAnalystInsights(captured.matches);
-  const enriched = await enrichWithTheSportsDbStats(analyst.matches);
+  const tsdbEnriched = await enrichWithTheSportsDbStats(analyst.matches);
+  const enriched = await enrichWithEspnStandings(tsdbEnriched.matches);
   const finalMatches = enriched.matches;
   const leagues = Array.from(
     new Map(finalMatches.map((match) => [match.league.id, match.league])).values(),
