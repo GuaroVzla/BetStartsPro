@@ -7,6 +7,34 @@
   "total_registros": 20,
   "registros": [
     {
+      "articulo_id": "270272",
+      "titulo": "FCS Playoffs: First-Round Predictions (Montana State Half of the Bracket)",
+      "url": "https://theanalyst.com/articles/fcs-playoffs-first-round-predictions-montana-state-half-of-the-bracket",
+      "fecha_publicacion": "2026-11-25T19:09:08.000Z",
+      "tipo": "match_preview",
+      "liga": null,
+      "equipo_local": null,
+      "equipo_visitante": null,
+      "resumen": "The engine is all revved as FCS football heads up the on-ramp to the second season. Here are predictions of first-round playoff games in No. 1 seed Montana State’s half of the bracket. ",
+      "insight": null,
+      "capturado_en": "2026-11-25T23:28:41.345Z",
+      "notas": null
+    },
+    {
+      "articulo_id": "270318",
+      "titulo": "FCS Playoffs: First-Round Predictions (Tarleton State Half of the Bracket)",
+      "url": "https://theanalyst.com/articles/fcs-playoffs-first-round-predictions-tarleton-state-half-of-the-bracket",
+      "fecha_publicacion": "2026-11-25T19:05:46.000Z",
+      "tipo": "match_preview",
+      "liga": null,
+      "equipo_local": null,
+      "equipo_visitante": null,
+      "resumen": "The engine is all revved as FCS football heads up the on-ramp to the second season. Here are predictions of first-round playoff games on No. 2 seed Tarleton State’s half of the bracket. ",
+      "insight": null,
+      "capturado_en": "2026-11-25T23:28:41.345Z",
+      "notas": null
+    },
+    {
       "articulo_id": "269818",
       "titulo": "Sporting CP vs Man Utd Prediction: UEFA Champions League Preview",
       "url": "https://theanalyst.com/articles/sporting-cp-vs-man-utd-prediction-champions-league-preview-11-2026",
@@ -42,7 +70,7 @@
         "metodo": "articulo",
         "confianza": "baja"
       },
-      "capturado_en": "2026-11-25T12:07:56.043Z",
+      "capturado_en": "2026-11-25T23:28:41.347Z",
       "notas": null
     },
     {
@@ -81,7 +109,7 @@
         "metodo": "articulo",
         "confianza": "baja"
       },
-      "capturado_en": "2026-11-25T12:07:56.044Z",
+      "capturado_en": "2026-11-25T23:28:41.347Z",
       "notas": null
     },
     {
@@ -120,7 +148,7 @@
         "metodo": "articulo",
         "confianza": "media"
       },
-      "capturado_en": "2026-11-25T12:07:56.044Z",
+      "capturado_en": "2026-11-25T23:28:41.348Z",
       "notas": null
     },
     {
@@ -159,7 +187,7 @@
         "metodo": "articulo",
         "confianza": "media"
       },
-      "capturado_en": "2026-11-25T12:07:56.045Z",
+      "capturado_en": "2026-11-25T23:28:41.348Z",
       "notas": null
     },
     {
@@ -173,7 +201,7 @@
       "equipo_visitante": null,
       "resumen": "With the help of the AI-powered Opta supercomputer, we provide our UEFA Champions League match predictions for every game across the 2026-27 competition.",
       "insight": null,
-      "capturado_en": "2026-11-25T12:07:56.045Z",
+      "capturado_en": "2026-11-25T23:28:41.348Z",
       "notas": null
     },
     {
@@ -187,7 +215,7 @@
       "equipo_visitante": null,
       "resumen": "We look back on the weekend’s Premier League action by jumping to five conclusions based on just a single round of action.",
       "insight": null,
-      "capturado_en": "2026-11-25T12:07:56.045Z",
+      "capturado_en": "2026-11-25T23:28:41.348Z",
       "notas": null
     },
     {
@@ -201,7 +229,7 @@
       "equipo_visitante": null,
       "resumen": "Eleven teams are qualified for the 2026 FCS playoffs. With 13 more teams about to get the call on Selection Sunday, our bracketology predicts how the field may turn out.",
       "insight": null,
-      "capturado_en": "2026-11-25T12:07:56.045Z",
+      "capturado_en": "2026-11-25T23:28:41.348Z",
       "notas": null
     },
     {
@@ -240,7 +268,7 @@
         "metodo": "articulo",
         "confianza": "media"
       },
-      "capturado_en": "2026-11-25T12:07:56.046Z",
+      "capturado_en": "2026-11-25T23:28:41.349Z",
       "notas": null
     },
     {
@@ -279,7 +307,7 @@
         "metodo": "articulo",
         "confianza": "media"
       },
-      "capturado_en": "2026-11-25T12:07:56.046Z",
+      "capturado_en": "2026-11-25T23:28:41.349Z",
       "notas": null
     },
     {
@@ -293,7 +321,7 @@
       "equipo_visitante": null,
       "resumen": "Who will win the 2026 MLS Cup? Here, we detail how the Opta supercomputer sees the 2026 Major League Soccer play-offs bracket playing out.",
       "insight": null,
-      "capturado_en": "2026-11-25T12:07:56.046Z",
+      "capturado_en": "2026-11-25T23:28:41.349Z",
       "notas": null
     },
     {
@@ -332,7 +360,7 @@
         "metodo": "articulo",
         "confianza": "baja"
       },
-      "capturado_en": "2026-11-25T12:07:56.047Z",
+      "capturado_en": "2026-11-25T23:28:41.349Z",
       "notas": null
     },
     {
@@ -373,7 +401,7 @@
         "metodo": "articulo",
         "confianza": "media"
       },
-      "capturado_en": "2026-11-25T12:07:56.047Z",
+      "capturado_en": "2026-11-25T23:28:41.349Z",
       "notas": null
     },
     {
@@ -387,7 +415,7 @@
       "equipo_visitante": null,
       "resumen": "With the help of the Opta supercomputer, we provide our Premier League match predictions for Matchday 11 of the 2026-27 season.",
       "insight": null,
-      "capturado_en": "2026-11-25T12:07:56.047Z",
+      "capturado_en": "2026-11-25T23:28:41.350Z",
       "notas": null
     },
     {
@@ -401,7 +429,7 @@
       "equipo_visitante": null,
       "resumen": "With the help of the Opta supercomputer, we provide our WSL match predictions for Matchday 11 of the 2026-27 season.",
       "insight": null,
-      "capturado_en": "2026-11-25T12:07:56.047Z",
+      "capturado_en": "2026-11-25T23:28:41.350Z",
       "notas": null
     },
     {
@@ -415,7 +443,7 @@
       "equipo_visitante": null,
       "resumen": "The Washington Spirit and Kansas City Current will battle it out for the 2026 NWSL Championship title. Here’s our Opta supercomputer preview and prediction.",
       "insight": null,
-      "capturado_en": "2026-11-25T12:07:56.048Z",
+      "capturado_en": "2026-11-25T23:28:41.350Z",
       "notas": null
     },
     {
@@ -429,7 +457,7 @@
       "equipo_visitante": null,
       "resumen": "We’re previewing key games and storylines each week during the college football season. Our FCS coverage is the home of the Top 25 media poll, FCS National Awards and much more.",
       "insight": null,
-      "capturado_en": "2026-11-25T12:07:56.048Z",
+      "capturado_en": "2026-11-25T23:28:41.350Z",
       "notas": null
     },
     {
@@ -468,7 +496,7 @@
         "metodo": "articulo",
         "confianza": "baja"
       },
-      "capturado_en": "2026-11-25T12:07:56.048Z",
+      "capturado_en": "2026-11-25T23:28:41.350Z",
       "notas": null
     },
     {
@@ -482,35 +510,7 @@
       "equipo_visitante": null,
       "resumen": "With the help of the Opta supercomputer, we’re revealing the predictions for the Week 11 games of the 2026 NFL season.",
       "insight": null,
-      "capturado_en": "2026-11-25T12:07:56.048Z",
-      "notas": null
-    },
-    {
-      "articulo_id": "268847",
-      "titulo": "Did Tottenham Make a Mistake Selling Will Lankshear?",
-      "url": "https://theanalyst.com/articles/will-lankshear-tottenham-middlesbrough-mistake-stats",
-      "fecha_publicacion": "2026-11-18T07:46:21.000Z",
-      "tipo": "otro",
-      "liga": null,
-      "equipo_local": null,
-      "equipo_visitante": null,
-      "resumen": "Will Lankshear is making some fans question whether Tottenham made the wrong choice in deciding to cash in on their academy product this summer.",
-      "insight": null,
-      "capturado_en": "2026-11-25T12:07:56.048Z",
-      "notas": null
-    },
-    {
-      "articulo_id": "264049",
-      "titulo": "Who Will Be Relegated From the Premier League in 2026-27?",
-      "url": "https://theanalyst.com/articles/who-will-be-relegated-from-the-premier-league-in-2026-27-opta-supercomputer",
-      "fecha_publicacion": "2026-11-17T10:52:23.000Z",
-      "tipo": "otro",
-      "liga": null,
-      "equipo_local": null,
-      "equipo_visitante": null,
-      "resumen": "Which teams will be relegated from the Premier League this season? Stay up to date with our live Opta supercomputer predictions for the 2026-27 Premier League relegation battle.",
-      "insight": null,
-      "capturado_en": "2026-11-25T12:07:56.049Z",
+      "capturado_en": "2026-11-25T23:28:41.352Z",
       "notas": null
     }
   ],
