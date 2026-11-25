@@ -40,10 +40,7 @@ function tokenMatches(token: string, candidates: Set<string>): boolean {
   return false;
 }
 
-export function namesLikelyMatch(first: string, second: string): boolean {
-  const a = normalizeName(first);
-  const b = normalizeName(second);
-
+function namesLikelyMatchNormalized(a: string, b: string): boolean {
   if (!a || !b) return false;
   if (a === b) return true;
 
@@ -80,6 +77,45 @@ export function namesLikelyMatch(first: string, second: string): boolean {
   }
 
   return common >= 2 && common / Math.min(aSet.size, bSet.size) >= 0.7;
+}
+
+export function namesLikelyMatch(first: string, second: string): boolean {
+  return namesLikelyMatchNormalized(normalizeName(first), normalizeName(second));
+}
+
+/**
+ * Normalizador con caché para cruces que repiten los mismos nombres en cada
+ * comparación (cientos de partidos × decenas de cotizaciones).
+ */
+export function createNameNormalizer(): (value: string) => string {
+  const cache = new Map<string, string>();
+  return (value: string) => {
+    let normalized = cache.get(value);
+    if (normalized === undefined) {
+      normalized = normalizeName(value);
+      cache.set(value, normalized);
+    }
+    return normalized;
+  };
+}
+
+/**
+ * Comparador con caché: la normalización NFD/regex y el cálculo de tokens se
+ * hacen una sola vez por par de nombres, no por cada comparación del cruce.
+ */
+export function createNameMatcher(): (first: string, second: string) => boolean {
+  const normalize = createNameNormalizer();
+  const pairs = new Map<string, boolean>();
+  return (first: string, second: string) => {
+    const a = normalize(first);
+    const b = normalize(second);
+    const key = a <= b ? `${a}\u0000${b}` : `${b}\u0000${a}`;
+    const cached = pairs.get(key);
+    if (cached !== undefined) return cached;
+    const result = namesLikelyMatchNormalized(a, b);
+    pairs.set(key, result);
+    return result;
+  };
 }
 
 /** Nombre canónico de casa para dedupe económico entre proveedores. */

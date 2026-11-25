@@ -4,8 +4,8 @@
  * de esas fuentes; devuelve datos listos para que el agregador los consuma.
  */
 
-import { dateInVET, dateInVETOffset, formatPercent } from "@/lib/format";
-import { namesLikelyMatch, normalizeName } from "@/lib/utils";
+import { dateInVET, formatPercent } from "@/lib/format";
+import { createNameMatcher, normalizeName } from "@/lib/utils";
 import {
   THE_ANALYST_TEAM_ALIASES,
   fairOddsFromProbabilities,
@@ -62,30 +62,54 @@ function readableName(value: string): string {
     .trim();
 }
 
+// Los alias se normalizan una sola vez al cargar el módulo. Antes se
+// recalculaban ~60 `stableKey` (NFD + regex) por cada comparación de partido.
+const ALIAS_TO_CANONICAL = new Map<string, string>();
+for (const aliases of Object.values(THE_ANALYST_TEAM_ALIASES)) {
+  // La variante más larga es la menos ambigua ("manchester city" vs "city").
+  const longest = aliases.reduce(
+    (best, alias) => (alias.length > best.length ? alias : best),
+    aliases[0],
+  );
+  const canonical = readableName(longest);
+  for (const alias of aliases) ALIAS_TO_CANONICAL.set(stableKey(alias), canonical);
+}
+
+const LEAGUE_ALIAS_KEYS = Object.entries(LEAGUE_ALIASES).map(([alias, canonical]) => ({
+  alias,
+  canonical,
+}));
+const canonicalTeamCache = new Map<string, string>();
+const canonicalLeagueCache = new Map<string, string | null>();
+const analystNameMatches = createNameMatcher();
+const sameSideCache = new Map<string, boolean>();
+
 /** Nombre de equipo canónico y sin ruido para comparar con otros proveedores. */
 export function canonicalTeamName(name: string): string {
-  const key = stableKey(name);
-  for (const aliases of Object.values(THE_ANALYST_TEAM_ALIASES)) {
-    if (aliases.some((alias) => stableKey(alias) === key)) {
-      // La variante más larga es la menos ambigua ("manchester city" vs "city").
-      const longest = aliases.reduce(
-        (best, alias) => (alias.length > best.length ? alias : best),
-        aliases[0],
-      );
-      return readableName(longest);
-    }
-  }
-  return readableName(name);
+  const cached = canonicalTeamCache.get(name);
+  if (cached !== undefined) return cached;
+  const canonical = ALIAS_TO_CANONICAL.get(stableKey(name)) ?? readableName(name);
+  canonicalTeamCache.set(name, canonical);
+  return canonical;
 }
 
 export function canonicalLeagueName(league: string | null): string | null {
   if (!league) return null;
+  const cached = canonicalLeagueCache.get(league);
+  if (cached !== undefined) return cached;
   const key = stableKey(league);
-  if (LEAGUE_ALIASES[key]) return LEAGUE_ALIASES[key];
-  for (const [alias, canonical] of Object.entries(LEAGUE_ALIASES)) {
-    if (key.includes(alias) || alias.includes(key)) return canonical;
+  let canonical: string | null = LEAGUE_ALIASES[key] ?? null;
+  if (!canonical) {
+    for (const { alias, canonical: value } of LEAGUE_ALIAS_KEYS) {
+      if (key.includes(alias) || alias.includes(key)) {
+        canonical = value;
+        break;
+      }
+    }
   }
-  return normalizeName(league);
+  canonical ??= normalizeName(league);
+  canonicalLeagueCache.set(league, canonical);
+  return canonical;
 }
 
 function sourceDate(source: AnalystCrossMatch): string | null {
@@ -113,25 +137,33 @@ function insightDate(
   return record.fecha_publicacion.slice(0, 10) || null;
 }
 
-/** Ventana de un día de tolerancia usando la zona de Venezuela del repo. */
+/**
+ * Ventana de un día de tolerancia. Ambas fechas son calendario (YYYY-MM-DD),
+ * así que basta comparar días; crear 3 `Intl.format` por comparación era
+ * innecesario y caro dentro del cruce de cientos de partidos.
+ */
 export function datesWithinVETDay(a: string | null, b: string | null): boolean {
   if (!a || !b) return true;
-  const base = new Date(`${a}T12:00:00Z`);
-  if (!Number.isFinite(base.getTime())) return true;
-  const allowed = new Set([
-    dateInVETOffset(-1, base),
-    dateInVETOffset(0, base),
-    dateInVETOffset(1, base),
-  ]);
-  return allowed.has(b);
+  const first = Date.parse(`${a}T00:00:00Z`);
+  const second = Date.parse(`${b}T00:00:00Z`);
+  if (!Number.isFinite(first) || !Number.isFinite(second)) return true;
+  return Math.abs(first - second) <= 86_400_000;
 }
 
 function sameSide(a: string, b: string): boolean {
   const first = canonicalTeamName(a);
   const second = canonicalTeamName(b);
   if (!first || !second) return false;
-  if (first === second || first.includes(second) || second.includes(first)) return true;
-  return namesLikelyMatch(first, second);
+  const key = first <= second ? `${first}\u0000${second}` : `${second}\u0000${first}`;
+  const cached = sameSideCache.get(key);
+  if (cached !== undefined) return cached;
+  const result =
+    first === second ||
+    first.includes(second) ||
+    second.includes(first) ||
+    analystNameMatches(first, second);
+  sameSideCache.set(key, result);
+  return result;
 }
 
 function teamsScore(
