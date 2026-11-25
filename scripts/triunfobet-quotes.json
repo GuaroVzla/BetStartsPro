@@ -2,291 +2,61 @@
   "target_app": "BetStats Pro",
   "source": "triunfobet_agent",
   "sync_mode": "enrich_or_create",
-  "fecha_extraccion": "2026-11-24",
+  "fecha_extraccion": "2026-11-25",
   "zona_horaria": "America/Caracas",
-  "total_cotizaciones": 93,
+  "total_cotizaciones": 96,
   "cotizaciones": [
     {
-      "match_slug": "2026-11-24_galatasaray_vs_aston-villa",
+      "match_slug": "2026-11-25_inter_vs_stuttgart",
       "deporte": "Fútbol",
       "liga": "EUROPA: Champions League - Fase de liga",
-      "fecha_local": "2026-11-24",
-      "hora_local": "13:45",
-      "equipo_local": "Galatasaray",
-      "equipo_visitante": "Aston Villa",
-      "mercado": "1X2",
-      "cuotas_1x2": {
-        "local_1": 3.9,
-        "empate_x": 2.45,
-        "visitante_2": 2.52
-      },
-      "capturado_en": "2026-11-24T14:55:16-04:00",
-      "url": "https://triunfobet.com/altenar",
-      "nota": "Cuota visible en el widget con sesión; convertida a decimal si venía en formato americano",
-      "cuotas_americanas": {
-        "local_1": "+290",
-        "empate_x": "+145",
-        "visitante_2": "+152"
-      }
-    },
-    {
-      "match_slug": "2026-11-24_bodo-glimt_vs_lask",
-      "deporte": "Fútbol",
-      "liga": "EUROPA: Champions League - Fase de liga",
-      "fecha_local": "2026-11-24",
-      "hora_local": "13:45",
-      "equipo_local": "Bodo/Glimt",
-      "equipo_visitante": "LASK",
-      "mercado": "1X2",
-      "cuotas_1x2": {
-        "local_1": 1.73,
-        "empate_x": 2.9,
-        "visitante_2": 7
-      },
-      "capturado_en": "2026-11-24T14:55:16-04:00",
-      "url": "https://triunfobet.com/altenar",
-      "nota": "Cuota visible en el widget con sesión; convertida a decimal si venía en formato americano",
-      "cuotas_americanas": {
-        "local_1": "-137",
-        "empate_x": "+190",
-        "visitante_2": "+600"
-      }
-    },
-    {
-      "match_slug": "2026-11-24_arsenal_vs_borussia-dortmund",
-      "deporte": "Fútbol",
-      "liga": "EUROPA: Champions League - Fase de liga",
-      "fecha_local": "2026-11-24",
-      "hora_local": "16:00",
-      "equipo_local": "Arsenal",
-      "equipo_visitante": "Borussia Dortmund",
-      "mercado": "1X2",
-      "cuotas_1x2": {
-        "local_1": 1.5,
-        "empate_x": 4.75,
-        "visitante_2": 5.75
-      },
-      "capturado_en": "2026-11-24T14:55:16-04:00",
-      "url": "https://triunfobet.com/altenar",
-      "nota": "Cuota visible en el widget con sesión; convertida a decimal si venía en formato americano",
-      "cuotas_americanas": {
-        "local_1": "-200",
-        "empate_x": "+375",
-        "visitante_2": "+475"
-      }
-    },
-    {
-      "match_slug": "2026-11-24_como_vs_aek",
-      "deporte": "Fútbol",
-      "liga": "EUROPA: Champions League - Fase de liga",
-      "fecha_local": "2026-11-24",
-      "hora_local": "16:00",
-      "equipo_local": "Como",
-      "equipo_visitante": "AEK",
-      "mercado": "1X2",
-      "cuotas_1x2": {
-        "local_1": 1.25,
-        "empate_x": 6.66,
-        "visitante_2": 10
-      },
-      "capturado_en": "2026-11-24T14:55:16-04:00",
-      "url": "https://triunfobet.com/altenar",
-      "nota": "Cuota visible en el widget con sesión; convertida a decimal si venía en formato americano",
-      "cuotas_americanas": {
-        "local_1": "-400",
-        "empate_x": "+566",
-        "visitante_2": "+900"
-      }
-    },
-    {
-      "match_slug": "2026-11-24_slovan-bratislava_vs_betis",
-      "deporte": "Fútbol",
-      "liga": "EUROPA: Champions League - Fase de liga",
-      "fecha_local": "2026-11-24",
-      "hora_local": "16:00",
-      "equipo_local": "Slovan Bratislava",
-      "equipo_visitante": "Real Betis",
-      "mercado": "1X2",
-      "cuotas_1x2": {
-        "local_1": 10,
-        "empate_x": 6.66,
-        "visitante_2": 1.25
-      },
-      "capturado_en": "2026-11-24T14:55:16-04:00",
-      "url": "https://triunfobet.com/altenar",
-      "nota": "Cuota visible en el widget con sesión; convertida a decimal si venía en formato americano",
-      "cuotas_americanas": {
-        "local_1": "+900",
-        "empate_x": "+566",
-        "visitante_2": "-400"
-      }
-    },
-    {
-      "match_slug": "2026-11-24_manchester_vs_napoli",
-      "deporte": "Fútbol",
-      "liga": null,
-      "fecha_local": "2026-11-24",
-      "hora_local": "16:00",
-      "equipo_local": "Manchester City",
-      "equipo_visitante": "Napoli",
-      "mercado": "1X2",
-      "cuotas_1x2": {
-        "local_1": 1.267,
-        "empate_x": 6.66,
-        "visitante_2": 9
-      },
-      "capturado_en": "2026-11-24T14:55:16-04:00",
-      "url": "https://triunfobet.com/altenar",
-      "nota": "Cuota visible en el widget con sesión; convertida a decimal si venía en formato americano",
-      "cuotas_americanas": {
-        "local_1": "-375",
-        "empate_x": "+566",
-        "visitante_2": "+800"
-      }
-    },
-    {
-      "match_slug": "2026-11-24_rb-leipzig_vs_lens",
-      "deporte": "Fútbol",
-      "liga": "EUROPA: Champions League - Fase de liga",
-      "fecha_local": "2026-11-24",
-      "hora_local": "16:00",
-      "equipo_local": "RB Leipzig",
-      "equipo_visitante": "Lens",
-      "mercado": "1X2",
-      "cuotas_1x2": {
-        "local_1": 1.417,
-        "empate_x": 5.33,
-        "visitante_2": 6.33
-      },
-      "capturado_en": "2026-11-24T14:55:16-04:00",
-      "url": "https://triunfobet.com/altenar",
-      "nota": "Cuota visible en el widget con sesión; convertida a decimal si venía en formato americano",
-      "cuotas_americanas": {
-        "local_1": "-240",
-        "empate_x": "+433",
-        "visitante_2": "+533"
-      }
-    },
-    {
-      "match_slug": "2026-11-24_madrid_vs_psv",
-      "deporte": "Fútbol",
-      "liga": "EUROPA: Champions League - Fase de liga",
-      "fecha_local": "2026-11-24",
-      "hora_local": "16:00",
-      "equipo_local": "Real Madrid",
-      "equipo_visitante": "PSV",
-      "mercado": "1X2",
-      "cuotas_1x2": {
-        "local_1": 1.133,
-        "empate_x": 9.5,
-        "visitante_2": 16
-      },
-      "capturado_en": "2026-11-24T14:55:16-04:00",
-      "url": "https://triunfobet.com/altenar",
-      "nota": "Cuota visible en el widget con sesión; convertida a decimal si venía en formato americano",
-      "cuotas_americanas": {
-        "local_1": "-750",
-        "empate_x": "+850",
-        "visitante_2": "+1500"
-      }
-    },
-    {
-      "match_slug": "2026-11-24_feyenoord_vs_oporto",
-      "deporte": "Fútbol",
-      "liga": "EUROPA: Champions League - Fase de liga",
-      "fecha_local": "2026-11-24",
-      "hora_local": "16:00",
-      "equipo_local": "Feyenoord",
-      "equipo_visitante": "Oporto",
-      "mercado": "1X2",
-      "cuotas_1x2": {
-        "local_1": 3.4,
-        "empate_x": 3.5,
-        "visitante_2": 2.12
-      },
-      "capturado_en": "2026-11-24T14:55:16-04:00",
-      "url": "https://triunfobet.com/altenar",
-      "nota": "Cuota visible en el widget con sesión; convertida a decimal si venía en formato americano",
-      "cuotas_americanas": {
-        "local_1": "+240",
-        "empate_x": "+250",
-        "visitante_2": "+112"
-      }
-    },
-    {
-      "match_slug": "2026-11-24_psg_vs_as-roma",
-      "deporte": "Fútbol",
-      "liga": null,
-      "fecha_local": "2026-11-24",
-      "hora_local": "16:00",
-      "equipo_local": "PSG",
-      "equipo_visitante": "AS Roma",
-      "mercado": "1X2",
-      "cuotas_1x2": {
-        "local_1": 1.444,
-        "empate_x": 5,
-        "visitante_2": 6.33
-      },
-      "capturado_en": "2026-11-24T14:55:16-04:00",
-      "url": "https://triunfobet.com/altenar",
-      "nota": "Cuota visible en el widget con sesión; convertida a decimal si venía en formato americano",
-      "cuotas_americanas": {
-        "local_1": "-225",
-        "empate_x": "+400",
-        "visitante_2": "+533"
-      }
-    },
-    {
-      "match_slug": "2026-11-24_lille_vs_bayern-munich",
-      "deporte": "Fútbol",
-      "liga": null,
-      "fecha_local": "2026-11-24",
-      "hora_local": "16:00",
-      "equipo_local": "Lille",
-      "equipo_visitante": "Bayern Munich",
-      "mercado": "1X2",
-      "cuotas_1x2": {
-        "local_1": 5,
-        "empate_x": 4.2,
-        "visitante_2": 1.633
-      },
-      "capturado_en": "2026-11-24T14:55:16-04:00",
-      "url": "https://triunfobet.com/altenar",
-      "nota": "Cuota visible en el widget con sesión; convertida a decimal si venía en formato americano",
-      "cuotas_americanas": {
-        "local_1": "+400",
-        "empate_x": "+320",
-        "visitante_2": "-158"
-      }
-    },
-    {
-      "match_slug": "2026-11-24_inter_vs_vfb-stuttgart",
-      "deporte": "Fútbol",
-      "liga": null,
-      "fecha_local": "2026-11-24",
+      "fecha_local": "2026-11-25",
       "hora_local": "16:00",
       "equipo_local": "Inter",
-      "equipo_visitante": "VfB Stuttgart",
+      "equipo_visitante": "Stuttgart",
       "mercado": "1X2",
       "cuotas_1x2": {
-        "local_1": 1.4,
+        "local_1": 1.427,
         "empate_x": 5.5,
-        "visitante_2": 6.5
+        "visitante_2": 6
       },
-      "capturado_en": "2026-11-24T14:55:16-04:00",
+      "capturado_en": "2026-11-25T08:32:15-04:00",
       "url": "https://triunfobet.com/altenar",
       "nota": "Cuota visible en el widget con sesión; convertida a decimal si venía en formato americano",
       "cuotas_americanas": {
-        "local_1": "-250",
+        "local_1": "-234",
         "empate_x": "+450",
-        "visitante_2": "+550"
+        "visitante_2": "+500"
       }
     },
     {
-      "match_slug": "2026-11-24_brugge-kv_vs_liverpool",
+      "match_slug": "2026-11-25_lille_vs_bayern-munich",
+      "deporte": "Fútbol",
+      "liga": "EUROPA: Champions League - Fase de liga",
+      "fecha_local": "2026-11-25",
+      "hora_local": "16:00",
+      "equipo_local": "Lille",
+      "equipo_visitante": "Bayern Múnich",
+      "mercado": "1X2",
+      "cuotas_1x2": {
+        "local_1": 5.33,
+        "empate_x": 4.2,
+        "visitante_2": 1.599
+      },
+      "capturado_en": "2026-11-25T08:32:15-04:00",
+      "url": "https://triunfobet.com/altenar",
+      "nota": "Cuota visible en el widget con sesión; convertida a decimal si venía en formato americano",
+      "cuotas_americanas": {
+        "local_1": "+433",
+        "empate_x": "+320",
+        "visitante_2": "-167"
+      }
+    },
+    {
+      "match_slug": "2026-11-25_brugge-kv_vs_liverpool",
       "deporte": "Fútbol",
       "liga": null,
-      "fecha_local": "2026-11-24",
+      "fecha_local": "2026-11-25",
       "hora_local": "16:00",
       "equipo_local": "Club Brugge KV",
       "equipo_visitante": "Liverpool",
@@ -296,7 +66,7 @@
         "empate_x": 4.75,
         "visitante_2": 1.625
       },
-      "capturado_en": "2026-11-24T14:55:16-04:00",
+      "capturado_en": "2026-11-25T08:32:15-04:00",
       "url": "https://triunfobet.com/altenar",
       "nota": "Cuota visible en el widget con sesión; convertida a decimal si venía en formato americano",
       "cuotas_americanas": {
@@ -306,1843 +76,2142 @@
       }
     },
     {
-      "match_slug": "2026-11-24_sabah_vs_barcelona",
+      "match_slug": "2026-11-25_psg_vs_roma",
       "deporte": "Fútbol",
-      "liga": null,
-      "fecha_local": "2026-11-24",
+      "liga": "EUROPA: Champions League - Fase de liga",
+      "fecha_local": "2026-11-25",
+      "hora_local": "16:00",
+      "equipo_local": "PSG",
+      "equipo_visitante": "Roma",
+      "mercado": "1X2",
+      "cuotas_1x2": {
+        "local_1": 1.518,
+        "empate_x": 4.5,
+        "visitante_2": 6
+      },
+      "capturado_en": "2026-11-25T08:32:15-04:00",
+      "url": "https://triunfobet.com/altenar",
+      "nota": "Cuota visible en el widget con sesión; convertida a decimal si venía en formato americano",
+      "cuotas_americanas": {
+        "local_1": "-193",
+        "empate_x": "+350",
+        "visitante_2": "+500"
+      }
+    },
+    {
+      "match_slug": "2026-11-25_cp_vs_manchester",
+      "deporte": "Fútbol",
+      "liga": "EUROPA: Champions League - Fase de liga",
+      "fecha_local": "2026-11-25",
+      "hora_local": "16:00",
+      "equipo_local": "Sporting CP",
+      "equipo_visitante": "Manchester Utd",
+      "mercado": "1X2",
+      "cuotas_1x2": {
+        "local_1": 2.6,
+        "empate_x": 3.66,
+        "visitante_2": 2.54
+      },
+      "capturado_en": "2026-11-25T08:32:15-04:00",
+      "url": "https://triunfobet.com/altenar",
+      "nota": "Cuota visible en el widget con sesión; convertida a decimal si venía en formato americano",
+      "cuotas_americanas": {
+        "local_1": "+160",
+        "empate_x": "+266",
+        "visitante_2": "+154"
+      }
+    },
+    {
+      "match_slug": "2026-11-25_slavia-praga_vs_villarreal",
+      "deporte": "Fútbol",
+      "liga": "EUROPA: Champions League - Fase de liga",
+      "fecha_local": "2026-11-25",
+      "hora_local": "13:45",
+      "equipo_local": "Slavia Praga",
+      "equipo_visitante": "Villarreal",
+      "mercado": "1X2",
+      "cuotas_1x2": {
+        "local_1": 3.1,
+        "empate_x": 3.75,
+        "visitante_2": 2.16
+      },
+      "capturado_en": "2026-11-25T08:32:15-04:00",
+      "url": "https://triunfobet.com/altenar",
+      "nota": "Cuota visible en el widget con sesión; convertida a decimal si venía en formato americano",
+      "cuotas_americanas": {
+        "local_1": "+210",
+        "empate_x": "+275",
+        "visitante_2": "+116"
+      }
+    },
+    {
+      "match_slug": "2026-11-25_madrid_vs_viking",
+      "deporte": "Fútbol",
+      "liga": "EUROPA: Champions League - Fase de liga",
+      "fecha_local": "2026-11-25",
+      "hora_local": "16:00",
+      "equipo_local": "Atlético de Madrid",
+      "equipo_visitante": "Viking",
+      "mercado": "1X2",
+      "cuotas_1x2": {
+        "local_1": 1.125,
+        "empate_x": 9.5,
+        "visitante_2": 18
+      },
+      "capturado_en": "2026-11-25T08:32:15-04:00",
+      "url": "https://triunfobet.com/altenar",
+      "nota": "Cuota visible en el widget con sesión; convertida a decimal si venía en formato americano",
+      "cuotas_americanas": {
+        "local_1": "-800",
+        "empate_x": "+850",
+        "visitante_2": "+1700"
+      }
+    },
+    {
+      "match_slug": "2026-11-25_shakhtar_vs_fenerbahce",
+      "deporte": "Fútbol",
+      "liga": "EUROPA: Champions League - Fase de liga",
+      "fecha_local": "2026-11-25",
+      "hora_local": "16:00",
+      "equipo_local": "Shakhtar",
+      "equipo_visitante": "Fenerbahçe",
+      "mercado": "1X2",
+      "cuotas_1x2": {
+        "local_1": 2.8,
+        "empate_x": 3.5,
+        "visitante_2": 2.45
+      },
+      "capturado_en": "2026-11-25T08:32:15-04:00",
+      "url": "https://triunfobet.com/altenar",
+      "nota": "Cuota visible en el widget con sesión; convertida a decimal si venía en formato americano",
+      "cuotas_americanas": {
+        "local_1": "+180",
+        "empate_x": "+250",
+        "visitante_2": "+145"
+      }
+    },
+    {
+      "match_slug": "2026-11-25_sabah_vs_barcelona",
+      "deporte": "Fútbol",
+      "liga": "EUROPA: Champions League - Fase de liga",
+      "fecha_local": "2026-11-25",
       "hora_local": "13:45",
       "equipo_local": "Sabah FC",
       "equipo_visitante": "Barcelona",
       "mercado": "1X2",
       "cuotas_1x2": {
-        "local_1": 20,
-        "empate_x": 11,
-        "visitante_2": 1.1
+        "local_1": 26,
+        "empate_x": 12,
+        "visitante_2": 1.077
       },
-      "capturado_en": "2026-11-24T14:55:16-04:00",
+      "capturado_en": "2026-11-25T08:32:15-04:00",
       "url": "https://triunfobet.com/altenar",
       "nota": "Cuota visible en el widget con sesión; convertida a decimal si venía en formato americano",
       "cuotas_americanas": {
-        "local_1": "+1900",
-        "empate_x": "+1000",
-        "visitante_2": "-1000"
+        "local_1": "+2500",
+        "empate_x": "+1100",
+        "visitante_2": "-1300"
       }
     },
     {
-      "match_slug": "2026-11-24_madrid_vs_viking-fk",
+      "match_slug": "2026-11-25_juventus_vs_omonia-nicosia",
       "deporte": "Fútbol",
       "liga": null,
-      "fecha_local": "2026-11-24",
+      "fecha_local": "2026-11-25",
       "hora_local": "16:00",
-      "equipo_local": "Atletico Madrid",
-      "equipo_visitante": "Viking FK",
+      "equipo_local": "Juventus",
+      "equipo_visitante": "AC Omonia Nicosia",
       "mercado": "1X2",
       "cuotas_1x2": {
-        "local_1": 1.111,
-        "empate_x": 10,
-        "visitante_2": 20
+        "local_1": 1.182,
+        "empate_x": 7,
+        "visitante_2": 13
       },
-      "capturado_en": "2026-11-24T14:55:16-04:00",
+      "capturado_en": "2026-11-25T08:32:15-04:00",
       "url": "https://triunfobet.com/altenar",
       "nota": "Cuota visible en el widget con sesión; convertida a decimal si venía en formato americano",
       "cuotas_americanas": {
-        "local_1": "-900",
-        "empate_x": "+900",
-        "visitante_2": "+1900"
+        "local_1": "-550",
+        "empate_x": "+600",
+        "visitante_2": "+1200"
       }
     },
     {
-      "match_slug": "2026-11-24_galatasaray_vs_aston-villa",
+      "match_slug": "2026-11-25_stoke_vs_millwall",
       "deporte": "Fútbol",
-      "liga": "EUROPA: Champions League - Fase de liga",
-      "fecha_local": "2026-11-24",
-      "hora_local": "13:45",
-      "equipo_local": "Aston Villa",
-      "equipo_visitante": "Galatasaray",
-      "mercado": "1X2",
-      "cuotas_1x2": {
-        "local_1": 3.9,
-        "empate_x": 2.45,
-        "visitante_2": 2.52
-      },
-      "capturado_en": "2026-11-24T14:55:16-04:00",
-      "url": "https://triunfobet.com/altenar",
-      "nota": "Cuota visible en el widget con sesión; convertida a decimal si venía en formato americano",
-      "cuotas_americanas": {
-        "local_1": "+290",
-        "empate_x": "+145",
-        "visitante_2": "+152"
-      }
-    },
-    {
-      "match_slug": "2026-11-24_galatasaray_vs_aston-villa",
-      "deporte": "Fútbol",
-      "liga": "EUROPA: Champions League - Fase de liga",
-      "fecha_local": "2026-11-24",
-      "hora_local": "13:45",
-      "equipo_local": "Aston Villa",
-      "equipo_visitante": "Galatasaray",
-      "mercado": "1X2",
-      "cuotas_1x2": {
-        "local_1": 3.9,
-        "empate_x": 2.45,
-        "visitante_2": 2.52
-      },
-      "capturado_en": "2026-11-24T14:55:16-04:00",
-      "url": "https://triunfobet.com/altenar",
-      "nota": "Cuota visible en el widget con sesión; convertida a decimal si venía en formato americano",
-      "cuotas_americanas": {
-        "local_1": "+290",
-        "empate_x": "+145",
-        "visitante_2": "+152"
-      }
-    },
-    {
-      "match_slug": "2026-11-24_galatasaray_vs_aston-villa",
-      "deporte": "Fútbol",
-      "liga": "EUROPA: Champions League - Fase de liga",
-      "fecha_local": "2026-11-24",
-      "hora_local": "13:45",
-      "equipo_local": "Aston Villa",
-      "equipo_visitante": "Galatasaray",
-      "mercado": "1X2",
-      "cuotas_1x2": {
-        "local_1": 3.9,
-        "empate_x": 2.45,
-        "visitante_2": 2.52
-      },
-      "capturado_en": "2026-11-24T14:55:16-04:00",
-      "url": "https://triunfobet.com/altenar",
-      "nota": "Cuota visible en el widget con sesión; convertida a decimal si venía en formato americano",
-      "cuotas_americanas": {
-        "local_1": "+290",
-        "empate_x": "+145",
-        "visitante_2": "+152"
-      }
-    },
-    {
-      "match_slug": "2026-11-24_bodo-glimt_vs_lask",
-      "deporte": "Fútbol",
-      "liga": "EUROPA: Champions League - Fase de liga",
-      "fecha_local": "2026-11-24",
-      "hora_local": "13:45",
-      "equipo_local": "LASK",
-      "equipo_visitante": "Bodo/Glimt",
-      "mercado": "1X2",
-      "cuotas_1x2": {
-        "local_1": 1.73,
-        "empate_x": 2.9,
-        "visitante_2": 7
-      },
-      "capturado_en": "2026-11-24T14:55:16-04:00",
-      "url": "https://triunfobet.com/altenar",
-      "nota": "Cuota visible en el widget con sesión; convertida a decimal si venía en formato americano",
-      "cuotas_americanas": {
-        "local_1": "-137",
-        "empate_x": "+190",
-        "visitante_2": "+600"
-      }
-    },
-    {
-      "match_slug": "2026-11-24_bodo-glimt_vs_lask",
-      "deporte": "Fútbol",
-      "liga": "EUROPA: Champions League - Fase de liga",
-      "fecha_local": "2026-11-24",
-      "hora_local": "13:45",
-      "equipo_local": "LASK",
-      "equipo_visitante": "Bodo/Glimt",
-      "mercado": "1X2",
-      "cuotas_1x2": {
-        "local_1": 1.73,
-        "empate_x": 2.9,
-        "visitante_2": 7
-      },
-      "capturado_en": "2026-11-24T14:55:16-04:00",
-      "url": "https://triunfobet.com/altenar",
-      "nota": "Cuota visible en el widget con sesión; convertida a decimal si venía en formato americano",
-      "cuotas_americanas": {
-        "local_1": "-137",
-        "empate_x": "+190",
-        "visitante_2": "+600"
-      }
-    },
-    {
-      "match_slug": "2026-11-24_bodo-glimt_vs_lask",
-      "deporte": "Fútbol",
-      "liga": "EUROPA: Champions League - Fase de liga",
-      "fecha_local": "2026-11-24",
-      "hora_local": "13:45",
-      "equipo_local": "LASK",
-      "equipo_visitante": "Bodo/Glimt",
-      "mercado": "1X2",
-      "cuotas_1x2": {
-        "local_1": 1.73,
-        "empate_x": 2.9,
-        "visitante_2": 7
-      },
-      "capturado_en": "2026-11-24T14:55:16-04:00",
-      "url": "https://triunfobet.com/altenar",
-      "nota": "Cuota visible en el widget con sesión; convertida a decimal si venía en formato americano",
-      "cuotas_americanas": {
-        "local_1": "-137",
-        "empate_x": "+190",
-        "visitante_2": "+600"
-      }
-    },
-    {
-      "match_slug": "2026-11-24_juve-stabia_vs_catanzaro",
-      "deporte": "Fútbol",
-      "liga": "ITALIA: Serie B",
-      "fecha_local": "2026-11-24",
-      "hora_local": "14:00",
-      "equipo_local": "Catanzaro",
-      "equipo_visitante": "Juve Stabia",
-      "mercado": "1X2",
-      "cuotas_1x2": {
-        "local_1": 13,
-        "empate_x": 6.25,
-        "visitante_2": 1.19
-      },
-      "capturado_en": "2026-11-24T14:55:16-04:00",
-      "url": "https://triunfobet.com/altenar",
-      "nota": "Cuota visible en el widget con sesión; convertida a decimal si venía en formato americano",
-      "cuotas_americanas": {
-        "local_1": "+1200",
-        "empate_x": "+525",
-        "visitante_2": "-525"
-      }
-    },
-    {
-      "match_slug": "2026-11-24_juve-stabia_vs_catanzaro",
-      "deporte": "Fútbol",
-      "liga": "ITALIA: Serie B",
-      "fecha_local": "2026-11-24",
-      "hora_local": "14:00",
-      "equipo_local": "Catanzaro",
-      "equipo_visitante": "Juve Stabia",
-      "mercado": "1X2",
-      "cuotas_1x2": {
-        "local_1": 13,
-        "empate_x": 6.25,
-        "visitante_2": 1.19
-      },
-      "capturado_en": "2026-11-24T14:55:16-04:00",
-      "url": "https://triunfobet.com/altenar",
-      "nota": "Cuota visible en el widget con sesión; convertida a decimal si venía en formato americano",
-      "cuotas_americanas": {
-        "local_1": "+1200",
-        "empate_x": "+525",
-        "visitante_2": "-525"
-      }
-    },
-    {
-      "match_slug": "2026-11-24_juve-stabia_vs_catanzaro",
-      "deporte": "Fútbol",
-      "liga": "ITALIA: Serie B",
-      "fecha_local": "2026-11-24",
-      "hora_local": "14:00",
-      "equipo_local": "Catanzaro",
-      "equipo_visitante": "Juve Stabia",
-      "mercado": "1X2",
-      "cuotas_1x2": {
-        "local_1": 13,
-        "empate_x": 6.25,
-        "visitante_2": 1.19
-      },
-      "capturado_en": "2026-11-24T14:55:16-04:00",
-      "url": "https://triunfobet.com/altenar",
-      "nota": "Cuota visible en el widget con sesión; convertida a decimal si venía en formato americano",
-      "cuotas_americanas": {
-        "local_1": "+1200",
-        "empate_x": "+525",
-        "visitante_2": "-525"
-      }
-    },
-    {
-      "match_slug": "2026-11-24_flamengo-f_vs_fluminense-f",
-      "deporte": "Fútbol",
-      "liga": "BRASIL: Carioca Femenino - Segunda fase",
-      "fecha_local": "2026-11-24",
-      "hora_local": "14:00",
-      "equipo_local": "Fluminense F",
-      "equipo_visitante": "Flamengo F",
-      "mercado": "1X2",
-      "cuotas_1x2": {
-        "local_1": 2.12,
-        "empate_x": 2.45,
-        "visitante_2": 4.1
-      },
-      "capturado_en": "2026-11-24T14:55:16-04:00",
-      "url": "https://triunfobet.com/altenar",
-      "nota": "Cuota visible en el widget con sesión; convertida a decimal si venía en formato americano",
-      "cuotas_americanas": {
-        "local_1": "+112",
-        "empate_x": "+145",
-        "visitante_2": "+310"
-      }
-    },
-    {
-      "match_slug": "2026-11-24_flamengo-f_vs_fluminense-f",
-      "deporte": "Fútbol",
-      "liga": "BRASIL: Carioca Femenino - Segunda fase",
-      "fecha_local": "2026-11-24",
-      "hora_local": "14:00",
-      "equipo_local": "Fluminense F",
-      "equipo_visitante": "Flamengo F",
-      "mercado": "1X2",
-      "cuotas_1x2": {
-        "local_1": 2.12,
-        "empate_x": 2.45,
-        "visitante_2": 4.1
-      },
-      "capturado_en": "2026-11-24T14:55:16-04:00",
-      "url": "https://triunfobet.com/altenar",
-      "nota": "Cuota visible en el widget con sesión; convertida a decimal si venía en formato americano",
-      "cuotas_americanas": {
-        "local_1": "+112",
-        "empate_x": "+145",
-        "visitante_2": "+310"
-      }
-    },
-    {
-      "match_slug": "2026-11-24_flamengo-f_vs_fluminense-f",
-      "deporte": "Fútbol",
-      "liga": "BRASIL: Carioca Femenino - Segunda fase",
-      "fecha_local": "2026-11-24",
-      "hora_local": "14:00",
-      "equipo_local": "Fluminense F",
-      "equipo_visitante": "Flamengo F",
-      "mercado": "1X2",
-      "cuotas_1x2": {
-        "local_1": 2.12,
-        "empate_x": 2.45,
-        "visitante_2": 4.1
-      },
-      "capturado_en": "2026-11-24T14:55:16-04:00",
-      "url": "https://triunfobet.com/altenar",
-      "nota": "Cuota visible en el widget con sesión; convertida a decimal si venía en formato americano",
-      "cuotas_americanas": {
-        "local_1": "+112",
-        "empate_x": "+145",
-        "visitante_2": "+310"
-      }
-    },
-    {
-      "match_slug": "2026-11-24_botafogo-f_vs_vasco-f",
-      "deporte": "Fútbol",
-      "liga": "BRASIL: Carioca Femenino - Segunda fase",
-      "fecha_local": "2026-11-24",
-      "hora_local": "14:00",
-      "equipo_local": "Vasco F",
-      "equipo_visitante": "Botafogo F",
-      "mercado": "1X2",
-      "cuotas_1x2": {
-        "local_1": 3.45,
-        "empate_x": 2.62,
-        "visitante_2": 2.22
-      },
-      "capturado_en": "2026-11-24T14:55:16-04:00",
-      "url": "https://triunfobet.com/altenar",
-      "nota": "Cuota visible en el widget con sesión; convertida a decimal si venía en formato americano",
-      "cuotas_americanas": {
-        "local_1": "+245",
-        "empate_x": "+162",
-        "visitante_2": "+122"
-      }
-    },
-    {
-      "match_slug": "2026-11-24_botafogo-f_vs_vasco-f",
-      "deporte": "Fútbol",
-      "liga": "BRASIL: Carioca Femenino - Segunda fase",
-      "fecha_local": "2026-11-24",
-      "hora_local": "14:00",
-      "equipo_local": "Vasco F",
-      "equipo_visitante": "Botafogo F",
-      "mercado": "1X2",
-      "cuotas_1x2": {
-        "local_1": 3.45,
-        "empate_x": 2.62,
-        "visitante_2": 2.22
-      },
-      "capturado_en": "2026-11-24T14:55:16-04:00",
-      "url": "https://triunfobet.com/altenar",
-      "nota": "Cuota visible en el widget con sesión; convertida a decimal si venía en formato americano",
-      "cuotas_americanas": {
-        "local_1": "+245",
-        "empate_x": "+162",
-        "visitante_2": "+122"
-      }
-    },
-    {
-      "match_slug": "2026-11-24_botafogo-f_vs_vasco-f",
-      "deporte": "Fútbol",
-      "liga": "BRASIL: Carioca Femenino - Segunda fase",
-      "fecha_local": "2026-11-24",
-      "hora_local": "14:00",
-      "equipo_local": "Vasco F",
-      "equipo_visitante": "Botafogo F",
-      "mercado": "1X2",
-      "cuotas_1x2": {
-        "local_1": 3.45,
-        "empate_x": 2.62,
-        "visitante_2": 2.22
-      },
-      "capturado_en": "2026-11-24T14:55:16-04:00",
-      "url": "https://triunfobet.com/altenar",
-      "nota": "Cuota visible en el widget con sesión; convertida a decimal si venía en formato americano",
-      "cuotas_americanas": {
-        "local_1": "+245",
-        "empate_x": "+162",
-        "visitante_2": "+122"
-      }
-    },
-    {
-      "match_slug": "2026-11-24_al-nassr-riyadh-sau_vs_al-sadd-qat",
-      "deporte": "Fútbol",
-      "liga": "ASIA: Liga de Campeones AFC - Fase de liga",
-      "fecha_local": "2026-11-24",
-      "hora_local": "14:15",
-      "equipo_local": "Al Sadd (Qat)",
-      "equipo_visitante": "Al Nassr Riyadh (Sau)",
-      "mercado": "1X2",
-      "cuotas_1x2": {
-        "local_1": 1.323,
-        "empate_x": 4.66,
-        "visitante_2": 8.5
-      },
-      "capturado_en": "2026-11-24T14:55:16-04:00",
-      "url": "https://triunfobet.com/altenar",
-      "nota": "Cuota visible en el widget con sesión; convertida a decimal si venía en formato americano",
-      "cuotas_americanas": {
-        "local_1": "-310",
-        "empate_x": "+366",
-        "visitante_2": "+750"
-      }
-    },
-    {
-      "match_slug": "2026-11-24_al-nassr-riyadh-sau_vs_al-sadd-qat",
-      "deporte": "Fútbol",
-      "liga": "ASIA: Liga de Campeones AFC - Fase de liga",
-      "fecha_local": "2026-11-24",
-      "hora_local": "14:15",
-      "equipo_local": "Al Sadd (Qat)",
-      "equipo_visitante": "Al Nassr Riyadh (Sau)",
-      "mercado": "1X2",
-      "cuotas_1x2": {
-        "local_1": 1.323,
-        "empate_x": 4.66,
-        "visitante_2": 8.5
-      },
-      "capturado_en": "2026-11-24T14:55:16-04:00",
-      "url": "https://triunfobet.com/altenar",
-      "nota": "Cuota visible en el widget con sesión; convertida a decimal si venía en formato americano",
-      "cuotas_americanas": {
-        "local_1": "-310",
-        "empate_x": "+366",
-        "visitante_2": "+750"
-      }
-    },
-    {
-      "match_slug": "2026-11-24_al-nassr-riyadh-sau_vs_al-sadd-qat",
-      "deporte": "Fútbol",
-      "liga": "ASIA: Liga de Campeones AFC - Fase de liga",
-      "fecha_local": "2026-11-24",
-      "hora_local": "14:15",
-      "equipo_local": "Al Sadd (Qat)",
-      "equipo_visitante": "Al Nassr Riyadh (Sau)",
-      "mercado": "1X2",
-      "cuotas_1x2": {
-        "local_1": 1.323,
-        "empate_x": 4.66,
-        "visitante_2": 8.5
-      },
-      "capturado_en": "2026-11-24T14:55:16-04:00",
-      "url": "https://triunfobet.com/altenar",
-      "nota": "Cuota visible en el widget con sesión; convertida a decimal si venía en formato americano",
-      "cuotas_americanas": {
-        "local_1": "-310",
-        "empate_x": "+366",
-        "visitante_2": "+750"
-      }
-    },
-    {
-      "match_slug": "2026-11-24_arsenal_vs_borussia-dortmund",
-      "deporte": "Fútbol",
-      "liga": "EUROPA: Champions League - Fase de liga",
-      "fecha_local": "2026-11-24",
+      "liga": "INGLATERRA: Championship",
+      "fecha_local": "2026-11-25",
       "hora_local": "16:00",
-      "equipo_local": "Borussia Dortmund",
-      "equipo_visitante": "Arsenal",
+      "equipo_local": "Stoke",
+      "equipo_visitante": "Millwall",
       "mercado": "1X2",
       "cuotas_1x2": {
-        "local_1": 1.5,
-        "empate_x": 4.75,
-        "visitante_2": 5.75
-      },
-      "capturado_en": "2026-11-24T14:55:16-04:00",
-      "url": "https://triunfobet.com/altenar",
-      "nota": "Cuota visible en el widget con sesión; convertida a decimal si venía en formato americano",
-      "cuotas_americanas": {
-        "local_1": "-200",
-        "empate_x": "+375",
-        "visitante_2": "+475"
-      }
-    },
-    {
-      "match_slug": "2026-11-24_arsenal_vs_borussia-dortmund",
-      "deporte": "Fútbol",
-      "liga": "EUROPA: Champions League - Fase de liga",
-      "fecha_local": "2026-11-24",
-      "hora_local": "16:00",
-      "equipo_local": "Borussia Dortmund",
-      "equipo_visitante": "Arsenal",
-      "mercado": "1X2",
-      "cuotas_1x2": {
-        "local_1": 1.5,
-        "empate_x": 4.75,
-        "visitante_2": 5.75
-      },
-      "capturado_en": "2026-11-24T14:55:16-04:00",
-      "url": "https://triunfobet.com/altenar",
-      "nota": "Cuota visible en el widget con sesión; convertida a decimal si venía en formato americano",
-      "cuotas_americanas": {
-        "local_1": "-200",
-        "empate_x": "+375",
-        "visitante_2": "+475"
-      }
-    },
-    {
-      "match_slug": "2026-11-24_arsenal_vs_borussia-dortmund",
-      "deporte": "Fútbol",
-      "liga": "EUROPA: Champions League - Fase de liga",
-      "fecha_local": "2026-11-24",
-      "hora_local": "16:00",
-      "equipo_local": "Borussia Dortmund",
-      "equipo_visitante": "Arsenal",
-      "mercado": "1X2",
-      "cuotas_1x2": {
-        "local_1": 1.5,
-        "empate_x": 4.75,
-        "visitante_2": 5.75
-      },
-      "capturado_en": "2026-11-24T14:55:16-04:00",
-      "url": "https://triunfobet.com/altenar",
-      "nota": "Cuota visible en el widget con sesión; convertida a decimal si venía en formato americano",
-      "cuotas_americanas": {
-        "local_1": "-200",
-        "empate_x": "+375",
-        "visitante_2": "+475"
-      }
-    },
-    {
-      "match_slug": "2026-11-24_como_vs_aek",
-      "deporte": "Fútbol",
-      "liga": "EUROPA: Champions League - Fase de liga",
-      "fecha_local": "2026-11-24",
-      "hora_local": "16:00",
-      "equipo_local": "AEK",
-      "equipo_visitante": "Como",
-      "mercado": "1X2",
-      "cuotas_1x2": {
-        "local_1": 1.25,
-        "empate_x": 6.66,
-        "visitante_2": 10
-      },
-      "capturado_en": "2026-11-24T14:55:16-04:00",
-      "url": "https://triunfobet.com/altenar",
-      "nota": "Cuota visible en el widget con sesión; convertida a decimal si venía en formato americano",
-      "cuotas_americanas": {
-        "local_1": "-400",
-        "empate_x": "+566",
-        "visitante_2": "+900"
-      }
-    },
-    {
-      "match_slug": "2026-11-24_como_vs_aek",
-      "deporte": "Fútbol",
-      "liga": "EUROPA: Champions League - Fase de liga",
-      "fecha_local": "2026-11-24",
-      "hora_local": "16:00",
-      "equipo_local": "AEK",
-      "equipo_visitante": "Como",
-      "mercado": "1X2",
-      "cuotas_1x2": {
-        "local_1": 1.25,
-        "empate_x": 6.66,
-        "visitante_2": 10
-      },
-      "capturado_en": "2026-11-24T14:55:16-04:00",
-      "url": "https://triunfobet.com/altenar",
-      "nota": "Cuota visible en el widget con sesión; convertida a decimal si venía en formato americano",
-      "cuotas_americanas": {
-        "local_1": "-400",
-        "empate_x": "+566",
-        "visitante_2": "+900"
-      }
-    },
-    {
-      "match_slug": "2026-11-24_como_vs_aek",
-      "deporte": "Fútbol",
-      "liga": "EUROPA: Champions League - Fase de liga",
-      "fecha_local": "2026-11-24",
-      "hora_local": "16:00",
-      "equipo_local": "AEK",
-      "equipo_visitante": "Como",
-      "mercado": "1X2",
-      "cuotas_1x2": {
-        "local_1": 1.25,
-        "empate_x": 6.66,
-        "visitante_2": 10
-      },
-      "capturado_en": "2026-11-24T14:55:16-04:00",
-      "url": "https://triunfobet.com/altenar",
-      "nota": "Cuota visible en el widget con sesión; convertida a decimal si venía en formato americano",
-      "cuotas_americanas": {
-        "local_1": "-400",
-        "empate_x": "+566",
-        "visitante_2": "+900"
-      }
-    },
-    {
-      "match_slug": "2026-11-24_slovan-bratislava_vs_betis",
-      "deporte": "Fútbol",
-      "liga": "EUROPA: Champions League - Fase de liga",
-      "fecha_local": "2026-11-24",
-      "hora_local": "16:00",
-      "equipo_local": "Real Betis",
-      "equipo_visitante": "Slovan Bratislava",
-      "mercado": "1X2",
-      "cuotas_1x2": {
-        "local_1": 10,
-        "empate_x": 6.66,
-        "visitante_2": 1.25
-      },
-      "capturado_en": "2026-11-24T14:55:16-04:00",
-      "url": "https://triunfobet.com/altenar",
-      "nota": "Cuota visible en el widget con sesión; convertida a decimal si venía en formato americano",
-      "cuotas_americanas": {
-        "local_1": "+900",
-        "empate_x": "+566",
-        "visitante_2": "-400"
-      }
-    },
-    {
-      "match_slug": "2026-11-24_slovan-bratislava_vs_betis",
-      "deporte": "Fútbol",
-      "liga": "EUROPA: Champions League - Fase de liga",
-      "fecha_local": "2026-11-24",
-      "hora_local": "16:00",
-      "equipo_local": "Real Betis",
-      "equipo_visitante": "Slovan Bratislava",
-      "mercado": "1X2",
-      "cuotas_1x2": {
-        "local_1": 10,
-        "empate_x": 6.66,
-        "visitante_2": 1.25
-      },
-      "capturado_en": "2026-11-24T14:55:16-04:00",
-      "url": "https://triunfobet.com/altenar",
-      "nota": "Cuota visible en el widget con sesión; convertida a decimal si venía en formato americano",
-      "cuotas_americanas": {
-        "local_1": "+900",
-        "empate_x": "+566",
-        "visitante_2": "-400"
-      }
-    },
-    {
-      "match_slug": "2026-11-24_slovan-bratislava_vs_betis",
-      "deporte": "Fútbol",
-      "liga": "EUROPA: Champions League - Fase de liga",
-      "fecha_local": "2026-11-24",
-      "hora_local": "16:00",
-      "equipo_local": "Real Betis",
-      "equipo_visitante": "Slovan Bratislava",
-      "mercado": "1X2",
-      "cuotas_1x2": {
-        "local_1": 10,
-        "empate_x": 6.66,
-        "visitante_2": 1.25
-      },
-      "capturado_en": "2026-11-24T14:55:16-04:00",
-      "url": "https://triunfobet.com/altenar",
-      "nota": "Cuota visible en el widget con sesión; convertida a decimal si venía en formato americano",
-      "cuotas_americanas": {
-        "local_1": "+900",
-        "empate_x": "+566",
-        "visitante_2": "-400"
-      }
-    },
-    {
-      "match_slug": "2026-11-24_manchester-napoli_vs_manchester",
-      "deporte": "Fútbol",
-      "liga": null,
-      "fecha_local": "2026-11-24",
-      "hora_local": "16:00",
-      "equipo_local": "Manchester City Napoli",
-      "equipo_visitante": "Manchester City",
-      "mercado": "1X2",
-      "cuotas_1x2": {
-        "local_1": 1.267,
-        "empate_x": 6.66,
-        "visitante_2": 9
-      },
-      "capturado_en": "2026-11-24T14:55:16-04:00",
-      "url": "https://triunfobet.com/altenar",
-      "nota": "Cuota visible en el widget con sesión; convertida a decimal si venía en formato americano",
-      "cuotas_americanas": {
-        "local_1": "-375",
-        "empate_x": "+566",
-        "visitante_2": "+800"
-      }
-    },
-    {
-      "match_slug": "2026-11-24_manchester-napoli_vs_manchester",
-      "deporte": "Fútbol",
-      "liga": null,
-      "fecha_local": "2026-11-24",
-      "hora_local": "16:00",
-      "equipo_local": "Manchester City Napoli",
-      "equipo_visitante": "Manchester City",
-      "mercado": "1X2",
-      "cuotas_1x2": {
-        "local_1": 1.267,
-        "empate_x": 6.66,
-        "visitante_2": 9
-      },
-      "capturado_en": "2026-11-24T14:55:16-04:00",
-      "url": "https://triunfobet.com/altenar",
-      "nota": "Cuota visible en el widget con sesión; convertida a decimal si venía en formato americano",
-      "cuotas_americanas": {
-        "local_1": "-375",
-        "empate_x": "+566",
-        "visitante_2": "+800"
-      }
-    },
-    {
-      "match_slug": "2026-11-24_manchester-napoli_vs_manchester",
-      "deporte": "Fútbol",
-      "liga": null,
-      "fecha_local": "2026-11-24",
-      "hora_local": "16:00",
-      "equipo_local": "Manchester City Napoli",
-      "equipo_visitante": "Manchester City",
-      "mercado": "1X2",
-      "cuotas_1x2": {
-        "local_1": 1.267,
-        "empate_x": 6.66,
-        "visitante_2": 9
-      },
-      "capturado_en": "2026-11-24T14:55:16-04:00",
-      "url": "https://triunfobet.com/altenar",
-      "nota": "Cuota visible en el widget con sesión; convertida a decimal si venía en formato americano",
-      "cuotas_americanas": {
-        "local_1": "-375",
-        "empate_x": "+566",
-        "visitante_2": "+800"
-      }
-    },
-    {
-      "match_slug": "2026-11-24_rb-leipzig_vs_lens",
-      "deporte": "Fútbol",
-      "liga": "EUROPA: Champions League - Fase de liga",
-      "fecha_local": "2026-11-24",
-      "hora_local": "16:00",
-      "equipo_local": "Lens",
-      "equipo_visitante": "RB Leipzig",
-      "mercado": "1X2",
-      "cuotas_1x2": {
-        "local_1": 1.417,
-        "empate_x": 5.33,
-        "visitante_2": 6.33
-      },
-      "capturado_en": "2026-11-24T14:55:16-04:00",
-      "url": "https://triunfobet.com/altenar",
-      "nota": "Cuota visible en el widget con sesión; convertida a decimal si venía en formato americano",
-      "cuotas_americanas": {
-        "local_1": "-240",
-        "empate_x": "+433",
-        "visitante_2": "+533"
-      }
-    },
-    {
-      "match_slug": "2026-11-24_rb-leipzig_vs_lens",
-      "deporte": "Fútbol",
-      "liga": "EUROPA: Champions League - Fase de liga",
-      "fecha_local": "2026-11-24",
-      "hora_local": "16:00",
-      "equipo_local": "Lens",
-      "equipo_visitante": "RB Leipzig",
-      "mercado": "1X2",
-      "cuotas_1x2": {
-        "local_1": 1.417,
-        "empate_x": 5.33,
-        "visitante_2": 6.33
-      },
-      "capturado_en": "2026-11-24T14:55:16-04:00",
-      "url": "https://triunfobet.com/altenar",
-      "nota": "Cuota visible en el widget con sesión; convertida a decimal si venía en formato americano",
-      "cuotas_americanas": {
-        "local_1": "-240",
-        "empate_x": "+433",
-        "visitante_2": "+533"
-      }
-    },
-    {
-      "match_slug": "2026-11-24_rb-leipzig_vs_lens",
-      "deporte": "Fútbol",
-      "liga": "EUROPA: Champions League - Fase de liga",
-      "fecha_local": "2026-11-24",
-      "hora_local": "16:00",
-      "equipo_local": "Lens",
-      "equipo_visitante": "RB Leipzig",
-      "mercado": "1X2",
-      "cuotas_1x2": {
-        "local_1": 1.417,
-        "empate_x": 5.33,
-        "visitante_2": 6.33
-      },
-      "capturado_en": "2026-11-24T14:55:16-04:00",
-      "url": "https://triunfobet.com/altenar",
-      "nota": "Cuota visible en el widget con sesión; convertida a decimal si venía en formato americano",
-      "cuotas_americanas": {
-        "local_1": "-240",
-        "empate_x": "+433",
-        "visitante_2": "+533"
-      }
-    },
-    {
-      "match_slug": "2026-11-24_madrid_vs_psv",
-      "deporte": "Fútbol",
-      "liga": "EUROPA: Champions League - Fase de liga",
-      "fecha_local": "2026-11-24",
-      "hora_local": "16:00",
-      "equipo_local": "PSV",
-      "equipo_visitante": "Real Madrid",
-      "mercado": "1X2",
-      "cuotas_1x2": {
-        "local_1": 1.133,
-        "empate_x": 9.5,
-        "visitante_2": 16
-      },
-      "capturado_en": "2026-11-24T14:55:16-04:00",
-      "url": "https://triunfobet.com/altenar",
-      "nota": "Cuota visible en el widget con sesión; convertida a decimal si venía en formato americano",
-      "cuotas_americanas": {
-        "local_1": "-750",
-        "empate_x": "+850",
-        "visitante_2": "+1500"
-      }
-    },
-    {
-      "match_slug": "2026-11-24_madrid_vs_psv",
-      "deporte": "Fútbol",
-      "liga": "EUROPA: Champions League - Fase de liga",
-      "fecha_local": "2026-11-24",
-      "hora_local": "16:00",
-      "equipo_local": "PSV",
-      "equipo_visitante": "Real Madrid",
-      "mercado": "1X2",
-      "cuotas_1x2": {
-        "local_1": 1.133,
-        "empate_x": 9.5,
-        "visitante_2": 16
-      },
-      "capturado_en": "2026-11-24T14:55:16-04:00",
-      "url": "https://triunfobet.com/altenar",
-      "nota": "Cuota visible en el widget con sesión; convertida a decimal si venía en formato americano",
-      "cuotas_americanas": {
-        "local_1": "-750",
-        "empate_x": "+850",
-        "visitante_2": "+1500"
-      }
-    },
-    {
-      "match_slug": "2026-11-24_madrid_vs_psv",
-      "deporte": "Fútbol",
-      "liga": "EUROPA: Champions League - Fase de liga",
-      "fecha_local": "2026-11-24",
-      "hora_local": "16:00",
-      "equipo_local": "PSV",
-      "equipo_visitante": "Real Madrid",
-      "mercado": "1X2",
-      "cuotas_1x2": {
-        "local_1": 1.133,
-        "empate_x": 9.5,
-        "visitante_2": 16
-      },
-      "capturado_en": "2026-11-24T14:55:16-04:00",
-      "url": "https://triunfobet.com/altenar",
-      "nota": "Cuota visible en el widget con sesión; convertida a decimal si venía en formato americano",
-      "cuotas_americanas": {
-        "local_1": "-750",
-        "empate_x": "+850",
-        "visitante_2": "+1500"
-      }
-    },
-    {
-      "match_slug": "2026-11-24_feyenoord_vs_oporto",
-      "deporte": "Fútbol",
-      "liga": "EUROPA: Champions League - Fase de liga",
-      "fecha_local": "2026-11-24",
-      "hora_local": "16:00",
-      "equipo_local": "Oporto",
-      "equipo_visitante": "Feyenoord",
-      "mercado": "1X2",
-      "cuotas_1x2": {
-        "local_1": 3.4,
-        "empate_x": 3.5,
-        "visitante_2": 2.12
-      },
-      "capturado_en": "2026-11-24T14:55:16-04:00",
-      "url": "https://triunfobet.com/altenar",
-      "nota": "Cuota visible en el widget con sesión; convertida a decimal si venía en formato americano",
-      "cuotas_americanas": {
-        "local_1": "+240",
-        "empate_x": "+250",
-        "visitante_2": "+112"
-      }
-    },
-    {
-      "match_slug": "2026-11-24_feyenoord_vs_oporto",
-      "deporte": "Fútbol",
-      "liga": "EUROPA: Champions League - Fase de liga",
-      "fecha_local": "2026-11-24",
-      "hora_local": "16:00",
-      "equipo_local": "Oporto",
-      "equipo_visitante": "Feyenoord",
-      "mercado": "1X2",
-      "cuotas_1x2": {
-        "local_1": 3.4,
-        "empate_x": 3.5,
-        "visitante_2": 2.12
-      },
-      "capturado_en": "2026-11-24T14:55:16-04:00",
-      "url": "https://triunfobet.com/altenar",
-      "nota": "Cuota visible en el widget con sesión; convertida a decimal si venía en formato americano",
-      "cuotas_americanas": {
-        "local_1": "+240",
-        "empate_x": "+250",
-        "visitante_2": "+112"
-      }
-    },
-    {
-      "match_slug": "2026-11-24_feyenoord_vs_oporto",
-      "deporte": "Fútbol",
-      "liga": "EUROPA: Champions League - Fase de liga",
-      "fecha_local": "2026-11-24",
-      "hora_local": "16:00",
-      "equipo_local": "Oporto",
-      "equipo_visitante": "Feyenoord",
-      "mercado": "1X2",
-      "cuotas_1x2": {
-        "local_1": 3.4,
-        "empate_x": 3.5,
-        "visitante_2": 2.12
-      },
-      "capturado_en": "2026-11-24T14:55:16-04:00",
-      "url": "https://triunfobet.com/altenar",
-      "nota": "Cuota visible en el widget con sesión; convertida a decimal si venía en formato americano",
-      "cuotas_americanas": {
-        "local_1": "+240",
-        "empate_x": "+250",
-        "visitante_2": "+112"
-      }
-    },
-    {
-      "match_slug": "2026-11-24_psg-as-roma_vs_psg",
-      "deporte": "Fútbol",
-      "liga": null,
-      "fecha_local": "2026-11-24",
-      "hora_local": "16:00",
-      "equipo_local": "PSG AS Roma",
-      "equipo_visitante": "PSG",
-      "mercado": "1X2",
-      "cuotas_1x2": {
-        "local_1": 1.444,
-        "empate_x": 5,
-        "visitante_2": 6.33
-      },
-      "capturado_en": "2026-11-24T14:55:16-04:00",
-      "url": "https://triunfobet.com/altenar",
-      "nota": "Cuota visible en el widget con sesión; convertida a decimal si venía en formato americano",
-      "cuotas_americanas": {
-        "local_1": "-225",
-        "empate_x": "+400",
-        "visitante_2": "+533"
-      }
-    },
-    {
-      "match_slug": "2026-11-24_psg-as-roma_vs_psg",
-      "deporte": "Fútbol",
-      "liga": null,
-      "fecha_local": "2026-11-24",
-      "hora_local": "16:00",
-      "equipo_local": "PSG AS Roma",
-      "equipo_visitante": "PSG",
-      "mercado": "1X2",
-      "cuotas_1x2": {
-        "local_1": 1.444,
-        "empate_x": 5,
-        "visitante_2": 6.33
-      },
-      "capturado_en": "2026-11-24T14:55:16-04:00",
-      "url": "https://triunfobet.com/altenar",
-      "nota": "Cuota visible en el widget con sesión; convertida a decimal si venía en formato americano",
-      "cuotas_americanas": {
-        "local_1": "-225",
-        "empate_x": "+400",
-        "visitante_2": "+533"
-      }
-    },
-    {
-      "match_slug": "2026-11-24_psg-as-roma_vs_psg",
-      "deporte": "Fútbol",
-      "liga": null,
-      "fecha_local": "2026-11-24",
-      "hora_local": "16:00",
-      "equipo_local": "PSG AS Roma",
-      "equipo_visitante": "PSG",
-      "mercado": "1X2",
-      "cuotas_1x2": {
-        "local_1": 1.444,
-        "empate_x": 5,
-        "visitante_2": 6.33
-      },
-      "capturado_en": "2026-11-24T14:55:16-04:00",
-      "url": "https://triunfobet.com/altenar",
-      "nota": "Cuota visible en el widget con sesión; convertida a decimal si venía en formato americano",
-      "cuotas_americanas": {
-        "local_1": "-225",
-        "empate_x": "+400",
-        "visitante_2": "+533"
-      }
-    },
-    {
-      "match_slug": "2026-11-24_lille-bayern-munich_vs_lille",
-      "deporte": "Fútbol",
-      "liga": null,
-      "fecha_local": "2026-11-24",
-      "hora_local": "16:00",
-      "equipo_local": "Lille Bayern Munich",
-      "equipo_visitante": "Lille",
-      "mercado": "1X2",
-      "cuotas_1x2": {
-        "local_1": 5,
-        "empate_x": 4.2,
-        "visitante_2": 1.633
-      },
-      "capturado_en": "2026-11-24T14:55:16-04:00",
-      "url": "https://triunfobet.com/altenar",
-      "nota": "Cuota visible en el widget con sesión; convertida a decimal si venía en formato americano",
-      "cuotas_americanas": {
-        "local_1": "+400",
-        "empate_x": "+320",
-        "visitante_2": "-158"
-      }
-    },
-    {
-      "match_slug": "2026-11-24_lille-bayern-munich_vs_lille",
-      "deporte": "Fútbol",
-      "liga": null,
-      "fecha_local": "2026-11-24",
-      "hora_local": "16:00",
-      "equipo_local": "Lille Bayern Munich",
-      "equipo_visitante": "Lille",
-      "mercado": "1X2",
-      "cuotas_1x2": {
-        "local_1": 5,
-        "empate_x": 4.2,
-        "visitante_2": 1.633
-      },
-      "capturado_en": "2026-11-24T14:55:16-04:00",
-      "url": "https://triunfobet.com/altenar",
-      "nota": "Cuota visible en el widget con sesión; convertida a decimal si venía en formato americano",
-      "cuotas_americanas": {
-        "local_1": "+400",
-        "empate_x": "+320",
-        "visitante_2": "-158"
-      }
-    },
-    {
-      "match_slug": "2026-11-24_lille-bayern-munich_vs_lille",
-      "deporte": "Fútbol",
-      "liga": null,
-      "fecha_local": "2026-11-24",
-      "hora_local": "16:00",
-      "equipo_local": "Lille Bayern Munich",
-      "equipo_visitante": "Lille",
-      "mercado": "1X2",
-      "cuotas_1x2": {
-        "local_1": 5,
-        "empate_x": 4.2,
-        "visitante_2": 1.633
-      },
-      "capturado_en": "2026-11-24T14:55:16-04:00",
-      "url": "https://triunfobet.com/altenar",
-      "nota": "Cuota visible en el widget con sesión; convertida a decimal si venía en formato americano",
-      "cuotas_americanas": {
-        "local_1": "+400",
-        "empate_x": "+320",
-        "visitante_2": "-158"
-      }
-    },
-    {
-      "match_slug": "2026-11-24_inter-vfb-stuttgart_vs_inter",
-      "deporte": "Fútbol",
-      "liga": null,
-      "fecha_local": "2026-11-24",
-      "hora_local": "16:00",
-      "equipo_local": "Inter VfB Stuttgart",
-      "equipo_visitante": "Inter",
-      "mercado": "1X2",
-      "cuotas_1x2": {
-        "local_1": 1.4,
-        "empate_x": 5.5,
-        "visitante_2": 6.5
-      },
-      "capturado_en": "2026-11-24T14:55:16-04:00",
-      "url": "https://triunfobet.com/altenar",
-      "nota": "Cuota visible en el widget con sesión; convertida a decimal si venía en formato americano",
-      "cuotas_americanas": {
-        "local_1": "-250",
-        "empate_x": "+450",
-        "visitante_2": "+550"
-      }
-    },
-    {
-      "match_slug": "2026-11-24_inter-vfb-stuttgart_vs_inter",
-      "deporte": "Fútbol",
-      "liga": null,
-      "fecha_local": "2026-11-24",
-      "hora_local": "16:00",
-      "equipo_local": "Inter VfB Stuttgart",
-      "equipo_visitante": "Inter",
-      "mercado": "1X2",
-      "cuotas_1x2": {
-        "local_1": 1.4,
-        "empate_x": 5.5,
-        "visitante_2": 6.5
-      },
-      "capturado_en": "2026-11-24T14:55:16-04:00",
-      "url": "https://triunfobet.com/altenar",
-      "nota": "Cuota visible en el widget con sesión; convertida a decimal si venía en formato americano",
-      "cuotas_americanas": {
-        "local_1": "-250",
-        "empate_x": "+450",
-        "visitante_2": "+550"
-      }
-    },
-    {
-      "match_slug": "2026-11-24_inter-vfb-stuttgart_vs_inter",
-      "deporte": "Fútbol",
-      "liga": null,
-      "fecha_local": "2026-11-24",
-      "hora_local": "16:00",
-      "equipo_local": "Inter VfB Stuttgart",
-      "equipo_visitante": "Inter",
-      "mercado": "1X2",
-      "cuotas_1x2": {
-        "local_1": 1.4,
-        "empate_x": 5.5,
-        "visitante_2": 6.5
-      },
-      "capturado_en": "2026-11-24T14:55:16-04:00",
-      "url": "https://triunfobet.com/altenar",
-      "nota": "Cuota visible en el widget con sesión; convertida a decimal si venía en formato americano",
-      "cuotas_americanas": {
-        "local_1": "-250",
-        "empate_x": "+450",
-        "visitante_2": "+550"
-      }
-    },
-    {
-      "match_slug": "2026-11-24_palermo_vs_sudtirol",
-      "deporte": "Fútbol",
-      "liga": "ITALIA: Serie B",
-      "fecha_local": "2026-11-24",
-      "hora_local": "15:00",
-      "equipo_local": "Sudtirol",
-      "equipo_visitante": "Palermo",
-      "mercado": "1X2",
-      "cuotas_1x2": {
-        "local_1": 1.4,
-        "empate_x": 4.5,
-        "visitante_2": 7.5
-      },
-      "capturado_en": "2026-11-24T14:55:16-04:00",
-      "url": "https://triunfobet.com/altenar",
-      "nota": "Cuota visible en el widget con sesión; convertida a decimal si venía en formato americano",
-      "cuotas_americanas": {
-        "local_1": "-250",
-        "empate_x": "+350",
-        "visitante_2": "+650"
-      }
-    },
-    {
-      "match_slug": "2026-11-24_palermo_vs_sudtirol",
-      "deporte": "Fútbol",
-      "liga": "ITALIA: Serie B",
-      "fecha_local": "2026-11-24",
-      "hora_local": "15:00",
-      "equipo_local": "Sudtirol",
-      "equipo_visitante": "Palermo",
-      "mercado": "1X2",
-      "cuotas_1x2": {
-        "local_1": 1.4,
-        "empate_x": 4.5,
-        "visitante_2": 7.5
-      },
-      "capturado_en": "2026-11-24T14:55:16-04:00",
-      "url": "https://triunfobet.com/altenar",
-      "nota": "Cuota visible en el widget con sesión; convertida a decimal si venía en formato americano",
-      "cuotas_americanas": {
-        "local_1": "-250",
-        "empate_x": "+350",
-        "visitante_2": "+650"
-      }
-    },
-    {
-      "match_slug": "2026-11-24_palermo_vs_sudtirol",
-      "deporte": "Fútbol",
-      "liga": "ITALIA: Serie B",
-      "fecha_local": "2026-11-24",
-      "hora_local": "15:00",
-      "equipo_local": "Sudtirol",
-      "equipo_visitante": "Palermo",
-      "mercado": "1X2",
-      "cuotas_1x2": {
-        "local_1": 1.4,
-        "empate_x": 4.5,
-        "visitante_2": 7.5
-      },
-      "capturado_en": "2026-11-24T14:55:16-04:00",
-      "url": "https://triunfobet.com/altenar",
-      "nota": "Cuota visible en el widget con sesión; convertida a decimal si venía en formato americano",
-      "cuotas_americanas": {
-        "local_1": "-250",
-        "empate_x": "+350",
-        "visitante_2": "+650"
-      }
-    },
-    {
-      "match_slug": "2026-11-24_l-r-vicenza_vs_carrarese",
-      "deporte": "Fútbol",
-      "liga": "ITALIA: Serie B",
-      "fecha_local": "2026-11-24",
-      "hora_local": "15:00",
-      "equipo_local": "Carrarese",
-      "equipo_visitante": "L.R. Vicenza",
-      "mercado": "1X2",
-      "cuotas_1x2": {
-        "local_1": 2.9,
-        "empate_x": 3,
-        "visitante_2": 2.54
-      },
-      "capturado_en": "2026-11-24T14:55:16-04:00",
-      "url": "https://triunfobet.com/altenar",
-      "nota": "Cuota visible en el widget con sesión; convertida a decimal si venía en formato americano",
-      "cuotas_americanas": {
-        "local_1": "+190",
-        "empate_x": "+200",
-        "visitante_2": "+154"
-      }
-    },
-    {
-      "match_slug": "2026-11-24_l-r-vicenza_vs_carrarese",
-      "deporte": "Fútbol",
-      "liga": "ITALIA: Serie B",
-      "fecha_local": "2026-11-24",
-      "hora_local": "15:00",
-      "equipo_local": "Carrarese",
-      "equipo_visitante": "L.R. Vicenza",
-      "mercado": "1X2",
-      "cuotas_1x2": {
-        "local_1": 2.9,
-        "empate_x": 3,
-        "visitante_2": 2.54
-      },
-      "capturado_en": "2026-11-24T14:55:16-04:00",
-      "url": "https://triunfobet.com/altenar",
-      "nota": "Cuota visible en el widget con sesión; convertida a decimal si venía en formato americano",
-      "cuotas_americanas": {
-        "local_1": "+190",
-        "empate_x": "+200",
-        "visitante_2": "+154"
-      }
-    },
-    {
-      "match_slug": "2026-11-24_l-r-vicenza_vs_carrarese",
-      "deporte": "Fútbol",
-      "liga": "ITALIA: Serie B",
-      "fecha_local": "2026-11-24",
-      "hora_local": "15:00",
-      "equipo_local": "Carrarese",
-      "equipo_visitante": "L.R. Vicenza",
-      "mercado": "1X2",
-      "cuotas_1x2": {
-        "local_1": 2.9,
-        "empate_x": 3,
-        "visitante_2": 2.54
-      },
-      "capturado_en": "2026-11-24T14:55:16-04:00",
-      "url": "https://triunfobet.com/altenar",
-      "nota": "Cuota visible en el widget con sesión; convertida a decimal si venía en formato americano",
-      "cuotas_americanas": {
-        "local_1": "+190",
-        "empate_x": "+200",
-        "visitante_2": "+154"
-      }
-    },
-    {
-      "match_slug": "2026-11-24_benevento_vs_empoli",
-      "deporte": "Fútbol",
-      "liga": "ITALIA: Serie B",
-      "fecha_local": "2026-11-24",
-      "hora_local": "15:00",
-      "equipo_local": "Empoli",
-      "equipo_visitante": "Benevento",
-      "mercado": "1X2",
-      "cuotas_1x2": {
-        "local_1": 1.478,
-        "empate_x": 4.25,
-        "visitante_2": 6.33
-      },
-      "capturado_en": "2026-11-24T14:55:16-04:00",
-      "url": "https://triunfobet.com/altenar",
-      "nota": "Cuota visible en el widget con sesión; convertida a decimal si venía en formato americano",
-      "cuotas_americanas": {
-        "local_1": "-209",
-        "empate_x": "+325",
-        "visitante_2": "+533"
-      }
-    },
-    {
-      "match_slug": "2026-11-24_benevento_vs_empoli",
-      "deporte": "Fútbol",
-      "liga": "ITALIA: Serie B",
-      "fecha_local": "2026-11-24",
-      "hora_local": "15:00",
-      "equipo_local": "Empoli",
-      "equipo_visitante": "Benevento",
-      "mercado": "1X2",
-      "cuotas_1x2": {
-        "local_1": 1.478,
-        "empate_x": 4.25,
-        "visitante_2": 6.33
-      },
-      "capturado_en": "2026-11-24T14:55:16-04:00",
-      "url": "https://triunfobet.com/altenar",
-      "nota": "Cuota visible en el widget con sesión; convertida a decimal si venía en formato americano",
-      "cuotas_americanas": {
-        "local_1": "-209",
-        "empate_x": "+325",
-        "visitante_2": "+533"
-      }
-    },
-    {
-      "match_slug": "2026-11-24_benevento_vs_empoli",
-      "deporte": "Fútbol",
-      "liga": "ITALIA: Serie B",
-      "fecha_local": "2026-11-24",
-      "hora_local": "15:00",
-      "equipo_local": "Empoli",
-      "equipo_visitante": "Benevento",
-      "mercado": "1X2",
-      "cuotas_1x2": {
-        "local_1": 1.478,
-        "empate_x": 4.25,
-        "visitante_2": 6.33
-      },
-      "capturado_en": "2026-11-24T14:55:16-04:00",
-      "url": "https://triunfobet.com/altenar",
-      "nota": "Cuota visible en el widget con sesión; convertida a decimal si venía en formato americano",
-      "cuotas_americanas": {
-        "local_1": "-209",
-        "empate_x": "+325",
-        "visitante_2": "+533"
-      }
-    },
-    {
-      "match_slug": "2026-11-24_oxford_vs_tottenham-sub-21",
-      "deporte": "Fútbol",
-      "liga": "INGLATERRA: EFL Trophy",
-      "fecha_local": "2026-11-24",
-      "hora_local": "15:00",
-      "equipo_local": "Tottenham Sub-21",
-      "equipo_visitante": "Oxford Utd",
-      "mercado": "1X2",
-      "cuotas_1x2": {
-        "local_1": 1.4,
-        "empate_x": 5,
-        "visitante_2": 5.33
-      },
-      "capturado_en": "2026-11-24T14:55:16-04:00",
-      "url": "https://triunfobet.com/altenar",
-      "nota": "Cuota visible en el widget con sesión; convertida a decimal si venía en formato americano",
-      "cuotas_americanas": {
-        "local_1": "-250",
-        "empate_x": "+400",
-        "visitante_2": "+433"
-      }
-    },
-    {
-      "match_slug": "2026-11-24_oxford_vs_tottenham-sub-21",
-      "deporte": "Fútbol",
-      "liga": "INGLATERRA: EFL Trophy",
-      "fecha_local": "2026-11-24",
-      "hora_local": "15:00",
-      "equipo_local": "Tottenham Sub-21",
-      "equipo_visitante": "Oxford Utd",
-      "mercado": "1X2",
-      "cuotas_1x2": {
-        "local_1": 1.4,
-        "empate_x": 5,
-        "visitante_2": 5.33
-      },
-      "capturado_en": "2026-11-24T14:55:16-04:00",
-      "url": "https://triunfobet.com/altenar",
-      "nota": "Cuota visible en el widget con sesión; convertida a decimal si venía en formato americano",
-      "cuotas_americanas": {
-        "local_1": "-250",
-        "empate_x": "+400",
-        "visitante_2": "+433"
-      }
-    },
-    {
-      "match_slug": "2026-11-24_oxford_vs_tottenham-sub-21",
-      "deporte": "Fútbol",
-      "liga": "INGLATERRA: EFL Trophy",
-      "fecha_local": "2026-11-24",
-      "hora_local": "15:00",
-      "equipo_local": "Tottenham Sub-21",
-      "equipo_visitante": "Oxford Utd",
-      "mercado": "1X2",
-      "cuotas_1x2": {
-        "local_1": 1.4,
-        "empate_x": 5,
-        "visitante_2": 5.33
-      },
-      "capturado_en": "2026-11-24T14:55:16-04:00",
-      "url": "https://triunfobet.com/altenar",
-      "nota": "Cuota visible en el widget con sesión; convertida a decimal si venía en formato americano",
-      "cuotas_americanas": {
-        "local_1": "-250",
-        "empate_x": "+400",
-        "visitante_2": "+433"
-      }
-    },
-    {
-      "match_slug": "2026-11-24_dietikon_vs_eschen-mauren",
-      "deporte": "Fútbol",
-      "liga": "SUIZA: 1. Liga Grupo 3",
-      "fecha_local": "2026-11-24",
-      "hora_local": "15:00",
-      "equipo_local": "Eschen/Mauren",
-      "equipo_visitante": "Dietikon",
-      "mercado": "1X2",
-      "cuotas_1x2": {
-        "local_1": 1.952,
-        "empate_x": 3.75,
-        "visitante_2": 2.9
-      },
-      "capturado_en": "2026-11-24T14:55:16-04:00",
-      "url": "https://triunfobet.com/altenar",
-      "nota": "Cuota visible en el widget con sesión; convertida a decimal si venía en formato americano",
-      "cuotas_americanas": {
-        "local_1": "-105",
-        "empate_x": "+275",
-        "visitante_2": "+190"
-      }
-    },
-    {
-      "match_slug": "2026-11-24_dietikon_vs_eschen-mauren",
-      "deporte": "Fútbol",
-      "liga": "SUIZA: 1. Liga Grupo 3",
-      "fecha_local": "2026-11-24",
-      "hora_local": "15:00",
-      "equipo_local": "Eschen/Mauren",
-      "equipo_visitante": "Dietikon",
-      "mercado": "1X2",
-      "cuotas_1x2": {
-        "local_1": 1.952,
-        "empate_x": 3.75,
-        "visitante_2": 2.9
-      },
-      "capturado_en": "2026-11-24T14:55:16-04:00",
-      "url": "https://triunfobet.com/altenar",
-      "nota": "Cuota visible en el widget con sesión; convertida a decimal si venía en formato americano",
-      "cuotas_americanas": {
-        "local_1": "-105",
-        "empate_x": "+275",
-        "visitante_2": "+190"
-      }
-    },
-    {
-      "match_slug": "2026-11-24_dietikon_vs_eschen-mauren",
-      "deporte": "Fútbol",
-      "liga": "SUIZA: 1. Liga Grupo 3",
-      "fecha_local": "2026-11-24",
-      "hora_local": "15:00",
-      "equipo_local": "Eschen/Mauren",
-      "equipo_visitante": "Dietikon",
-      "mercado": "1X2",
-      "cuotas_1x2": {
-        "local_1": 1.952,
-        "empate_x": 3.75,
-        "visitante_2": 2.9
-      },
-      "capturado_en": "2026-11-24T14:55:16-04:00",
-      "url": "https://triunfobet.com/altenar",
-      "nota": "Cuota visible en el widget con sesión; convertida a decimal si venía en formato americano",
-      "cuotas_americanas": {
-        "local_1": "-105",
-        "empate_x": "+275",
-        "visitante_2": "+190"
-      }
-    },
-    {
-      "match_slug": "2026-11-24_costa-rica-sub-17_vs_irlanda-sub-17",
-      "deporte": "Fútbol",
-      "liga": "MUNDIAL: Mundial Sub-17",
-      "fecha_local": "2026-11-24",
-      "hora_local": "08:30",
-      "equipo_local": "Irlanda Sub-17",
-      "equipo_visitante": "Costa Rica Sub-17",
-      "mercado": "1X2",
-      "cuotas_1x2": {
-        "local_1": 3.6,
-        "empate_x": 4.25,
-        "visitante_2": 1.645
-      },
-      "capturado_en": "2026-11-24T14:55:16-04:00",
-      "url": "https://triunfobet.com/altenar",
-      "nota": "Cuota visible en el widget con sesión; convertida a decimal si venía en formato americano",
-      "cuotas_americanas": {
-        "local_1": "+260",
-        "empate_x": "+325",
-        "visitante_2": "-155"
-      }
-    },
-    {
-      "match_slug": "2026-11-24_costa-rica-sub-17_vs_irlanda-sub-17",
-      "deporte": "Fútbol",
-      "liga": "MUNDIAL: Mundial Sub-17",
-      "fecha_local": "2026-11-24",
-      "hora_local": "08:30",
-      "equipo_local": "Irlanda Sub-17",
-      "equipo_visitante": "Costa Rica Sub-17",
-      "mercado": "1X2",
-      "cuotas_1x2": {
-        "local_1": 3.6,
-        "empate_x": 4.25,
-        "visitante_2": 1.645
-      },
-      "capturado_en": "2026-11-24T14:55:16-04:00",
-      "url": "https://triunfobet.com/altenar",
-      "nota": "Cuota visible en el widget con sesión; convertida a decimal si venía en formato americano",
-      "cuotas_americanas": {
-        "local_1": "+260",
-        "empate_x": "+325",
-        "visitante_2": "-155"
-      }
-    },
-    {
-      "match_slug": "2026-11-24_costa-rica-sub-17_vs_irlanda-sub-17",
-      "deporte": "Fútbol",
-      "liga": "MUNDIAL: Mundial Sub-17",
-      "fecha_local": "2026-11-24",
-      "hora_local": "08:30",
-      "equipo_local": "Irlanda Sub-17",
-      "equipo_visitante": "Costa Rica Sub-17",
-      "mercado": "1X2",
-      "cuotas_1x2": {
-        "local_1": 3.6,
-        "empate_x": 4.25,
-        "visitante_2": 1.645
-      },
-      "capturado_en": "2026-11-24T14:55:16-04:00",
-      "url": "https://triunfobet.com/altenar",
-      "nota": "Cuota visible en el widget con sesión; convertida a decimal si venía en formato americano",
-      "cuotas_americanas": {
-        "local_1": "+260",
-        "empate_x": "+325",
-        "visitante_2": "-155"
-      }
-    },
-    {
-      "match_slug": "2026-11-24_huddersfield-sub-21_vs_swansea-sub-21",
-      "deporte": "Fútbol",
-      "liga": "INGLATERRA: Premier League Cup",
-      "fecha_local": "2026-11-24",
-      "hora_local": "15:00",
-      "equipo_local": "Swansea Sub-21",
-      "equipo_visitante": "Huddersfield Sub-21",
-      "mercado": "1X2",
-      "cuotas_1x2": {
-        "local_1": 2.1,
-        "empate_x": 4,
-        "visitante_2": 2.54
-      },
-      "capturado_en": "2026-11-24T14:55:16-04:00",
-      "url": "https://triunfobet.com/altenar",
-      "nota": "Cuota visible en el widget con sesión; convertida a decimal si venía en formato americano",
-      "cuotas_americanas": {
-        "local_1": "+110",
-        "empate_x": "+300",
-        "visitante_2": "+154"
-      }
-    },
-    {
-      "match_slug": "2026-11-24_huddersfield-sub-21_vs_swansea-sub-21",
-      "deporte": "Fútbol",
-      "liga": "INGLATERRA: Premier League Cup",
-      "fecha_local": "2026-11-24",
-      "hora_local": "15:00",
-      "equipo_local": "Swansea Sub-21",
-      "equipo_visitante": "Huddersfield Sub-21",
-      "mercado": "1X2",
-      "cuotas_1x2": {
-        "local_1": 2.1,
-        "empate_x": 4,
-        "visitante_2": 2.54
-      },
-      "capturado_en": "2026-11-24T14:55:16-04:00",
-      "url": "https://triunfobet.com/altenar",
-      "nota": "Cuota visible en el widget con sesión; convertida a decimal si venía en formato americano",
-      "cuotas_americanas": {
-        "local_1": "+110",
-        "empate_x": "+300",
-        "visitante_2": "+154"
-      }
-    },
-    {
-      "match_slug": "2026-11-24_huddersfield-sub-21_vs_swansea-sub-21",
-      "deporte": "Fútbol",
-      "liga": "INGLATERRA: Premier League Cup",
-      "fecha_local": "2026-11-24",
-      "hora_local": "15:00",
-      "equipo_local": "Swansea Sub-21",
-      "equipo_visitante": "Huddersfield Sub-21",
-      "mercado": "1X2",
-      "cuotas_1x2": {
-        "local_1": 2.1,
-        "empate_x": 4,
-        "visitante_2": 2.54
-      },
-      "capturado_en": "2026-11-24T14:55:16-04:00",
-      "url": "https://triunfobet.com/altenar",
-      "nota": "Cuota visible en el widget con sesión; convertida a decimal si venía en formato americano",
-      "cuotas_americanas": {
-        "local_1": "+110",
-        "empate_x": "+300",
-        "visitante_2": "+154"
-      }
-    },
-    {
-      "match_slug": "2026-11-24_costa-rica-sub-17_vs_irlanda-sub-17",
-      "deporte": "Fútbol",
-      "liga": "MUNDIAL: Mundial Sub-17",
-      "fecha_local": "2026-11-24",
-      "hora_local": "08:30",
-      "equipo_local": "Irlanda Sub-17",
-      "equipo_visitante": "Costa Rica Sub-17",
-      "mercado": "1X2",
-      "cuotas_1x2": {
-        "local_1": 1.746,
-        "empate_x": 4,
+        "local_1": 2.25,
+        "empate_x": 3.25,
         "visitante_2": 3.33
       },
-      "capturado_en": "2026-11-24T14:55:16-04:00",
+      "capturado_en": "2026-11-25T08:32:15-04:00",
       "url": "https://triunfobet.com/altenar",
       "nota": "Cuota visible en el widget con sesión; convertida a decimal si venía en formato americano",
       "cuotas_americanas": {
-        "local_1": "-134",
-        "empate_x": "+300",
+        "local_1": "+125",
+        "empate_x": "+225",
         "visitante_2": "+233"
       }
     },
     {
-      "match_slug": "2026-11-24_costa-rica-sub-17_vs_irlanda-sub-17",
+      "match_slug": "2026-11-25_burnley_vs_birmingham",
       "deporte": "Fútbol",
-      "liga": "MUNDIAL: Mundial Sub-17",
-      "fecha_local": "2026-11-24",
-      "hora_local": "08:30",
-      "equipo_local": "Irlanda Sub-17",
-      "equipo_visitante": "Costa Rica Sub-17",
+      "liga": "INGLATERRA: Championship",
+      "fecha_local": "2026-11-25",
+      "hora_local": "15:45",
+      "equipo_local": "Burnley",
+      "equipo_visitante": "Birmingham",
       "mercado": "1X2",
       "cuotas_1x2": {
-        "local_1": 1.746,
+        "local_1": 2.8,
+        "empate_x": 3.5,
+        "visitante_2": 2.45
+      },
+      "capturado_en": "2026-11-25T08:32:15-04:00",
+      "url": "https://triunfobet.com/altenar",
+      "nota": "Cuota visible en el widget con sesión; convertida a decimal si venía en formato americano",
+      "cuotas_americanas": {
+        "local_1": "+180",
+        "empate_x": "+250",
+        "visitante_2": "+145"
+      }
+    },
+    {
+      "match_slug": "2026-11-25_viktoria-plzen_vs_benfica",
+      "deporte": "Fútbol",
+      "liga": null,
+      "fecha_local": "2026-11-25",
+      "hora_local": "13:45",
+      "equipo_local": "FC Viktoria Plzen",
+      "equipo_visitante": "Benfica",
+      "mercado": "1X2",
+      "cuotas_1x2": {
+        "local_1": 5.66,
+        "empate_x": 4.5,
+        "visitante_2": 1.5
+      },
+      "capturado_en": "2026-11-25T08:32:15-04:00",
+      "url": "https://triunfobet.com/altenar",
+      "nota": "Cuota visible en el widget con sesión; convertida a decimal si venía en formato americano",
+      "cuotas_americanas": {
+        "local_1": "+466",
+        "empate_x": "+350",
+        "visitante_2": "-200"
+      }
+    },
+    {
+      "match_slug": "2026-11-25_madrid_vs_alaves",
+      "deporte": "Fútbol",
+      "liga": null,
+      "fecha_local": "2026-11-25",
+      "hora_local": "16:00",
+      "equipo_local": "Real Madrid",
+      "equipo_visitante": "Alavés",
+      "mercado": "1X2",
+      "cuotas_1x2": {
+        "local_1": 1.154,
+        "empate_x": 8,
+        "visitante_2": 15
+      },
+      "capturado_en": "2026-11-25T08:32:15-04:00",
+      "url": "https://triunfobet.com/altenar",
+      "nota": "Cuota visible en el widget con sesión; convertida a decimal si venía en formato americano",
+      "cuotas_americanas": {
+        "local_1": "-650",
+        "empate_x": "+700",
+        "visitante_2": "+1400"
+      }
+    },
+    {
+      "match_slug": "2026-11-25_bolton_vs_west-brom",
+      "deporte": "Fútbol",
+      "liga": "INGLATERRA: Championship",
+      "fecha_local": "2026-11-25",
+      "hora_local": "15:45",
+      "equipo_local": "Bolton",
+      "equipo_visitante": "West Brom",
+      "mercado": "1X2",
+      "cuotas_1x2": {
+        "local_1": 3.5,
+        "empate_x": 3.6,
+        "visitante_2": 2.05
+      },
+      "capturado_en": "2026-11-25T08:32:15-04:00",
+      "url": "https://triunfobet.com/altenar",
+      "nota": "Cuota visible en el widget con sesión; convertida a decimal si venía en formato americano",
+      "cuotas_americanas": {
+        "local_1": "+250",
+        "empate_x": "+260",
+        "visitante_2": "+105"
+      }
+    },
+    {
+      "match_slug": "2026-11-25_sabah_vs_barcelona",
+      "deporte": "Fútbol",
+      "liga": "EUROPA: Champions League - Fase de liga",
+      "fecha_local": "2026-11-25",
+      "hora_local": "13:45",
+      "equipo_local": "Barcelona",
+      "equipo_visitante": "Sabah FC",
+      "mercado": "1X2",
+      "cuotas_1x2": {
+        "local_1": 15,
         "empate_x": 4,
-        "visitante_2": 3.33
+        "visitante_2": 1.2
       },
-      "capturado_en": "2026-11-24T14:55:16-04:00",
+      "capturado_en": "2026-11-25T08:32:15-04:00",
       "url": "https://triunfobet.com/altenar",
       "nota": "Cuota visible en el widget con sesión; convertida a decimal si venía en formato americano",
       "cuotas_americanas": {
-        "local_1": "-134",
+        "local_1": "+1400",
         "empate_x": "+300",
-        "visitante_2": "+233"
+        "visitante_2": "-500"
       }
     },
     {
-      "match_slug": "2026-11-24_costa-rica-sub-17_vs_irlanda-sub-17",
+      "match_slug": "2026-11-25_sabah_vs_barcelona",
       "deporte": "Fútbol",
-      "liga": "MUNDIAL: Mundial Sub-17",
-      "fecha_local": "2026-11-24",
-      "hora_local": "08:30",
-      "equipo_local": "Irlanda Sub-17",
-      "equipo_visitante": "Costa Rica Sub-17",
+      "liga": "EUROPA: Champions League - Fase de liga",
+      "fecha_local": "2026-11-25",
+      "hora_local": "13:45",
+      "equipo_local": "Barcelona",
+      "equipo_visitante": "Sabah FC",
       "mercado": "1X2",
       "cuotas_1x2": {
-        "local_1": 1.746,
+        "local_1": 15,
         "empate_x": 4,
-        "visitante_2": 3.33
+        "visitante_2": 1.2
       },
-      "capturado_en": "2026-11-24T14:55:16-04:00",
+      "capturado_en": "2026-11-25T08:32:15-04:00",
       "url": "https://triunfobet.com/altenar",
       "nota": "Cuota visible en el widget con sesión; convertida a decimal si venía en formato americano",
       "cuotas_americanas": {
-        "local_1": "-134",
+        "local_1": "+1400",
         "empate_x": "+300",
-        "visitante_2": "+233"
+        "visitante_2": "-500"
       }
     },
     {
-      "match_slug": "2026-11-24_costa-rica-sub-17_vs_irlanda-sub-17",
+      "match_slug": "2026-11-25_sabah_vs_barcelona",
       "deporte": "Fútbol",
-      "liga": "MUNDIAL: Mundial Sub-17",
-      "fecha_local": "2026-11-24",
-      "hora_local": "08:30",
-      "equipo_local": "Irlanda Sub-17",
-      "equipo_visitante": "Costa Rica Sub-17",
+      "liga": "EUROPA: Champions League - Fase de liga",
+      "fecha_local": "2026-11-25",
+      "hora_local": "13:45",
+      "equipo_local": "Barcelona",
+      "equipo_visitante": "Sabah FC",
       "mercado": "1X2",
       "cuotas_1x2": {
-        "local_1": 1.833,
-        "empate_x": 3.8,
-        "visitante_2": 3.2
+        "local_1": 15,
+        "empate_x": 4,
+        "visitante_2": 1.2
       },
-      "capturado_en": "2026-11-24T14:55:16-04:00",
+      "capturado_en": "2026-11-25T08:32:15-04:00",
       "url": "https://triunfobet.com/altenar",
       "nota": "Cuota visible en el widget con sesión; convertida a decimal si venía en formato americano",
       "cuotas_americanas": {
-        "local_1": "-120",
-        "empate_x": "+280",
-        "visitante_2": "+220"
+        "local_1": "+1400",
+        "empate_x": "+300",
+        "visitante_2": "-500"
       }
     },
     {
-      "match_slug": "2026-11-24_costa-rica-sub-17_vs_irlanda-sub-17",
+      "match_slug": "2026-11-25_slavia-praga_vs_villarreal",
       "deporte": "Fútbol",
-      "liga": "MUNDIAL: Mundial Sub-17",
-      "fecha_local": "2026-11-24",
-      "hora_local": "08:30",
-      "equipo_local": "Irlanda Sub-17",
-      "equipo_visitante": "Costa Rica Sub-17",
+      "liga": "EUROPA: Champions League - Fase de liga",
+      "fecha_local": "2026-11-25",
+      "hora_local": "13:45",
+      "equipo_local": "Villarreal",
+      "equipo_visitante": "Slavia Praga",
       "mercado": "1X2",
       "cuotas_1x2": {
-        "local_1": 1.833,
-        "empate_x": 3.8,
-        "visitante_2": 3.2
+        "local_1": 4.85,
+        "empate_x": 4.4,
+        "visitante_2": 1.518
       },
-      "capturado_en": "2026-11-24T14:55:16-04:00",
+      "capturado_en": "2026-11-25T08:32:15-04:00",
       "url": "https://triunfobet.com/altenar",
       "nota": "Cuota visible en el widget con sesión; convertida a decimal si venía en formato americano",
       "cuotas_americanas": {
-        "local_1": "-120",
-        "empate_x": "+280",
-        "visitante_2": "+220"
+        "local_1": "+385",
+        "empate_x": "+340",
+        "visitante_2": "-193"
       }
     },
     {
-      "match_slug": "2026-11-24_costa-rica-sub-17_vs_irlanda-sub-17",
+      "match_slug": "2026-11-25_slavia-praga_vs_villarreal",
       "deporte": "Fútbol",
-      "liga": "MUNDIAL: Mundial Sub-17",
-      "fecha_local": "2026-11-24",
-      "hora_local": "08:30",
-      "equipo_local": "Irlanda Sub-17",
-      "equipo_visitante": "Costa Rica Sub-17",
+      "liga": "EUROPA: Champions League - Fase de liga",
+      "fecha_local": "2026-11-25",
+      "hora_local": "13:45",
+      "equipo_local": "Villarreal",
+      "equipo_visitante": "Slavia Praga",
       "mercado": "1X2",
       "cuotas_1x2": {
-        "local_1": 1.833,
-        "empate_x": 3.8,
-        "visitante_2": 3.2
+        "local_1": 4.85,
+        "empate_x": 4.4,
+        "visitante_2": 1.518
       },
-      "capturado_en": "2026-11-24T14:55:16-04:00",
+      "capturado_en": "2026-11-25T08:32:15-04:00",
       "url": "https://triunfobet.com/altenar",
       "nota": "Cuota visible en el widget con sesión; convertida a decimal si venía en formato americano",
       "cuotas_americanas": {
-        "local_1": "-120",
-        "empate_x": "+280",
-        "visitante_2": "+220"
+        "local_1": "+385",
+        "empate_x": "+340",
+        "visitante_2": "-193"
       }
     },
     {
-      "match_slug": "2026-11-24_salford_vs_sunderland-sub-21",
+      "match_slug": "2026-11-25_slavia-praga_vs_villarreal",
       "deporte": "Fútbol",
-      "liga": "INGLATERRA: EFL Trophy",
-      "fecha_local": "2026-11-24",
-      "hora_local": "15:00",
-      "equipo_local": "Sunderland Sub-21",
-      "equipo_visitante": "Salford",
+      "liga": "EUROPA: Champions League - Fase de liga",
+      "fecha_local": "2026-11-25",
+      "hora_local": "13:45",
+      "equipo_local": "Villarreal",
+      "equipo_visitante": "Slavia Praga",
       "mercado": "1X2",
       "cuotas_1x2": {
-        "local_1": 1.599,
-        "empate_x": 4.75,
+        "local_1": 4.85,
+        "empate_x": 4.4,
+        "visitante_2": 1.518
+      },
+      "capturado_en": "2026-11-25T08:32:15-04:00",
+      "url": "https://triunfobet.com/altenar",
+      "nota": "Cuota visible en el widget con sesión; convertida a decimal si venía en formato americano",
+      "cuotas_americanas": {
+        "local_1": "+385",
+        "empate_x": "+340",
+        "visitante_2": "-193"
+      }
+    },
+    {
+      "match_slug": "2026-11-25_shakhtar_vs_fenerbahce",
+      "deporte": "Fútbol",
+      "liga": "EUROPA: Champions League - Fase de liga",
+      "fecha_local": "2026-11-25",
+      "hora_local": "16:00",
+      "equipo_local": "Fenerbahçe",
+      "equipo_visitante": "Shakhtar",
+      "mercado": "1X2",
+      "cuotas_1x2": {
+        "local_1": 1.02,
+        "empate_x": 14,
+        "visitante_2": 36
+      },
+      "capturado_en": "2026-11-25T08:32:15-04:00",
+      "url": "https://triunfobet.com/altenar",
+      "nota": "Cuota visible en el widget con sesión; convertida a decimal si venía en formato americano",
+      "cuotas_americanas": {
+        "local_1": "-5000",
+        "empate_x": "+1300",
+        "visitante_2": "+3500"
+      }
+    },
+    {
+      "match_slug": "2026-11-25_shakhtar_vs_fenerbahce",
+      "deporte": "Fútbol",
+      "liga": "EUROPA: Champions League - Fase de liga",
+      "fecha_local": "2026-11-25",
+      "hora_local": "16:00",
+      "equipo_local": "Fenerbahçe",
+      "equipo_visitante": "Shakhtar",
+      "mercado": "1X2",
+      "cuotas_1x2": {
+        "local_1": 1.02,
+        "empate_x": 14,
+        "visitante_2": 36
+      },
+      "capturado_en": "2026-11-25T08:32:15-04:00",
+      "url": "https://triunfobet.com/altenar",
+      "nota": "Cuota visible en el widget con sesión; convertida a decimal si venía en formato americano",
+      "cuotas_americanas": {
+        "local_1": "-5000",
+        "empate_x": "+1300",
+        "visitante_2": "+3500"
+      }
+    },
+    {
+      "match_slug": "2026-11-25_shakhtar_vs_fenerbahce",
+      "deporte": "Fútbol",
+      "liga": "EUROPA: Champions League - Fase de liga",
+      "fecha_local": "2026-11-25",
+      "hora_local": "16:00",
+      "equipo_local": "Fenerbahçe",
+      "equipo_visitante": "Shakhtar",
+      "mercado": "1X2",
+      "cuotas_1x2": {
+        "local_1": 1.02,
+        "empate_x": 14,
+        "visitante_2": 36
+      },
+      "capturado_en": "2026-11-25T08:32:15-04:00",
+      "url": "https://triunfobet.com/altenar",
+      "nota": "Cuota visible en el widget con sesión; convertida a decimal si venía en formato americano",
+      "cuotas_americanas": {
+        "local_1": "-5000",
+        "empate_x": "+1300",
+        "visitante_2": "+3500"
+      }
+    },
+    {
+      "match_slug": "2026-11-25_uruguay-sub-17_vs_francia-sub-17",
+      "deporte": "Fútbol",
+      "liga": "MUNDIAL: Mundial Sub-17",
+      "fecha_local": "2026-11-25",
+      "hora_local": "09:30",
+      "equipo_local": "Francia Sub-17",
+      "equipo_visitante": "Uruguay Sub-17",
+      "mercado": "1X2",
+      "cuotas_1x2": {
+        "local_1": 4.5,
+        "empate_x": 3.25,
+        "visitante_2": 1.8
+      },
+      "capturado_en": "2026-11-25T08:32:15-04:00",
+      "url": "https://triunfobet.com/altenar",
+      "nota": "Cuota visible en el widget con sesión; convertida a decimal si venía en formato americano",
+      "cuotas_americanas": {
+        "local_1": "+350",
+        "empate_x": "+225",
+        "visitante_2": "-125"
+      }
+    },
+    {
+      "match_slug": "2026-11-25_uruguay-sub-17_vs_francia-sub-17",
+      "deporte": "Fútbol",
+      "liga": "MUNDIAL: Mundial Sub-17",
+      "fecha_local": "2026-11-25",
+      "hora_local": "09:30",
+      "equipo_local": "Francia Sub-17",
+      "equipo_visitante": "Uruguay Sub-17",
+      "mercado": "1X2",
+      "cuotas_1x2": {
+        "local_1": 4.5,
+        "empate_x": 3.25,
+        "visitante_2": 1.8
+      },
+      "capturado_en": "2026-11-25T08:32:15-04:00",
+      "url": "https://triunfobet.com/altenar",
+      "nota": "Cuota visible en el widget con sesión; convertida a decimal si venía en formato americano",
+      "cuotas_americanas": {
+        "local_1": "+350",
+        "empate_x": "+225",
+        "visitante_2": "-125"
+      }
+    },
+    {
+      "match_slug": "2026-11-25_uruguay-sub-17_vs_francia-sub-17",
+      "deporte": "Fútbol",
+      "liga": "MUNDIAL: Mundial Sub-17",
+      "fecha_local": "2026-11-25",
+      "hora_local": "09:30",
+      "equipo_local": "Francia Sub-17",
+      "equipo_visitante": "Uruguay Sub-17",
+      "mercado": "1X2",
+      "cuotas_1x2": {
+        "local_1": 4.5,
+        "empate_x": 3.25,
+        "visitante_2": 1.8
+      },
+      "capturado_en": "2026-11-25T08:32:15-04:00",
+      "url": "https://triunfobet.com/altenar",
+      "nota": "Cuota visible en el widget con sesión; convertida a decimal si venía en formato americano",
+      "cuotas_americanas": {
+        "local_1": "+350",
+        "empate_x": "+225",
+        "visitante_2": "-125"
+      }
+    },
+    {
+      "match_slug": "2026-11-25_persib-ina_vs_seoul-kor",
+      "deporte": "Fútbol",
+      "liga": "ASIA: AFC Champions League 2",
+      "fecha_local": "2026-11-25",
+      "hora_local": "08:15",
+      "equipo_local": "Seoul (Kor)",
+      "equipo_visitante": "Persib (Ina)",
+      "mercado": "1X2",
+      "cuotas_1x2": {
+        "local_1": 1.8,
+        "empate_x": 3.9,
+        "visitante_2": 3.3
+      },
+      "capturado_en": "2026-11-25T08:32:15-04:00",
+      "url": "https://triunfobet.com/altenar",
+      "nota": "Cuota visible en el widget con sesión; convertida a decimal si venía en formato americano",
+      "cuotas_americanas": {
+        "local_1": "-125",
+        "empate_x": "+290",
+        "visitante_2": "+230"
+      }
+    },
+    {
+      "match_slug": "2026-11-25_persib-ina_vs_seoul-kor",
+      "deporte": "Fútbol",
+      "liga": "ASIA: AFC Champions League 2",
+      "fecha_local": "2026-11-25",
+      "hora_local": "08:15",
+      "equipo_local": "Seoul (Kor)",
+      "equipo_visitante": "Persib (Ina)",
+      "mercado": "1X2",
+      "cuotas_1x2": {
+        "local_1": 1.8,
+        "empate_x": 3.9,
+        "visitante_2": 3.3
+      },
+      "capturado_en": "2026-11-25T08:32:15-04:00",
+      "url": "https://triunfobet.com/altenar",
+      "nota": "Cuota visible en el widget con sesión; convertida a decimal si venía en formato americano",
+      "cuotas_americanas": {
+        "local_1": "-125",
+        "empate_x": "+290",
+        "visitante_2": "+230"
+      }
+    },
+    {
+      "match_slug": "2026-11-25_persib-ina_vs_seoul-kor",
+      "deporte": "Fútbol",
+      "liga": "ASIA: AFC Champions League 2",
+      "fecha_local": "2026-11-25",
+      "hora_local": "08:15",
+      "equipo_local": "Seoul (Kor)",
+      "equipo_visitante": "Persib (Ina)",
+      "mercado": "1X2",
+      "cuotas_1x2": {
+        "local_1": 1.8,
+        "empate_x": 3.9,
+        "visitante_2": 3.3
+      },
+      "capturado_en": "2026-11-25T08:32:15-04:00",
+      "url": "https://triunfobet.com/altenar",
+      "nota": "Cuota visible en el widget con sesión; convertida a decimal si venía en formato americano",
+      "cuotas_americanas": {
+        "local_1": "-125",
+        "empate_x": "+290",
+        "visitante_2": "+230"
+      }
+    },
+    {
+      "match_slug": "2026-11-25_al-bukayriyah-1-al-wehda-1_vs_al-bukayriyah",
+      "deporte": "Fútbol",
+      "liga": null,
+      "fecha_local": "2026-11-25",
+      "hora_local": "22:13",
+      "equipo_local": "AL Bukayriyah FC 1 Al Wehda FC 1",
+      "equipo_visitante": "AL Bukayriyah FC",
+      "mercado": "1X2",
+      "cuotas_1x2": {
+        "local_1": 5.33,
+        "empate_x": 3.65,
+        "visitante_2": 1.518
+      },
+      "capturado_en": "2026-11-25T08:32:15-04:00",
+      "url": "https://triunfobet.com/altenar",
+      "nota": "Cuota visible en el widget con sesión; convertida a decimal si venía en formato americano",
+      "cuotas_americanas": {
+        "local_1": "+433",
+        "empate_x": "+265",
+        "visitante_2": "-193"
+      }
+    },
+    {
+      "match_slug": "2026-11-25_al-bukayriyah-1-al-wehda-1_vs_al-bukayriyah",
+      "deporte": "Fútbol",
+      "liga": null,
+      "fecha_local": "2026-11-25",
+      "hora_local": "22:13",
+      "equipo_local": "AL Bukayriyah FC 1 Al Wehda FC 1",
+      "equipo_visitante": "AL Bukayriyah FC",
+      "mercado": "1X2",
+      "cuotas_1x2": {
+        "local_1": 5.33,
+        "empate_x": 3.65,
+        "visitante_2": 1.518
+      },
+      "capturado_en": "2026-11-25T08:32:15-04:00",
+      "url": "https://triunfobet.com/altenar",
+      "nota": "Cuota visible en el widget con sesión; convertida a decimal si venía en formato americano",
+      "cuotas_americanas": {
+        "local_1": "+433",
+        "empate_x": "+265",
+        "visitante_2": "-193"
+      }
+    },
+    {
+      "match_slug": "2026-11-25_al-bukayriyah-1-al-wehda-1_vs_al-bukayriyah",
+      "deporte": "Fútbol",
+      "liga": null,
+      "fecha_local": "2026-11-25",
+      "hora_local": "22:13",
+      "equipo_local": "AL Bukayriyah FC 1 Al Wehda FC 1",
+      "equipo_visitante": "AL Bukayriyah FC",
+      "mercado": "1X2",
+      "cuotas_1x2": {
+        "local_1": 5.33,
+        "empate_x": 3.65,
+        "visitante_2": 1.518
+      },
+      "capturado_en": "2026-11-25T08:32:15-04:00",
+      "url": "https://triunfobet.com/altenar",
+      "nota": "Cuota visible en el widget con sesión; convertida a decimal si venía en formato americano",
+      "cuotas_americanas": {
+        "local_1": "+433",
+        "empate_x": "+265",
+        "visitante_2": "-193"
+      }
+    },
+    {
+      "match_slug": "2026-11-25_al-anwar_vs_al-jandal",
+      "deporte": "Fútbol",
+      "liga": "ARABIA SAUDÍ: Primera División",
+      "fecha_local": "2026-11-25",
+      "hora_local": "08:10",
+      "equipo_local": "Al Jandal",
+      "equipo_visitante": "Al Anwar",
+      "mercado": "1X2",
+      "cuotas_1x2": {
+        "local_1": 1.893,
+        "empate_x": 3,
         "visitante_2": 3.8
       },
-      "capturado_en": "2026-11-24T14:55:16-04:00",
+      "capturado_en": "2026-11-25T08:32:15-04:00",
       "url": "https://triunfobet.com/altenar",
       "nota": "Cuota visible en el widget con sesión; convertida a decimal si venía en formato americano",
       "cuotas_americanas": {
-        "local_1": "-167",
-        "empate_x": "+375",
+        "local_1": "-112",
+        "empate_x": "+200",
         "visitante_2": "+280"
       }
     },
     {
-      "match_slug": "2026-11-24_salford_vs_sunderland-sub-21",
+      "match_slug": "2026-11-25_al-anwar_vs_al-jandal",
       "deporte": "Fútbol",
-      "liga": "INGLATERRA: EFL Trophy",
-      "fecha_local": "2026-11-24",
-      "hora_local": "15:00",
-      "equipo_local": "Sunderland Sub-21",
-      "equipo_visitante": "Salford",
+      "liga": "ARABIA SAUDÍ: Primera División",
+      "fecha_local": "2026-11-25",
+      "hora_local": "08:10",
+      "equipo_local": "Al Jandal",
+      "equipo_visitante": "Al Anwar",
       "mercado": "1X2",
       "cuotas_1x2": {
-        "local_1": 1.599,
-        "empate_x": 4.75,
+        "local_1": 1.893,
+        "empate_x": 3,
         "visitante_2": 3.8
       },
-      "capturado_en": "2026-11-24T14:55:16-04:00",
+      "capturado_en": "2026-11-25T08:32:15-04:00",
       "url": "https://triunfobet.com/altenar",
       "nota": "Cuota visible en el widget con sesión; convertida a decimal si venía en formato americano",
       "cuotas_americanas": {
-        "local_1": "-167",
-        "empate_x": "+375",
+        "local_1": "-112",
+        "empate_x": "+200",
         "visitante_2": "+280"
       }
     },
     {
-      "match_slug": "2026-11-24_salford_vs_sunderland-sub-21",
+      "match_slug": "2026-11-25_al-anwar_vs_al-jandal",
       "deporte": "Fútbol",
-      "liga": "INGLATERRA: EFL Trophy",
-      "fecha_local": "2026-11-24",
-      "hora_local": "15:00",
-      "equipo_local": "Sunderland Sub-21",
-      "equipo_visitante": "Salford",
+      "liga": "ARABIA SAUDÍ: Primera División",
+      "fecha_local": "2026-11-25",
+      "hora_local": "08:10",
+      "equipo_local": "Al Jandal",
+      "equipo_visitante": "Al Anwar",
       "mercado": "1X2",
       "cuotas_1x2": {
-        "local_1": 1.599,
-        "empate_x": 4.75,
+        "local_1": 1.893,
+        "empate_x": 3,
         "visitante_2": 3.8
       },
-      "capturado_en": "2026-11-24T14:55:16-04:00",
+      "capturado_en": "2026-11-25T08:32:15-04:00",
       "url": "https://triunfobet.com/altenar",
       "nota": "Cuota visible en el widget con sesión; convertida a decimal si venía en formato americano",
       "cuotas_americanas": {
-        "local_1": "-167",
-        "empate_x": "+375",
+        "local_1": "-112",
+        "empate_x": "+200",
         "visitante_2": "+280"
+      }
+    },
+    {
+      "match_slug": "2026-11-25_inter_vs_stuttgart",
+      "deporte": "Fútbol",
+      "liga": "EUROPA: Champions League - Fase de liga",
+      "fecha_local": "2026-11-25",
+      "hora_local": "16:00",
+      "equipo_local": "Stuttgart",
+      "equipo_visitante": "Inter",
+      "mercado": "1X2",
+      "cuotas_1x2": {
+        "local_1": 1.427,
+        "empate_x": 5.5,
+        "visitante_2": 6
+      },
+      "capturado_en": "2026-11-25T08:32:15-04:00",
+      "url": "https://triunfobet.com/altenar",
+      "nota": "Cuota visible en el widget con sesión; convertida a decimal si venía en formato americano",
+      "cuotas_americanas": {
+        "local_1": "-234",
+        "empate_x": "+450",
+        "visitante_2": "+500"
+      }
+    },
+    {
+      "match_slug": "2026-11-25_inter_vs_stuttgart",
+      "deporte": "Fútbol",
+      "liga": "EUROPA: Champions League - Fase de liga",
+      "fecha_local": "2026-11-25",
+      "hora_local": "16:00",
+      "equipo_local": "Stuttgart",
+      "equipo_visitante": "Inter",
+      "mercado": "1X2",
+      "cuotas_1x2": {
+        "local_1": 1.427,
+        "empate_x": 5.5,
+        "visitante_2": 6
+      },
+      "capturado_en": "2026-11-25T08:32:15-04:00",
+      "url": "https://triunfobet.com/altenar",
+      "nota": "Cuota visible en el widget con sesión; convertida a decimal si venía en formato americano",
+      "cuotas_americanas": {
+        "local_1": "-234",
+        "empate_x": "+450",
+        "visitante_2": "+500"
+      }
+    },
+    {
+      "match_slug": "2026-11-25_inter_vs_stuttgart",
+      "deporte": "Fútbol",
+      "liga": "EUROPA: Champions League - Fase de liga",
+      "fecha_local": "2026-11-25",
+      "hora_local": "16:00",
+      "equipo_local": "Stuttgart",
+      "equipo_visitante": "Inter",
+      "mercado": "1X2",
+      "cuotas_1x2": {
+        "local_1": 1.427,
+        "empate_x": 5.5,
+        "visitante_2": 6
+      },
+      "capturado_en": "2026-11-25T08:32:15-04:00",
+      "url": "https://triunfobet.com/altenar",
+      "nota": "Cuota visible en el widget con sesión; convertida a decimal si venía en formato americano",
+      "cuotas_americanas": {
+        "local_1": "-234",
+        "empate_x": "+450",
+        "visitante_2": "+500"
+      }
+    },
+    {
+      "match_slug": "2026-11-25_lille_vs_bayern-munich",
+      "deporte": "Fútbol",
+      "liga": "EUROPA: Champions League - Fase de liga",
+      "fecha_local": "2026-11-25",
+      "hora_local": "16:00",
+      "equipo_local": "Bayern Múnich",
+      "equipo_visitante": "Lille",
+      "mercado": "1X2",
+      "cuotas_1x2": {
+        "local_1": 5.33,
+        "empate_x": 4.2,
+        "visitante_2": 1.599
+      },
+      "capturado_en": "2026-11-25T08:32:15-04:00",
+      "url": "https://triunfobet.com/altenar",
+      "nota": "Cuota visible en el widget con sesión; convertida a decimal si venía en formato americano",
+      "cuotas_americanas": {
+        "local_1": "+433",
+        "empate_x": "+320",
+        "visitante_2": "-167"
+      }
+    },
+    {
+      "match_slug": "2026-11-25_lille_vs_bayern-munich",
+      "deporte": "Fútbol",
+      "liga": "EUROPA: Champions League - Fase de liga",
+      "fecha_local": "2026-11-25",
+      "hora_local": "16:00",
+      "equipo_local": "Bayern Múnich",
+      "equipo_visitante": "Lille",
+      "mercado": "1X2",
+      "cuotas_1x2": {
+        "local_1": 5.33,
+        "empate_x": 4.2,
+        "visitante_2": 1.599
+      },
+      "capturado_en": "2026-11-25T08:32:15-04:00",
+      "url": "https://triunfobet.com/altenar",
+      "nota": "Cuota visible en el widget con sesión; convertida a decimal si venía en formato americano",
+      "cuotas_americanas": {
+        "local_1": "+433",
+        "empate_x": "+320",
+        "visitante_2": "-167"
+      }
+    },
+    {
+      "match_slug": "2026-11-25_lille_vs_bayern-munich",
+      "deporte": "Fútbol",
+      "liga": "EUROPA: Champions League - Fase de liga",
+      "fecha_local": "2026-11-25",
+      "hora_local": "16:00",
+      "equipo_local": "Bayern Múnich",
+      "equipo_visitante": "Lille",
+      "mercado": "1X2",
+      "cuotas_1x2": {
+        "local_1": 5.33,
+        "empate_x": 4.2,
+        "visitante_2": 1.599
+      },
+      "capturado_en": "2026-11-25T08:32:15-04:00",
+      "url": "https://triunfobet.com/altenar",
+      "nota": "Cuota visible en el widget con sesión; convertida a decimal si venía en formato americano",
+      "cuotas_americanas": {
+        "local_1": "+433",
+        "empate_x": "+320",
+        "visitante_2": "-167"
+      }
+    },
+    {
+      "match_slug": "2026-11-25_brugge-kv-liverpool_vs_brugge-kv",
+      "deporte": "Fútbol",
+      "liga": null,
+      "fecha_local": "2026-11-25",
+      "hora_local": "16:00",
+      "equipo_local": "Club Brugge KV Liverpool",
+      "equipo_visitante": "Club Brugge KV",
+      "mercado": "1X2",
+      "cuotas_1x2": {
+        "local_1": 4.5,
+        "empate_x": 4.75,
+        "visitante_2": 1.625
+      },
+      "capturado_en": "2026-11-25T08:32:15-04:00",
+      "url": "https://triunfobet.com/altenar",
+      "nota": "Cuota visible en el widget con sesión; convertida a decimal si venía en formato americano",
+      "cuotas_americanas": {
+        "local_1": "+350",
+        "empate_x": "+375",
+        "visitante_2": "-160"
+      }
+    },
+    {
+      "match_slug": "2026-11-25_brugge-kv-liverpool_vs_brugge-kv",
+      "deporte": "Fútbol",
+      "liga": null,
+      "fecha_local": "2026-11-25",
+      "hora_local": "16:00",
+      "equipo_local": "Club Brugge KV Liverpool",
+      "equipo_visitante": "Club Brugge KV",
+      "mercado": "1X2",
+      "cuotas_1x2": {
+        "local_1": 4.5,
+        "empate_x": 4.75,
+        "visitante_2": 1.625
+      },
+      "capturado_en": "2026-11-25T08:32:15-04:00",
+      "url": "https://triunfobet.com/altenar",
+      "nota": "Cuota visible en el widget con sesión; convertida a decimal si venía en formato americano",
+      "cuotas_americanas": {
+        "local_1": "+350",
+        "empate_x": "+375",
+        "visitante_2": "-160"
+      }
+    },
+    {
+      "match_slug": "2026-11-25_brugge-kv-liverpool_vs_brugge-kv",
+      "deporte": "Fútbol",
+      "liga": null,
+      "fecha_local": "2026-11-25",
+      "hora_local": "16:00",
+      "equipo_local": "Club Brugge KV Liverpool",
+      "equipo_visitante": "Club Brugge KV",
+      "mercado": "1X2",
+      "cuotas_1x2": {
+        "local_1": 4.5,
+        "empate_x": 4.75,
+        "visitante_2": 1.625
+      },
+      "capturado_en": "2026-11-25T08:32:15-04:00",
+      "url": "https://triunfobet.com/altenar",
+      "nota": "Cuota visible en el widget con sesión; convertida a decimal si venía en formato americano",
+      "cuotas_americanas": {
+        "local_1": "+350",
+        "empate_x": "+375",
+        "visitante_2": "-160"
+      }
+    },
+    {
+      "match_slug": "2026-11-25_psg_vs_roma",
+      "deporte": "Fútbol",
+      "liga": "EUROPA: Champions League - Fase de liga",
+      "fecha_local": "2026-11-25",
+      "hora_local": "16:00",
+      "equipo_local": "Roma",
+      "equipo_visitante": "PSG",
+      "mercado": "1X2",
+      "cuotas_1x2": {
+        "local_1": 1.518,
+        "empate_x": 4.5,
+        "visitante_2": 6
+      },
+      "capturado_en": "2026-11-25T08:32:15-04:00",
+      "url": "https://triunfobet.com/altenar",
+      "nota": "Cuota visible en el widget con sesión; convertida a decimal si venía en formato americano",
+      "cuotas_americanas": {
+        "local_1": "-193",
+        "empate_x": "+350",
+        "visitante_2": "+500"
+      }
+    },
+    {
+      "match_slug": "2026-11-25_psg_vs_roma",
+      "deporte": "Fútbol",
+      "liga": "EUROPA: Champions League - Fase de liga",
+      "fecha_local": "2026-11-25",
+      "hora_local": "16:00",
+      "equipo_local": "Roma",
+      "equipo_visitante": "PSG",
+      "mercado": "1X2",
+      "cuotas_1x2": {
+        "local_1": 1.518,
+        "empate_x": 4.5,
+        "visitante_2": 6
+      },
+      "capturado_en": "2026-11-25T08:32:15-04:00",
+      "url": "https://triunfobet.com/altenar",
+      "nota": "Cuota visible en el widget con sesión; convertida a decimal si venía en formato americano",
+      "cuotas_americanas": {
+        "local_1": "-193",
+        "empate_x": "+350",
+        "visitante_2": "+500"
+      }
+    },
+    {
+      "match_slug": "2026-11-25_psg_vs_roma",
+      "deporte": "Fútbol",
+      "liga": "EUROPA: Champions League - Fase de liga",
+      "fecha_local": "2026-11-25",
+      "hora_local": "16:00",
+      "equipo_local": "Roma",
+      "equipo_visitante": "PSG",
+      "mercado": "1X2",
+      "cuotas_1x2": {
+        "local_1": 1.518,
+        "empate_x": 4.5,
+        "visitante_2": 6
+      },
+      "capturado_en": "2026-11-25T08:32:15-04:00",
+      "url": "https://triunfobet.com/altenar",
+      "nota": "Cuota visible en el widget con sesión; convertida a decimal si venía en formato americano",
+      "cuotas_americanas": {
+        "local_1": "-193",
+        "empate_x": "+350",
+        "visitante_2": "+500"
+      }
+    },
+    {
+      "match_slug": "2026-11-25_cp_vs_manchester",
+      "deporte": "Fútbol",
+      "liga": "EUROPA: Champions League - Fase de liga",
+      "fecha_local": "2026-11-25",
+      "hora_local": "16:00",
+      "equipo_local": "Manchester Utd",
+      "equipo_visitante": "Sporting CP",
+      "mercado": "1X2",
+      "cuotas_1x2": {
+        "local_1": 2.6,
+        "empate_x": 3.66,
+        "visitante_2": 2.54
+      },
+      "capturado_en": "2026-11-25T08:32:15-04:00",
+      "url": "https://triunfobet.com/altenar",
+      "nota": "Cuota visible en el widget con sesión; convertida a decimal si venía en formato americano",
+      "cuotas_americanas": {
+        "local_1": "+160",
+        "empate_x": "+266",
+        "visitante_2": "+154"
+      }
+    },
+    {
+      "match_slug": "2026-11-25_cp_vs_manchester",
+      "deporte": "Fútbol",
+      "liga": "EUROPA: Champions League - Fase de liga",
+      "fecha_local": "2026-11-25",
+      "hora_local": "16:00",
+      "equipo_local": "Manchester Utd",
+      "equipo_visitante": "Sporting CP",
+      "mercado": "1X2",
+      "cuotas_1x2": {
+        "local_1": 2.6,
+        "empate_x": 3.66,
+        "visitante_2": 2.54
+      },
+      "capturado_en": "2026-11-25T08:32:15-04:00",
+      "url": "https://triunfobet.com/altenar",
+      "nota": "Cuota visible en el widget con sesión; convertida a decimal si venía en formato americano",
+      "cuotas_americanas": {
+        "local_1": "+160",
+        "empate_x": "+266",
+        "visitante_2": "+154"
+      }
+    },
+    {
+      "match_slug": "2026-11-25_cp_vs_manchester",
+      "deporte": "Fútbol",
+      "liga": "EUROPA: Champions League - Fase de liga",
+      "fecha_local": "2026-11-25",
+      "hora_local": "16:00",
+      "equipo_local": "Manchester Utd",
+      "equipo_visitante": "Sporting CP",
+      "mercado": "1X2",
+      "cuotas_1x2": {
+        "local_1": 2.6,
+        "empate_x": 3.66,
+        "visitante_2": 2.54
+      },
+      "capturado_en": "2026-11-25T08:32:15-04:00",
+      "url": "https://triunfobet.com/altenar",
+      "nota": "Cuota visible en el widget con sesión; convertida a decimal si venía en formato americano",
+      "cuotas_americanas": {
+        "local_1": "+160",
+        "empate_x": "+266",
+        "visitante_2": "+154"
+      }
+    },
+    {
+      "match_slug": "2026-11-25_slavia-praga_vs_villarreal",
+      "deporte": "Fútbol",
+      "liga": "EUROPA: Champions League - Fase de liga",
+      "fecha_local": "2026-11-25",
+      "hora_local": "13:45",
+      "equipo_local": "Villarreal",
+      "equipo_visitante": "Slavia Praga",
+      "mercado": "1X2",
+      "cuotas_1x2": {
+        "local_1": 3.1,
+        "empate_x": 3.75,
+        "visitante_2": 2.16
+      },
+      "capturado_en": "2026-11-25T08:32:15-04:00",
+      "url": "https://triunfobet.com/altenar",
+      "nota": "Cuota visible en el widget con sesión; convertida a decimal si venía en formato americano",
+      "cuotas_americanas": {
+        "local_1": "+210",
+        "empate_x": "+275",
+        "visitante_2": "+116"
+      }
+    },
+    {
+      "match_slug": "2026-11-25_slavia-praga_vs_villarreal",
+      "deporte": "Fútbol",
+      "liga": "EUROPA: Champions League - Fase de liga",
+      "fecha_local": "2026-11-25",
+      "hora_local": "13:45",
+      "equipo_local": "Villarreal",
+      "equipo_visitante": "Slavia Praga",
+      "mercado": "1X2",
+      "cuotas_1x2": {
+        "local_1": 3.1,
+        "empate_x": 3.75,
+        "visitante_2": 2.16
+      },
+      "capturado_en": "2026-11-25T08:32:15-04:00",
+      "url": "https://triunfobet.com/altenar",
+      "nota": "Cuota visible en el widget con sesión; convertida a decimal si venía en formato americano",
+      "cuotas_americanas": {
+        "local_1": "+210",
+        "empate_x": "+275",
+        "visitante_2": "+116"
+      }
+    },
+    {
+      "match_slug": "2026-11-25_slavia-praga_vs_villarreal",
+      "deporte": "Fútbol",
+      "liga": "EUROPA: Champions League - Fase de liga",
+      "fecha_local": "2026-11-25",
+      "hora_local": "13:45",
+      "equipo_local": "Villarreal",
+      "equipo_visitante": "Slavia Praga",
+      "mercado": "1X2",
+      "cuotas_1x2": {
+        "local_1": 3.1,
+        "empate_x": 3.75,
+        "visitante_2": 2.16
+      },
+      "capturado_en": "2026-11-25T08:32:15-04:00",
+      "url": "https://triunfobet.com/altenar",
+      "nota": "Cuota visible en el widget con sesión; convertida a decimal si venía en formato americano",
+      "cuotas_americanas": {
+        "local_1": "+210",
+        "empate_x": "+275",
+        "visitante_2": "+116"
+      }
+    },
+    {
+      "match_slug": "2026-11-25_madrid_vs_viking",
+      "deporte": "Fútbol",
+      "liga": "EUROPA: Champions League - Fase de liga",
+      "fecha_local": "2026-11-25",
+      "hora_local": "16:00",
+      "equipo_local": "Viking",
+      "equipo_visitante": "Atlético de Madrid",
+      "mercado": "1X2",
+      "cuotas_1x2": {
+        "local_1": 1.125,
+        "empate_x": 9.5,
+        "visitante_2": 18
+      },
+      "capturado_en": "2026-11-25T08:32:15-04:00",
+      "url": "https://triunfobet.com/altenar",
+      "nota": "Cuota visible en el widget con sesión; convertida a decimal si venía en formato americano",
+      "cuotas_americanas": {
+        "local_1": "-800",
+        "empate_x": "+850",
+        "visitante_2": "+1700"
+      }
+    },
+    {
+      "match_slug": "2026-11-25_madrid_vs_viking",
+      "deporte": "Fútbol",
+      "liga": "EUROPA: Champions League - Fase de liga",
+      "fecha_local": "2026-11-25",
+      "hora_local": "16:00",
+      "equipo_local": "Viking",
+      "equipo_visitante": "Atlético de Madrid",
+      "mercado": "1X2",
+      "cuotas_1x2": {
+        "local_1": 1.125,
+        "empate_x": 9.5,
+        "visitante_2": 18
+      },
+      "capturado_en": "2026-11-25T08:32:15-04:00",
+      "url": "https://triunfobet.com/altenar",
+      "nota": "Cuota visible en el widget con sesión; convertida a decimal si venía en formato americano",
+      "cuotas_americanas": {
+        "local_1": "-800",
+        "empate_x": "+850",
+        "visitante_2": "+1700"
+      }
+    },
+    {
+      "match_slug": "2026-11-25_madrid_vs_viking",
+      "deporte": "Fútbol",
+      "liga": "EUROPA: Champions League - Fase de liga",
+      "fecha_local": "2026-11-25",
+      "hora_local": "16:00",
+      "equipo_local": "Viking",
+      "equipo_visitante": "Atlético de Madrid",
+      "mercado": "1X2",
+      "cuotas_1x2": {
+        "local_1": 1.125,
+        "empate_x": 9.5,
+        "visitante_2": 18
+      },
+      "capturado_en": "2026-11-25T08:32:15-04:00",
+      "url": "https://triunfobet.com/altenar",
+      "nota": "Cuota visible en el widget con sesión; convertida a decimal si venía en formato americano",
+      "cuotas_americanas": {
+        "local_1": "-800",
+        "empate_x": "+850",
+        "visitante_2": "+1700"
+      }
+    },
+    {
+      "match_slug": "2026-11-25_shakhtar_vs_fenerbahce",
+      "deporte": "Fútbol",
+      "liga": "EUROPA: Champions League - Fase de liga",
+      "fecha_local": "2026-11-25",
+      "hora_local": "16:00",
+      "equipo_local": "Fenerbahçe",
+      "equipo_visitante": "Shakhtar",
+      "mercado": "1X2",
+      "cuotas_1x2": {
+        "local_1": 2.8,
+        "empate_x": 3.5,
+        "visitante_2": 2.45
+      },
+      "capturado_en": "2026-11-25T08:32:15-04:00",
+      "url": "https://triunfobet.com/altenar",
+      "nota": "Cuota visible en el widget con sesión; convertida a decimal si venía en formato americano",
+      "cuotas_americanas": {
+        "local_1": "+180",
+        "empate_x": "+250",
+        "visitante_2": "+145"
+      }
+    },
+    {
+      "match_slug": "2026-11-25_shakhtar_vs_fenerbahce",
+      "deporte": "Fútbol",
+      "liga": "EUROPA: Champions League - Fase de liga",
+      "fecha_local": "2026-11-25",
+      "hora_local": "16:00",
+      "equipo_local": "Fenerbahçe",
+      "equipo_visitante": "Shakhtar",
+      "mercado": "1X2",
+      "cuotas_1x2": {
+        "local_1": 2.8,
+        "empate_x": 3.5,
+        "visitante_2": 2.45
+      },
+      "capturado_en": "2026-11-25T08:32:15-04:00",
+      "url": "https://triunfobet.com/altenar",
+      "nota": "Cuota visible en el widget con sesión; convertida a decimal si venía en formato americano",
+      "cuotas_americanas": {
+        "local_1": "+180",
+        "empate_x": "+250",
+        "visitante_2": "+145"
+      }
+    },
+    {
+      "match_slug": "2026-11-25_shakhtar_vs_fenerbahce",
+      "deporte": "Fútbol",
+      "liga": "EUROPA: Champions League - Fase de liga",
+      "fecha_local": "2026-11-25",
+      "hora_local": "16:00",
+      "equipo_local": "Fenerbahçe",
+      "equipo_visitante": "Shakhtar",
+      "mercado": "1X2",
+      "cuotas_1x2": {
+        "local_1": 2.8,
+        "empate_x": 3.5,
+        "visitante_2": 2.45
+      },
+      "capturado_en": "2026-11-25T08:32:15-04:00",
+      "url": "https://triunfobet.com/altenar",
+      "nota": "Cuota visible en el widget con sesión; convertida a decimal si venía en formato americano",
+      "cuotas_americanas": {
+        "local_1": "+180",
+        "empate_x": "+250",
+        "visitante_2": "+145"
+      }
+    },
+    {
+      "match_slug": "2026-11-25_sabah_vs_barcelona",
+      "deporte": "Fútbol",
+      "liga": "EUROPA: Champions League - Fase de liga",
+      "fecha_local": "2026-11-25",
+      "hora_local": "13:45",
+      "equipo_local": "Barcelona",
+      "equipo_visitante": "Sabah FC",
+      "mercado": "1X2",
+      "cuotas_1x2": {
+        "local_1": 26,
+        "empate_x": 12,
+        "visitante_2": 1.077
+      },
+      "capturado_en": "2026-11-25T08:32:15-04:00",
+      "url": "https://triunfobet.com/altenar",
+      "nota": "Cuota visible en el widget con sesión; convertida a decimal si venía en formato americano",
+      "cuotas_americanas": {
+        "local_1": "+2500",
+        "empate_x": "+1100",
+        "visitante_2": "-1300"
+      }
+    },
+    {
+      "match_slug": "2026-11-25_sabah_vs_barcelona",
+      "deporte": "Fútbol",
+      "liga": "EUROPA: Champions League - Fase de liga",
+      "fecha_local": "2026-11-25",
+      "hora_local": "13:45",
+      "equipo_local": "Barcelona",
+      "equipo_visitante": "Sabah FC",
+      "mercado": "1X2",
+      "cuotas_1x2": {
+        "local_1": 26,
+        "empate_x": 12,
+        "visitante_2": 1.077
+      },
+      "capturado_en": "2026-11-25T08:32:15-04:00",
+      "url": "https://triunfobet.com/altenar",
+      "nota": "Cuota visible en el widget con sesión; convertida a decimal si venía en formato americano",
+      "cuotas_americanas": {
+        "local_1": "+2500",
+        "empate_x": "+1100",
+        "visitante_2": "-1300"
+      }
+    },
+    {
+      "match_slug": "2026-11-25_sabah_vs_barcelona",
+      "deporte": "Fútbol",
+      "liga": "EUROPA: Champions League - Fase de liga",
+      "fecha_local": "2026-11-25",
+      "hora_local": "13:45",
+      "equipo_local": "Barcelona",
+      "equipo_visitante": "Sabah FC",
+      "mercado": "1X2",
+      "cuotas_1x2": {
+        "local_1": 26,
+        "empate_x": 12,
+        "visitante_2": 1.077
+      },
+      "capturado_en": "2026-11-25T08:32:15-04:00",
+      "url": "https://triunfobet.com/altenar",
+      "nota": "Cuota visible en el widget con sesión; convertida a decimal si venía en formato americano",
+      "cuotas_americanas": {
+        "local_1": "+2500",
+        "empate_x": "+1100",
+        "visitante_2": "-1300"
+      }
+    },
+    {
+      "match_slug": "2026-11-25_juventus-omonia-nicosia_vs_juventus",
+      "deporte": "Fútbol",
+      "liga": null,
+      "fecha_local": "2026-11-25",
+      "hora_local": "16:00",
+      "equipo_local": "Juventus AC Omonia Nicosia",
+      "equipo_visitante": "Juventus",
+      "mercado": "1X2",
+      "cuotas_1x2": {
+        "local_1": 1.182,
+        "empate_x": 7,
+        "visitante_2": 13
+      },
+      "capturado_en": "2026-11-25T08:32:15-04:00",
+      "url": "https://triunfobet.com/altenar",
+      "nota": "Cuota visible en el widget con sesión; convertida a decimal si venía en formato americano",
+      "cuotas_americanas": {
+        "local_1": "-550",
+        "empate_x": "+600",
+        "visitante_2": "+1200"
+      }
+    },
+    {
+      "match_slug": "2026-11-25_juventus-omonia-nicosia_vs_juventus",
+      "deporte": "Fútbol",
+      "liga": null,
+      "fecha_local": "2026-11-25",
+      "hora_local": "16:00",
+      "equipo_local": "Juventus AC Omonia Nicosia",
+      "equipo_visitante": "Juventus",
+      "mercado": "1X2",
+      "cuotas_1x2": {
+        "local_1": 1.182,
+        "empate_x": 7,
+        "visitante_2": 13
+      },
+      "capturado_en": "2026-11-25T08:32:15-04:00",
+      "url": "https://triunfobet.com/altenar",
+      "nota": "Cuota visible en el widget con sesión; convertida a decimal si venía en formato americano",
+      "cuotas_americanas": {
+        "local_1": "-550",
+        "empate_x": "+600",
+        "visitante_2": "+1200"
+      }
+    },
+    {
+      "match_slug": "2026-11-25_juventus-omonia-nicosia_vs_juventus",
+      "deporte": "Fútbol",
+      "liga": null,
+      "fecha_local": "2026-11-25",
+      "hora_local": "16:00",
+      "equipo_local": "Juventus AC Omonia Nicosia",
+      "equipo_visitante": "Juventus",
+      "mercado": "1X2",
+      "cuotas_1x2": {
+        "local_1": 1.182,
+        "empate_x": 7,
+        "visitante_2": 13
+      },
+      "capturado_en": "2026-11-25T08:32:16-04:00",
+      "url": "https://triunfobet.com/altenar",
+      "nota": "Cuota visible en el widget con sesión; convertida a decimal si venía en formato americano",
+      "cuotas_americanas": {
+        "local_1": "-550",
+        "empate_x": "+600",
+        "visitante_2": "+1200"
+      }
+    },
+    {
+      "match_slug": "2026-11-25_gs-ilioupoli-fostiras_vs_gs-ilioupoli",
+      "deporte": "Fútbol",
+      "liga": null,
+      "fecha_local": "2026-11-25",
+      "hora_local": "08:45",
+      "equipo_local": "GS Ilioupoli Fostiras FC",
+      "equipo_visitante": "GS Ilioupoli",
+      "mercado": "1X2",
+      "cuotas_1x2": {
+        "local_1": 1.775,
+        "empate_x": 3.4,
+        "visitante_2": 3.66
+      },
+      "capturado_en": "2026-11-25T08:32:16-04:00",
+      "url": "https://triunfobet.com/altenar",
+      "nota": "Cuota visible en el widget con sesión; convertida a decimal si venía en formato americano",
+      "cuotas_americanas": {
+        "local_1": "-129",
+        "empate_x": "+240",
+        "visitante_2": "+266"
+      }
+    },
+    {
+      "match_slug": "2026-11-25_gs-ilioupoli-fostiras_vs_gs-ilioupoli",
+      "deporte": "Fútbol",
+      "liga": null,
+      "fecha_local": "2026-11-25",
+      "hora_local": "08:45",
+      "equipo_local": "GS Ilioupoli Fostiras FC",
+      "equipo_visitante": "GS Ilioupoli",
+      "mercado": "1X2",
+      "cuotas_1x2": {
+        "local_1": 1.775,
+        "empate_x": 3.4,
+        "visitante_2": 3.66
+      },
+      "capturado_en": "2026-11-25T08:32:16-04:00",
+      "url": "https://triunfobet.com/altenar",
+      "nota": "Cuota visible en el widget con sesión; convertida a decimal si venía en formato americano",
+      "cuotas_americanas": {
+        "local_1": "-129",
+        "empate_x": "+240",
+        "visitante_2": "+266"
+      }
+    },
+    {
+      "match_slug": "2026-11-25_gs-ilioupoli-fostiras_vs_gs-ilioupoli",
+      "deporte": "Fútbol",
+      "liga": null,
+      "fecha_local": "2026-11-25",
+      "hora_local": "08:45",
+      "equipo_local": "GS Ilioupoli Fostiras FC",
+      "equipo_visitante": "GS Ilioupoli",
+      "mercado": "1X2",
+      "cuotas_1x2": {
+        "local_1": 1.775,
+        "empate_x": 3.4,
+        "visitante_2": 3.66
+      },
+      "capturado_en": "2026-11-25T08:32:16-04:00",
+      "url": "https://triunfobet.com/altenar",
+      "nota": "Cuota visible en el widget con sesión; convertida a decimal si venía en formato americano",
+      "cuotas_americanas": {
+        "local_1": "-129",
+        "empate_x": "+240",
+        "visitante_2": "+266"
+      }
+    },
+    {
+      "match_slug": "2026-11-25_cp_vs_manchester",
+      "deporte": "Fútbol",
+      "liga": "EUROPA: Champions League - Fase de liga",
+      "fecha_local": "2026-11-25",
+      "hora_local": "16:00",
+      "equipo_local": "Manchester Utd",
+      "equipo_visitante": "Sporting CP",
+      "mercado": "1X2",
+      "cuotas_1x2": {
+        "local_1": 2.14,
+        "empate_x": 3.6,
+        "visitante_2": 2.8
+      },
+      "capturado_en": "2026-11-25T08:32:16-04:00",
+      "url": "https://triunfobet.com/altenar",
+      "nota": "Cuota visible en el widget con sesión; convertida a decimal si venía en formato americano",
+      "cuotas_americanas": {
+        "local_1": "+114",
+        "empate_x": "+260",
+        "visitante_2": "+180"
+      }
+    },
+    {
+      "match_slug": "2026-11-25_cp_vs_manchester",
+      "deporte": "Fútbol",
+      "liga": "EUROPA: Champions League - Fase de liga",
+      "fecha_local": "2026-11-25",
+      "hora_local": "16:00",
+      "equipo_local": "Manchester Utd",
+      "equipo_visitante": "Sporting CP",
+      "mercado": "1X2",
+      "cuotas_1x2": {
+        "local_1": 2.14,
+        "empate_x": 3.6,
+        "visitante_2": 2.8
+      },
+      "capturado_en": "2026-11-25T08:32:16-04:00",
+      "url": "https://triunfobet.com/altenar",
+      "nota": "Cuota visible en el widget con sesión; convertida a decimal si venía en formato americano",
+      "cuotas_americanas": {
+        "local_1": "+114",
+        "empate_x": "+260",
+        "visitante_2": "+180"
+      }
+    },
+    {
+      "match_slug": "2026-11-25_cp_vs_manchester",
+      "deporte": "Fútbol",
+      "liga": "EUROPA: Champions League - Fase de liga",
+      "fecha_local": "2026-11-25",
+      "hora_local": "16:00",
+      "equipo_local": "Manchester Utd",
+      "equipo_visitante": "Sporting CP",
+      "mercado": "1X2",
+      "cuotas_1x2": {
+        "local_1": 2.14,
+        "empate_x": 3.6,
+        "visitante_2": 2.8
+      },
+      "capturado_en": "2026-11-25T08:32:16-04:00",
+      "url": "https://triunfobet.com/altenar",
+      "nota": "Cuota visible en el widget con sesión; convertida a decimal si venía en formato americano",
+      "cuotas_americanas": {
+        "local_1": "+114",
+        "empate_x": "+260",
+        "visitante_2": "+180"
+      }
+    },
+    {
+      "match_slug": "2026-11-25_ecuador-sub-17_vs_corea-sur-sub-17",
+      "deporte": "Fútbol",
+      "liga": "MUNDIAL: Mundial Sub-17",
+      "fecha_local": "2026-11-25",
+      "hora_local": "08:30",
+      "equipo_local": "Ecuador Sub-17",
+      "equipo_visitante": "Corea del Sur Sub-17",
+      "mercado": "1X2",
+      "cuotas_1x2": {
+        "local_1": 1.133,
+        "empate_x": 7.5,
+        "visitante_2": 12
+      },
+      "capturado_en": "2026-11-25T08:32:16-04:00",
+      "url": "https://triunfobet.com/altenar",
+      "nota": "Cuota visible en el widget con sesión; convertida a decimal si venía en formato americano",
+      "cuotas_americanas": {
+        "local_1": "-750",
+        "empate_x": "+650",
+        "visitante_2": "+1100"
+      }
+    },
+    {
+      "match_slug": "2026-11-25_ecuador-sub-17_vs_corea-sur-sub-17",
+      "deporte": "Fútbol",
+      "liga": "MUNDIAL: Mundial Sub-17",
+      "fecha_local": "2026-11-25",
+      "hora_local": "08:30",
+      "equipo_local": "Ecuador Sub-17",
+      "equipo_visitante": "Corea del Sur Sub-17",
+      "mercado": "1X2",
+      "cuotas_1x2": {
+        "local_1": 1.133,
+        "empate_x": 7.5,
+        "visitante_2": 12
+      },
+      "capturado_en": "2026-11-25T08:32:16-04:00",
+      "url": "https://triunfobet.com/altenar",
+      "nota": "Cuota visible en el widget con sesión; convertida a decimal si venía en formato americano",
+      "cuotas_americanas": {
+        "local_1": "-750",
+        "empate_x": "+650",
+        "visitante_2": "+1100"
+      }
+    },
+    {
+      "match_slug": "2026-11-25_ecuador-sub-17_vs_corea-sur-sub-17",
+      "deporte": "Fútbol",
+      "liga": "MUNDIAL: Mundial Sub-17",
+      "fecha_local": "2026-11-25",
+      "hora_local": "08:30",
+      "equipo_local": "Ecuador Sub-17",
+      "equipo_visitante": "Corea del Sur Sub-17",
+      "mercado": "1X2",
+      "cuotas_1x2": {
+        "local_1": 1.133,
+        "empate_x": 7.5,
+        "visitante_2": 12
+      },
+      "capturado_en": "2026-11-25T08:32:16-04:00",
+      "url": "https://triunfobet.com/altenar",
+      "nota": "Cuota visible en el widget con sesión; convertida a decimal si venía en formato americano",
+      "cuotas_americanas": {
+        "local_1": "-750",
+        "empate_x": "+650",
+        "visitante_2": "+1100"
+      }
+    },
+    {
+      "match_slug": "2026-11-25_lajong_vs_nagaland",
+      "deporte": "Fútbol",
+      "liga": "INDIA: IFL",
+      "fecha_local": "2026-11-25",
+      "hora_local": "09:00",
+      "equipo_local": "Nagaland United",
+      "equipo_visitante": "Lajong",
+      "mercado": "1X2",
+      "cuotas_1x2": {
+        "local_1": 1.455,
+        "empate_x": 4.5,
+        "visitante_2": 5
+      },
+      "capturado_en": "2026-11-25T08:32:16-04:00",
+      "url": "https://triunfobet.com/altenar",
+      "nota": "Cuota visible en el widget con sesión; convertida a decimal si venía en formato americano",
+      "cuotas_americanas": {
+        "local_1": "-220",
+        "empate_x": "+350",
+        "visitante_2": "+400"
+      }
+    },
+    {
+      "match_slug": "2026-11-25_lajong_vs_nagaland",
+      "deporte": "Fútbol",
+      "liga": "INDIA: IFL",
+      "fecha_local": "2026-11-25",
+      "hora_local": "09:00",
+      "equipo_local": "Nagaland United",
+      "equipo_visitante": "Lajong",
+      "mercado": "1X2",
+      "cuotas_1x2": {
+        "local_1": 1.455,
+        "empate_x": 4.5,
+        "visitante_2": 5
+      },
+      "capturado_en": "2026-11-25T08:32:16-04:00",
+      "url": "https://triunfobet.com/altenar",
+      "nota": "Cuota visible en el widget con sesión; convertida a decimal si venía en formato americano",
+      "cuotas_americanas": {
+        "local_1": "-220",
+        "empate_x": "+350",
+        "visitante_2": "+400"
+      }
+    },
+    {
+      "match_slug": "2026-11-25_lajong_vs_nagaland",
+      "deporte": "Fútbol",
+      "liga": "INDIA: IFL",
+      "fecha_local": "2026-11-25",
+      "hora_local": "09:00",
+      "equipo_local": "Nagaland United",
+      "equipo_visitante": "Lajong",
+      "mercado": "1X2",
+      "cuotas_1x2": {
+        "local_1": 1.455,
+        "empate_x": 4.5,
+        "visitante_2": 5
+      },
+      "capturado_en": "2026-11-25T08:32:16-04:00",
+      "url": "https://triunfobet.com/altenar",
+      "nota": "Cuota visible en el widget con sesión; convertida a decimal si venía en formato americano",
+      "cuotas_americanas": {
+        "local_1": "-220",
+        "empate_x": "+350",
+        "visitante_2": "+400"
+      }
+    },
+    {
+      "match_slug": "2026-11-25_roan_vs_mufulira",
+      "deporte": "Fútbol",
+      "liga": "ZAMBIA: Super League",
+      "fecha_local": "2026-11-25",
+      "hora_local": "09:00",
+      "equipo_local": "Mufulira",
+      "equipo_visitante": "Roan United",
+      "mercado": "1X2",
+      "cuotas_1x2": {
+        "local_1": 2.54,
+        "empate_x": 2.62,
+        "visitante_2": 2.9
+      },
+      "capturado_en": "2026-11-25T08:32:16-04:00",
+      "url": "https://triunfobet.com/altenar",
+      "nota": "Cuota visible en el widget con sesión; convertida a decimal si venía en formato americano",
+      "cuotas_americanas": {
+        "local_1": "+154",
+        "empate_x": "+162",
+        "visitante_2": "+190"
+      }
+    },
+    {
+      "match_slug": "2026-11-25_roan_vs_mufulira",
+      "deporte": "Fútbol",
+      "liga": "ZAMBIA: Super League",
+      "fecha_local": "2026-11-25",
+      "hora_local": "09:00",
+      "equipo_local": "Mufulira",
+      "equipo_visitante": "Roan United",
+      "mercado": "1X2",
+      "cuotas_1x2": {
+        "local_1": 2.54,
+        "empate_x": 2.62,
+        "visitante_2": 2.9
+      },
+      "capturado_en": "2026-11-25T08:32:16-04:00",
+      "url": "https://triunfobet.com/altenar",
+      "nota": "Cuota visible en el widget con sesión; convertida a decimal si venía en formato americano",
+      "cuotas_americanas": {
+        "local_1": "+154",
+        "empate_x": "+162",
+        "visitante_2": "+190"
+      }
+    },
+    {
+      "match_slug": "2026-11-25_roan_vs_mufulira",
+      "deporte": "Fútbol",
+      "liga": "ZAMBIA: Super League",
+      "fecha_local": "2026-11-25",
+      "hora_local": "09:00",
+      "equipo_local": "Mufulira",
+      "equipo_visitante": "Roan United",
+      "mercado": "1X2",
+      "cuotas_1x2": {
+        "local_1": 2.54,
+        "empate_x": 2.62,
+        "visitante_2": 2.9
+      },
+      "capturado_en": "2026-11-25T08:32:16-04:00",
+      "url": "https://triunfobet.com/altenar",
+      "nota": "Cuota visible en el widget con sesión; convertida a decimal si venía en formato americano",
+      "cuotas_americanas": {
+        "local_1": "+154",
+        "empate_x": "+162",
+        "visitante_2": "+190"
+      }
+    },
+    {
+      "match_slug": "2026-11-25_ecuador-sub-17_vs_corea-sur-sub-17",
+      "deporte": "Fútbol",
+      "liga": "MUNDIAL: Mundial Sub-17",
+      "fecha_local": "2026-11-25",
+      "hora_local": "08:30",
+      "equipo_local": "Ecuador Sub-17",
+      "equipo_visitante": "Corea del Sur Sub-17",
+      "mercado": "1X2",
+      "cuotas_1x2": {
+        "local_1": 1.87,
+        "empate_x": 4.5,
+        "visitante_2": 2.75
+      },
+      "capturado_en": "2026-11-25T08:32:16-04:00",
+      "url": "https://triunfobet.com/altenar",
+      "nota": "Cuota visible en el widget con sesión; convertida a decimal si venía en formato americano",
+      "cuotas_americanas": {
+        "local_1": "-115",
+        "empate_x": "+350",
+        "visitante_2": "+175"
+      }
+    },
+    {
+      "match_slug": "2026-11-25_ecuador-sub-17_vs_corea-sur-sub-17",
+      "deporte": "Fútbol",
+      "liga": "MUNDIAL: Mundial Sub-17",
+      "fecha_local": "2026-11-25",
+      "hora_local": "08:30",
+      "equipo_local": "Ecuador Sub-17",
+      "equipo_visitante": "Corea del Sur Sub-17",
+      "mercado": "1X2",
+      "cuotas_1x2": {
+        "local_1": 1.87,
+        "empate_x": 4.5,
+        "visitante_2": 2.75
+      },
+      "capturado_en": "2026-11-25T08:32:16-04:00",
+      "url": "https://triunfobet.com/altenar",
+      "nota": "Cuota visible en el widget con sesión; convertida a decimal si venía en formato americano",
+      "cuotas_americanas": {
+        "local_1": "-115",
+        "empate_x": "+350",
+        "visitante_2": "+175"
+      }
+    },
+    {
+      "match_slug": "2026-11-25_ecuador-sub-17_vs_corea-sur-sub-17",
+      "deporte": "Fútbol",
+      "liga": "MUNDIAL: Mundial Sub-17",
+      "fecha_local": "2026-11-25",
+      "hora_local": "08:30",
+      "equipo_local": "Ecuador Sub-17",
+      "equipo_visitante": "Corea del Sur Sub-17",
+      "mercado": "1X2",
+      "cuotas_1x2": {
+        "local_1": 1.87,
+        "empate_x": 4.5,
+        "visitante_2": 2.75
+      },
+      "capturado_en": "2026-11-25T08:32:16-04:00",
+      "url": "https://triunfobet.com/altenar",
+      "nota": "Cuota visible en el widget con sesión; convertida a decimal si venía en formato americano",
+      "cuotas_americanas": {
+        "local_1": "-115",
+        "empate_x": "+350",
+        "visitante_2": "+175"
+      }
+    },
+    {
+      "match_slug": "2026-11-25_napsa-stars_vs_konkola",
+      "deporte": "Fútbol",
+      "liga": "ZAMBIA: Super League",
+      "fecha_local": "2026-11-25",
+      "hora_local": "09:00",
+      "equipo_local": "Konkola",
+      "equipo_visitante": "NAPSA Stars",
+      "mercado": "1X2",
+      "cuotas_1x2": {
+        "local_1": 2.42,
+        "empate_x": 2.66,
+        "visitante_2": 3
+      },
+      "capturado_en": "2026-11-25T08:32:16-04:00",
+      "url": "https://triunfobet.com/altenar",
+      "nota": "Cuota visible en el widget con sesión; convertida a decimal si venía en formato americano",
+      "cuotas_americanas": {
+        "local_1": "+142",
+        "empate_x": "+166",
+        "visitante_2": "+200"
+      }
+    },
+    {
+      "match_slug": "2026-11-25_napsa-stars_vs_konkola",
+      "deporte": "Fútbol",
+      "liga": "ZAMBIA: Super League",
+      "fecha_local": "2026-11-25",
+      "hora_local": "09:00",
+      "equipo_local": "Konkola",
+      "equipo_visitante": "NAPSA Stars",
+      "mercado": "1X2",
+      "cuotas_1x2": {
+        "local_1": 2.42,
+        "empate_x": 2.66,
+        "visitante_2": 3
+      },
+      "capturado_en": "2026-11-25T08:32:16-04:00",
+      "url": "https://triunfobet.com/altenar",
+      "nota": "Cuota visible en el widget con sesión; convertida a decimal si venía en formato americano",
+      "cuotas_americanas": {
+        "local_1": "+142",
+        "empate_x": "+166",
+        "visitante_2": "+200"
+      }
+    },
+    {
+      "match_slug": "2026-11-25_napsa-stars_vs_konkola",
+      "deporte": "Fútbol",
+      "liga": "ZAMBIA: Super League",
+      "fecha_local": "2026-11-25",
+      "hora_local": "09:00",
+      "equipo_local": "Konkola",
+      "equipo_visitante": "NAPSA Stars",
+      "mercado": "1X2",
+      "cuotas_1x2": {
+        "local_1": 2.42,
+        "empate_x": 2.66,
+        "visitante_2": 3
+      },
+      "capturado_en": "2026-11-25T08:32:16-04:00",
+      "url": "https://triunfobet.com/altenar",
+      "nota": "Cuota visible en el widget con sesión; convertida a decimal si venía en formato americano",
+      "cuotas_americanas": {
+        "local_1": "+142",
+        "empate_x": "+166",
+        "visitante_2": "+200"
+      }
+    },
+    {
+      "match_slug": "2026-11-25_uruguay-sub-17_vs_francia-sub-17",
+      "deporte": "Fútbol",
+      "liga": "MUNDIAL: Mundial Sub-17",
+      "fecha_local": "2026-11-25",
+      "hora_local": "09:30",
+      "equipo_local": "Francia Sub-17",
+      "equipo_visitante": "Uruguay Sub-17",
+      "mercado": "1X2",
+      "cuotas_1x2": {
+        "local_1": 6.5,
+        "empate_x": 5,
+        "visitante_2": 1.308
+      },
+      "capturado_en": "2026-11-25T08:32:16-04:00",
+      "url": "https://triunfobet.com/altenar",
+      "nota": "Cuota visible en el widget con sesión; convertida a decimal si venía en formato americano",
+      "cuotas_americanas": {
+        "local_1": "+550",
+        "empate_x": "+400",
+        "visitante_2": "-325"
+      }
+    },
+    {
+      "match_slug": "2026-11-25_uruguay-sub-17_vs_francia-sub-17",
+      "deporte": "Fútbol",
+      "liga": "MUNDIAL: Mundial Sub-17",
+      "fecha_local": "2026-11-25",
+      "hora_local": "09:30",
+      "equipo_local": "Francia Sub-17",
+      "equipo_visitante": "Uruguay Sub-17",
+      "mercado": "1X2",
+      "cuotas_1x2": {
+        "local_1": 6.5,
+        "empate_x": 5,
+        "visitante_2": 1.308
+      },
+      "capturado_en": "2026-11-25T08:32:16-04:00",
+      "url": "https://triunfobet.com/altenar",
+      "nota": "Cuota visible en el widget con sesión; convertida a decimal si venía en formato americano",
+      "cuotas_americanas": {
+        "local_1": "+550",
+        "empate_x": "+400",
+        "visitante_2": "-325"
+      }
+    },
+    {
+      "match_slug": "2026-11-25_uruguay-sub-17_vs_francia-sub-17",
+      "deporte": "Fútbol",
+      "liga": "MUNDIAL: Mundial Sub-17",
+      "fecha_local": "2026-11-25",
+      "hora_local": "09:30",
+      "equipo_local": "Francia Sub-17",
+      "equipo_visitante": "Uruguay Sub-17",
+      "mercado": "1X2",
+      "cuotas_1x2": {
+        "local_1": 6.5,
+        "empate_x": 5,
+        "visitante_2": 1.308
+      },
+      "capturado_en": "2026-11-25T08:32:16-04:00",
+      "url": "https://triunfobet.com/altenar",
+      "nota": "Cuota visible en el widget con sesión; convertida a decimal si venía en formato americano",
+      "cuotas_americanas": {
+        "local_1": "+550",
+        "empate_x": "+400",
+        "visitante_2": "-325"
+      }
+    },
+    {
+      "match_slug": "2026-11-25_al-merrikh-sdn-as-kigali_vs_al-merrikh-sdn",
+      "deporte": "Fútbol",
+      "liga": null,
+      "fecha_local": "2026-11-25",
+      "hora_local": "09:00",
+      "equipo_local": "Al-Merrikh SC (SDN) AS Kigali",
+      "equipo_visitante": "Al-Merrikh SC (SDN)",
+      "mercado": "1X2",
+      "cuotas_1x2": {
+        "local_1": 1.4,
+        "empate_x": 3.66,
+        "visitante_2": 7.5
+      },
+      "capturado_en": "2026-11-25T08:32:16-04:00",
+      "url": "https://triunfobet.com/altenar",
+      "nota": "Cuota visible en el widget con sesión; convertida a decimal si venía en formato americano",
+      "cuotas_americanas": {
+        "local_1": "-250",
+        "empate_x": "+266",
+        "visitante_2": "+650"
+      }
+    },
+    {
+      "match_slug": "2026-11-25_al-merrikh-sdn-as-kigali_vs_al-merrikh-sdn",
+      "deporte": "Fútbol",
+      "liga": null,
+      "fecha_local": "2026-11-25",
+      "hora_local": "09:00",
+      "equipo_local": "Al-Merrikh SC (SDN) AS Kigali",
+      "equipo_visitante": "Al-Merrikh SC (SDN)",
+      "mercado": "1X2",
+      "cuotas_1x2": {
+        "local_1": 1.4,
+        "empate_x": 3.66,
+        "visitante_2": 7.5
+      },
+      "capturado_en": "2026-11-25T08:32:16-04:00",
+      "url": "https://triunfobet.com/altenar",
+      "nota": "Cuota visible en el widget con sesión; convertida a decimal si venía en formato americano",
+      "cuotas_americanas": {
+        "local_1": "-250",
+        "empate_x": "+266",
+        "visitante_2": "+650"
+      }
+    },
+    {
+      "match_slug": "2026-11-25_al-merrikh-sdn-as-kigali_vs_al-merrikh-sdn",
+      "deporte": "Fútbol",
+      "liga": null,
+      "fecha_local": "2026-11-25",
+      "hora_local": "09:00",
+      "equipo_local": "Al-Merrikh SC (SDN) AS Kigali",
+      "equipo_visitante": "Al-Merrikh SC (SDN)",
+      "mercado": "1X2",
+      "cuotas_1x2": {
+        "local_1": 1.4,
+        "empate_x": 3.66,
+        "visitante_2": 7.5
+      },
+      "capturado_en": "2026-11-25T08:32:16-04:00",
+      "url": "https://triunfobet.com/altenar",
+      "nota": "Cuota visible en el widget con sesión; convertida a decimal si venía en formato americano",
+      "cuotas_americanas": {
+        "local_1": "-250",
+        "empate_x": "+266",
+        "visitante_2": "+650"
+      }
+    },
+    {
+      "match_slug": "2026-11-25_chipukizi-kvz_vs_chipukizi",
+      "deporte": "Fútbol",
+      "liga": null,
+      "fecha_local": "2026-11-25",
+      "hora_local": "09:00",
+      "equipo_local": "Chipukizi FC Kvz",
+      "equipo_visitante": "Chipukizi FC",
+      "mercado": "1X2",
+      "cuotas_1x2": {
+        "local_1": 4.5,
+        "empate_x": 3.14,
+        "visitante_2": 1.699
+      },
+      "capturado_en": "2026-11-25T08:32:16-04:00",
+      "url": "https://triunfobet.com/altenar",
+      "nota": "Cuota visible en el widget con sesión; convertida a decimal si venía en formato americano",
+      "cuotas_americanas": {
+        "local_1": "+350",
+        "empate_x": "+214",
+        "visitante_2": "-143"
+      }
+    },
+    {
+      "match_slug": "2026-11-25_chipukizi-kvz_vs_chipukizi",
+      "deporte": "Fútbol",
+      "liga": null,
+      "fecha_local": "2026-11-25",
+      "hora_local": "09:00",
+      "equipo_local": "Chipukizi FC Kvz",
+      "equipo_visitante": "Chipukizi FC",
+      "mercado": "1X2",
+      "cuotas_1x2": {
+        "local_1": 4.5,
+        "empate_x": 3.14,
+        "visitante_2": 1.699
+      },
+      "capturado_en": "2026-11-25T08:32:16-04:00",
+      "url": "https://triunfobet.com/altenar",
+      "nota": "Cuota visible en el widget con sesión; convertida a decimal si venía en formato americano",
+      "cuotas_americanas": {
+        "local_1": "+350",
+        "empate_x": "+214",
+        "visitante_2": "-143"
+      }
+    },
+    {
+      "match_slug": "2026-11-25_chipukizi-kvz_vs_chipukizi",
+      "deporte": "Fútbol",
+      "liga": null,
+      "fecha_local": "2026-11-25",
+      "hora_local": "09:00",
+      "equipo_local": "Chipukizi FC Kvz",
+      "equipo_visitante": "Chipukizi FC",
+      "mercado": "1X2",
+      "cuotas_1x2": {
+        "local_1": 4.5,
+        "empate_x": 3.14,
+        "visitante_2": 1.699
+      },
+      "capturado_en": "2026-11-25T08:32:16-04:00",
+      "url": "https://triunfobet.com/altenar",
+      "nota": "Cuota visible en el widget con sesión; convertida a decimal si venía en formato americano",
+      "cuotas_americanas": {
+        "local_1": "+350",
+        "empate_x": "+214",
+        "visitante_2": "-143"
       }
     }
   ]
