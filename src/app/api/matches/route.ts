@@ -33,7 +33,7 @@ export async function GET(request: NextRequest) {
   }
 
   try {
-    const data = await getDashboardData();
+    const data = await getDashboardData(forceRefresh);
     const filtered =
       sportParam === "all"
         ? data

@@ -1,36 +1,51 @@
-import { dateInVET, dateInVETOffset } from "@/lib/format";
+import { dateInVET } from "@/lib/format";
 import { canonicalFavoriteFromSummary, summarizeMarket } from "@/lib/marketSummary";
-import { canonicalBookmakerName, namesLikelyMatch, normalizeName } from "@/lib/utils";
+import {
+  canonicalBookmakerName,
+  createNameMatcher,
+  createNameNormalizer,
+} from "@/lib/utils";
 import type { StoredApuestasRoyalQuote } from "@/services/apuestasRoyalIngestStore";
 import type { BookmakerQuote, SportsMatch } from "@/types/sports";
 
-function normalizeTeamName(name: string): string {
-  return normalizeName(name)
-    .replace(/\b(fc|cf|sc|afc|club|the|de|del)\b/gi, "")
-    .trim();
+interface MatchLookup {
+  matches: SportsMatch[];
+  byId: Map<string, SportsMatch>;
+  byDate: Map<string, SportsMatch[]>;
+  nameMatches: (first: string, second: string) => boolean;
+  normalizeTeamName: (name: string) => string;
+  teamPairs: Map<string, boolean>;
+}
+
+function tokenSet(value: string): Set<string> {
+  return new Set(value.split(" ").filter((token) => token.length > 2));
 }
 
 function sameTeams(
+  lookup: MatchLookup,
   quote: StoredApuestasRoyalQuote,
   match: SportsMatch,
 ): boolean {
-  const localMatch = normalizeTeamName(match.home.name);
-  const visitMatch = normalizeTeamName(match.away.name);
-  const localQuote = normalizeTeamName(quote.equipo_local);
-  const visitQuote = normalizeTeamName(quote.equipo_visitante);
+  const localMatch = lookup.normalizeTeamName(match.home.name);
+  const visitMatch = lookup.normalizeTeamName(match.away.name);
+  const localQuote = lookup.normalizeTeamName(quote.equipo_local);
+  const visitQuote = lookup.normalizeTeamName(quote.equipo_visitante);
+  const pairKey = `${localQuote}\u0000${visitQuote}\u0000${localMatch}\u0000${visitMatch}`;
+  const cached = lookup.teamPairs.get(pairKey);
+  if (cached !== undefined) return cached;
 
-  // Matching directo con namesLikelyMatch
+  const { nameMatches } = lookup;
   const directMatch =
-    (namesLikelyMatch(localQuote, localMatch) &&
-      namesLikelyMatch(visitQuote, visitMatch)) ||
-    (namesLikelyMatch(localQuote, visitMatch) &&
-      namesLikelyMatch(visitQuote, localMatch));
+    (nameMatches(localQuote, localMatch) &&
+      nameMatches(visitQuote, visitMatch)) ||
+    (nameMatches(localQuote, visitMatch) &&
+      nameMatches(visitQuote, localMatch));
 
   // Matching por tokens superados (≥ 50% de tokens comunes > 2 chars)
-  const tokensLocal = new Set(localQuote.split(" ").filter((t) => t.length > 2));
-  const tokensVisit = new Set(visitQuote.split(" ").filter((t) => t.length > 2));
-  const tokensLocalMatch = new Set(localMatch.split(" ").filter((t) => t.length > 2));
-  const tokensVisitMatch = new Set(visitMatch.split(" ").filter((t) => t.length > 2));
+  const tokensLocal = tokenSet(localQuote);
+  const tokensVisit = tokenSet(visitQuote);
+  const tokensLocalMatch = tokenSet(localMatch);
+  const tokensVisitMatch = tokenSet(visitMatch);
 
   let commonLocal = 0;
   for (const token of tokensLocal) if (tokensVisitMatch.has(token)) commonLocal += 1;
@@ -38,6 +53,10 @@ function sameTeams(
   for (const token of tokensVisit) if (tokensLocalMatch.has(token)) commonVisit += 1;
 
   const tokenMatch =
+    tokensLocal.size > 0 &&
+    tokensVisit.size > 0 &&
+    tokensLocalMatch.size > 0 &&
+    tokensVisitMatch.size > 0 &&
     commonLocal / Math.min(tokensLocal.size, tokensLocalMatch.size) >= 0.5 &&
     commonVisit / Math.min(tokensVisit.size, tokensVisitMatch.size) >= 0.5;
 
@@ -48,37 +67,32 @@ function sameTeams(
     localQuote.includes(visitMatch) ||
     visitQuote.includes(localMatch);
 
-  return directMatch || tokenMatch || partialMatch;
+  const result = directMatch || tokenMatch || partialMatch;
+  lookup.teamPairs.set(pairKey, result);
+  return result;
 }
 
 function findMatch(
-  matches: SportsMatch[],
+  lookup: MatchLookup,
   quote: StoredApuestasRoyalQuote,
 ): SportsMatch | null {
   if (quote.match_slug) {
-    const bySlug = matches.find(
-      (match) => match.id === `flashscore-${quote.match_slug}`,
-    );
+    const bySlug = lookup.byId.get(`flashscore-${quote.match_slug}`);
     if (bySlug) return bySlug;
   }
 
-  const candidates = matches.filter((match) => {
-    if (
-      quote.fecha_local &&
-      dateInVET(match.commenceTime) !== quote.fecha_local
-    ) {
-      return false;
-    }
-    return sameTeams(quote, match);
-  });
-
+  const byDate = quote.fecha_local
+    ? lookup.byDate.get(quote.fecha_local) ?? []
+    : lookup.matches;
+  const candidates = byDate.filter((match) => sameTeams(lookup, quote, match));
   if (candidates.length <= 1) return candidates[0] ?? null;
 
+  const { nameMatches } = lookup;
   return (
     candidates.find(
       (match) =>
-        namesLikelyMatch(quote.equipo_local, match.home.name) &&
-        namesLikelyMatch(quote.equipo_visitante, match.away.name),
+        nameMatches(quote.equipo_local, match.home.name) &&
+        nameMatches(quote.equipo_visitante, match.away.name),
     ) ?? candidates[0]
   );
 }
@@ -131,6 +145,25 @@ export function applyApuestasRoyalQuotes(
   if (quotes.length === 0) return { matches, applied: 0, unmatched: 0 };
 
   const byId = new Map(matches.map((match) => [match.id, match]));
+  const byDate = new Map<string, SportsMatch[]>();
+  for (const match of matches) {
+    const date = dateInVET(match.commenceTime);
+    const bucket = byDate.get(date);
+    if (bucket) bucket.push(match);
+    else byDate.set(date, [match]);
+  }
+  const normalize = createNameNormalizer();
+  const lookup: MatchLookup = {
+    matches,
+    byId,
+    byDate,
+    nameMatches: createNameMatcher(),
+    normalizeTeamName: (name: string) =>
+      normalize(name)
+        .replace(/\b(fc|cf|sc|afc|club|the|de|del)\b/gi, "")
+        .trim(),
+    teamPairs: new Map<string, boolean>(),
+  };
   let applied = 0;
   let unmatched = 0;
 
@@ -140,7 +173,7 @@ export function applyApuestasRoyalQuotes(
       unmatched += 1;
       continue;
     }
-    const target = findMatch(matches, quote);
+    const target = findMatch(lookup, quote);
     if (!target) {
       unmatched += 1;
       continue;

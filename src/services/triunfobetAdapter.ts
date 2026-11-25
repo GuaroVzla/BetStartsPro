@@ -1,43 +1,54 @@
 import { dateInVET } from "@/lib/format";
 import { canonicalFavoriteFromSummary, summarizeMarket } from "@/lib/marketSummary";
-import { canonicalBookmakerName, namesLikelyMatch } from "@/lib/utils";
+import { canonicalBookmakerName, createNameMatcher } from "@/lib/utils";
 import type { StoredTriunfobetQuote } from "@/services/triunfobetIngestStore";
 import type { BookmakerQuote, SportsMatch } from "@/types/sports";
 
+interface MatchLookup {
+  matches: SportsMatch[];
+  byId: Map<string, SportsMatch>;
+  byDate: Map<string, SportsMatch[]>;
+  nameMatches: (first: string, second: string) => boolean;
+}
 
-function sameTeams(quote: StoredTriunfobetQuote, match: SportsMatch): boolean {
+function sameTeams(
+  lookup: MatchLookup,
+  quote: StoredTriunfobetQuote,
+  match: SportsMatch,
+): boolean {
+  const { nameMatches } = lookup;
   return (
-    (namesLikelyMatch(quote.equipo_local, match.home.name) &&
-      namesLikelyMatch(quote.equipo_visitante, match.away.name)) ||
-    (namesLikelyMatch(quote.equipo_local, match.away.name) &&
-      namesLikelyMatch(quote.equipo_visitante, match.home.name))
+    (nameMatches(quote.equipo_local, match.home.name) &&
+      nameMatches(quote.equipo_visitante, match.away.name)) ||
+    (nameMatches(quote.equipo_local, match.away.name) &&
+      nameMatches(quote.equipo_visitante, match.home.name))
   );
 }
 
 function findMatch(
-  matches: SportsMatch[],
+  lookup: MatchLookup,
   quote: StoredTriunfobetQuote,
 ): SportsMatch | null {
   if (quote.match_slug) {
-    const bySlug = matches.find((match) => match.id === `flashscore-${quote.match_slug}`);
+    const bySlug = lookup.byId.get(`flashscore-${quote.match_slug}`);
     if (bySlug) return bySlug;
   }
 
-  const candidates = matches.filter((match) => {
-    if (quote.fecha_local && dateInVET(match.commenceTime) !== quote.fecha_local) {
-      return false;
-    }
-    return sameTeams(quote, match);
-  });
-
+  // La fecha VET se calculó una vez por partido al construir el índice, en vez
+  // de `Intl.format` por cada cotización × partido.
+  const byDate = quote.fecha_local
+    ? lookup.byDate.get(quote.fecha_local) ?? []
+    : lookup.matches;
+  const candidates = byDate.filter((match) => sameTeams(lookup, quote, match));
   if (candidates.length <= 1) return candidates[0] ?? null;
 
   // Si la casa invirtió local/visitante, conservamos la orientación del partido.
+  const { nameMatches } = lookup;
   return (
     candidates.find(
       (match) =>
-        namesLikelyMatch(quote.equipo_local, match.home.name) &&
-        namesLikelyMatch(quote.equipo_visitante, match.away.name),
+        nameMatches(quote.equipo_local, match.home.name) &&
+        nameMatches(quote.equipo_visitante, match.away.name),
     ) ?? candidates[0]
   );
 }
@@ -85,6 +96,19 @@ export function applyTriunfobetQuotes(
   if (quotes.length === 0) return { matches, applied: 0, unmatched: 0 };
 
   const byId = new Map(matches.map((match) => [match.id, match]));
+  const byDate = new Map<string, SportsMatch[]>();
+  for (const match of matches) {
+    const date = dateInVET(match.commenceTime);
+    const bucket = byDate.get(date);
+    if (bucket) bucket.push(match);
+    else byDate.set(date, [match]);
+  }
+  const lookup: MatchLookup = {
+    matches,
+    byId,
+    byDate,
+    nameMatches: createNameMatcher(),
+  };
   let applied = 0;
   let unmatched = 0;
 
@@ -94,7 +118,7 @@ export function applyTriunfobetQuotes(
       unmatched += 1;
       continue;
     }
-    const target = findMatch(matches, quote);
+    const target = findMatch(lookup, quote);
     if (!target) {
       unmatched += 1;
       continue;

@@ -900,16 +900,46 @@ function withTheAnalystInsights(matches: SportsMatch[]): TheAnalystResult {
   return { matches: enriched, applied, connected: applied > 0 };
 }
 
+const DASHBOARD_CACHE_MS = 60_000;
+let dashboardCache: { value: DashboardData; expiresAt: number } | null = null;
+let dashboardInFlight: Promise<DashboardData> | null = null;
+
 /**
- * Punto de entrada del dashboard. Prioriza los partidos inyectados por el agente
- * de Flashscore, los convierte al modelo interno y limita el radar pre-match a
- * los encuentros pendientes de hoy y mañana en hora de Venezuela.
+ * Punto de entrada del dashboard. Mantiene un snapshot de 60 s dentro del
+ * isolate del Worker: sin él, cada request de `/` repetía el fanout completo de
+ * fuentes y los cruces O(n·m), agotando el presupuesto de CPU (error 1102).
+ * `forceRefresh` se reserva para el endpoint con `?refresh=1`.
+ */
+export async function getDashboardData(
+  forceRefresh = false,
+): Promise<DashboardData> {
+  const now = Date.now();
+  if (!forceRefresh && dashboardCache && dashboardCache.expiresAt > now) {
+    return dashboardCache.value;
+  }
+  if (dashboardInFlight) return dashboardInFlight;
+
+  dashboardInFlight = buildDashboardData()
+    .then((value) => {
+      dashboardCache = { value, expiresAt: Date.now() + DASHBOARD_CACHE_MS };
+      return value;
+    })
+    .finally(() => {
+      dashboardInFlight = null;
+    });
+  return dashboardInFlight;
+}
+
+/**
+ * Construye el snapshot. Prioriza los partidos inyectados por el agente de
+ * Flashscore, los convierte al modelo interno y limita el radar pre-match a los
+ * encuentros pendientes de hoy y mañana en hora de Venezuela.
  *
  * Todas las fuentes se consultan en paralelo con `Promise.allSettled` y se
  * envuelven en `runResilientSource`: si una falla, se omite y el ranking se
  * calcula solo con las que respondieron.
  */
-export async function getDashboardData(): Promise<DashboardData> {
+async function buildDashboardData(): Promise<DashboardData> {
   const ahora = new Date();
   const emptyDashboard = (): DashboardData =>
     finalizeDashboard(

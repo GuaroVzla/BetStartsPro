@@ -1,7 +1,13 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 
-import { canonicalBookmakerName, namesLikelyMatch, normalizeName } from "../src/lib/utils.ts";
+import {
+  canonicalBookmakerName,
+  createNameMatcher,
+  createNameNormalizer,
+  namesLikelyMatch,
+  normalizeName,
+} from "../src/lib/utils.ts";
 import {
   consensusProbabilities,
   devigProportional,
@@ -20,6 +26,25 @@ test("namesLikelyMatch no colapsa rivales con token compartido", () => {
   assert.equal(namesLikelyMatch("Real Madrid", "Atlético Madrid"), false);
   assert.equal(namesLikelyMatch("Manchester City", "Manchester United"), false);
   assert.equal(namesLikelyMatch("Man City", "Manchester City"), true);
+});
+
+test("createNameMatcher respeta el comportamiento con caché y es simétrico", () => {
+  const cached = createNameMatcher();
+  const normalize = createNameNormalizer();
+  const pairs = [
+    ["Real Madrid", "Atlético Madrid"],
+    ["Man City", "Manchester City"],
+    ["Deportivo La Coruña", "Deportivo La Coruna"],
+    ["Manchester United", "Man Utd"],
+  ];
+  for (const [first, second] of pairs) {
+    const expected = namesLikelyMatch(first, second);
+    assert.equal(cached(first, second), expected);
+    assert.equal(cached(second, first), expected);
+    // Segunda pasada: sirve la caché, no debe cambiar el resultado.
+    assert.equal(cached(first, second), expected);
+  }
+  assert.equal(normalize("Atlético de Madrid"), normalize("Atletico de Madrid"));
 });
 
 test("canonicalBookmakerName deduplica prefijo de proveedor", () => {
