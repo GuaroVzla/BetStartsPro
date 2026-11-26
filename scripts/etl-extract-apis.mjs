@@ -8,7 +8,7 @@
  *   node scripts/etl-extract-apis.mjs --write --out data/curated/api-payload.json
  *   node scripts/etl-extract-apis.mjs --write --ingest --site https://betstats.pro
  */
-import { mkdir, writeFile } from "node:fs/promises";
+import { mkdir, readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { dateInVETOffset, parseCliArgs, timestampVET } from "./ingest-utils.mjs";
 
@@ -342,6 +342,34 @@ if (cli.flags.has("write") || cli.values.out) {
   await mkdir(path.dirname(out), { recursive: true });
   await writeFile(out, JSON.stringify(payload, null, 2) + "\n", "utf8");
   console.log(`WROTE ${out} matches=${finalMatches.length}`);
+
+  const histPath = "data/historical-results.json";
+  let existingHist = [];
+  try {
+    existingHist = JSON.parse(await readFile(histPath, "utf8"));
+  } catch {}
+  if (Array.isArray(existingHist)) {
+    const seen = new Set(existingHist.map((m) => m.id));
+    let added = 0;
+    for (const m of finalMatches) {
+      if (m.status !== "finished" || !m.score || seen.has(m.match_key)) continue;
+      seen.add(m.match_key);
+      existingHist.push({
+        id: m.match_key,
+        date: `${m.fecha_vet}T${m.hora_vet ?? "00:00"}:00-04:00`,
+        leagueId: m.league,
+        home: m.home.name,
+        away: m.away.name,
+        homeGoals: m.score.home,
+        awayGoals: m.score.away,
+      });
+      added += 1;
+    }
+    if (added > 0) {
+      await writeFile(histPath, JSON.stringify(existingHist, null, 2) + "\n", "utf8");
+      console.log(`APPENDED ${added} finished matches to ${histPath}`);
+    }
+  }
 }
 
 if (cli.flags.has("ingest")) {

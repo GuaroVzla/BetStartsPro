@@ -266,6 +266,33 @@ function ensureHistoricalFile(filePath: string): void {
   console.log(`Created ${filePath} with an empty array.`);
 }
 
+function dynamicMixProbabilities(
+  dc: Record<Outcome, number>,
+  elo: Record<Outcome, number>,
+  minTeamMatches: number,
+  temperature = 1.15,
+): Record<Outcome, number> {
+  const dcWeight = minTeamMatches < 6 ? 0.25 + (0.45 * minTeamMatches) / 6 : DIXON_COLES_WEIGHT;
+  const eloWeight = 1 - dcWeight;
+  const raw = {
+    home: Math.max(EPSILON, dcWeight * dc.home + eloWeight * elo.home),
+    draw: Math.max(EPSILON, dcWeight * dc.draw + eloWeight * elo.draw),
+    away: Math.max(EPSILON, dcWeight * dc.away + eloWeight * elo.away),
+  };
+  const invT = 1 / temperature;
+  const scaled = {
+    home: raw.home ** invT,
+    draw: raw.draw ** invT,
+    away: raw.away ** invT,
+  };
+  const total = scaled.home + scaled.draw + scaled.away;
+  return {
+    home: scaled.home / total,
+    draw: scaled.draw / total,
+    away: scaled.away / total,
+  };
+}
+
 function main(): void {
   const scriptDir = path.dirname(fileURLToPath(import.meta.url));
   const repoRoot = path.resolve(scriptDir, "..");
@@ -296,7 +323,9 @@ function main(): void {
     const awayRating = eloSnapshotAsOf(eloSnapshots, match.away, match.date);
     const eloProbs = eloProbabilities(homeRating, awayRating, true, DEFAULT_ELO_CONFIG);
 
-    const modelProbs = mixProbabilities(dcProbs, eloProbs);
+    const homeCount = train.filter((m) => m.home === match.home || m.away === match.home).length;
+    const awayCount = train.filter((m) => m.home === match.away || m.away === match.away).length;
+    const modelProbs = dynamicMixProbabilities(dcProbs, eloProbs, Math.min(homeCount, awayCount));
     const actual = actualOutcome(match);
     addObservation(modelAcc, modelProbs, actual);
 
