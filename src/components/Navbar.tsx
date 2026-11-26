@@ -177,12 +177,6 @@ export function Navbar({ meta, todayCount, onRefresh, refreshing }: NavbarProps)
                   </dd>
                 </div>
                 <div className="flex items-center justify-between gap-3 py-2.5">
-                  <dt className="text-xs text-slate-500 dark:text-slate-400">Triunfobet</dt>
-                  <dd className="text-xs font-semibold text-slate-900 dark:text-white">
-                    {meta.sources.triunfobet ? "Conectado" : "Sin captura"}
-                  </dd>
-                </div>
-                <div className="flex items-center justify-between gap-3 py-2.5">
                   <dt className="text-xs text-slate-500 dark:text-slate-400">Apuestas Royal</dt>
                   <dd className="text-xs font-semibold text-slate-900 dark:text-white">
                     {meta.sources.apuestasRoyal ? "Conectado" : "Sin captura"}

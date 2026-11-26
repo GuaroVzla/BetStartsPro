@@ -16,7 +16,6 @@ export type OddsSource =
   | "flashscore"
   | "allsportsapi"
   | "therundown"
-  | "triunfobet"
   | "apuestas-royal";
 
 export type AnalyticsSource =
@@ -39,7 +38,6 @@ export type DataSourceId =
   | "therundown"
   | "flashscore"
   | "curated"
-  | "triunfobet"
   | "apuestas-royal"
   | "the-analyst"
   | "modelo";
@@ -295,7 +293,6 @@ export interface ApiSourceStatus {
   apiSports: boolean;
   flashscore?: boolean;
   theAnalyst?: boolean;
-  triunfobet?: boolean;
   apuestasRoyal?: boolean;
   curated?: boolean;
   espn?: boolean;

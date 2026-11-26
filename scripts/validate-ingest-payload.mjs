@@ -3,7 +3,7 @@
  * Valida payloads de ingesta BetStats Pro.
  * Uso:
  *   node scripts/validate-ingest-payload.mjs scripts/flashscore-payload.json
- *   node scripts/validate-ingest-payload.mjs --kind quotes scripts/triunfobet-quotes.json --allow-stale
+ *   node scripts/validate-ingest-payload.mjs --kind quotes scripts/apuestas-royal-quotes.json --allow-stale
  */
 import { readFile } from "node:fs/promises";
 import path from "node:path";

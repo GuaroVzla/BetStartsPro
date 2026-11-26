@@ -1,15 +1,12 @@
 #!/usr/bin/env node
 /**
- * Capturador de cuotas visibles de casas de apuestas (Altenar / widget propio).
+ * Capturador de cuotas visibles de Apuestas Royal (widget propio).
  *
  * NUNCA inventa cuotas: solo lee lo que el navegador muestra (shadow DOM) y lo
- * que responses XHR exponen como diagnóstico. Triunfobet se captura desde el
- * widget público, sin login ni sesión; Apuestas Royal necesita una sesión
- * exportada (ROYAL_STORAGE_STATE).
+ * que responses XHR exponen como diagnóstico. Apuestas Royal necesita una
+ * sesión exportada (ROYAL_STORAGE_STATE).
  *
  * Uso:
- *   node scripts/bookmaker-capture.mjs --casa triunfobet --dry-run
- *   node scripts/bookmaker-capture.mjs --casa triunfobet --write --headed
  *   node scripts/bookmaker-capture.mjs --casa apuestas-royal --url https://... --dry-run
  */
 import { readFile, writeFile } from "node:fs/promises";
@@ -25,11 +22,6 @@ import {
 } from "./ingest-utils.mjs";
 
 const CASAS = {
-  triunfobet: {
-    source: "triunfobet_agent",
-    url: "https://triunfobet.com/altenar",
-    out: "scripts/triunfobet-quotes.json",
-  },
   "apuestas-royal": {
     source: "apuestas_royal_agent",
     url: "https://app.apuestasroyal.com/",
@@ -332,10 +324,10 @@ async function loadFlashscoreIndex() {
 }
 
 const cli = parseCliArgs();
-const casa = cli.values.casa ?? "triunfobet";
+const casa = cli.values.casa ?? "apuestas-royal";
 const config = CASAS[casa];
 if (!config) {
-  console.error(`CASA_INVALIDA: ${casa}. Use triunfobet o apuestas-royal`);
+  console.error(`CASA_INVALIDA: ${casa}. Use apuestas-royal`);
   process.exit(1);
 }
 const URL_CAPTURA =
@@ -349,18 +341,9 @@ if (!URL_CAPTURA) {
 }
 const OUT = cli.values.out ?? config.out;
 const WRITE = cli.flags.has("write") && !cli.dryRun;
-const WAIT_MS = Number(cli.values.wait ?? 18000);
-const FECHA_FORZADA = cli.values.fecha ?? dateInVETOffset(0);
 const HEADLESS = !cli.flags.has("headed");
 
-if (casa === "triunfobet" && (cli.values.state || cli.values.profile)) {
-  console.error(
-    "SESION_NO_APLICA: Triunfobet se captura desde el widget público; no use --state ni --profile.",
-  );
-  process.exit(1);
-}
-const estadoRaw =
-  casa === "triunfobet" ? "" : (cli.values.state ?? process.env.ROYAL_STORAGE_STATE ?? "");
+const estadoRaw = cli.values.state ?? process.env.ROYAL_STORAGE_STATE ?? "";
 let storageState;
 if (estadoRaw) {
   try {
@@ -407,161 +390,16 @@ page.on("response", (response) => {
 });
 
 try {
-  const estadoSesion =
-    casa === "triunfobet"
-      ? "publico"
-      : storageState
-        ? "sesion"
-        : await asegurarLogin(page);
+  const estadoSesion = storageState ? "sesion" : await asegurarLogin(page);
 
   const indice = await loadFlashscoreIndex();
   let cotizaciones = [];
   let sinCruce = [];
 
-  if (casa === "apuestas-royal") {
-    const api = await capturarRoyalApi(page, storageState, indice, URL_CAPTURA);
-    cotizaciones = api.cotizaciones;
-    sinCruce = api.sinCruce;
-    console.log(`XHR_RELEVANTES=${xhr.length}`);
-  } else {
-  const response = await page.goto(URL_CAPTURA, {
-    waitUntil: "domcontentloaded",
-    timeout: 45000,
-  });
-  console.log(`URL_STATUS=${response?.status() ?? "sin-respuesta"} URL=${URL_CAPTURA}`);
-  await page.waitForTimeout(WAIT_MS);
-
-  const entrar = page.getByText("APUESTAS DEPORTIVAS", { exact: true }).first();
-  if (await entrar.count()) {
-    await entrar.click({ timeout: 4000 }).catch(() => {});
-    await page.waitForTimeout(Math.min(WAIT_MS, 12000));
-  }
-
-  const raw = await page.evaluate(() => {
-    const events = [];
-    const seenRoots = new Set();
-    const textOf = (element) =>
-      (element?.innerText || element?.textContent || "").replace(/\s+/g, " ").trim();
-
-    function walk(root) {
-      for (const element of root.querySelectorAll("*")) {
-        if (element.shadowRoot && !seenRoots.has(element.shadowRoot)) {
-          seenRoots.add(element.shadowRoot);
-          walk(element.shadowRoot);
-        }
-        const className =
-          typeof element.className === "string"
-            ? element.className
-            : element.getAttribute?.("class") ?? "";
-        if (!/EventBoxRoot|EventBox|eventBox/i.test(className)) continue;
-        if (element.dataset?.__captured) continue;
-        element.dataset.__captured = "1";
-
-        const oddValues = [
-          ...element.querySelectorAll('[class*="OddValue"], [class*="oddValue"]'),
-        ].map(textOf).filter(Boolean);
-        const oddLabels = [
-          ...element.querySelectorAll('[class*="OddLabel"], [class*="oddLabel"]'),
-        ].map(textOf).filter(Boolean);
-        const participants = [
-          ...element.querySelectorAll(
-            '[class*="Participant"], [class*="Team"], [class*="Competitor"], [class*="EventName"]',
-          ),
-        ]
-          .map(textOf)
-          .filter((text) => text.length > 1 && text.length < 80);
-        events.push({
-          text: textOf(element).slice(0, 600),
-          participants: [...new Set(participants)].slice(0, 8),
-          oddValues: oddValues.slice(0, 12),
-          oddLabels: oddLabels.slice(0, 8),
-        });
-      }
-    }
-    walk(document);
-    return { shadowRoots: seenRoots.size, events };
-  });
-
-  console.log(
-    `DOM_SHADOW_ROOTS=${raw.shadowRoots} EVENT_BOXES=${raw.events.length} XHR_RELEVANTES=${xhr.length}`,
-  );
-  console.log("XHR=" + JSON.stringify(xhr.slice(0, 20), null, 2));
-
-  for (const event of raw.events) {
-    const participantes = event.participants.filter(
-      (text) => !/^\d+([.,]\d+)?$/.test(text),
-    );
-    let local = participantes[0] ?? null;
-    let visitante = participantes[1] ?? null;
-    if (!local || !visitante) {
-      const parts = event.text.split(/\s+-\s+/);
-      if (parts.length >= 2) {
-        local = local ?? parts[0].trim();
-        visitante = visitante ?? parts[1].trim();
-      }
-    }
-    const odds = event.oddValues.map(normalizeOdd).filter((item) => item.decimal !== null);
-    if (!local || !visitante || odds.length < 2) {
-      sinCruce.push({ motivo: "sin-equipos-o-cuotas", text: event.text.slice(0, 160) });
-      continue;
-    }
-    const horaMatch = event.text.match(/\b([01]\d|2[0-3]):[0-5]\d\b/);
-    const fechaMatch = event.text.match(/\b(\d{2})\.(\d{2})\.(\d{4})\b/);
-    const fecha = fechaMatch
-      ? `${fechaMatch[3]}-${fechaMatch[2]}-${fechaMatch[1]}`
-      : FECHA_FORZADA;
-
-    const found = indice.find(
-      (match) =>
-        match.fecha === fecha &&
-        ((namesLikelyMatch(local, match.home) && namesLikelyMatch(visitante, match.away)) ||
-          (namesLikelyMatch(local, match.away) && namesLikelyMatch(visitante, match.home))),
-    );
-    let home = local;
-    let away = visitante;
-    let matchSlug = makeSlug(fecha, local, visitante);
-    let horaLocal = horaMatch ? horaMatch[0] : null;
-    let liga = null;
-    if (found) {
-      const swap = namesLikelyMatch(local, found.away) && namesLikelyMatch(visitante, found.home);
-      home = swap ? found.away : found.home;
-      away = swap ? found.home : found.away;
-      matchSlug = found.match_slug;
-      horaLocal = found.hora ?? horaLocal;
-      liga = found.liga;
-    }
-
-    const [uno, empate, dos] = odds;
-    cotizaciones.push({
-      match_slug: matchSlug,
-      deporte: "Fútbol",
-      liga,
-      fecha_local: fecha,
-      hora_local: horaLocal,
-      equipo_local: home,
-      equipo_visitante: away,
-      mercado: "1X2",
-      cuotas_1x2: {
-        local_1: uno?.decimal ?? null,
-        empate_x: empate?.decimal ?? null,
-        visitante_2: dos?.decimal ?? null,
-      },
-      capturado_en: timestampVET(),
-      url: URL_CAPTURA,
-      nota: "Cuota visible en el widget; convertida a decimal si venía en formato americano",
-      ...(odds.some((item) => item.americana)
-        ? {
-            cuotas_americanas: {
-              local_1: uno?.americana ?? null,
-              empate_x: empate?.americana ?? null,
-              visitante_2: dos?.americana ?? null,
-            },
-          }
-        : {}),
-      _cruzado: Boolean(found),
-    });
-  }
-  }
+  const api = await capturarRoyalApi(page, storageState, indice, URL_CAPTURA);
+  cotizaciones = api.cotizaciones;
+  sinCruce = api.sinCruce;
+  console.log(`XHR_RELEVANTES=${xhr.length}`);
 
   if (sinCruce.length) {
     console.log("EVENTOS_OMITIDOS=" + JSON.stringify(sinCruce.slice(0, 5), null, 2));

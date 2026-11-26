@@ -22,7 +22,6 @@ const VET_TIME_ZONE = "America/Caracas";
 const TARGETS = [
   { file: "scripts/flashscore-payload.json", key: "partidos", total: "total_partidos" },
   { file: "scripts/flashscore-payload-manana.json", key: "partidos", total: "total_partidos" },
-  { file: "scripts/triunfobet-quotes.json", key: "cotizaciones", total: "total_cotizaciones" },
   { file: "scripts/apuestas-royal-quotes.json", key: "cotizaciones", total: "total_cotizaciones" },
 ];
 

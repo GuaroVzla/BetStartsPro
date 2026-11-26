@@ -4,7 +4,7 @@
  *
  * Fuentes integradas:
  * - APIs: The Odds API, SportMonks, API-Sports (Flashscore)
- * - Adapters: Triunfobet, Apuestas Royal
+ * - Adapters: Apuestas Royal
  * - Database: Flashscore (ingest store)
  */
 
@@ -19,8 +19,6 @@ import type {
   DashboardMeta,
 } from "@/types/sports";
 
-import { applyTriunfobetQuotes } from "@/services/triunfobetAdapter";
-import { listQuotes as listTriunfobetQuotes } from "@/services/triunfobetIngestStore";
 import { applyApuestasRoyalQuotes } from "@/services/apuestasRoyalAdapter";
 import { listQuotes as listApuestasRoyalQuotes } from "@/services/apuestasRoyalIngestStore";
 import { flashscoreRecordsToMatches } from "@/services/flashscoreAdapter";
@@ -34,7 +32,6 @@ const CACHE_TTL_SECONDS = 3600; // 1 hora
 interface IngestionStats {
   totalSources: number;
   enabledSources: string[];
-  appliedTriunfobet: number;
   appliedRoyal: number;
   appliedFlashscore: number;
   cacheAgeSeconds: number;
@@ -58,9 +55,8 @@ function setToCache(data: DashboardData, stats: IngestionStats) {
 async function executeFullIngestion(): Promise<{ data: DashboardData; stats: IngestionStats; warnings: string[] }> {
   const warnings: string[] = [];
   const stats: IngestionStats = {
-    totalSources: 8,
+    totalSources: 7,
     enabledSources: [],
-    appliedTriunfobet: 0,
     appliedRoyal: 0,
     appliedFlashscore: 0,
     cacheAgeSeconds: 0,
@@ -69,7 +65,6 @@ async function executeFullIngestion(): Promise<{ data: DashboardData; stats: Ing
 
   try {
     const liveData = await getLiveDashboardData();
-    stats.appliedTriunfobet = listTriunfobetQuotes().length;
     stats.appliedRoyal = listApuestasRoyalQuotes().length;
     stats.appliedFlashscore = listFlashscoreRecords().length;
     stats.enabledSources.push(
@@ -77,7 +72,6 @@ async function executeFullIngestion(): Promise<{ data: DashboardData; stats: Ing
       ...(liveData.meta.sources.sportmonks ? ["sportmonks"] : []),
       ...(liveData.meta.sources.apiSports ? ["api-sports"] : []),
       ...(liveData.meta.sources.flashscore ? ["flashscore"] : []),
-      ...(liveData.meta.sources.triunfobet ? ["triunfobet"] : []),
       ...(liveData.meta.sources.apuestasRoyal ? ["apuestas-royal"] : []),
       ...(liveData.meta.sources.theAnalyst ? ["the-analyst"] : []),
       ...(liveData.meta.sources.curated || listCuratedMatches().length > 0 ? ["curated-etl"] : []),

@@ -32,8 +32,6 @@ import {
 } from "@/lib/format";
 import { flashscoreRecordsToMatches } from "@/services/flashscoreAdapter";
 import { listMatches as listFlashscoreRecords } from "@/services/flashscoreIngestStore";
-import { applyTriunfobetQuotes } from "@/services/triunfobetAdapter";
-import { listQuotes as listTriunfobetQuotes } from "@/services/triunfobetIngestStore";
 import { applyApuestasRoyalQuotes } from "@/services/apuestasRoyalAdapter";
 import { listQuotes as listApuestasRoyalQuotes } from "@/services/apuestasRoyalIngestStore";
 import { listInsights as listTheAnalystInsights } from "@/services/theAnalystStore";
@@ -761,12 +759,11 @@ export function formPoints(form: FormResult[]): number {
 interface CapturedQuotesResult {
   matches: SportsMatch[];
   warnings: string[];
-  triunfobetConnected: boolean;
   royalConnected: boolean;
 }
 
 /**
- * Cruza las cotizaciones capturadas de ambas casas con la ventana hoy/mañana.
+ * Cruza las cotizaciones capturadas de Apuestas Royal con la ventana hoy/mañana.
  * Se conservan solo precios vigentes; las filas sin cuota válida no se aplican.
  */
 function withCapturedBookmakerQuotes(
@@ -784,17 +781,9 @@ function withCapturedBookmakerQuotes(
     (quote.fecha_local != null && days.has(quote.fecha_local)) ||
     (quote.fecha_local == null && days.has(quote.fecha_extraccion));
 
-  const triunfobetQuotes = listTriunfobetQuotes().filter(isCurrent);
   const royalQuotes = listApuestasRoyalQuotes().filter(isCurrent);
-
-  const triunfobet = applyTriunfobetQuotes(matches, triunfobetQuotes);
-  const royal = applyApuestasRoyalQuotes(triunfobet.matches, royalQuotes);
+  const royal = applyApuestasRoyalQuotes(matches, royalQuotes);
   const warnings: string[] = [];
-  if (triunfobet.applied > 0) {
-    warnings.push(
-      `${triunfobet.applied} cotización(es) de Triunfobet cruzadas con partidos de hoy/mañana (VET).`,
-    );
-  }
   if (royal.applied > 0) {
     warnings.push(
       `${royal.applied} cotización(es) de Apuestas Royal cruzadas con partidos de hoy/mañana (VET).`,
@@ -804,11 +793,9 @@ function withCapturedBookmakerQuotes(
   return {
     matches: tagMatches(
       royal.matches,
-      ...(triunfobet.applied > 0 ? (["triunfobet"] as const) : []),
       ...(royal.applied > 0 ? (["apuestas-royal"] as const) : []),
     ),
     warnings,
-    triunfobetConnected: triunfobet.applied > 0,
     royalConnected: royal.applied > 0,
   };
 }
@@ -1247,7 +1234,6 @@ async function buildDashboardData(): Promise<DashboardData> {
               allsportsapi: allSportsApi.connected,
               therundown: rundown.connected,
               theAnalyst: analyst.connected,
-              triunfobet: captured.triunfobetConnected,
               apuestasRoyal: captured.royalConnected,
             },
           },
@@ -1325,7 +1311,6 @@ async function buildDashboardData(): Promise<DashboardData> {
             allsportsapi: allSportsApi.connected,
             therundown: rundown.connected,
             theAnalyst: analyst.connected,
-            triunfobet: captured.triunfobetConnected,
             apuestasRoyal: captured.royalConnected,
           },
         },

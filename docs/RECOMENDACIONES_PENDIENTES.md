@@ -106,7 +106,7 @@ Pendiente (bloqueante para reactivar en producción):
 
 `[x]` `.github/workflows/deploy-cloudflare.yml` hace checkout → `npm ci` → `npm run typecheck` →
       `npx cf deploy` con `CLOUDFLARE_API_TOKEN` y `CLOUDFLARE_ACCOUNT_ID`.
-`[x]` `refresh-data.yml` y `refresh-triunfobet.yml` refactoring periódico de semillas (cada 3 h).
+`[x]` `refresh-data.yml` refactoring periódico de semillas (cada 3 h).
 
 - [ ] Añadir `npm run test:dates` y `npm run test:model` al workflow de deploy, antes de `cf deploy`.
 - [ ] Confirmar en Cloudflare: secrets del worker `betstatspro`, binding KV `VINEXT_KV_CACHE`

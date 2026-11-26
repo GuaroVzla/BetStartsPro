@@ -48,7 +48,7 @@ export function MetricCards({
     {
       label: "Cotizaciones cruzadas",
       value: formatInteger(quoteCount),
-      hint: "APIs + Triunfobet + Apuestas Royal",
+      hint: "APIs + Apuestas Royal",
       icon: ArrowLeftRight,
       tone: "default" as const,
     },

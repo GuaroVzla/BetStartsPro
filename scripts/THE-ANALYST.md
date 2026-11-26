@@ -1,7 +1,7 @@
 # Integración de The Analyst (Opta Analyst)
 
 Fuente nueva e independiente: `https://theanalyst.com/`. No sustituye a
-Flashscore, TriunfoBet ni Apuestas Royal; añade **contexto estadístico**
+Flashscore ni Apuestas Royal; añade **contexto estadístico**
 (probabilidades del supercomputer Opta, xG, forma/rachas y H2H) para cruzar con
 esos proveedores.
 
@@ -129,8 +129,8 @@ Reglas de validación del `POST`:
 - `canonicalTeamName`, `canonicalLeagueName`, `findTheAnalystMatch`:
   normalizan con `normalizeName` de `src/lib/utils.ts` y alias internos, y
   cruzan por slug, equipos (incluso invertidos), fecha VET (±1 día, vía
-  `dateInVETOffset`) y liga. Funciona con filas de Flashscore, TriunfoBet y
-  Apuestas Royal porque comparten `equipo_local`/`equipo_visitante`.
+  `dateInVETOffset`) y liga. Funciona con filas de Flashscore y Apuestas Royal
+  porque comparten `equipo_local`/`equipo_visitante`.
 - `enrichSportsMatchesWithTheAnalyst`: añade una nota al `intel` de los
   partidos del dashboard; no altera cuotas ni favoritos.
 

@@ -1,6 +1,6 @@
 /**
  * Adaptador de cruce: lleva nombres de equipos/ligas de The Analyst al mismo
- * espacio de Flashscore, TriunfoBet y Apuestas Royal. No modifica los stores
+ * espacio de Flashscore y Apuestas Royal. No modifica los stores
  * de esas fuentes; devuelve datos listos para que el agregador los consuma.
  */
 
@@ -17,7 +17,7 @@ import type { SportsMatch } from "@/types/sports";
 
 export { fairOddsFromProbabilities } from "@/services/theAnalystService";
 
-/** Forma mínima compartida por Flashscore, TriunfoBet y Apuestas Royal. */
+/** Forma mínima compartida por Flashscore y Apuestas Royal. */
 export type AnalystCrossMatch = {
   id?: string | null;
   match_slug?: string | null;
@@ -237,7 +237,7 @@ export type TheAnalystMatchResult<T extends AnalystCrossMatch> = {
   swapped: boolean;
 };
 
-/** Busca el mejor insight para una fila de Flashscore/TriunfoBet/Apuestas Royal. */
+/** Busca el mejor insight para una fila de Flashscore/Apuestas Royal. */
 export function findTheAnalystMatch<T extends AnalystCrossMatch>(
   source: T,
   records: StoredTheAnalystRecord[],

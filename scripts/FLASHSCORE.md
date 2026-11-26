@@ -111,7 +111,7 @@ push resultante dispara el deploy para que el Worker incluya los partidos nuevos
 `match_slug` usa el mismo `slugify` que `src/lib/utils.ts`: sin tildes, sin
 stopwords (`fc`, `real`, `city`, `de`, ...) y guiones en lugar de espacios.
 Por eso `Manchester City` genera `manchester` y `Real Madrid`, `madrid`. Así
-coinciden las claves de Flashscore, Triunfobet y Apuestas Royal.
+coinciden las claves de Flashscore y Apuestas Royal.
 
 ## Solución de problemas
 

@@ -38,7 +38,7 @@ jobs:
 
       - name: Validate existing seeds
         run: |
-          node scripts/validate-ingest-payload.mjs --allow-stale scripts/flashscore-payload.json scripts/triunfobet-quotes.json scripts/apuestas-royal-quotes.json || true
+          node scripts/validate-ingest-payload.mjs --allow-stale scripts/flashscore-payload.json scripts/apuestas-royal-quotes.json || true
       - name: Extract API sources
         run: node scripts/etl-extract-apis.mjs --write --out data/curated/api-extract.json --report data/etl-reports/api-extract.json
       - name: Validate curated payload

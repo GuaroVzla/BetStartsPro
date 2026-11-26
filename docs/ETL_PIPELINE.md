@@ -11,7 +11,6 @@ Ingerir partidos, cuotas y estadísticas diarias desde APIs oficiales y fuentes 
 | API-Sports | P1 | REST oficial | 30-60 min | fixtures, estado, marcador, standings, lesiones, stats | Requiere `APISPORTS_KEY` |
 | SportMonks | P1 | REST oficial | 30-60 min | fixtures/odds fútbol | Requiere `SPORTMONKS_KEY` |
 | Flashscore | P2 | Playwright/XHR + seed | 3h | partidos, cuotas visibles, rachas | Complemento; frágil ante cambios DOM |
-| TriunfoBet | P2 | Playwright widget público | 3h | cuotas locales | Runner self-hosted; WAF por IP |
 | Apuestas Royal | P2 | Playwright storageState | 3h | cuotas locales | Turnstile/sesión expira |
 | The Analyst | P3 | scrape/seed + refresh | 3h | probabilidades/insights | Señal editorial, no verdad única |
 | ESPN (pública) | P1 | REST pública no oficial | 30 min | fixtures, estado, sede, moneyline; `soccer/all` + feeds NBA/NCAA/NHL/MLB | **Sin key**; validar términos de uso |
@@ -77,12 +76,11 @@ Si una fuente configurada falla, el comando devuelve exit code 1 con el detalle.
 
 - `.github/workflows/refresh-apis.yml`: cada 30 min, extrae APIs y opcionalmente ingesta.
 - `.github/workflows/refresh-data.yml`: cada 3h, scrapers/semillas Flashscore, Royal, Analyst.
-- `.github/workflows/refresh-triunfobet.yml`: cada 3h, runner residencial self-hosted.
 - `.github/workflows/deploy-cloudflare.yml`: typecheck + tests + deploy.
 
 ## Seguridad y operación
 
-- Secrets: `INGEST_TOKEN`, `SITE_URL`, `THE_ODDS_API_KEY`, `SPORTMONKS_KEY`, `APISPORTS_KEY`, `THESPORTSDB_KEY` (opcional; el workflow usa `123` por defecto), `ROYAL_STORAGE_STATE`. Triunfobet no usa secretos de sesión.
+- Secrets: `INGEST_TOKEN`, `SITE_URL`, `THE_ODDS_API_KEY`, `SPORTMONKS_KEY`, `APISPORTS_KEY`, `THESPORTSDB_KEY` (opcional; el workflow usa `123` por defecto), `ROYAL_STORAGE_STATE`.
 - No guardar credenciales en repo. No exponer `INGEST_TOKEN` al cliente.
 - Scrapers: rate limit, backoff, `continue-on-error`, kill-switch por secret ausente.
 - Producción: preferir KV/D1/R2 para raw/curated; seeds git solo respaldo.

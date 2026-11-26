@@ -15,7 +15,6 @@ Validación ejecutable: `npm run sources:check` (`scripts/validate-sources.mjs`)
 | TheRundown | Sí (`THERUNDOWN_API_KEY`) | Fixtures multi-deporte y moneyline 1X2 de DraftKings/BetMGM/FanDuel | Activa si hay key | Plan gratis: 1 req/s, 20.000 data points/día, 5 min de retraso, 7 días de historia. `market_ids=1`, `main_line`, `hide_closed`, `offset=-240`, cache 30 min. |
 | OpenLigaDB | No | Fixtures/estado de Bundesliga | Activa | Respaldo de ESPN; se deduplica por fecha+equipos. |
 | Flashscore ingest | No | Partidos/cuotas capturadas por agente | Activa si hay seed/ingesta | Store en memoria; semilla en bundle. |
-| TriunfoBet ingest | No | Cuotas locales capturadas | Activa si hay captura vigente | Runner residencial; WAF/Turnstile. |
 | Apuestas Royal ingest | No | Cuotas locales capturadas | Activa si hay captura vigente | Sesión storageState. |
 | The Analyst | No | xG/probabilidades/rachas editoriales | Activa si hay seed/ingesta | Señal editorial, no verdad única. |
 | ETL curado | No | Partidos normalizados vía `POST /api/ingest/curated` | Activa si hay payload | Requiere `INGEST_TOKEN` en producción. |

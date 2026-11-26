@@ -1,6 +1,6 @@
 /**
  * Almacén en memoria de artículos/insights capturados de The Analyst.
- * Sigue el patrón de flashscoreIngestStore y triunfobetIngestStore: la semilla
+ * Sigue el patrón de flashscoreIngestStore y apuestasRoyalIngestStore: la semilla
  * incluida en el bundle evita que la web arranque vacía en cada isolate.
  */
 

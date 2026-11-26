@@ -112,7 +112,6 @@ function ValueCard({
   const sport = SPORT_BY_KEY[match.sport];
   const odds = analysis.bestOdds ?? 0;
   const score = analysis.valueFavorite;
-  const fromTriunfobet = analysis.bookmaker === "Triunfobet";
   const fromRoyal = analysis.bookmaker === "Apuestas Royal";
   const injuryDrag =
     analysis.outcome === "home"
@@ -154,7 +153,7 @@ function ValueCard({
           <span className="inline-flex items-center gap-1 rounded-full border border-cyan-300/25 bg-cyan-300/10 px-2 py-0.5 text-[9px] font-bold uppercase tracking-wider text-cyan-200">
             <Target className="h-2.5 w-2.5" />
             Value favorite
-            {fromRoyal ? " · Royal" : fromTriunfobet ? " · Triunfobet" : ""}
+            {fromRoyal ? " · Royal" : ""}
           </span>
         </div>
         <span className="tabular-nums shrink-0 text-[9px] text-slate-500">

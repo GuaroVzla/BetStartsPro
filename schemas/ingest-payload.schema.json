@@ -9,7 +9,6 @@
     "source": {
       "enum": [
         "flashscore_agent",
-        "triunfobet_agent",
         "apuestas_royal_agent",
         "the_analyst_agent",
         "odds_api",

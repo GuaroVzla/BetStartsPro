@@ -143,21 +143,20 @@ ausencia de precio y nunca sustituyen un valor válido.
 `.github/workflows/refresh-data.yml` corre cada 3 horas y también con
 `workflow_dispatch`:
 
-1. Captura Triunfobet desde el widget público (sin sesión).
-2. Captura Apuestas Royal con `ROYAL_STORAGE_STATE`.
-3. Refresca The Analyst y actualiza su semilla.
-4. Inyecta todo en `SITE_URL` mediante `POST /api/ingest/*` con `INGEST_TOKEN`.
-5. Commitea las semillas cambiadas; el push dispara el deploy.
+1. Captura Apuestas Royal con `ROYAL_STORAGE_STATE`.
+2. Refresca The Analyst y actualiza su semilla.
+3. Inyecta todo en `SITE_URL` mediante `POST /api/ingest/*` con `INGEST_TOKEN`.
+4. Commitea las semillas cambiadas; el push dispara el deploy.
 
 Secrets necesarios: `ROYAL_STORAGE_STATE`, `INGEST_TOKEN` y `SITE_URL`. El mismo
 `INGEST_TOKEN` debe existir como secret del Worker; si falta, los endpoints
-responden `503`. Triunfobet no necesita secretos de sesión.
+responden `503`.
 
 ## Qué hace el motor después del cruce
 
 1. Agrega Apuestas Royal como casa al resumen `1X2` del partido.
 2. Recalcula mejor cuota, media y spread, y actualiza el favorito.
-3. Compara el precio de Royal contra Triunfobet y el resto del mercado.
+3. Compara el precio de Royal contra el resto del mercado.
 4. El resumen `1X2` conserva a Royal como casa cuando su precio es el mejor.
 
 ## Solución de problemas
