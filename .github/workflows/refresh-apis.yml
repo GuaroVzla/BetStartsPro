@@ -40,11 +40,19 @@ jobs:
         run: |
           node scripts/validate-ingest-payload.mjs --allow-stale scripts/flashscore-payload.json scripts/apuestas-royal-quotes.json || true
       - name: Extract API sources
-        run: node scripts/etl-extract-apis.mjs --write --out data/curated/api-extract.json --report data/etl-reports/api-extract.json
+        id: extract
+        run: |
+          node scripts/etl-extract-apis.mjs --write --out data/curated/api-extract.json --report data/etl-reports/api-extract.json
+          total=$(node -e "process.stdout.write(String(require('./data/curated/api-extract.json').matches?.length ?? 0))")
+          echo "total_matches=$total" >> "$GITHUB_OUTPUT"
+          if [ "$total" -eq 0 ]; then
+            echo "Sin partidos de APIs configuradas; se omiten validación e ingesta curada."
+          fi
       - name: Validate curated payload
+        if: steps.extract.outputs.total_matches != '0'
         run: node scripts/validate-ingest-payload.mjs --kind curated --allow-stale data/curated/api-extract.json
       - name: Ingest curated payload
-        if: env.SITE_URL != '' && env.INGEST_TOKEN != ''
+        if: steps.extract.outputs.total_matches != '0' && env.SITE_URL != '' && env.INGEST_TOKEN != ''
         run: |
           curl --fail --silent --show-error -X POST \
             -H "Content-Type: application/json" \
