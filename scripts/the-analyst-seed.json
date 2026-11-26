@@ -7,6 +7,112 @@
   "total_registros": 20,
   "registros": [
     {
+      "articulo_id": "270448",
+      "titulo": "Man Utd vs Brentford Prediction: Premier League Preview",
+      "url": "https://theanalyst.com/articles/man-utd-vs-brentford-prediction-premier-league-preview-11-2026",
+      "fecha_publicacion": "2026-11-26T18:06:39.000Z",
+      "tipo": "match_preview",
+      "liga": "Premier League",
+      "equipo_local": "Man Utd",
+      "equipo_visitante": "Brentford",
+      "resumen": "Manchester United are considered slight favourites by the Opta supercomputer when they host Brentford in the Premier League on Saturday. Look ahead to the game at Old Trafford with our prediction and preview.",
+      "insight": {
+        "match_slug": "2026-11-26_man-utd_vs_brentford",
+        "fecha_partido": null,
+        "deporte": "Fútbol",
+        "liga": "Premier League",
+        "equipo_local": "Man Utd",
+        "equipo_visitante": "Brentford",
+        "probabilidades": {
+          "home": 0.441,
+          "draw": 0.268,
+          "away": 0.291,
+          "inferidas": []
+        },
+        "metricas": {
+          "xg_local": null,
+          "xg_visitante": null,
+          "forma_local": null,
+          "forma_visitante": null,
+          "racha_local": null,
+          "racha_visitante": "Brentford won just one of their first seven Premier League games against the Red Devils (D1, L5), but the Bees have consequently won two of the past three (L1).",
+          "h2h_resumen": "Man Utd vs Brentford Head-to-Head Man Utd might be in a rancid run of form, but they have emerged victorious in all five of their Premier League home games against Brentford."
+        },
+        "resumen": "Manchester United are considered slight favourites by the Opta supercomputer when they host Brentford in the Premier League on Saturday. Look ahead to the game at Old Trafford with our prediction and preview.",
+        "metodo": "articulo",
+        "confianza": "media"
+      },
+      "capturado_en": "2026-11-26T18:51:05.823Z",
+      "notas": null
+    },
+    {
+      "articulo_id": "83282",
+      "titulo": "Premier League Match Predictions: The Opta Supercomputer’s Picks for This Week",
+      "url": "https://theanalyst.com/articles/premier-league-match-predictions",
+      "fecha_publicacion": "2026-11-26T14:25:20.000Z",
+      "tipo": "match_preview",
+      "liga": null,
+      "equipo_local": null,
+      "equipo_visitante": null,
+      "resumen": "With the help of the Opta supercomputer, we provide our Premier League match predictions for Matchday 11 of the 2026-27 season.",
+      "insight": null,
+      "capturado_en": "2026-11-26T18:51:05.824Z",
+      "notas": null
+    },
+    {
+      "articulo_id": "270415",
+      "titulo": "How the Champions League Has Opened Up, Leaving Five Frontrunners to Win it",
+      "url": "https://theanalyst.com/articles/champions-league-five-favourites-arsenal-real-madrid-bayern-psg-barcelona-predictions",
+      "fecha_publicacion": "2026-11-26T12:37:46.000Z",
+      "tipo": "otro",
+      "liga": null,
+      "equipo_local": null,
+      "equipo_visitante": null,
+      "resumen": "Arsenal, Barcelona, Bayern Munich, PSG and Real Madrid are the favourites for Champions League glory according to the Opta supercomputer.",
+      "insight": null,
+      "capturado_en": "2026-11-26T18:51:05.824Z",
+      "notas": null
+    },
+    {
+      "articulo_id": "270182",
+      "titulo": "Nottingham Forest vs Chelsea Prediction: Premier League Preview",
+      "url": "https://theanalyst.com/articles/nottingham-forest-vs-chelsea-prediction-premier-league-11-2026",
+      "fecha_publicacion": "2026-11-26T07:50:58.000Z",
+      "tipo": "match_preview",
+      "liga": "Premier League",
+      "equipo_local": "Nottingham Forest",
+      "equipo_visitante": "Chelsea",
+      "resumen": "We look ahead to this Friday night Premier League match at the City Ground with our Nottingham Forest vs Chelsea prediction and preview. Can Xabi Alonso’s men get back on track?",
+      "insight": {
+        "match_slug": "2026-11-26_nottingham-forest_vs_chelsea",
+        "fecha_partido": null,
+        "deporte": "Fútbol",
+        "liga": "Premier League",
+        "equipo_local": "Nottingham Forest",
+        "equipo_visitante": "Chelsea",
+        "probabilidades": {
+          "home": 0.399,
+          "draw": 0.266,
+          "away": 0.335,
+          "inferidas": []
+        },
+        "metricas": {
+          "xg_local": null,
+          "xg_visitante": null,
+          "forma_local": null,
+          "forma_visitante": null,
+          "racha_local": null,
+          "racha_visitante": "A 2–0 home win over Manchester United aside, Chelsea have now lost three of their last four Premier League games, and since the start of March, no side has lost more Premier League",
+          "h2h_resumen": "Nottingham Forest vs Chelsea Head-to-Head Forest’s 3–1 win at Stamford Bridge in May saw Taiwo Awoniyi score early in both halves either side of an Igor Jesus penalty in the 15th minute, with João Pedro pulling one back in second-half stopp"
+        },
+        "resumen": "We look ahead to this Friday night Premier League match at the City Ground with our Nottingham Forest vs Chelsea prediction and preview. Can Xabi Alonso’s men get back on track?",
+        "metodo": "articulo",
+        "confianza": "media"
+      },
+      "capturado_en": "2026-11-26T18:51:05.825Z",
+      "notas": null
+    },
+    {
       "articulo_id": "270272",
       "titulo": "FCS Playoffs: First-Round Predictions (Montana State Half of the Bracket)",
       "url": "https://theanalyst.com/articles/fcs-playoffs-first-round-predictions-montana-state-half-of-the-bracket",
@@ -17,7 +123,7 @@
       "equipo_visitante": null,
       "resumen": "The engine is all revved as FCS football heads up the on-ramp to the second season. Here are predictions of first-round playoff games in No. 1 seed Montana State’s half of the bracket. ",
       "insight": null,
-      "capturado_en": "2026-11-26T06:51:45.198Z",
+      "capturado_en": "2026-11-26T18:51:05.825Z",
       "notas": null
     },
     {
@@ -31,7 +137,7 @@
       "equipo_visitante": null,
       "resumen": "The engine is all revved as FCS football heads up the on-ramp to the second season. Here are predictions of first-round playoff games on No. 2 seed Tarleton State’s half of the bracket. ",
       "insight": null,
-      "capturado_en": "2026-11-26T06:51:45.199Z",
+      "capturado_en": "2026-11-26T18:51:05.825Z",
       "notas": null
     },
     {
@@ -70,7 +176,7 @@
         "metodo": "articulo",
         "confianza": "baja"
       },
-      "capturado_en": "2026-11-26T06:51:45.202Z",
+      "capturado_en": "2026-11-26T18:51:05.826Z",
       "notas": null
     },
     {
@@ -109,7 +215,7 @@
         "metodo": "articulo",
         "confianza": "baja"
       },
-      "capturado_en": "2026-11-26T06:51:45.203Z",
+      "capturado_en": "2026-11-26T18:51:05.826Z",
       "notas": null
     },
     {
@@ -148,7 +254,7 @@
         "metodo": "articulo",
         "confianza": "media"
       },
-      "capturado_en": "2026-11-26T06:51:45.203Z",
+      "capturado_en": "2026-11-26T18:51:05.826Z",
       "notas": null
     },
     {
@@ -187,7 +293,7 @@
         "metodo": "articulo",
         "confianza": "media"
       },
-      "capturado_en": "2026-11-26T06:51:45.204Z",
+      "capturado_en": "2026-11-26T18:51:05.827Z",
       "notas": null
     },
     {
@@ -201,7 +307,7 @@
       "equipo_visitante": null,
       "resumen": "With the help of the AI-powered Opta supercomputer, we provide our UEFA Champions League match predictions for every game across the 2026-27 competition.",
       "insight": null,
-      "capturado_en": "2026-11-26T06:51:45.204Z",
+      "capturado_en": "2026-11-26T18:51:05.827Z",
       "notas": null
     },
     {
@@ -215,7 +321,7 @@
       "equipo_visitante": null,
       "resumen": "We look back on the weekend’s Premier League action by jumping to five conclusions based on just a single round of action.",
       "insight": null,
-      "capturado_en": "2026-11-26T06:51:45.204Z",
+      "capturado_en": "2026-11-26T18:51:05.827Z",
       "notas": null
     },
     {
@@ -229,7 +335,7 @@
       "equipo_visitante": null,
       "resumen": "Eleven teams are qualified for the 2026 FCS playoffs. With 13 more teams about to get the call on Selection Sunday, our bracketology predicts how the field may turn out.",
       "insight": null,
-      "capturado_en": "2026-11-26T06:51:45.204Z",
+      "capturado_en": "2026-11-26T18:51:05.827Z",
       "notas": null
     },
     {
@@ -268,7 +374,7 @@
         "metodo": "articulo",
         "confianza": "media"
       },
-      "capturado_en": "2026-11-26T06:51:45.205Z",
+      "capturado_en": "2026-11-26T18:51:05.828Z",
       "notas": null
     },
     {
@@ -307,7 +413,7 @@
         "metodo": "articulo",
         "confianza": "media"
       },
-      "capturado_en": "2026-11-26T06:51:45.205Z",
+      "capturado_en": "2026-11-26T18:51:05.828Z",
       "notas": null
     },
     {
@@ -321,7 +427,7 @@
       "equipo_visitante": null,
       "resumen": "Who will win the 2026 MLS Cup? Here, we detail how the Opta supercomputer sees the 2026 Major League Soccer play-offs bracket playing out.",
       "insight": null,
-      "capturado_en": "2026-11-26T06:51:45.205Z",
+      "capturado_en": "2026-11-26T18:51:05.828Z",
       "notas": null
     },
     {
@@ -360,7 +466,7 @@
         "metodo": "articulo",
         "confianza": "baja"
       },
-      "capturado_en": "2026-11-26T06:51:45.206Z",
+      "capturado_en": "2026-11-26T18:51:05.828Z",
       "notas": null
     },
     {
@@ -401,21 +507,7 @@
         "metodo": "articulo",
         "confianza": "media"
       },
-      "capturado_en": "2026-11-26T06:51:45.206Z",
-      "notas": null
-    },
-    {
-      "articulo_id": "83282",
-      "titulo": "Premier League Match Predictions: The Opta Supercomputer’s Picks for This Week",
-      "url": "https://theanalyst.com/articles/premier-league-match-predictions",
-      "fecha_publicacion": "2026-11-20T07:40:02.000Z",
-      "tipo": "match_preview",
-      "liga": null,
-      "equipo_local": null,
-      "equipo_visitante": null,
-      "resumen": "With the help of the Opta supercomputer, we provide our Premier League match predictions for Matchday 11 of the 2026-27 season.",
-      "insight": null,
-      "capturado_en": "2026-11-26T06:51:45.207Z",
+      "capturado_en": "2026-11-26T18:51:05.829Z",
       "notas": null
     },
     {
@@ -429,7 +521,7 @@
       "equipo_visitante": null,
       "resumen": "With the help of the Opta supercomputer, we provide our WSL match predictions for Matchday 11 of the 2026-27 season.",
       "insight": null,
-      "capturado_en": "2026-11-26T06:51:45.207Z",
+      "capturado_en": "2026-11-26T18:51:05.829Z",
       "notas": null
     },
     {
@@ -443,74 +535,7 @@
       "equipo_visitante": null,
       "resumen": "The Washington Spirit and Kansas City Current will battle it out for the 2026 NWSL Championship title. Here’s our Opta supercomputer preview and prediction.",
       "insight": null,
-      "capturado_en": "2026-11-26T06:51:45.207Z",
-      "notas": null
-    },
-    {
-      "articulo_id": "269178",
-      "titulo": "FCS Football Week 12 Preview & Predictions: Who Lands a Postseason Ticket?",
-      "url": "https://theanalyst.com/articles/fcs-football-week-12-preview-predictions-who-lands-a-postseason-ticket",
-      "fecha_publicacion": "2026-11-19T11:07:43.000Z",
-      "tipo": "match_preview",
-      "liga": null,
-      "equipo_local": null,
-      "equipo_visitante": null,
-      "resumen": "We’re previewing key games and storylines each week during the college football season. Our FCS coverage is the home of the Top 25 media poll, FCS National Awards and much more.",
-      "insight": null,
-      "capturado_en": "2026-11-26T06:51:45.207Z",
-      "notas": null
-    },
-    {
-      "articulo_id": "269124",
-      "titulo": "Liverpool vs Chelsea Prediction: WSL Preview",
-      "url": "https://theanalyst.com/articles/liverpool-vs-chelsea-prediction-wsl-preview-11-2026",
-      "fecha_publicacion": "2026-11-19T10:45:00.000Z",
-      "tipo": "match_preview",
-      "liga": "WSL",
-      "equipo_local": "Liverpool",
-      "equipo_visitante": "Chelsea",
-      "resumen": "Saturday’s midday WSL kick-off will see the Reds look to build momentum after getting back to winning ways, while the Blues are hoping to extend their lead at the summit. Here’s our Liverpool vs Chelsea prediction and preview.",
-      "insight": {
-        "match_slug": "2026-11-19_liverpool_vs_chelsea",
-        "fecha_partido": null,
-        "deporte": "Fútbol",
-        "liga": "WSL",
-        "equipo_local": "Liverpool",
-        "equipo_visitante": "Chelsea",
-        "probabilidades": {
-          "home": 0.704,
-          "draw": 0.164,
-          "away": 0.704,
-          "inferidas": []
-        },
-        "metricas": {
-          "xg_local": null,
-          "xg_visitante": null,
-          "forma_local": null,
-          "forma_visitante": null,
-          "racha_local": null,
-          "racha_visitante": "Chelsea have won each of their last six WSL away games, only once having a longer winning run on the road in the competition.",
-          "h2h_resumen": "Liverpool have won only five of their 26 WSL meetings with Chelsea (D4 L17). Chelsea have won each of their last six WSL away games, only once having a longer winning run on the road in the competition."
-        },
-        "resumen": "Saturday’s midday WSL kick-off will see the Reds look to build momentum after getting back to winning ways, while the Blues are hoping to extend their lead at the summit. Here’s our Liverpool vs Chelsea prediction and preview.",
-        "metodo": "articulo",
-        "confianza": "baja"
-      },
-      "capturado_en": "2026-11-26T06:51:45.207Z",
-      "notas": null
-    },
-    {
-      "articulo_id": "268677",
-      "titulo": "2026 Week 11 NFL Predictions",
-      "url": "https://theanalyst.com/articles/2026-week-11-nfl-predictions",
-      "fecha_publicacion": "2026-11-18T13:40:50.000Z",
-      "tipo": "match_preview",
-      "liga": null,
-      "equipo_local": null,
-      "equipo_visitante": null,
-      "resumen": "With the help of the Opta supercomputer, we’re revealing the predictions for the Week 11 games of the 2026 NFL season.",
-      "insight": null,
-      "capturado_en": "2026-11-26T06:51:45.210Z",
+      "capturado_en": "2026-11-26T18:51:05.829Z",
       "notas": null
     }
   ],

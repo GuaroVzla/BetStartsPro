@@ -6,8 +6,8 @@
   "fecha_local": "2026-11-27",
   "dia": "manana",
   "zona_horaria": "America/Caracas",
-  "capturado_en": "2026-11-26T02:51:43-04:00",
-  "total_partidos": 398,
+  "capturado_en": "2026-11-26T14:50:57-04:00",
+  "total_partidos": 403,
   "partidos": [
     {
       "match_slug": "2026-11-27_werder-bremen_vs_borussia-m-gladbach",
@@ -43,9 +43,9 @@
       "equipo_local": "Levante",
       "equipo_visitante": "R. Racing Club",
       "cuotas_1x2": {
-        "local_1": 2.05,
-        "empate_x": 3.75,
-        "visitante_2": 3.3
+        "local_1": 2,
+        "empate_x": 3.8,
+        "visitante_2": 3.4
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -91,9 +91,9 @@
       "equipo_local": "Nottingham Forest",
       "equipo_visitante": "Chelsea",
       "cuotas_1x2": {
-        "local_1": 2.6,
-        "empate_x": 3.3,
-        "visitante_2": 2.7
+        "local_1": 2.45,
+        "empate_x": 3.4,
+        "visitante_2": 2.8
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -116,8 +116,8 @@
       "equipo_visitante": "Bolonia",
       "cuotas_1x2": {
         "local_1": 3.4,
-        "empate_x": 3.4,
-        "visitante_2": 2.15
+        "empate_x": 3.3,
+        "visitante_2": 2.2
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -331,9 +331,9 @@
       "equipo_local": "Azam (Tan)",
       "equipo_visitante": "Al Ahly Tripoli (Lby)",
       "cuotas_1x2": {
-        "local_1": null,
-        "empate_x": null,
-        "visitante_2": null
+        "local_1": 3.1,
+        "empate_x": 2.8,
+        "visitante_2": 2.3
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -355,9 +355,9 @@
       "equipo_local": "Belouizdad (Alg)",
       "equipo_visitante": "Douane (Mrt)",
       "cuotas_1x2": {
-        "local_1": null,
-        "empate_x": null,
-        "visitante_2": null
+        "local_1": 1.18,
+        "empate_x": 6,
+        "visitante_2": 17
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -379,9 +379,9 @@
       "equipo_local": "Tirana",
       "equipo_visitante": "Skenderbeu",
       "cuotas_1x2": {
-        "local_1": null,
-        "empate_x": null,
-        "visitante_2": null
+        "local_1": 2.1,
+        "empate_x": 3.13,
+        "visitante_2": 3.21
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -403,9 +403,9 @@
       "equipo_local": "Dinamo City",
       "equipo_visitante": "Partizani",
       "cuotas_1x2": {
-        "local_1": null,
-        "empate_x": null,
-        "visitante_2": null
+        "local_1": 1.83,
+        "empate_x": 3.24,
+        "visitante_2": 3.93
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -476,8 +476,8 @@
       "equipo_visitante": "Darmstadt",
       "cuotas_1x2": {
         "local_1": 1.75,
-        "empate_x": 3.8,
-        "visitante_2": 4.1
+        "empate_x": 3.75,
+        "visitante_2": 4
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -523,9 +523,9 @@
       "equipo_local": "Rostock",
       "equipo_visitante": "Havelse",
       "cuotas_1x2": {
-        "local_1": null,
-        "empate_x": null,
-        "visitante_2": null
+        "local_1": 1.25,
+        "empate_x": 5.25,
+        "visitante_2": 9
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -590,7 +590,7 @@
       "deporte": "Fútbol",
       "liga": "ALEMANIA: Regionalliga Nordost",
       "fecha_local": "2026-11-27",
-      "hora_local": "14:00",
+      "hora_local": null,
       "estado": "Programado",
       "equipo_local": "Chemnitzer",
       "equipo_visitante": "Hertha BSC II",
@@ -619,9 +619,9 @@
       "equipo_local": "1860 Múnich",
       "equipo_visitante": "Schweinfurt",
       "cuotas_1x2": {
-        "local_1": null,
-        "empate_x": null,
-        "visitante_2": null
+        "local_1": 1.64,
+        "empate_x": 4.01,
+        "visitante_2": 3.98
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -643,9 +643,9 @@
       "equipo_local": "Bayreuth",
       "equipo_visitante": "Greuther Fürth II",
       "cuotas_1x2": {
-        "local_1": null,
-        "empate_x": null,
-        "visitante_2": null
+        "local_1": 1.71,
+        "empate_x": 3.93,
+        "visitante_2": 3.7
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -824,30 +824,6 @@
       },
       "mid": "nN4CGWi5",
       "url": "http://m.flashscore.com.ve/partido/nN4CGWi5/?d=1"
-    },
-    {
-      "match_slug": "2026-11-27_gonsenheim_vs_tsv-1881-gau-odernheim",
-      "deporte": "Fútbol",
-      "liga": "ALEMANIA: Oberliga Rheinland-Pfalz/Saar",
-      "fecha_local": "2026-11-27",
-      "hora_local": "15:00",
-      "estado": "Programado",
-      "equipo_local": "Gonsenheim",
-      "equipo_visitante": "TSV 1881 Gau-Odernheim",
-      "cuotas_1x2": {
-        "local_1": null,
-        "empate_x": null,
-        "visitante_2": null
-      },
-      "estadisticas_complementarias": {
-        "posicion_local": null,
-        "posicion_visitante": null,
-        "racha_local_ultimos_5": null,
-        "racha_visitante_ultimos_5": null,
-        "h2h_resumen": null
-      },
-      "mid": "dzmhT9yB",
-      "url": "http://m.flashscore.com.ve/partido/dzmhT9yB/?d=1"
     },
     {
       "match_slug": "2026-11-27_djk-bamberg_vs_fortuna-regensburg",
@@ -1051,9 +1027,9 @@
       "equipo_local": "Al Kholood",
       "equipo_visitante": "Al Khaleej",
       "cuotas_1x2": {
-        "local_1": null,
-        "empate_x": null,
-        "visitante_2": null
+        "local_1": 2,
+        "empate_x": 3.5,
+        "visitante_2": 3
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -1075,9 +1051,9 @@
       "equipo_local": "Al Qadsiah",
       "equipo_visitante": "Al Fayha",
       "cuotas_1x2": {
-        "local_1": null,
-        "empate_x": null,
-        "visitante_2": null
+        "local_1": 1.2,
+        "empate_x": 6,
+        "visitante_2": 10
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -1099,9 +1075,9 @@
       "equipo_local": "Al-Ittihad FC",
       "equipo_visitante": "Neom SC",
       "cuotas_1x2": {
-        "local_1": null,
-        "empate_x": null,
-        "visitante_2": null
+        "local_1": 1.8,
+        "empate_x": 3.6,
+        "visitante_2": 3.4
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -1411,9 +1387,9 @@
       "equipo_local": "Syunik",
       "equipo_visitante": "Van",
       "cuotas_1x2": {
-        "local_1": null,
-        "empate_x": null,
-        "visitante_2": null
+        "local_1": 2.32,
+        "empate_x": 3.22,
+        "visitante_2": 2.63
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -1459,9 +1435,9 @@
       "equipo_local": "Racing Club Aruba",
       "equipo_visitante": "Caiquetio",
       "cuotas_1x2": {
-        "local_1": null,
-        "empate_x": null,
-        "visitante_2": null
+        "local_1": 1.45,
+        "empate_x": 4.9,
+        "visitante_2": 5.1
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -1507,9 +1483,9 @@
       "equipo_local": "Broadmeadow",
       "equipo_visitante": "Queensland Lions",
       "cuotas_1x2": {
-        "local_1": null,
-        "empate_x": null,
-        "visitante_2": null
+        "local_1": 3.76,
+        "empate_x": 4.2,
+        "visitante_2": 1.77
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -1579,9 +1555,9 @@
       "equipo_local": "Amstetten",
       "equipo_visitante": "St. Polten",
       "cuotas_1x2": {
-        "local_1": null,
-        "empate_x": null,
-        "visitante_2": null
+        "local_1": 2.4,
+        "empate_x": 3.54,
+        "visitante_2": 2.58
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -1603,9 +1579,9 @@
       "equipo_local": "Innsbruck",
       "equipo_visitante": "First Wien",
       "cuotas_1x2": {
-        "local_1": null,
-        "empate_x": null,
-        "visitante_2": null
+        "local_1": 3.46,
+        "empate_x": 3.42,
+        "visitante_2": 2.01
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -1699,9 +1675,9 @@
       "equipo_local": "Imisli FK",
       "equipo_visitante": "Safa Baku",
       "cuotas_1x2": {
-        "local_1": null,
-        "empate_x": null,
-        "visitante_2": null
+        "local_1": 2.11,
+        "empate_x": 3.06,
+        "visitante_2": 3.24
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -1723,9 +1699,9 @@
       "equipo_local": "Neftci Baku",
       "equipo_visitante": "Zira",
       "cuotas_1x2": {
-        "local_1": null,
-        "empate_x": null,
-        "visitante_2": null
+        "local_1": 1.62,
+        "empate_x": 3.58,
+        "visitante_2": 4.72
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -1795,9 +1771,9 @@
       "equipo_local": "East Riffa",
       "equipo_visitante": "Al Ittifaq",
       "cuotas_1x2": {
-        "local_1": null,
-        "empate_x": null,
-        "visitante_2": null
+        "local_1": 3.97,
+        "empate_x": 3.1,
+        "visitante_2": 1.87
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -1819,9 +1795,9 @@
       "equipo_local": "Malkia",
       "equipo_visitante": "Manama Club",
       "cuotas_1x2": {
-        "local_1": null,
-        "empate_x": null,
-        "visitante_2": null
+        "local_1": 2.56,
+        "empate_x": 3.1,
+        "visitante_2": 2.45
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -1939,9 +1915,9 @@
       "equipo_local": "Leuven",
       "equipo_visitante": "Kortrijk",
       "cuotas_1x2": {
-        "local_1": 1.91,
+        "local_1": 1.9,
         "empate_x": 3.6,
-        "visitante_2": 3.75
+        "visitante_2": 3.9
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -2227,9 +2203,9 @@
       "equipo_local": "Celik Zenica",
       "equipo_visitante": "BSK Banja Luka",
       "cuotas_1x2": {
-        "local_1": null,
-        "empate_x": null,
-        "visitante_2": null
+        "local_1": 1.98,
+        "empate_x": 3.32,
+        "visitante_2": 3.34
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -2251,9 +2227,9 @@
       "equipo_local": "Fluminense",
       "equipo_visitante": "Cruzeiro",
       "cuotas_1x2": {
-        "local_1": 2,
+        "local_1": 2.05,
         "empate_x": 3.7,
-        "visitante_2": 3.4
+        "visitante_2": 3.3
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -2275,9 +2251,9 @@
       "equipo_local": "Vila Nova",
       "equipo_visitante": "Atlético-GO",
       "cuotas_1x2": {
-        "local_1": 2.3,
+        "local_1": 2.35,
         "empate_x": 3.25,
-        "visitante_2": 3
+        "visitante_2": 2.87
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -2578,6 +2554,30 @@
       "url": "http://m.flashscore.com.ve/partido/r7g34ql3/?d=1"
     },
     {
+      "match_slug": "2026-11-27_vitesse_vs_focusport",
+      "deporte": "Fútbol",
+      "liga": "BURKINA FASO: Premier League",
+      "fecha_local": "2026-11-27",
+      "hora_local": "11:30",
+      "estado": "Programado",
+      "equipo_local": "Vitesse",
+      "equipo_visitante": "FocuSport",
+      "cuotas_1x2": {
+        "local_1": null,
+        "empate_x": null,
+        "visitante_2": null
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "OpyM9vQr",
+      "url": "http://m.flashscore.com.ve/partido/OpyM9vQr/?d=1"
+    },
+    {
       "match_slug": "2026-11-27_vital-o_vs_flambeau-du-centre",
       "deporte": "Fútbol",
       "liga": "BURUNDI: Primus League",
@@ -2611,9 +2611,9 @@
       "equipo_local": "Al Sailiya",
       "equipo_visitante": "Al Gharafa",
       "cuotas_1x2": {
-        "local_1": null,
-        "empate_x": null,
-        "visitante_2": null
+        "local_1": 4.98,
+        "empate_x": 4.65,
+        "visitante_2": 1.45
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -2635,9 +2635,9 @@
       "equipo_local": "Lusail",
       "equipo_visitante": "Al Arabi",
       "cuotas_1x2": {
-        "local_1": null,
-        "empate_x": null,
-        "visitante_2": null
+        "local_1": 3.74,
+        "empate_x": 3.7,
+        "visitante_2": 1.76
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -2683,9 +2683,9 @@
       "equipo_local": "AEK Larnaca",
       "equipo_visitante": "Apollon",
       "cuotas_1x2": {
-        "local_1": null,
-        "empate_x": null,
-        "visitante_2": null
+        "local_1": 2.36,
+        "empate_x": 3.34,
+        "visitante_2": 2.81
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -2707,9 +2707,9 @@
       "equipo_local": "AEL Limassol",
       "equipo_visitante": "Ol. Nicosia",
       "cuotas_1x2": {
-        "local_1": null,
-        "empate_x": null,
-        "visitante_2": null
+        "local_1": 1.76,
+        "empate_x": 3.6,
+        "visitante_2": 4.3
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -2731,9 +2731,9 @@
       "equipo_local": "Omonia 29th May",
       "equipo_visitante": "Omonia Aradippou",
       "cuotas_1x2": {
-        "local_1": null,
-        "empate_x": null,
-        "visitante_2": null
+        "local_1": 3.26,
+        "empate_x": 3.42,
+        "visitante_2": 2.08
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -2755,9 +2755,9 @@
       "equipo_local": "Deportivo Cali",
       "equipo_visitante": "Atl. Bucaramanga",
       "cuotas_1x2": {
-        "local_1": null,
-        "empate_x": null,
-        "visitante_2": null
+        "local_1": 1.75,
+        "empate_x": 3.4,
+        "visitante_2": 5
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -2779,9 +2779,9 @@
       "equipo_local": "Millonarios",
       "equipo_visitante": "América de Cali",
       "cuotas_1x2": {
-        "local_1": null,
-        "empate_x": null,
-        "visitante_2": null
+        "local_1": 1.95,
+        "empate_x": 3.2,
+        "visitante_2": 4.1
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -2995,9 +2995,9 @@
       "equipo_local": "Sonderjyske",
       "equipo_visitante": "Brondby",
       "cuotas_1x2": {
-        "local_1": 4.5,
-        "empate_x": 4.1,
-        "visitante_2": 1.62
+        "local_1": 4.33,
+        "empate_x": 4,
+        "visitante_2": 1.66
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -3019,8 +3019,8 @@
       "equipo_local": "AB Kopenhagen",
       "equipo_visitante": "Vejle",
       "cuotas_1x2": {
-        "local_1": 3.2,
-        "empate_x": 3.9,
+        "local_1": 3.3,
+        "empate_x": 3.6,
         "visitante_2": 1.96
       },
       "estadisticas_complementarias": {
@@ -3091,9 +3091,9 @@
       "equipo_local": "Dep. Cuenca",
       "equipo_visitante": "Manta",
       "cuotas_1x2": {
-        "local_1": 1.76,
+        "local_1": 1.69,
         "empate_x": 3.4,
-        "visitante_2": 4.75
+        "visitante_2": 5
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -3283,9 +3283,9 @@
       "equipo_local": "Largs Thistle",
       "equipo_visitante": "Ayr",
       "cuotas_1x2": {
-        "local_1": null,
-        "empate_x": null,
-        "visitante_2": null
+        "local_1": 8,
+        "empate_x": 4.5,
+        "visitante_2": 1.3
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -3307,9 +3307,9 @@
       "equipo_local": "Radomlje",
       "equipo_visitante": "Nafta",
       "cuotas_1x2": {
-        "local_1": null,
-        "empate_x": null,
-        "visitante_2": null
+        "local_1": 2.44,
+        "empate_x": 3.22,
+        "visitante_2": 2.51
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -3355,8 +3355,8 @@
       "equipo_local": "Leganés",
       "equipo_visitante": "Sabadell",
       "cuotas_1x2": {
-        "local_1": 2.3,
-        "empate_x": 3.1,
+        "local_1": 2.33,
+        "empate_x": 3,
         "visitante_2": 3.2
       },
       "estadisticas_complementarias": {
@@ -3379,9 +3379,9 @@
       "equipo_local": "Athletic Club B",
       "equipo_visitante": "Cultural Leonesa",
       "cuotas_1x2": {
-        "local_1": null,
-        "empate_x": null,
-        "visitante_2": null
+        "local_1": 2.05,
+        "empate_x": 3.2,
+        "visitante_2": 3.2
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -3403,9 +3403,9 @@
       "equipo_local": "Hércules",
       "equipo_visitante": "Antequera",
       "cuotas_1x2": {
-        "local_1": null,
-        "empate_x": null,
-        "visitante_2": null
+        "local_1": 1.95,
+        "empate_x": 3.2,
+        "visitante_2": 3.4
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -3427,9 +3427,9 @@
       "equipo_local": "Revilla",
       "equipo_visitante": "Velarde",
       "cuotas_1x2": {
-        "local_1": null,
-        "empate_x": null,
-        "visitante_2": null
+        "local_1": 1.4,
+        "empate_x": 4.4,
+        "visitante_2": 6.76
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -3451,9 +3451,9 @@
       "equipo_local": "Ontinyent 1931",
       "equipo_visitante": "Torrent",
       "cuotas_1x2": {
-        "local_1": null,
-        "empate_x": null,
-        "visitante_2": null
+        "local_1": 2.38,
+        "empate_x": 3.04,
+        "visitante_2": 2.69
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -3475,9 +3475,9 @@
       "equipo_local": "Real Union Tenerife",
       "equipo_visitante": "Añaza",
       "cuotas_1x2": {
-        "local_1": null,
-        "empate_x": null,
-        "visitante_2": null
+        "local_1": 1.33,
+        "empate_x": 3.98,
+        "visitante_2": 9.4
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -3499,9 +3499,9 @@
       "equipo_local": "Columbus Crew",
       "equipo_visitante": "Inter Miami",
       "cuotas_1x2": {
-        "local_1": 2.5,
+        "local_1": 2.45,
         "empate_x": 4.1,
-        "visitante_2": 2.35
+        "visitante_2": 2.3
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -3523,9 +3523,9 @@
       "equipo_local": "Real Salt Lake",
       "equipo_visitante": "Vancouver Whitecaps",
       "cuotas_1x2": {
-        "local_1": 2.9,
+        "local_1": 2.87,
         "empate_x": 3.9,
-        "visitante_2": 2.15
+        "visitante_2": 2.1
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -3667,9 +3667,9 @@
       "equipo_local": "España Sub-19 F",
       "equipo_visitante": "Israel Sub-19 F",
       "cuotas_1x2": {
-        "local_1": null,
-        "empate_x": null,
-        "visitante_2": null
+        "local_1": 1.04,
+        "empate_x": 10,
+        "visitante_2": 19
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -3691,9 +3691,9 @@
       "equipo_local": "Polonia Sub-19 F",
       "equipo_visitante": "Kosovo Sub-19 F",
       "cuotas_1x2": {
-        "local_1": null,
-        "empate_x": null,
-        "visitante_2": null
+        "local_1": 1.04,
+        "empate_x": 10,
+        "visitante_2": 21
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -3715,9 +3715,9 @@
       "equipo_local": "Italia Sub-19 F",
       "equipo_visitante": "Gales Sub-19 F",
       "cuotas_1x2": {
-        "local_1": null,
-        "empate_x": null,
-        "visitante_2": null
+        "local_1": 1.48,
+        "empate_x": 4.1,
+        "visitante_2": 5.28
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -3739,9 +3739,9 @@
       "equipo_local": "Eslovaquia Sub-19 F",
       "equipo_visitante": "Grecia Sub-19 F",
       "cuotas_1x2": {
-        "local_1": null,
-        "empate_x": null,
-        "visitante_2": null
+        "local_1": 3.67,
+        "empate_x": 3.64,
+        "visitante_2": 1.78
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -3763,9 +3763,9 @@
       "equipo_local": "Letonia Sub-19 F",
       "equipo_visitante": "Moldavia Sub-19 F",
       "cuotas_1x2": {
-        "local_1": null,
-        "empate_x": null,
-        "visitante_2": null
+        "local_1": 1.06,
+        "empate_x": 11,
+        "visitante_2": 34
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -3787,9 +3787,9 @@
       "equipo_local": "Ucrania Sub-19 F",
       "equipo_visitante": "Lituania Sub-19 F",
       "cuotas_1x2": {
-        "local_1": null,
-        "empate_x": null,
-        "visitante_2": null
+        "local_1": 1.04,
+        "empate_x": 15,
+        "visitante_2": 26
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -3811,9 +3811,9 @@
       "equipo_local": "Islas Feroe Sub-19 F",
       "equipo_visitante": "Andorra Sub-19 F",
       "cuotas_1x2": {
-        "local_1": null,
-        "empate_x": null,
-        "visitante_2": null
+        "local_1": 1.04,
+        "empate_x": 15,
+        "visitante_2": 26
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -3835,9 +3835,9 @@
       "equipo_local": "Chipre Sub-19 F",
       "equipo_visitante": "Albania Sub-19 F",
       "cuotas_1x2": {
-        "local_1": null,
-        "empate_x": null,
-        "visitante_2": null
+        "local_1": 14,
+        "empate_x": 6.65,
+        "visitante_2": 1.11
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -3907,9 +3907,9 @@
       "equipo_local": "Cannes",
       "equipo_visitante": "Le Puy-en-Velay",
       "cuotas_1x2": {
-        "local_1": null,
-        "empate_x": null,
-        "visitante_2": null
+        "local_1": 2.25,
+        "empate_x": 3.2,
+        "visitante_2": 2.75
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -3931,9 +3931,9 @@
       "equipo_local": "Saint-Omer",
       "equipo_visitante": "SM Caen",
       "cuotas_1x2": {
-        "local_1": null,
-        "empate_x": null,
-        "visitante_2": null
+        "local_1": 12,
+        "empate_x": 5.25,
+        "visitante_2": 1.2
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -3955,9 +3955,9 @@
       "equipo_local": "USLPV",
       "equipo_visitante": "Valenciennes",
       "cuotas_1x2": {
-        "local_1": null,
-        "empate_x": null,
-        "visitante_2": null
+        "local_1": 3.75,
+        "empate_x": 3.75,
+        "visitante_2": 1.73
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -3979,9 +3979,9 @@
       "equipo_local": "Briton Ferry",
       "equipo_visitante": "Penybont",
       "cuotas_1x2": {
-        "local_1": null,
-        "empate_x": null,
-        "visitante_2": null
+        "local_1": 4.44,
+        "empate_x": 3.42,
+        "visitante_2": 1.7
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -4003,9 +4003,9 @@
       "equipo_local": "Cambrian United",
       "equipo_visitante": "Trefelin",
       "cuotas_1x2": {
-        "local_1": null,
-        "empate_x": null,
-        "visitante_2": null
+        "local_1": 1.46,
+        "empate_x": 4.15,
+        "visitante_2": 5.57
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -4027,9 +4027,9 @@
       "equipo_local": "Cardiff Metropolitan",
       "equipo_visitante": "Airbus",
       "cuotas_1x2": {
-        "local_1": null,
-        "empate_x": null,
-        "visitante_2": null
+        "local_1": 1.95,
+        "empate_x": 3.6,
+        "visitante_2": 3.17
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -4051,9 +4051,9 @@
       "equipo_local": "Colwyn Bay",
       "equipo_visitante": "Ammanford",
       "cuotas_1x2": {
-        "local_1": null,
-        "empate_x": null,
-        "visitante_2": null
+        "local_1": 1.03,
+        "empate_x": 10.2,
+        "visitante_2": 21
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -4075,9 +4075,9 @@
       "equipo_local": "Flint",
       "equipo_visitante": "TNS",
       "cuotas_1x2": {
-        "local_1": null,
-        "empate_x": null,
-        "visitante_2": null
+        "local_1": 15.5,
+        "empate_x": 8.2,
+        "visitante_2": 1.07
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -4099,9 +4099,9 @@
       "equipo_local": "Haverfordwest",
       "equipo_visitante": "Connah's Q.",
       "cuotas_1x2": {
-        "local_1": null,
-        "empate_x": null,
-        "visitante_2": null
+        "local_1": 4.8,
+        "empate_x": 3.74,
+        "visitante_2": 1.59
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -4123,9 +4123,9 @@
       "equipo_local": "Afan Lido",
       "equipo_visitante": "Caerau Ely",
       "cuotas_1x2": {
-        "local_1": null,
-        "empate_x": null,
-        "visitante_2": null
+        "local_1": 3.46,
+        "empate_x": 3.88,
+        "visitante_2": 1.78
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -4147,9 +4147,9 @@
       "equipo_local": "Carmarthen",
       "equipo_visitante": "Pure Swansea",
       "cuotas_1x2": {
-        "local_1": null,
-        "empate_x": null,
-        "visitante_2": null
+        "local_1": 3.76,
+        "empate_x": 4.15,
+        "visitante_2": 1.66
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -4171,9 +4171,9 @@
       "equipo_local": "Llanelli",
       "equipo_visitante": "Cardiff Draconians",
       "cuotas_1x2": {
-        "local_1": null,
-        "empate_x": null,
-        "visitante_2": null
+        "local_1": 3.35,
+        "empate_x": 4.15,
+        "visitante_2": 1.76
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -4195,9 +4195,9 @@
       "equipo_local": "Newport City",
       "equipo_visitante": "Pontardawe",
       "cuotas_1x2": {
-        "local_1": null,
-        "empate_x": null,
-        "visitante_2": null
+        "local_1": 2.03,
+        "empate_x": 3.72,
+        "visitante_2": 2.88
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -4219,9 +4219,9 @@
       "equipo_local": "Caerphilly",
       "equipo_visitante": "Baglan Dragons",
       "cuotas_1x2": {
-        "local_1": null,
-        "empate_x": null,
-        "visitante_2": null
+        "local_1": 1.84,
+        "empate_x": 3.64,
+        "visitante_2": 3.44
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -4243,9 +4243,9 @@
       "equipo_local": "Bangor 1876",
       "equipo_visitante": "Mold Alexandra",
       "cuotas_1x2": {
-        "local_1": null,
-        "empate_x": null,
-        "visitante_2": null
+        "local_1": 1.98,
+        "empate_x": 3.72,
+        "visitante_2": 2.98
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -4267,9 +4267,9 @@
       "equipo_local": "Bala Town",
       "equipo_visitante": "Caersws",
       "cuotas_1x2": {
-        "local_1": null,
-        "empate_x": null,
-        "visitante_2": null
+        "local_1": 1.59,
+        "empate_x": 4.05,
+        "visitante_2": 4.3
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -4291,9 +4291,9 @@
       "equipo_local": "Denbigh",
       "equipo_visitante": "Brickfield",
       "cuotas_1x2": {
-        "local_1": null,
-        "empate_x": null,
-        "visitante_2": null
+        "local_1": 2.64,
+        "empate_x": 3.84,
+        "visitante_2": 2.13
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -4315,9 +4315,9 @@
       "equipo_local": "Dinamo Batumi",
       "equipo_visitante": "Dila Gori",
       "cuotas_1x2": {
-        "local_1": null,
-        "empate_x": null,
-        "visitante_2": null
+        "local_1": 1.74,
+        "empate_x": 3.8,
+        "visitante_2": 3.94
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -4483,9 +4483,9 @@
       "equipo_local": "Hound Dogs",
       "equipo_visitante": "Lions Gibraltar",
       "cuotas_1x2": {
-        "local_1": null,
-        "empate_x": null,
-        "visitante_2": null
+        "local_1": 17,
+        "empate_x": 9.95,
+        "visitante_2": 1.04
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -4531,9 +4531,9 @@
       "equipo_local": "Inter Kashi",
       "equipo_visitante": "Churchill Brothers",
       "cuotas_1x2": {
-        "local_1": null,
-        "empate_x": null,
-        "visitante_2": null
+        "local_1": 3.8,
+        "empate_x": 3.5,
+        "visitante_2": 1.75
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -4603,7 +4603,7 @@
       "equipo_local": "Southampton",
       "equipo_visitante": "Middlesbrough",
       "cuotas_1x2": {
-        "local_1": 2.8,
+        "local_1": 2.9,
         "empate_x": 3.6,
         "visitante_2": 2.25
       },
@@ -4915,9 +4915,9 @@
       "equipo_local": "Peykan",
       "equipo_visitante": "Foolad",
       "cuotas_1x2": {
-        "local_1": null,
-        "empate_x": null,
-        "visitante_2": null
+        "local_1": 3.11,
+        "empate_x": 2.88,
+        "visitante_2": 2.26
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -4939,9 +4939,9 @@
       "equipo_local": "Shams Azar Qazvin",
       "equipo_visitante": "Kheybar Khorramabad",
       "cuotas_1x2": {
-        "local_1": null,
-        "empate_x": null,
-        "visitante_2": null
+        "local_1": 2.49,
+        "empate_x": 2.76,
+        "visitante_2": 2.78
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -4963,9 +4963,9 @@
       "equipo_local": "Aluminium Arak",
       "equipo_visitante": "Persepolis",
       "cuotas_1x2": {
-        "local_1": null,
-        "empate_x": null,
-        "visitante_2": null
+        "local_1": 6.41,
+        "empate_x": 3.58,
+        "visitante_2": 1.48
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -4987,9 +4987,9 @@
       "equipo_local": "Esteghlal Khuzestan",
       "equipo_visitante": "Malavan",
       "cuotas_1x2": {
-        "local_1": null,
-        "empate_x": null,
-        "visitante_2": null
+        "local_1": 2.26,
+        "empate_x": 2.88,
+        "visitante_2": 3.11
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -5011,9 +5011,9 @@
       "equipo_local": "Coleraine",
       "equipo_visitante": "Dungannon",
       "cuotas_1x2": {
-        "local_1": null,
-        "empate_x": null,
-        "visitante_2": null
+        "local_1": 1.38,
+        "empate_x": 4.6,
+        "visitante_2": 6.1
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -5035,9 +5035,9 @@
       "equipo_local": "Glentoran",
       "equipo_visitante": "Larne",
       "cuotas_1x2": {
-        "local_1": null,
-        "empate_x": null,
-        "visitante_2": null
+        "local_1": 2.66,
+        "empate_x": 3.25,
+        "visitante_2": 2.3
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -5059,9 +5059,9 @@
       "equipo_local": "Institute",
       "equipo_visitante": "Ards",
       "cuotas_1x2": {
-        "local_1": null,
-        "empate_x": null,
-        "visitante_2": null
+        "local_1": 2.09,
+        "empate_x": 3.32,
+        "visitante_2": 3.04
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -5083,9 +5083,9 @@
       "equipo_local": "Moyola",
       "equipo_visitante": "Annagh",
       "cuotas_1x2": {
-        "local_1": null,
-        "empate_x": null,
-        "visitante_2": null
+        "local_1": 4.6,
+        "empate_x": 4.05,
+        "visitante_2": 1.55
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -5107,9 +5107,9 @@
       "equipo_local": "Newry City",
       "equipo_visitante": "Ballinamallard",
       "cuotas_1x2": {
-        "local_1": null,
-        "empate_x": null,
-        "visitante_2": null
+        "local_1": 1.9,
+        "empate_x": 3.46,
+        "visitante_2": 3.41
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -5131,9 +5131,9 @@
       "equipo_local": "Warrenpoint",
       "equipo_visitante": "H&W Welders",
       "cuotas_1x2": {
-        "local_1": null,
-        "empate_x": null,
-        "visitante_2": null
+        "local_1": 3.14,
+        "empate_x": 3.64,
+        "visitante_2": 1.94
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -5635,9 +5635,9 @@
       "equipo_local": "Cavese",
       "equipo_visitante": "Scafatese",
       "cuotas_1x2": {
-        "local_1": null,
-        "empate_x": null,
-        "visitante_2": null
+        "local_1": 1.87,
+        "empate_x": 3.13,
+        "visitante_2": 3.93
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -5659,9 +5659,9 @@
       "equipo_local": "Foggia",
       "equipo_visitante": "Casertana",
       "cuotas_1x2": {
-        "local_1": null,
-        "empate_x": null,
-        "visitante_2": null
+        "local_1": 2.41,
+        "empate_x": 2.93,
+        "visitante_2": 2.73
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -6130,6 +6130,30 @@
       "url": "http://m.flashscore.com.ve/partido/pn8ARtyG/?d=1"
     },
     {
+      "match_slug": "2026-11-27_al-bashaer_vs_al-watan",
+      "deporte": "Fútbol",
+      "liga": "LIBIA: Premier League",
+      "fecha_local": "2026-11-27",
+      "hora_local": "09:30",
+      "estado": "Programado",
+      "equipo_local": "Al Bashaer",
+      "equipo_visitante": "Al Watan",
+      "cuotas_1x2": {
+        "local_1": null,
+        "empate_x": null,
+        "visitante_2": null
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "pKiiv2AF",
+      "url": "http://m.flashscore.com.ve/partido/pKiiv2AF/?d=1"
+    },
+    {
       "match_slug": "2026-11-27_al-hilal-benghazi_vs_al-batnan",
       "deporte": "Fútbol",
       "liga": "LIBIA: Premier League",
@@ -6152,30 +6176,6 @@
       },
       "mid": "46L2oJHr",
       "url": "http://m.flashscore.com.ve/partido/46L2oJHr/?d=1"
-    },
-    {
-      "match_slug": "2026-11-27_al-bashaer_vs_al-watan",
-      "deporte": "Fútbol",
-      "liga": "LIBIA: Premier League",
-      "fecha_local": "2026-11-27",
-      "hora_local": "10:00",
-      "estado": "Programado",
-      "equipo_local": "Al Bashaer",
-      "equipo_visitante": "Al Watan",
-      "cuotas_1x2": {
-        "local_1": null,
-        "empate_x": null,
-        "visitante_2": null
-      },
-      "estadisticas_complementarias": {
-        "posicion_local": null,
-        "posicion_visitante": null,
-        "racha_local_ultimos_5": null,
-        "racha_visitante_ultimos_5": null,
-        "h2h_resumen": null
-      },
-      "mid": "pKiiv2AF",
-      "url": "http://m.flashscore.com.ve/partido/pKiiv2AF/?d=1"
     },
     {
       "match_slug": "2026-11-27_al-madina_vs_al-shomooa",
@@ -6235,9 +6235,9 @@
       "equipo_local": "Shkendija Haracine",
       "equipo_visitante": "Bregalnica",
       "cuotas_1x2": {
-        "local_1": null,
-        "empate_x": null,
-        "visitante_2": null
+        "local_1": 1.97,
+        "empate_x": 3.36,
+        "visitante_2": 3.29
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -6259,9 +6259,9 @@
       "equipo_local": "Bashkimi",
       "equipo_visitante": "FK Skopje",
       "cuotas_1x2": {
-        "local_1": null,
-        "empate_x": null,
-        "visitante_2": null
+        "local_1": 2.04,
+        "empate_x": 3.42,
+        "visitante_2": 3.07
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -6283,9 +6283,9 @@
       "equipo_local": "DPMM",
       "equipo_visitante": "Kelantan Red Warrior",
       "cuotas_1x2": {
-        "local_1": null,
-        "empate_x": null,
-        "visitante_2": null
+        "local_1": 1.13,
+        "empate_x": 6.8,
+        "visitante_2": 11.2
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -6326,7 +6326,7 @@
       "deporte": "Fútbol",
       "liga": "MALI: Premiere Division",
       "fecha_local": "2026-11-27",
-      "hora_local": "14:30",
+      "hora_local": "14:15",
       "estado": "Programado",
       "equipo_local": "Binga",
       "equipo_visitante": "Korofina",
@@ -6355,9 +6355,9 @@
       "equipo_local": "Birkirkara",
       "equipo_visitante": "Mosta FC",
       "cuotas_1x2": {
-        "local_1": null,
-        "empate_x": null,
-        "visitante_2": null
+        "local_1": 1.63,
+        "empate_x": 3.64,
+        "visitante_2": 4.56
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -6379,9 +6379,9 @@
       "equipo_local": "Amal Tiznit",
       "equipo_visitante": "Moghreb Tetouan",
       "cuotas_1x2": {
-        "local_1": null,
-        "empate_x": null,
-        "visitante_2": null
+        "local_1": 1.91,
+        "empate_x": 3.1,
+        "visitante_2": 3.75
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -6811,9 +6811,9 @@
       "equipo_local": "Ilves (Fin)",
       "equipo_visitante": "TPS Turku (Fin)",
       "cuotas_1x2": {
-        "local_1": null,
-        "empate_x": null,
-        "visitante_2": null
+        "local_1": 1.83,
+        "empate_x": 3.89,
+        "visitante_2": 3.27
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -6826,14 +6826,14 @@
       "url": "http://m.flashscore.com.ve/partido/jszykSHk/?d=1"
     },
     {
-      "match_slug": "2026-11-27_oster-swe_vs_karlskrona-swe",
+      "match_slug": "2026-11-27_basilea-ii-sui_vs_servette-sub-21-sui",
       "deporte": "Fútbol",
       "liga": "MUNDIAL: Amistosos de Clubs",
       "fecha_local": "2026-11-27",
-      "hora_local": "13:30",
+      "hora_local": "09:00",
       "estado": "Programado",
-      "equipo_local": "Öster (Swe)",
-      "equipo_visitante": "Karlskrona (Swe)",
+      "equipo_local": "Basilea II (Sui)",
+      "equipo_visitante": "Servette Sub-21 (Sui)",
       "cuotas_1x2": {
         "local_1": null,
         "empate_x": null,
@@ -6846,8 +6846,80 @@
         "racha_visitante_ultimos_5": null,
         "h2h_resumen": null
       },
+      "mid": "jgAQRW1l",
+      "url": "http://m.flashscore.com.ve/partido/jgAQRW1l/?d=1"
+    },
+    {
+      "match_slug": "2026-11-27_presov-svk_vs_lok-kosice-svk",
+      "deporte": "Fútbol",
+      "liga": "MUNDIAL: Amistosos de Clubs",
+      "fecha_local": "2026-11-27",
+      "hora_local": "09:00",
+      "estado": "Programado",
+      "equipo_local": "Presov (Svk)",
+      "equipo_visitante": "Lok. Kosice (Svk)",
+      "cuotas_1x2": {
+        "local_1": 1.44,
+        "empate_x": 4.71,
+        "visitante_2": 4.9
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "WWBtOl1D",
+      "url": "http://m.flashscore.com.ve/partido/WWBtOl1D/?d=1"
+    },
+    {
+      "match_slug": "2026-11-27_oster-swe_vs_karlskrona-swe",
+      "deporte": "Fútbol",
+      "liga": "MUNDIAL: Amistosos de Clubs",
+      "fecha_local": "2026-11-27",
+      "hora_local": "13:30",
+      "estado": "Programado",
+      "equipo_local": "Öster (Swe)",
+      "equipo_visitante": "Karlskrona (Swe)",
+      "cuotas_1x2": {
+        "local_1": 1.35,
+        "empate_x": 5.16,
+        "visitante_2": 5.76
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
       "mid": "z5jRiGbn",
       "url": "http://m.flashscore.com.ve/partido/z5jRiGbn/?d=1"
+    },
+    {
+      "match_slug": "2026-11-27_eggendorf-aut_vs_wolfsberger-am-aut",
+      "deporte": "Fútbol",
+      "liga": "MUNDIAL: Amistosos de Clubs",
+      "fecha_local": "2026-11-27",
+      "hora_local": "13:45",
+      "estado": "Programado",
+      "equipo_local": "Eggendorf (Aut)",
+      "equipo_visitante": "Wolfsberger (Am) (Aut)",
+      "cuotas_1x2": {
+        "local_1": null,
+        "empate_x": null,
+        "visitante_2": null
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "ljiExlG6",
+      "url": "http://m.flashscore.com.ve/partido/ljiExlG6/?d=1"
     },
     {
       "match_slug": "2026-11-27_chipre-f_vs_luxemburgo-f",
@@ -6859,9 +6931,9 @@
       "equipo_local": "Chipre F",
       "equipo_visitante": "Luxemburgo F",
       "cuotas_1x2": {
-        "local_1": null,
-        "empate_x": null,
-        "visitante_2": null
+        "local_1": 2.68,
+        "empate_x": 3.48,
+        "visitante_2": 2.23
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -6922,6 +6994,30 @@
       "url": "http://m.flashscore.com.ve/partido/lS8pLYCi/?d=1"
     },
     {
+      "match_slug": "2026-11-27_mauritania-f_vs_gambia-f",
+      "deporte": "Fútbol",
+      "liga": "MUNDIAL: Amistosos Internacionales Femeninos",
+      "fecha_local": "2026-11-27",
+      "hora_local": "13:00",
+      "estado": "Programado",
+      "equipo_local": "Mauritania F",
+      "equipo_visitante": "Gambia F",
+      "cuotas_1x2": {
+        "local_1": null,
+        "empate_x": null,
+        "visitante_2": null
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "23WvrKlg",
+      "url": "http://m.flashscore.com.ve/partido/23WvrKlg/?d=1"
+    },
+    {
       "match_slug": "2026-11-27_irlanda-norte-f_vs_grecia-f",
       "deporte": "Fútbol",
       "liga": "MUNDIAL: Amistosos Internacionales Femeninos",
@@ -6931,9 +7027,9 @@
       "equipo_local": "Irlanda del Norte F",
       "equipo_visitante": "Grecia F",
       "cuotas_1x2": {
-        "local_1": null,
-        "empate_x": null,
-        "visitante_2": null
+        "local_1": 2,
+        "empate_x": 3.36,
+        "visitante_2": 3.21
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -6955,9 +7051,9 @@
       "equipo_local": "Francia F",
       "equipo_visitante": "Venezuela F",
       "cuotas_1x2": {
-        "local_1": null,
-        "empate_x": null,
-        "visitante_2": null
+        "local_1": 1.02,
+        "empate_x": 11.1,
+        "visitante_2": 35
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -6979,9 +7075,9 @@
       "equipo_local": "Perú F",
       "equipo_visitante": "República Dominicana F",
       "cuotas_1x2": {
-        "local_1": null,
-        "empate_x": null,
-        "visitante_2": null
+        "local_1": 1.93,
+        "empate_x": 3.45,
+        "visitante_2": 3.33
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -7003,9 +7099,9 @@
       "equipo_local": "Bolivia F",
       "equipo_visitante": "Uruguay F",
       "cuotas_1x2": {
-        "local_1": null,
-        "empate_x": null,
-        "visitante_2": null
+        "local_1": 12.7,
+        "empate_x": 6.95,
+        "visitante_2": 1.11
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -7018,6 +7114,30 @@
       "url": "http://m.flashscore.com.ve/partido/lraXYp65/?d=1"
     },
     {
+      "match_slug": "2026-11-27_douanes-niamey_vs_sahel",
+      "deporte": "Fútbol",
+      "liga": "NÍGER: Super Ligue",
+      "fecha_local": "2026-11-27",
+      "hora_local": "11:00",
+      "estado": "Programado",
+      "equipo_local": "Douanes Niamey",
+      "equipo_visitante": "Sahel",
+      "cuotas_1x2": {
+        "local_1": null,
+        "empate_x": null,
+        "visitante_2": null
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "4Mma8jxn",
+      "url": "http://m.flashscore.com.ve/partido/4Mma8jxn/?d=1"
+    },
+    {
       "match_slug": "2026-11-27_shooting-stars_vs_rivers",
       "deporte": "Fútbol",
       "liga": "NIGERIA: NPFL",
@@ -7027,9 +7147,9 @@
       "equipo_local": "Shooting Stars",
       "equipo_visitante": "Rivers United",
       "cuotas_1x2": {
-        "local_1": null,
-        "empate_x": null,
-        "visitante_2": null
+        "local_1": 1.72,
+        "empate_x": 3.22,
+        "visitante_2": 4.63
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -7051,9 +7171,9 @@
       "equipo_local": "Jamaica F",
       "equipo_visitante": "Costa Rica F",
       "cuotas_1x2": {
-        "local_1": null,
-        "empate_x": null,
-        "visitante_2": null
+        "local_1": 1.31,
+        "empate_x": 4.35,
+        "visitante_2": 8.6
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -7195,9 +7315,9 @@
       "equipo_local": "Groningen",
       "equipo_visitante": "Willem II",
       "cuotas_1x2": {
-        "local_1": 1.4,
-        "empate_x": 4.75,
-        "visitante_2": 7.5
+        "local_1": 1.45,
+        "empate_x": 4.5,
+        "visitante_2": 6.5
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -7411,9 +7531,9 @@
       "equipo_local": "Nacional Asunción",
       "equipo_visitante": "Rubio Ñú",
       "cuotas_1x2": {
-        "local_1": null,
-        "empate_x": null,
-        "visitante_2": null
+        "local_1": 1.67,
+        "empate_x": 3.75,
+        "visitante_2": 4.75
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -7435,9 +7555,9 @@
       "equipo_local": "Sp. Luqueño",
       "equipo_visitante": "Olimpia",
       "cuotas_1x2": {
-        "local_1": null,
-        "empate_x": null,
-        "visitante_2": null
+        "local_1": 5,
+        "empate_x": 3.9,
+        "visitante_2": 1.62
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -7555,9 +7675,9 @@
       "equipo_local": "S. Wola",
       "equipo_visitante": "Legia II",
       "cuotas_1x2": {
-        "local_1": null,
-        "empate_x": null,
-        "visitante_2": null
+        "local_1": 2.04,
+        "empate_x": 3.52,
+        "visitante_2": 2.98
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -7579,9 +7699,9 @@
       "equipo_local": "Tychy",
       "equipo_visitante": "Chojniczanka",
       "cuotas_1x2": {
-        "local_1": null,
-        "empate_x": null,
-        "visitante_2": null
+        "local_1": 1.56,
+        "empate_x": 3.78,
+        "visitante_2": 4.92
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -7819,8 +7939,8 @@
       "equipo_local": "Jihlava",
       "equipo_visitante": "Trinec",
       "cuotas_1x2": {
-        "local_1": 1.44,
-        "empate_x": 4.1,
+        "local_1": 1.42,
+        "empate_x": 4.33,
         "visitante_2": 5.5
       },
       "estadisticas_complementarias": {
@@ -7867,9 +7987,9 @@
       "equipo_local": "Usti n. L.",
       "equipo_visitante": "Kromeriz",
       "cuotas_1x2": {
-        "local_1": 1.65,
-        "empate_x": 3.6,
-        "visitante_2": 4.33
+        "local_1": 1.5,
+        "empate_x": 3.75,
+        "visitante_2": 5.5
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -7939,9 +8059,9 @@
       "equipo_local": "U. Cluj",
       "equipo_visitante": "Sepsi Sf. Gheorghe",
       "cuotas_1x2": {
-        "local_1": 1.57,
-        "empate_x": 3.7,
-        "visitante_2": 5
+        "local_1": 1.53,
+        "empate_x": 3.75,
+        "visitante_2": 5.25
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -7963,9 +8083,9 @@
       "equipo_local": "Petrolul",
       "equipo_visitante": "FC Arges",
       "cuotas_1x2": {
-        "local_1": 2.05,
+        "local_1": 2.1,
         "empate_x": 3.2,
-        "visitante_2": 3.2
+        "visitante_2": 3.1
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -8587,9 +8707,9 @@
       "equipo_local": "Torpedo Moscow",
       "equipo_visitante": "SKA Khabarovsk",
       "cuotas_1x2": {
-        "local_1": null,
-        "empate_x": null,
-        "visitante_2": null
+        "local_1": 1.46,
+        "empate_x": 4.57,
+        "visitante_2": 6.9
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -8899,9 +9019,9 @@
       "equipo_local": "Stellenbosch",
       "equipo_visitante": "TS Galaxy",
       "cuotas_1x2": {
-        "local_1": null,
-        "empate_x": null,
-        "visitante_2": null
+        "local_1": 1.84,
+        "empate_x": 3.15,
+        "visitante_2": 4.09
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -8995,9 +9115,9 @@
       "equipo_local": "Kriens",
       "equipo_visitante": "Aarau",
       "cuotas_1x2": {
-        "local_1": null,
-        "empate_x": null,
-        "visitante_2": null
+        "local_1": 2.42,
+        "empate_x": 3.62,
+        "visitante_2": 2.33
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -9019,9 +9139,9 @@
       "equipo_local": "Etoile-Carouge",
       "equipo_visitante": "Lausanne Ouchy",
       "cuotas_1x2": {
-        "local_1": null,
-        "empate_x": null,
-        "visitante_2": null
+        "local_1": 3.95,
+        "empate_x": 3.68,
+        "visitante_2": 1.72
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -9043,9 +9163,9 @@
       "equipo_local": "Winterthur",
       "equipo_visitante": "Rapperswil-Jona",
       "cuotas_1x2": {
-        "local_1": null,
-        "empate_x": null,
-        "visitante_2": null
+        "local_1": 1.37,
+        "empate_x": 4.8,
+        "visitante_2": 5.89
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -9067,9 +9187,9 @@
       "equipo_local": "Uthai Thani",
       "equipo_visitante": "Sisaket United",
       "cuotas_1x2": {
-        "local_1": null,
-        "empate_x": null,
-        "visitante_2": null
+        "local_1": 1.64,
+        "empate_x": 3.8,
+        "visitante_2": 4.3
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -9139,9 +9259,9 @@
       "equipo_local": "Khujand",
       "equipo_visitante": "Barkchi Hisor",
       "cuotas_1x2": {
-        "local_1": null,
-        "empate_x": null,
-        "visitante_2": null
+        "local_1": 1.75,
+        "empate_x": 3.47,
+        "visitante_2": 3.98
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -9163,9 +9283,9 @@
       "equipo_local": "Alanyaspor",
       "equipo_visitante": "Konyaspor",
       "cuotas_1x2": {
-        "local_1": 2.5,
+        "local_1": 2.55,
         "empate_x": 3.25,
-        "visitante_2": 2.6
+        "visitante_2": 2.55
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -9187,9 +9307,9 @@
       "equipo_local": "Rizespor",
       "equipo_visitante": "Kasimpasa",
       "cuotas_1x2": {
-        "local_1": 1.81,
-        "empate_x": 3.7,
-        "visitante_2": 3.8
+        "local_1": 1.86,
+        "empate_x": 3.6,
+        "visitante_2": 3.6
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -9302,7 +9422,7 @@
       "deporte": "Fútbol",
       "liga": "TURQUÍA: U19 League",
       "fecha_local": "2026-11-27",
-      "hora_local": "08:00",
+      "hora_local": "06:00",
       "estado": "Programado",
       "equipo_local": "Alanyaspor Sub-19",
       "equipo_visitante": "Konyaspor Sub-19",
@@ -9331,9 +9451,9 @@
       "equipo_local": "Livyi Bereg",
       "equipo_visitante": "Kolos Kovalivka",
       "cuotas_1x2": {
-        "local_1": null,
-        "empate_x": null,
-        "visitante_2": null
+        "local_1": 2.58,
+        "empate_x": 3.13,
+        "visitante_2": 2.91
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -9355,9 +9475,9 @@
       "equipo_local": "Racing Montevideo",
       "equipo_visitante": "Liverpool M.",
       "cuotas_1x2": {
-        "local_1": 2.7,
+        "local_1": 2.9,
         "empate_x": 3.2,
-        "visitante_2": 2.6
+        "visitante_2": 2.45
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -9379,9 +9499,9 @@
       "equipo_local": "Buxoro",
       "equipo_visitante": "Mashal Muborak",
       "cuotas_1x2": {
-        "local_1": null,
-        "empate_x": null,
-        "visitante_2": null
+        "local_1": 1.23,
+        "empate_x": 5.46,
+        "visitante_2": 13.5
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -9403,9 +9523,9 @@
       "equipo_local": "Kokand 1912",
       "equipo_visitante": "Xorazm Urganch",
       "cuotas_1x2": {
-        "local_1": null,
-        "empate_x": null,
-        "visitante_2": null
+        "local_1": 2.04,
+        "empate_x": 3.33,
+        "visitante_2": 3.57
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -9427,9 +9547,9 @@
       "equipo_local": "Nam Dinh",
       "equipo_visitante": "Cong An Ha Noi",
       "cuotas_1x2": {
-        "local_1": null,
-        "empate_x": null,
-        "visitante_2": null
+        "local_1": 2.54,
+        "empate_x": 3.36,
+        "visitante_2": 2.32
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -9451,9 +9571,9 @@
       "equipo_local": "Song Lam Nghe An",
       "equipo_visitante": "Phu Dong Ninh Binh",
       "cuotas_1x2": {
-        "local_1": null,
-        "empate_x": null,
-        "visitante_2": null
+        "local_1": 3.53,
+        "empate_x": 2.9,
+        "visitante_2": 2.08
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
