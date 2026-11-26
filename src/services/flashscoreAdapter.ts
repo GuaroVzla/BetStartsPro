@@ -134,17 +134,38 @@ function toSportsMatch(record: StoredRecord, now: Date = new Date()): SportsMatc
   if (!record.equipo_local?.trim() || !record.equipo_visitante?.trim()) return null;
 
   const sport = SPORT_BY_LABEL[normalizeSportLabel(record.deporte)] ?? "soccer";
+
   // La fecha del encuentro viaja en el slug (YYYY-MM-DD_...) y en fecha_local;
   // fecha_extraccion es solo la fecha de la captura. Priorizar esas claves
   // permite sembrar hoy y mañana en un único payload sin fechar mal los partidos.
-  const fecha =
-    /^(\d{4}-\d{2}-\d{2})_/.exec(record.match_slug)?.[1] ??
-    (/^\d{4}-\d{2}-\d{2}$/.test(record.fecha_extraccion)
-      ? record.fecha_extraccion
-      : dateInVET());
+  const slugDate = /^(\d{4}-\d{2}-\d{2})_/.exec(record.match_slug)?.[1];
+  const extractionDate = /^\d{4}-\d{2}-\d{2}$/.test(record.fecha_extraccion)
+    ? record.fecha_extraccion
+    : dateInVET();
   const hora = /^\d{2}:\d{2}$/.test(record.hora_local ?? "") ? record.hora_local! : "12:00";
-  // Fecha y hora se validan juntas; un día/mes ambiguo o un año lejano se descarta.
-  const commenceTime = normalizeCommenceTime(`${fecha} ${hora}`, now);
+
+  // Intentamos primero con la fecha del slug (o fecha_extraccion).
+  // Si el partido resultante ya pasó (commenceTime < now) Y el estado es "scheduled",
+  // reasignamos al día siguiente para absorber payloads capturados con un solo día
+  // que contienen partidos de mañana sin actualizar el slug.
+  let fecha = slugDate ?? extractionDate;
+  let commenceTime = normalizeCommenceTime(`${fecha} ${hora}`, now);
+  if (!commenceTime) return null;
+
+  const startMs = new Date(commenceTime).getTime();
+  const isScheduled = record.estado !== "En Vivo" && record.estado !== "Finalizado";
+  if (isScheduled && startMs < now.getTime()) {
+    // El partido está programado pero su hora ya pasó: probamos el día siguiente.
+    const nextDay = new Date(Date.parse(`${fecha}T12:00:00Z`) + 86_400_000)
+      .toISOString()
+      .slice(0, 10);
+    const nextCommence = normalizeCommenceTime(`${nextDay} ${hora}`, now);
+    if (nextCommence) {
+      fecha = nextDay;
+      commenceTime = nextCommence;
+    }
+  }
+
   if (!commenceTime) return null;
   const status =
     record.estado === "En Vivo"
