@@ -63,7 +63,7 @@ const report = {
   window_vet: { today, tomorrow },
   sources: {},
   warnings: [],
-  counts: { odds_events: 0, api_sports_fixtures: 0, sportmonks_fixtures: 0, normalized: 0 },
+  counts: { odds_events: 0, api_sports_fixtures: 0, sportmonks_fixtures: 0, espn_events: 0, openligadb_matches: 0, normalized: 0 },
 };
 
 const normalized = [];
@@ -233,9 +233,90 @@ function dedupeNormalized(items) {
   return Array.from(map.values());
 }
 
+async function extractEspn() {
+  let count = 0;
+  for (const d of [today, tomorrow]) {
+    const compact = d.replace(/-/g, "");
+    const res = await fetchJson(`https://site.api.espn.com/apis/site/v2/sports/soccer/all/scoreboard?dates=${compact}&limit=400`);
+    if (!res.ok || !Array.isArray(res.json?.events)) {
+      report.warnings.push(`ESPN ${d}: HTTP ${res.status}`);
+      continue;
+    }
+    for (const ev of res.json.events) {
+      const comp = ev.competitions?.[0];
+      const competitors = comp?.competitors ?? [];
+      const homeObj = competitors.find((c) => c.homeAway === "home");
+      const awayObj = competitors.find((c) => c.homeAway === "away");
+      const home = homeObj?.team?.displayName ?? homeObj?.team?.name;
+      const away = awayObj?.team?.displayName ?? awayObj?.team?.name;
+      if (!home || !away) continue;
+      const dateVet = toVetDate(ev.date) ?? d;
+      if (!windowDates.has(dateVet)) continue;
+      const state = ev.status?.type?.state;
+      const status = state === "post" ? "finished" : state === "in" ? "live" : "scheduled";
+      const hScore = Number(homeObj?.score);
+      const aScore = Number(awayObj?.score);
+      const score = status !== "scheduled" && Number.isFinite(hScore) && Number.isFinite(aScore)
+        ? { home: hScore, away: aScore }
+        : undefined;
+      count += 1;
+      normalized.push({
+        match_key: `${dateVet}_${slugify(home)}_vs_${slugify(away)}`,
+        sport: "futbol",
+        league: ev.season?.slug ?? comp?.league?.name ?? "Fútbol",
+        fecha_vet: dateVet,
+        hora_vet: toVetTime(ev.date) ?? "00:00",
+        status,
+        ...(score ? { score } : {}),
+        home: { name: home },
+        away: { name: away },
+        odds_1x2: [],
+        provenance: "api",
+        source: "espn",
+      });
+    }
+  }
+  report.sources.espn = { enabled: true, ok: true, events: count };
+  report.counts.espn_events = count;
+}
+
+async function extractOpenLigaDb() {
+  const res = await fetchJson("https://api.openligadb.de/getmatchdata/bl1");
+  if (!res.ok || !Array.isArray(res.json)) {
+    report.sources.openligadb = { enabled: true, ok: false, status: res.status };
+    return;
+  }
+  let count = 0;
+  for (const m of res.json) {
+    const home = m.team1?.teamName;
+    const away = m.team2?.teamName;
+    const iso = m.matchDateTimeUTC ?? m.matchDateTime;
+    const dateVet = toVetDate(iso);
+    if (!home || !away || !dateVet || !windowDates.has(dateVet)) continue;
+    count += 1;
+    normalized.push({
+      match_key: `${dateVet}_${slugify(home)}_vs_${slugify(away)}`,
+      sport: "futbol",
+      league: m.leagueName ?? "Bundesliga",
+      fecha_vet: dateVet,
+      hora_vet: toVetTime(iso) ?? "00:00",
+      status: m.matchIsFinished ? "finished" : "scheduled",
+      home: { name: home },
+      away: { name: away },
+      odds_1x2: [],
+      provenance: "api",
+      source: "openligadb",
+    });
+  }
+  report.sources.openligadb = { enabled: true, ok: true, matches: count };
+  report.counts.openligadb_matches = count;
+}
+
 await extractOddsApi();
 await extractApiSports();
 await extractSportMonks();
+await extractEspn();
+await extractOpenLigaDb();
 
 const finalMatches = dedupeNormalized(normalized);
 report.counts.normalized = finalMatches.length;
