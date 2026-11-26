@@ -112,7 +112,7 @@ async function probeEspn() {
 
 async function probeTheSportsDb() {
   const key = process.env.THESPORTSDB_KEY;
-  if (!key) return record("TheSportsDB", "not_configured", "falta THESPORTSDB_KEY propia (la key 123 da 429)");
+  if (!key) return record("TheSportsDB", "not_configured", "falta THESPORTSDB_KEY propia");
   try {
     const result = await fetchJson(
       `https://www.thesportsdb.com/api/v1/json/${encodeURIComponent(key)}/eventsday.php?d=${dateVET(0)}&s=Soccer`,

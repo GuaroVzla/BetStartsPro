@@ -10,7 +10,7 @@ Validación ejecutable: `npm run sources:check` (`scripts/validate-sources.mjs`)
 | API-Sports | Sí (`APISPORTS_KEY`) | Fixtures, estado, standings, lesiones, stats, odds por evento | Activa si hay key | Fútbol, básquet, béisbol y hockey. |
 | SportMonks | Sí (`SPORTMONKS_KEY`) | Fixtures y cuotas de fútbol | Activa si hay key | Se usa como respaldo si API-Sports no devuelve eventos. |
 | ESPN (pública) | No | Fixtures, estado, sede y moneyline 1X2 | Activa | `soccer/all` cubre todas las competiciones de fútbol del día; feeds de NBA, Euroliga, NCAA (básquet), MLB, ligas invernales, NCAA (béisbol), NHL y NCAA (hockey). Endpoint no oficial; cache 30 min. |
-| TheSportsDB | Sí (`THESPORTSDB_KEY`, clave pública `123` válida) | Cartelera multi-deporte hoy/mañana, posiciones y forma | Activa si hay key | Sin cuotas 1X2; ~3 eventos por deporte/día. Tabla gratis de 5 filas y 1 resultado por equipo. Revalidada HTTP 200 el 2026-11-24. Sin key se omite. |
+| TheSportsDB | Sí (`THESPORTSDB_KEY`) | Cartelera multi-deporte hoy/mañana, posiciones y forma | Activa si hay key | Sin cuotas 1X2; ~3 eventos por deporte/día. Tabla gratis de 5 filas y 1 resultado por equipo. La clave pública `123` funciona de forma intermitente (HTTP 429), por eso se exige key propia. |
 | AllSportsAPI | Sí (`ALLSPORTSAPI_KEY`) | Fixtures de fútbol, cuotas 1X2 de varias casas y tablas reales | Activa si hay key | Tier gratuito: 2 ventanas de fixtures + odds y hasta 6 standings por actualización; caché 15 min. Sin xG ni lesiones. |
 | TheRundown | Sí (`THERUNDOWN_API_KEY`) | Fixtures multi-deporte y moneyline 1X2 de DraftKings/BetMGM/FanDuel | Activa si hay key | Plan gratis: 1 req/s, 20.000 data points/día, 5 min de retraso, 7 días de historia. `market_ids=1`, `main_line`, `hide_closed`, `offset=-240`, cache 30 min. |
 | OpenLigaDB | No | Fixtures/estado de Bundesliga | Activa | Respaldo de ESPN; se deduplica por fecha+equipos. |
@@ -21,7 +21,7 @@ Validación ejecutable: `npm run sources:check` (`scripts/validate-sources.mjs`)
 
 ### TheSportsDB: endpoints gratuitos en uso
 
-Con `THESPORTSDB_KEY` (clave pública `123`) se consumen solo endpoints del tier gratis:
+Con `THESPORTSDB_KEY` se consumen solo endpoints del tier gratis. La clave pública `123` puede responder, pero es frecuente el HTTP 429; se recomienda una key propia:
 
 | Endpoint | Uso en el motor | Límite gratis |
 |---|---|---|

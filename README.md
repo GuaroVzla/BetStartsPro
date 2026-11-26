@@ -114,7 +114,7 @@ Verificación:
 npm run sources:check
 ```
 
-Las fuentes premium se omiten solas si sus variables están vacías; no se inventan cuotas ni partidos. `THESPORTSDB_KEY` es opcional: sin una key propia la fuente se desactiva (la key pública `123` responde HTTP 429).
+Las fuentes premium se omiten solas si sus variables están vacías; no se inventan cuotas ni partidos. `THESPORTSDB_KEY` es opcional: sin una key propia la fuente se desactiva (la key pública `123` suele responder HTTP 429).
 
 ## Variables de entorno
 
@@ -124,6 +124,8 @@ Crea `.env.local` a partir de `.env.example`. Para habilitar cobertura premium a
 THE_ODDS_API_KEY=tu_clave_de_the_odds_api
 SPORTMONKS_KEY=tu_token_de_sportmonks
 APISPORTS_KEY=tu_clave_de_api_sports
+ALLSPORTSAPI_KEY=tu_clave_de_allsportsapi
+THERUNDOWN_API_KEY=tu_clave_de_therundown
 BOOKMAKER_URL=https://app.apuestasroyal.com/
 # Ruta al storageState exportado con `npm run royal:export` (nunca versionado).
 ROYAL_STORAGE_STATE=.royal-storage-state.json
