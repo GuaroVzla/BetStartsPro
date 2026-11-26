@@ -300,7 +300,7 @@ export function Dashboard({ initialData, renderedAt }: DashboardProps) {
         />
 
         <div className="mt-3">
-          <TopPicks picks={crossPicks} onOpenMatch={openMatch} />
+          <TopPicks picks={crossPicks} matches={filteredMatches} onOpenMatch={openMatch} />
         </div>
 
         <div className="mt-3">

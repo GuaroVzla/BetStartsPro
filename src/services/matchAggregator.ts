@@ -41,6 +41,7 @@ import { listCuratedMatches } from "@/services/curatedIngestStore";
 import { fetchAllSportsApiMatches } from "@/services/allSportsApiService";
 import { fetchFreeSourceMatches } from "@/services/freeSourcesService";
 import { enrichWithEspnStandings } from "@/services/espnStandingsService";
+import { enrichWithFallbackStandings } from "@/services/fallbackStandingsService";
 import { enrichWithTheSportsDbStats } from "@/services/theSportsDbStatsService";
 import { fetchTheRundownMatches } from "@/services/theRundownService";
 import { buildRankedFavorites } from "@/services/favoriteRankingService";
@@ -426,11 +427,11 @@ async function buildLiveLeague(league: LeagueInfo): Promise<LiveLeagueResult> {
       : fetchLeagueStandings(league),
     useSportMonks
       ? Promise.resolve({
-          injuries: [],
-          remaining: null,
-          supported: true,
-          error: undefined,
-        })
+        injuries: [],
+        remaining: null,
+        supported: true,
+        error: undefined,
+      })
       : fetchLeagueInjuries(league),
     fetchOddsForLeague(league),
   ]);
@@ -452,8 +453,8 @@ async function buildLiveLeague(league: LeagueInfo): Promise<LiveLeagueResult> {
   const statsResults = useSportMonks
     ? []
     : await Promise.all(
-        uniqueTeamIds.map((teamId) => fetchTeamStatistics(league, teamId)),
-      );
+      uniqueTeamIds.map((teamId) => fetchTeamStatistics(league, teamId)),
+    );
   const oddsEventResults = useSportMonks
     ? []
     : await Promise.all(events.map((event) => fetchEventOdds(league, event)));
@@ -486,10 +487,10 @@ async function buildLiveLeague(league: LeagueInfo): Promise<LiveLeagueResult> {
     );
     const sportMonksOddsEvent = useSportMonks
       ? findOddsEvent(
-          sportMonksResult.oddsEvents,
-          event.homeTeamName,
-          event.awayTeamName,
-        )
+        sportMonksResult.oddsEvents,
+        event.homeTeamName,
+        event.awayTeamName,
+      )
       : null;
     const apiSportsOdds = oddsEventResults[index]?.bookmakers ?? [];
     const bookmakers = dedupeBookmakers([
@@ -1067,30 +1068,30 @@ async function buildDashboardData(): Promise<DashboardData> {
     free.status === "fulfilled"
       ? free.value
       : failedSourceResult(
-          "espn",
-          {
-            matches: [],
-            warnings: [],
-            sources: { espn: false, sportsdb: false, openligadb: false },
-          } as Awaited<ReturnType<typeof fetchFreeSourceMatches>>,
-          "Promise.allSettled rechazado",
-        );
+        "espn",
+        {
+          matches: [],
+          warnings: [],
+          sources: { espn: false, sportsdb: false, openligadb: false },
+        } as Awaited<ReturnType<typeof fetchFreeSourceMatches>>,
+        "Promise.allSettled rechazado",
+      );
   const allSportsResult =
     allSports.status === "fulfilled"
       ? allSports.value
       : failedSourceResult(
-          "allsportsapi",
-          { matches: [], warnings: [], connected: false } as Awaited<ReturnType<typeof fetchAllSportsApiMatches>>,
-          "Promise.allSettled rechazado",
-        );
+        "allsportsapi",
+        { matches: [], warnings: [], connected: false } as Awaited<ReturnType<typeof fetchAllSportsApiMatches>>,
+        "Promise.allSettled rechazado",
+      );
   const rundownResult =
     rundownSettled.status === "fulfilled"
       ? rundownSettled.value
       : failedSourceResult(
-          "therundown",
-          { matches: [], warnings: [], connected: false } as Awaited<ReturnType<typeof fetchTheRundownMatches>>,
-          "Promise.allSettled rechazado",
-        );
+        "therundown",
+        { matches: [], warnings: [], connected: false } as Awaited<ReturnType<typeof fetchTheRundownMatches>>,
+        "Promise.allSettled rechazado",
+      );
 
   const adapters = [
     baseResult,
@@ -1194,7 +1195,8 @@ async function buildDashboardData(): Promise<DashboardData> {
     const captured = withCapturedBookmakerQuotes(baseUpcoming, ahora);
     const analyst = withTheAnalystInsights(captured.matches);
     const tsdbEnriched = await enrichWithTheSportsDbStats(analyst.matches);
-    const enriched = await enrichWithEspnStandings(tsdbEnriched.matches);
+    const espnEnriched = await enrichWithEspnStandings(tsdbEnriched.matches);
+    const enriched = await enrichWithFallbackStandings(espnEnriched.matches);
     return withRanking(
       finalizeDashboard(
         {
@@ -1267,7 +1269,8 @@ async function buildDashboardData(): Promise<DashboardData> {
   const captured = withCapturedBookmakerQuotes(mergedMatches, ahora);
   const analyst = withTheAnalystInsights(captured.matches);
   const tsdbEnriched = await enrichWithTheSportsDbStats(analyst.matches);
-  const enriched = await enrichWithEspnStandings(tsdbEnriched.matches);
+  const espnEnriched = await enrichWithEspnStandings(tsdbEnriched.matches);
+  const enriched = await enrichWithFallbackStandings(espnEnriched.matches);
   const finalMatches = enriched.matches;
   const leagues = Array.from(
     new Map(finalMatches.map((match) => [match.league.id, match.league])).values(),

@@ -22,6 +22,9 @@ export interface FavoriteProbability {
   team: string;
   probability: number;
   estimated: boolean;
+  probabilities?: Distribucion;
+  mostProbableOutcome?: OutcomeKey;
+  drawProbability?: number;
 }
 
 type Distribucion = Record<OutcomeKey, number>;
@@ -92,12 +95,19 @@ function distribucionMercado(match: SportsMatch, conEmpate: boolean): Distribuci
 function puntosPorPartido(form: readonly string[]): number | null {
   if (form.length === 0) return null;
   const recientes = form.slice(-VENTANA_FORMA);
-  const puntos = recientes.reduce((total, resultado) => {
-    if (resultado === "W") return total + 3;
-    if (resultado === "D") return total + 1;
-    return total;
-  }, 0);
-  return puntos / (recientes.length * 3);
+  // Ponderación con decaimiento temporal exponencial para priorizar los partidos más recientes
+  let ponderacionTotal = 0;
+  let puntosPonderados = 0;
+  recientes.forEach((resultado, idx) => {
+    // Los partidos más cercanos al final de la lista tienen mayor peso (decaimiento exponencial)
+    const factorTiempo = Math.exp(-0.12 * (recientes.length - 1 - idx));
+    let pts = 0;
+    if (resultado === "W") pts = 3;
+    else if (resultado === "D") pts = 1;
+    puntosPonderados += pts * factorTiempo;
+    ponderacionTotal += 3 * factorTiempo;
+  });
+  return ponderacionTotal > 0 ? puntosPonderados / ponderacionTotal : null;
 }
 
 function puntosEnSede(split: VenueSplit): number | null {
@@ -256,10 +266,18 @@ export function favoriteProbability(match: SportsMatch): FavoriteProbability {
         ? "home"
         : "away";
 
+  let mostProbableOutcome: OutcomeKey = side;
+  if (conEmpate && distribucion.draw > distribucion.home && distribucion.draw > distribucion.away) {
+    mostProbableOutcome = "draw";
+  }
+
   return {
     side,
     team: side === "home" ? match.home.name : match.away.name,
     probability: distribucion[side],
     estimated: factores.some((factor) => factor.imputado),
+    probabilities: distribucion,
+    mostProbableOutcome,
+    drawProbability: conEmpate ? distribucion.draw : 0,
   };
 }

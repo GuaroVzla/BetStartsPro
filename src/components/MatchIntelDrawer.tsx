@@ -28,7 +28,7 @@ import {
   formatPercent,
   formatRecord,
 } from "@/lib/format";
-import { cn } from "@/lib/utils";
+import { cn, namesLikelyMatch } from "@/lib/utils";
 import { SportIcon } from "@/components/SportIcon";
 import { TeamBadge } from "@/components/TeamBadge";
 
@@ -44,10 +44,10 @@ const TAB_ITEMS: Array<{
   label: string;
   icon: React.ComponentType<{ className?: string }>;
 }> = [
-  { key: "standings", label: "Clasificación", icon: BarChart3 },
-  { key: "performance", label: "Rendimiento", icon: Activity },
-  { key: "injuries", label: "Bajas", icon: Stethoscope },
-];
+    { key: "standings", label: "Clasificación", icon: BarChart3 },
+    { key: "performance", label: "Rendimiento", icon: Activity },
+    { key: "injuries", label: "Bajas", icon: Stethoscope },
+  ];
 
 function formLetter(result: FormResult): string {
   if (result === "W") return "V";
@@ -395,189 +395,215 @@ export function MatchIntelDrawer({ match, onClose }: MatchIntelDrawerProps) {
                 </div>
               ) : (
                 <>
-              <div className="grid grid-cols-2 gap-2">
-                {[
-                  {
-                    title: "Posición local",
-                    row: match.intel.standings.home,
-                    tone: "home" as const,
-                  },
-                  {
-                    title: "Posición visitante",
-                    row: match.intel.standings.away,
-                    tone: "away" as const,
-                  },
-                ].map(({ title, row, tone }) => (
-                  <div key={title} className="panel-inset p-3">
-                    <p className="eyebrow">{title}</p>
-                    <div className="mt-1.5 flex items-end justify-between gap-2">
-                      <div>
-                        <p className="tabular-nums text-xl font-bold text-slate-950 dark:text-white">
-                          {row.played > 0 ? `${row.position}º` : "N/D"}
-                        </p>
-                        <p className="mt-0.5 truncate text-[10px] text-slate-500 dark:text-slate-400">
-                          {row.teamShortName}
-                          {row.group ? ` · ${row.group}` : ""}
-                        </p>
-                      </div>
-                      <div className="text-right">
-                        <p
-                          className={cn(
-                            "tabular-nums text-lg font-bold",
-                            tone === "home"
-                              ? "text-blue-600 dark:text-blue-300"
-                              : "text-sky-600 dark:text-sky-300",
-                          )}
-                        >
-                          {formatPercent(row.winPercentage)}
-                        </p>
-                        <p className="text-[9px] text-slate-400">victorias</p>
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-
-              <div className="overflow-hidden rounded-xl border border-slate-200/80 dark:border-white/[0.07]">
-                <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-200/80 bg-slate-50/70 px-3 py-2.5 dark:border-white/[0.06] dark:bg-white/[0.025]">
-                  <p className="text-[10px] font-semibold uppercase tracking-[0.12em] text-slate-500 dark:text-slate-400">
-                    {match.league.name} · {standingLabel(match.sport)}
-                  </p>
-                  <p className="text-[9px] text-slate-400 dark:text-slate-500">
-                    {tableColumnsNote}
-                  </p>
-                </div>
-                <div className="overflow-x-auto">
-                  <table className="w-full min-w-[590px] border-collapse text-left text-[10px]">
-                    <thead>
-                      <tr className="bg-white/60 dark:bg-white/[0.015]">
-                        <th className="table-head px-2 py-2 text-center font-semibold">#</th>
-                        <th className="table-head px-2 py-2 font-semibold">Equipo</th>
-                        <th className="table-head px-2 py-2 text-center font-semibold">PJ</th>
-                        <th className="table-head px-2 py-2 text-center font-semibold">G</th>
-                        {showsDrawColumn ? (
-                          <th className="table-head px-2 py-2 text-center font-semibold">E</th>
-                        ) : null}
-                        <th className="table-head px-2 py-2 text-center font-semibold">P</th>
-                        <th className="table-head px-2 py-2 text-right font-semibold">
-                          {scoredLabel}
-                        </th>
-                        <th className="table-head px-2 py-2 text-right font-semibold">
-                          {concededLabel}
-                        </th>
-                        <th className="table-head px-2 py-2 text-right font-semibold">DIF</th>
-                        <th className="table-head px-2 py-2 text-right font-semibold">
-                          {standingLabel(match.sport)}
-                        </th>
-                        {showsDrawColumn ? (
-                          <th className="table-head px-2 py-2 text-right font-semibold">%</th>
-                        ) : null}
-                        <th className="table-head px-2 py-2 font-semibold">Forma</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {match.intel.standings.table.map((row, index) => {
-                        const isHome = row.teamId === match.home.id;
-                        const isAway = row.teamId === match.away.id;
-                        return (
-                          <tr
-                            key={`${row.teamId}-${row.position}-${index}`}
-                            className={cn(
-                              "border-t border-slate-100 dark:border-white/[0.045]",
-                              isHome
-                                ? "bg-blue-500/[0.06] dark:bg-blue-400/[0.055]"
-                                : isAway
-                                  ? "bg-sky-500/[0.05] dark:bg-sky-400/[0.045]"
-                                  : "hover:bg-slate-50 dark:hover:bg-white/[0.015]",
-                            )}
-                          >
-                            <td className="px-2 py-2 text-center tabular-nums font-semibold text-slate-500 dark:text-slate-400">
-                              {row.position}
-                            </td>
-                            <td className="px-2 py-2">
-                              <div className="flex items-center gap-1.5">
-                                <span className="max-w-[130px] truncate font-medium text-slate-800 dark:text-slate-100">
-                                  {row.teamName}
-                                </span>
-                                {isHome ? (
-                                  <span className="rounded bg-blue-500/15 px-1 py-0.5 text-[8px] font-bold uppercase text-blue-600 dark:text-blue-300">
-                                    Local
-                                  </span>
-                                ) : isAway ? (
-                                  <span className="rounded bg-sky-500/15 px-1 py-0.5 text-[8px] font-bold uppercase text-sky-600 dark:text-sky-300">
-                                    Visita
-                                  </span>
-                                ) : null}
-                              </div>
-                              {row.group ? (
-                                <span className="text-[8px] text-slate-400 dark:text-slate-500">
-                                  {row.group}
-                                </span>
-                              ) : null}
-                            </td>
-                            <td className="px-2 py-2 text-center tabular-nums text-slate-600 dark:text-slate-300">
-                              {row.played}
-                            </td>
-                            <td className="px-2 py-2 text-center tabular-nums text-slate-600 dark:text-slate-300">
-                              {row.wins}
-                            </td>
-                            {showsDrawColumn ? (
-                              <td className="px-2 py-2 text-center tabular-nums text-slate-600 dark:text-slate-300">
-                                {row.draws}
-                              </td>
-                            ) : null}
-                            <td className="px-2 py-2 text-center tabular-nums text-slate-600 dark:text-slate-300">
-                              {row.losses}
-                            </td>
-                            <td className="px-2 py-2 text-right tabular-nums text-slate-600 dark:text-slate-300">
-                              {row.scored}
-                            </td>
-                            <td className="px-2 py-2 text-right tabular-nums text-slate-600 dark:text-slate-300">
-                              {row.conceded}
-                            </td>
-                            <td
+                  <div className="grid grid-cols-2 gap-2">
+                    {[
+                      {
+                        title: "Posición local",
+                        row: match.intel.standings.home,
+                        tone: "home" as const,
+                      },
+                      {
+                        title: "Posición visitante",
+                        row: match.intel.standings.away,
+                        tone: "away" as const,
+                      },
+                    ].map(({ title, row, tone }) => (
+                      <div key={title} className="panel-inset p-3">
+                        <p className="eyebrow">{title}</p>
+                        <div className="mt-1.5 flex items-end justify-between gap-2">
+                          <div>
+                            <p className="tabular-nums text-xl font-bold text-slate-950 dark:text-white">
+                              {row.played > 0 ? `${row.position}º` : "N/D"}
+                            </p>
+                            <p className="mt-0.5 truncate text-[10px] text-slate-500 dark:text-slate-400">
+                              {row.teamShortName}
+                              {row.group ? ` · ${row.group}` : ""}
+                            </p>
+                          </div>
+                          <div className="text-right">
+                            <p
                               className={cn(
-                                "px-2 py-2 text-right tabular-nums font-semibold",
-                                row.difference > 0
+                                "tabular-nums text-lg font-bold",
+                                tone === "home"
                                   ? "text-blue-600 dark:text-blue-300"
-                                  : row.difference < 0
-                                    ? "text-rose-500 dark:text-rose-300"
-                                    : "text-slate-500",
+                                  : "text-sky-600 dark:text-sky-300",
                               )}
                             >
-                              {row.difference > 0 ? "+" : ""}
-                              {row.difference}
-                            </td>
-                            <td className="px-2 py-2 text-right tabular-nums font-semibold text-slate-800 dark:text-slate-100">
-                              {sport.key === "soccer" || sport.key === "hockey"
-                                ? row.points
-                                : formatPercent(row.winPercentage, 0)}
-                            </td>
+                              {formatPercent(row.winPercentage)}
+                            </p>
+                            <p className="text-[9px] text-slate-400">victorias</p>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+
+                  <div className="overflow-hidden rounded-xl border border-slate-200/80 dark:border-white/[0.07]">
+                    <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-200/80 bg-slate-50/70 px-3 py-2.5 dark:border-white/[0.06] dark:bg-white/[0.025]">
+                      <p className="text-[10px] font-semibold uppercase tracking-[0.12em] text-slate-500 dark:text-slate-400">
+                        {match.league.name} · {standingLabel(match.sport)}
+                      </p>
+                      <p className="text-[9px] text-slate-400 dark:text-slate-500">
+                        {tableColumnsNote}
+                      </p>
+                    </div>
+                    <div className="overflow-x-auto">
+                      <table className="w-full min-w-[590px] border-collapse text-left text-[10px]">
+                        <thead>
+                          <tr className="bg-white/60 dark:bg-white/[0.015]">
+                            <th className="table-head px-2 py-2 text-center font-semibold">#</th>
+                            <th className="table-head px-2 py-2 font-semibold">Equipo</th>
+                            <th className="table-head px-2 py-2 text-center font-semibold">PJ</th>
+                            <th className="table-head px-2 py-2 text-center font-semibold">G</th>
                             {showsDrawColumn ? (
-                              <td className="px-2 py-2 text-right tabular-nums text-slate-500 dark:text-slate-400">
-                                {formatPercent(row.winPercentage, 0)}
-                              </td>
+                              <th className="table-head px-2 py-2 text-center font-semibold">E</th>
                             ) : null}
-                            <td className="px-2 py-2">
-                              <FormPills form={row.form} />
-                            </td>
+                            <th className="table-head px-2 py-2 text-center font-semibold">P</th>
+                            <th className="table-head px-2 py-2 text-right font-semibold">
+                              {scoredLabel}
+                            </th>
+                            <th className="table-head px-2 py-2 text-right font-semibold">
+                              {concededLabel}
+                            </th>
+                            <th className="table-head px-2 py-2 text-right font-semibold">DIF</th>
+                            <th className="table-head px-2 py-2 text-right font-semibold">
+                              {standingLabel(match.sport)}
+                            </th>
+                            {showsDrawColumn ? (
+                              <th className="table-head px-2 py-2 text-right font-semibold">%</th>
+                            ) : null}
+                            <th className="table-head px-2 py-2 font-semibold">Forma</th>
                           </tr>
-                        );
-                      })}
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-              <p className="flex items-start gap-1.5 text-[9px] leading-relaxed text-slate-400 dark:text-slate-500 sm:hidden">
-                <Info className="mt-0.5 h-3 w-3 shrink-0" />
-                Desliza la tabla horizontalmente para ver toda la clasificación
-                y la forma reciente.
-              </p>
-              <p className="hidden items-start gap-1.5 text-[9px] leading-relaxed text-slate-400 dark:text-slate-500 sm:flex">
-                <Info className="mt-0.5 h-3 w-3 shrink-0" />
-                Clasificación de la temporada actual. En ligas con conferencias o
-                grupos, la posición corresponde al grupo indicado.
-              </p>
+                        </thead>
+                        <tbody>
+                          {match.intel.standings.table.map((row, index) => {
+                            const isHome = row.teamId === match.home.id || namesLikelyMatch(row.teamName, match.home.name);
+                            const isAway = row.teamId === match.away.id || namesLikelyMatch(row.teamName, match.away.name);
+                            return (
+                              <tr
+                                key={`${row.teamId}-${row.position}-${index}`}
+                                className={cn(
+                                  "border-t transition-colors",
+                                  isHome
+                                    ? "bg-emerald-500/10 dark:bg-emerald-500/15 border-l-4 border-l-emerald-600 dark:border-l-emerald-400 font-semibold"
+                                    : isAway
+                                      ? "bg-blue-500/10 dark:bg-blue-500/15 border-l-4 border-l-blue-600 dark:border-l-blue-400 font-semibold"
+                                      : "border-slate-100 hover:bg-slate-50/80 dark:border-white/[0.045] dark:hover:bg-white/[0.02]",
+                                )}
+                              >
+                                <td className="px-2.5 py-2 text-center tabular-nums font-bold">
+                                  {isHome ? (
+                                    <span className="inline-flex h-5 w-5 items-center justify-center rounded-full bg-emerald-600 text-[9px] font-black text-white shadow-sm">
+                                      {row.position}
+                                    </span>
+                                  ) : isAway ? (
+                                    <span className="inline-flex h-5 w-5 items-center justify-center rounded-full bg-blue-600 text-[9px] font-black text-white shadow-sm">
+                                      {row.position}
+                                    </span>
+                                  ) : (
+                                    <span className="text-slate-500 dark:text-slate-400">
+                                      {row.position}
+                                    </span>
+                                  )}
+                                </td>
+                                <td className="px-2 py-2">
+                                  <div className="flex items-center gap-1.5">
+                                    <span
+                                      className={cn(
+                                        "max-w-[140px] truncate",
+                                        isHome || isAway
+                                          ? "font-bold text-slate-950 dark:text-white"
+                                          : "font-medium text-slate-800 dark:text-slate-200",
+                                      )}
+                                    >
+                                      {row.teamName}
+                                    </span>
+                                    {isHome ? (
+                                      <span className="rounded-md bg-emerald-600 px-1.5 py-0.5 text-[8px] font-black tracking-wide text-white shadow-sm">
+                                        LOCAL
+                                      </span>
+                                    ) : isAway ? (
+                                      <span className="rounded-md bg-blue-600 px-1.5 py-0.5 text-[8px] font-black tracking-wide text-white shadow-sm">
+                                        VISITA
+                                      </span>
+                                    ) : null}
+                                  </div>
+                                  <div className="flex items-center gap-1 mt-0.5">
+                                    {row.note ? (
+                                      <span className="text-[8px] font-medium text-amber-600 dark:text-amber-400">
+                                        {row.note}
+                                      </span>
+                                    ) : null}
+                                    {row.group ? (
+                                      <span className="text-[8px] text-slate-400 dark:text-slate-500">
+                                        · {row.group}
+                                      </span>
+                                    ) : null}
+                                  </div>
+                                </td>
+                                <td className="px-2 py-2 text-center tabular-nums text-slate-600 dark:text-slate-300">
+                                  {row.played}
+                                </td>
+                                <td className="px-2 py-2 text-center tabular-nums text-slate-600 dark:text-slate-300">
+                                  {row.wins}
+                                </td>
+                                {showsDrawColumn ? (
+                                  <td className="px-2 py-2 text-center tabular-nums text-slate-600 dark:text-slate-300">
+                                    {row.draws}
+                                  </td>
+                                ) : null}
+                                <td className="px-2 py-2 text-center tabular-nums text-slate-600 dark:text-slate-300">
+                                  {row.losses}
+                                </td>
+                                <td className="px-2 py-2 text-right tabular-nums text-slate-600 dark:text-slate-300">
+                                  {row.scored}
+                                </td>
+                                <td className="px-2 py-2 text-right tabular-nums text-slate-600 dark:text-slate-300">
+                                  {row.conceded}
+                                </td>
+                                <td
+                                  className={cn(
+                                    "px-2 py-2 text-right tabular-nums font-semibold",
+                                    row.difference > 0
+                                      ? "text-blue-600 dark:text-blue-300"
+                                      : row.difference < 0
+                                        ? "text-rose-500 dark:text-rose-300"
+                                        : "text-slate-500",
+                                  )}
+                                >
+                                  {row.difference > 0 ? "+" : ""}
+                                  {row.difference}
+                                </td>
+                                <td className="px-2 py-2 text-right tabular-nums font-semibold text-slate-800 dark:text-slate-100">
+                                  {sport.key === "soccer" || sport.key === "hockey"
+                                    ? row.points
+                                    : formatPercent(row.winPercentage, 0)}
+                                </td>
+                                {showsDrawColumn ? (
+                                  <td className="px-2 py-2 text-right tabular-nums text-slate-500 dark:text-slate-400">
+                                    {formatPercent(row.winPercentage, 0)}
+                                  </td>
+                                ) : null}
+                                <td className="px-2 py-2">
+                                  <FormPills form={row.form} />
+                                </td>
+                              </tr>
+                            );
+                          })}
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                  <p className="flex items-start gap-1.5 text-[9px] leading-relaxed text-slate-400 dark:text-slate-500 sm:hidden">
+                    <Info className="mt-0.5 h-3 w-3 shrink-0" />
+                    Desliza la tabla horizontalmente para ver toda la clasificación
+                    y la forma reciente.
+                  </p>
+                  <p className="hidden items-start gap-1.5 text-[9px] leading-relaxed text-slate-400 dark:text-slate-500 sm:flex">
+                    <Info className="mt-0.5 h-3 w-3 shrink-0" />
+                    Clasificación de la temporada actual. En ligas con conferencias o
+                    grupos, la posición corresponde al grupo indicado.
+                  </p>
                 </>
               )}
             </div>
