@@ -20,7 +20,7 @@
         "empate_x": 4.2,
         "visitante_2": 1.69
       },
-      "capturado_en": "2026-11-25T19:28:34-04:00",
+      "capturado_en": "2026-11-25T22:22:32-04:00",
       "url": "https://app.apuestasroyal.com/",
       "nota": "Cuota 1X2 publicada por la API autenticada del lobby de Apuestas Royal"
     },
@@ -38,7 +38,7 @@
         "empate_x": 2.94,
         "visitante_2": 3.8
       },
-      "capturado_en": "2026-11-25T19:28:34-04:00",
+      "capturado_en": "2026-11-25T22:22:32-04:00",
       "url": "https://app.apuestasroyal.com/",
       "nota": "Cuota 1X2 publicada por la API autenticada del lobby de Apuestas Royal"
     },
@@ -56,7 +56,7 @@
         "empate_x": 3.7,
         "visitante_2": 3.65
       },
-      "capturado_en": "2026-11-25T19:28:34-04:00",
+      "capturado_en": "2026-11-25T22:22:32-04:00",
       "url": "https://app.apuestasroyal.com/",
       "nota": "Cuota 1X2 publicada por la API autenticada del lobby de Apuestas Royal"
     },
@@ -74,7 +74,7 @@
         "empate_x": 3.9,
         "visitante_2": 2.04
       },
-      "capturado_en": "2026-11-25T19:28:34-04:00",
+      "capturado_en": "2026-11-25T22:22:32-04:00",
       "url": "https://app.apuestasroyal.com/",
       "nota": "Cuota 1X2 publicada por la API autenticada del lobby de Apuestas Royal"
     },
@@ -88,11 +88,11 @@
       "equipo_visitante": "GKS Katowice",
       "mercado": "1X2",
       "cuotas_1x2": {
-        "local_1": 2.8,
+        "local_1": 2.94,
         "empate_x": 3.55,
-        "visitante_2": 2.3
+        "visitante_2": 2.2
       },
-      "capturado_en": "2026-11-25T19:28:34-04:00",
+      "capturado_en": "2026-11-25T22:22:32-04:00",
       "url": "https://app.apuestasroyal.com/",
       "nota": "Cuota 1X2 publicada por la API autenticada del lobby de Apuestas Royal"
     },
@@ -110,7 +110,7 @@
         "empate_x": 8.2,
         "visitante_2": 14
       },
-      "capturado_en": "2026-11-25T19:28:34-04:00",
+      "capturado_en": "2026-11-25T22:22:32-04:00",
       "url": "https://app.apuestasroyal.com/",
       "nota": "Cuota 1X2 publicada por la API autenticada del lobby de Apuestas Royal"
     },
@@ -128,7 +128,7 @@
         "empate_x": 3.55,
         "visitante_2": 3.25
       },
-      "capturado_en": "2026-11-25T19:28:34-04:00",
+      "capturado_en": "2026-11-25T22:22:32-04:00",
       "url": "https://app.apuestasroyal.com/",
       "nota": "Cuota 1X2 publicada por la API autenticada del lobby de Apuestas Royal"
     },
@@ -146,7 +146,25 @@
         "empate_x": 3.5,
         "visitante_2": 3
       },
-      "capturado_en": "2026-11-25T19:28:34-04:00",
+      "capturado_en": "2026-11-25T22:22:32-04:00",
+      "url": "https://app.apuestasroyal.com/",
+      "nota": "Cuota 1X2 publicada por la API autenticada del lobby de Apuestas Royal"
+    },
+    {
+      "match_slug": "2026-11-26_independiente-2_vs_gimnasia-mendoza-2",
+      "deporte": "Fútbol",
+      "liga": "ARGENTINA: División Reserva - Clausura - Playoffs",
+      "fecha_local": "2026-11-26",
+      "hora_local": "18:00",
+      "equipo_local": "Independiente 2",
+      "equipo_visitante": "Gimnasia Mendoza 2",
+      "mercado": "1X2",
+      "cuotas_1x2": {
+        "local_1": 1.81,
+        "empate_x": 3.35,
+        "visitante_2": 4
+      },
+      "capturado_en": "2026-11-25T22:22:32-04:00",
       "url": "https://app.apuestasroyal.com/",
       "nota": "Cuota 1X2 publicada por la API autenticada del lobby de Apuestas Royal"
     },
@@ -164,7 +182,7 @@
         "empate_x": 14,
         "visitante_2": 20
       },
-      "capturado_en": "2026-11-25T19:28:34-04:00",
+      "capturado_en": "2026-11-25T22:22:32-04:00",
       "url": "https://app.apuestasroyal.com/",
       "nota": "Cuota 1X2 publicada por la API autenticada del lobby de Apuestas Royal"
     },
@@ -182,7 +200,7 @@
         "empate_x": 3.45,
         "visitante_2": 3.6
       },
-      "capturado_en": "2026-11-25T19:28:34-04:00",
+      "capturado_en": "2026-11-25T22:22:32-04:00",
       "url": "https://app.apuestasroyal.com/",
       "nota": "Cuota 1X2 publicada por la API autenticada del lobby de Apuestas Royal"
     },
@@ -200,7 +218,7 @@
         "empate_x": 3.95,
         "visitante_2": 4.6
       },
-      "capturado_en": "2026-11-25T19:28:34-04:00",
+      "capturado_en": "2026-11-25T22:22:32-04:00",
       "url": "https://app.apuestasroyal.com/",
       "nota": "Cuota 1X2 publicada por la API autenticada del lobby de Apuestas Royal"
     },
@@ -218,7 +236,7 @@
         "empate_x": 3.8,
         "visitante_2": 4.1
       },
-      "capturado_en": "2026-11-25T19:28:34-04:00",
+      "capturado_en": "2026-11-25T22:22:32-04:00",
       "url": "https://app.apuestasroyal.com/",
       "nota": "Cuota 1X2 publicada por la API autenticada del lobby de Apuestas Royal"
     },
@@ -236,43 +254,25 @@
         "empate_x": 5.2,
         "visitante_2": 8.8
       },
-      "capturado_en": "2026-11-25T19:28:34-04:00",
+      "capturado_en": "2026-11-25T22:22:32-04:00",
       "url": "https://app.apuestasroyal.com/",
       "nota": "Cuota 1X2 publicada por la API autenticada del lobby de Apuestas Royal"
     },
     {
-      "match_slug": "2026-11-27_dukla-prague_vs_silon-taborsko",
+      "match_slug": "2026-11-27_tristan-suarez_vs_gimnasia-y-tiro-salta",
       "deporte": "Fútbol",
-      "liga": "FNL",
+      "liga": "Primera Nacional",
       "fecha_local": "2026-11-27",
-      "hora_local": "13:00",
-      "equipo_local": "Dukla Prague",
-      "equipo_visitante": "FC Silon Taborsko",
+      "hora_local": "20:00",
+      "equipo_local": "Tristan Suarez",
+      "equipo_visitante": "Gimnasia Y Tiro de Salta",
       "mercado": "1X2",
       "cuotas_1x2": {
-        "local_1": 1.79,
-        "empate_x": 3.55,
-        "visitante_2": 3.85
+        "local_1": 1.84,
+        "empate_x": 3.15,
+        "visitante_2": 4.5
       },
-      "capturado_en": "2026-11-25T19:28:34-04:00",
-      "url": "https://app.apuestasroyal.com/",
-      "nota": "Cuota 1X2 publicada por la API autenticada del lobby de Apuestas Royal"
-    },
-    {
-      "match_slug": "2026-11-30_goztepe-sk_vs_trabzonspor",
-      "deporte": "Fútbol",
-      "liga": "Superliga",
-      "fecha_local": "2026-11-30",
-      "hora_local": "12:00",
-      "equipo_local": "Goztepe SK",
-      "equipo_visitante": "Trabzonspor",
-      "mercado": "1X2",
-      "cuotas_1x2": {
-        "local_1": 3.1,
-        "empate_x": 3.75,
-        "visitante_2": 2.08
-      },
-      "capturado_en": "2026-11-25T19:28:34-04:00",
+      "capturado_en": "2026-11-25T22:22:32-04:00",
       "url": "https://app.apuestasroyal.com/",
       "nota": "Cuota 1X2 publicada por la API autenticada del lobby de Apuestas Royal"
     }
