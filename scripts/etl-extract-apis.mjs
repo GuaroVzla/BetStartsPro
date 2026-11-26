@@ -233,6 +233,13 @@ function dedupeNormalized(items) {
   return Array.from(map.values());
 }
 
+function americanToDecimal(raw) {
+  const n = Number(String(raw ?? "").replace(/^\+/, ""));
+  if (!Number.isFinite(n) || n === 0) return null;
+  const dec = n > 0 ? 1 + n / 100 : 1 + 100 / Math.abs(n);
+  return Number(dec.toFixed(3));
+}
+
 async function extractEspn() {
   let count = 0;
   for (const d of [today, tomorrow]) {
@@ -259,6 +266,22 @@ async function extractEspn() {
       const score = status !== "scheduled" && Number.isFinite(hScore) && Number.isFinite(aScore)
         ? { home: hScore, away: aScore }
         : undefined;
+      const odds1x2 = [];
+      for (const odd of comp?.odds ?? []) {
+        const ml = odd?.moneyline;
+        const h = americanToDecimal(ml?.home?.close?.odds ?? ml?.home?.open?.odds);
+        const dOdd = americanToDecimal(ml?.draw?.close?.odds ?? ml?.draw?.open?.odds ?? odd?.drawOdds?.moneyLine);
+        const a = americanToDecimal(ml?.away?.close?.odds ?? ml?.away?.open?.odds);
+        if (h && dOdd && a) {
+          odds1x2.push({
+            bookmaker: odd?.provider?.displayName ?? odd?.provider?.name ?? "DraftKings",
+            canonical: slugify(odd?.provider?.name ?? "draftkings"),
+            local_1: h,
+            empate_x: dOdd,
+            visitante_2: a,
+          });
+        }
+      }
       count += 1;
       normalized.push({
         match_key: `${dateVet}_${slugify(home)}_vs_${slugify(away)}`,
@@ -270,7 +293,7 @@ async function extractEspn() {
         ...(score ? { score } : {}),
         home: { name: home },
         away: { name: away },
-        odds_1x2: [],
+        odds_1x2: odds1x2,
         provenance: "api",
         source: "espn",
       });

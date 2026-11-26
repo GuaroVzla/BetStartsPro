@@ -11398,5 +11398,68 @@
       "away": 2.31
     },
     "source": "epl-2024-25.csv"
+  },
+  {
+    "id": "2026-11-26_gangwon-fc_vs_kitchee-sc",
+    "date": "2026-11-26T06:00:00-04:00",
+    "leagueId": "group-stage",
+    "home": "Gangwon FC",
+    "away": "Kitchee SC",
+    "homeGoals": 3,
+    "awayGoals": 2
+  },
+  {
+    "id": "2026-11-26_kuching-city_vs_phnom-penh-crown-fc",
+    "date": "2026-11-26T06:00:00-04:00",
+    "leagueId": "group-stage",
+    "home": "Kuching City",
+    "away": "Phnom Penh Crown FC",
+    "homeGoals": 3,
+    "awayGoals": 0
+  },
+  {
+    "id": "2026-11-26_tampines-rovers-fc_vs_shanghai-shenhua-fc",
+    "date": "2026-11-26T06:00:00-04:00",
+    "leagueId": "group-stage",
+    "home": "Tampines Rovers FC",
+    "away": "Shanghai Shenhua FC",
+    "homeGoals": 1,
+    "awayGoals": 7
+  },
+  {
+    "id": "2026-11-26_bg-pathum-united_vs_lion-city-sailors-fc",
+    "date": "2026-11-26T08:15:00-04:00",
+    "leagueId": "group-stage",
+    "home": "BG Pathum United",
+    "away": "Lion City Sailors FC",
+    "homeGoals": 0,
+    "awayGoals": 3
+  },
+  {
+    "id": "2026-11-26_pkr-svay-rieng_vs_machida-zelvia",
+    "date": "2026-11-26T08:15:00-04:00",
+    "leagueId": "group-stage",
+    "home": "PKR Svay Rieng",
+    "away": "Machida Zelvia",
+    "homeGoals": 2,
+    "awayGoals": 0
+  },
+  {
+    "id": "2026-11-26_tai-po-fc_vs_adelaide-united-fc",
+    "date": "2026-11-26T08:15:00-04:00",
+    "leagueId": "group-stage",
+    "home": "Tai Po FC",
+    "away": "Adelaide United FC",
+    "homeGoals": 1,
+    "awayGoals": 7
+  },
+  {
+    "id": "2026-11-27_cr-belouizdad_vs_douanes",
+    "date": "2026-11-27T15:00:00-04:00",
+    "leagueId": "second-preliminary-round",
+    "home": "CR Belouizdad",
+    "away": "Douanes",
+    "homeGoals": 0,
+    "awayGoals": 0
   }
 ]
