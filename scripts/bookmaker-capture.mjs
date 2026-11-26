@@ -3,12 +3,13 @@
  * Capturador de cuotas visibles de casas de apuestas (Altenar / widget propio).
  *
  * NUNCA inventa cuotas: solo lee lo que el navegador muestra (shadow DOM) y lo
- * que responses XHR exponen como diagnóstico. Sin sesión autenticada no hay
- * cotizaciones y el script termina en modo diagnóstico.
+ * que responses XHR exponen como diagnóstico. Triunfobet se captura desde el
+ * widget público, sin login ni sesión; Apuestas Royal necesita una sesión
+ * exportada (ROYAL_STORAGE_STATE).
  *
  * Uso:
  *   node scripts/bookmaker-capture.mjs --casa triunfobet --dry-run
- *   node scripts/bookmaker-capture.mjs --casa triunfobet --profile C:/tmp/perfil --write
+ *   node scripts/bookmaker-capture.mjs --casa triunfobet --write --headed
  *   node scripts/bookmaker-capture.mjs --casa apuestas-royal --url https://... --dry-run
  */
 import { readFile, writeFile } from "node:fs/promises";
@@ -36,13 +37,6 @@ const CASAS = {
   },
 };
 
-const SELECTORES_USUARIO =
-  'input[name="username"], input[name="login"], input[name="user"], input[name="email"], input[type="email"], #username, #user, #email, input[placeholder*="usuario" i]';
-const SELECTORES_PASSWORD =
-  'input[type="password"], input[name="password"], #password, #pass';
-const SELECTORES_ENVIO =
-  'button[type="submit"], input[type="submit"], #login-user, button:has-text("Iniciar sesión"), button:has-text("Iniciar Sesion"), button:has-text("Acceder"), button:has-text("Login")';
-
 function listaSelectores(valor, fallback) {
   return String(valor || fallback)
     .split(",")
@@ -50,17 +44,7 @@ function listaSelectores(valor, fallback) {
     .filter(Boolean);
 }
 
-function configuracionLogin(casa, urlCaptura) {
-  if (casa === "triunfobet") {
-    return {
-      url: process.env.TRIUNFOBET_LOGIN_URL || "https://triunfobet.com/login",
-      usuario: process.env.TB_USER ?? process.env.TRIUNFOBET_USER ?? "",
-      password: process.env.TB_PASS ?? process.env.TRIUNFOBET_PASS ?? "",
-      selectoresUsuario: listaSelectores(process.env.TB_USER_SELECTOR, SELECTORES_USUARIO),
-      selectoresPassword: listaSelectores(process.env.TB_PASS_SELECTOR, SELECTORES_PASSWORD),
-      selectoresEnvio: listaSelectores(process.env.TB_SUBMIT_SELECTOR, SELECTORES_ENVIO),
-    };
-  }
+function configuracionLogin() {
   return {
     url:
       process.env.APUESTAS_ROYAL_LOGIN_URL ||
@@ -98,8 +82,8 @@ async function primerVisible(page, selectores) {
   return null;
 }
 
-async function asegurarLogin(page, casa, urlCaptura) {
-  const cfg = configuracionLogin(casa, urlCaptura);
+async function asegurarLogin(page) {
+  const cfg = configuracionLogin();
   if (!cfg.usuario || !cfg.password) {
     console.log(
       "LOGIN_OMITIDO: sin credenciales en el entorno; se usa la sesión existente (--profile/--state) si la hay.",
@@ -122,8 +106,7 @@ async function asegurarLogin(page, casa, urlCaptura) {
     const password = await primerVisible(page, cfg.selectoresPassword);
     if (!usuario || !password) {
       console.log(
-        "LOGIN_SELECTORES_NO_ENCONTRADOS: ajuste TB_USER_SELECTOR/TB_PASS_SELECTOR " +
-          "(o ROYAL_USER_SELECTOR/ROYAL_PASS_SELECTOR) según el formulario real.",
+        "LOGIN_SELECTORES_NO_ENCONTRADOS: ajuste ROYAL_USER_SELECTOR/ROYAL_PASS_SELECTOR según el formulario real.",
       );
       return "fallido";
     }
@@ -370,12 +353,14 @@ const WAIT_MS = Number(cli.values.wait ?? 18000);
 const FECHA_FORZADA = cli.values.fecha ?? dateInVETOffset(0);
 const HEADLESS = !cli.flags.has("headed");
 
+if (casa === "triunfobet" && (cli.values.state || cli.values.profile)) {
+  console.error(
+    "SESION_NO_APLICA: Triunfobet se captura desde el widget público; no use --state ni --profile.",
+  );
+  process.exit(1);
+}
 const estadoRaw =
-  cli.values.state ??
-  (casa === "triunfobet"
-    ? process.env.TRIUNFOBET_STORAGE_STATE
-    : process.env.ROYAL_STORAGE_STATE) ??
-  "";
+  casa === "triunfobet" ? "" : (cli.values.state ?? process.env.ROYAL_STORAGE_STATE ?? "");
 let storageState;
 if (estadoRaw) {
   try {
@@ -422,9 +407,12 @@ page.on("response", (response) => {
 });
 
 try {
-  const estadoSesion = storageState
-    ? "sesion"
-    : await asegurarLogin(page, casa, URL_CAPTURA);
+  const estadoSesion =
+    casa === "triunfobet"
+      ? "publico"
+      : storageState
+        ? "sesion"
+        : await asegurarLogin(page);
 
   const indice = await loadFlashscoreIndex();
   let cotizaciones = [];
@@ -560,7 +548,7 @@ try {
       },
       capturado_en: timestampVET(),
       url: URL_CAPTURA,
-      nota: "Cuota visible en el widget con sesión; convertida a decimal si venía en formato americano",
+      nota: "Cuota visible en el widget; convertida a decimal si venía en formato americano",
       ...(odds.some((item) => item.americana)
         ? {
             cuotas_americanas: {
@@ -589,7 +577,7 @@ try {
     console.log("NO_SE_ESCRIBE_SEMILLA: el inicio de sesión falló.");
   } else if (cotizaciones.length === 0) {
     console.log(
-      "SIN_COTIZACIONES: confirme que hay sesión iniciada y que el widget cargó eventos. " +
+      "SIN_COTIZACIONES: confirme que el widget cargó eventos. " +
         "Revise XHR_RELEVANTES y ejecute con --headed para inspeccionar. NO se escribió ninguna semilla.",
     );
   } else if (WRITE) {

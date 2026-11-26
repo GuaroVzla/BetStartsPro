@@ -53,8 +53,6 @@ scripts/the-analyst-payload.json
 .royal-profile/
 .royal-storage-state.json
 scripts/.royal-*
-.triunfobet-profile/
-.triunfobet-storage-state.json
 
 # ETL runtime artifacts
 data/raw/

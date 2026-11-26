@@ -143,15 +143,15 @@ ausencia de precio y nunca sustituyen un valor válido.
 `.github/workflows/refresh-data.yml` corre cada 3 horas y también con
 `workflow_dispatch`:
 
-1. Captura Triunfobet (si hay secretos `TB_USER`/`TB_PASS`).
+1. Captura Triunfobet desde el widget público (sin sesión).
 2. Captura Apuestas Royal con `ROYAL_STORAGE_STATE`.
 3. Refresca The Analyst y actualiza su semilla.
 4. Inyecta todo en `SITE_URL` mediante `POST /api/ingest/*` con `INGEST_TOKEN`.
 5. Commitea las semillas cambiadas; el push dispara el deploy.
 
-Secrets necesarios: `ROYAL_STORAGE_STATE`, `INGEST_TOKEN`, `SITE_URL` (y los de
-Triunfobet si se usa). El mismo `INGEST_TOKEN` debe existir como secret del
-Worker; si falta, los endpoints responden `503`.
+Secrets necesarios: `ROYAL_STORAGE_STATE`, `INGEST_TOKEN` y `SITE_URL`. El mismo
+`INGEST_TOKEN` debe existir como secret del Worker; si falta, los endpoints
+responden `503`. Triunfobet no necesita secretos de sesión.
 
 ## Qué hace el motor después del cruce
 

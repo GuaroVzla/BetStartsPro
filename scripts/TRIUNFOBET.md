@@ -20,11 +20,12 @@ El endpoint auxiliar `mpc2-prod-21-is5qnl632q-uc.a.run.app/events?cee=no`
 tampoco responde fuera del contexto del widget (404 desde otras IPs), así que
 **no existe un feed HTTP consultable desde el cron ni desde el Worker**.
 
-Consecuencia: el cron de GitHub **no puede refrescar Triunfobet**. El paso del
-workflow se conserva con `continue-on-error: true` y, cuando no hay cuotas, el
-capturador **no sobrescribe** la semilla. La ruta duradera es la captura local
-descrita abajo + commit + push (el workflow `deploy-cloudflare.yml` reedploya el
-Worker con la semilla incluida en el bundle).
+Consecuencia: el cron de GitHub (IP de datacenter) **no puede refrescar
+Triunfobet**. Por eso `refresh-triunfobet.yml` corre en un runner residencial:
+abre el widget público y, cuando no hay cuotas, **no sobrescribe** la semilla.
+La ruta duradera es la captura local descrita abajo + commit + push (el workflow
+`deploy-cloudflare.yml` reedploya el Worker con la semilla incluida en el
+bundle).
 
 ## Captura local (funciona sin login)
 
@@ -50,15 +51,8 @@ COTIZACIONES_DETECTADAS=96
 Opciones útiles: `--wait <ms>` (espera del widget), `--out <archivo>` y
 `--fecha YYYY-MM-DD` (por defecto, hoy en VET).
 
-### Sesión / Turnstile (opcional)
-
-El widget público ya muestra cuotas sin iniciar sesión. Si en algún momento se
-necesita la sesión autenticada, `npm run triunfobet:login` abre Chrome para
-completar el login y el verificador de Cloudflare y guarda
-`.triunfobet-storage-state.json` (gitignored). Su contenido se puede publicar
-como secret `TRIUNFOBET_STORAGE_STATE`, que el capturador lee desde
-`TRIUNFOBET_STORAGE_STATE`. **Esto no elimina el bloqueo por IP**: GitHub Actions
-sigue recibiendo 403 aunque la sesión sea válida.
+No se usan credenciales ni `storageState` de Triunfobet: el widget público
+muestra cuotas sin iniciar sesión y esa sesión tampoco evita el bloqueo por IP.
 
 ## Conversión de cuotas
 
@@ -109,20 +103,6 @@ Reglas:
   salvo `--allow-stale`.
 - Todo valor no visible se envía como `null`. El servidor rechaza cuotas `<= 1`.
 - `mercado` acepta `1X2`, `ganador` o `moneyline`.
-
-## Sesión real del Chrome
-
-`TRIUNFOBET_STORAGE_STATE` contiene la sesión exportada del Chrome del usuario
-(`whitelabels_session`), **sin credenciales**. Se obtiene con
-`scripts/triunfobet-export-cdp.mjs`, que se conecta por CDP (`9222`). Chrome 158
-no permite CDP con el perfil por defecto: hay que copiar `Local State` y
-`Profile 1` a un directorio temporal y abrir esa copia con
-`--user-data-dir=<copia> --profile-directory="Profile 1"`.
-
-El archivo exportado queda en `%TEMP%` y **nunca se commitea**; se publica solo
-como secret de GitHub. El workflow `refresh-triunfobet.yml` lo inyecta como
-`storageState` (`SESION_REUTILIZADA=storageState`) y reintenta una captura si el
-widget no cargó a tiempo.
 
 ## Carga y durabilidad
 

@@ -18,13 +18,10 @@ jobs:
     timeout-minutes: 30
     permissions:
       contents: write
-    # NO pasar TB_USER/TB_PASS: un intento de login con Turnstile deja el
-    # widget sin renderizar (0 cuotas). Se reutiliza la sesión real exportada
-    # del Chrome del usuario (scripts/triunfobet-export-cdp.mjs).
+    # El widget público de Altenar muestra cuotas sin login ni sesión.
     env:
       INGEST_TOKEN: ${{ secrets.INGEST_TOKEN }}
       SITE_URL: ${{ secrets.SITE_URL }}
-      TRIUNFOBET_STORAGE_STATE: ${{ secrets.TRIUNFOBET_STORAGE_STATE }}
     steps:
       - name: Descargar repositorio
         uses: actions/checkout@v4
@@ -41,19 +38,14 @@ jobs:
       - name: Asegurar Chromium de Playwright
         run: npx playwright install chromium
 
-      - name: Capturar Triunfobet (sesión real, navegador visible)
+      - name: Capturar Triunfobet (widget público, navegador visible)
         shell: powershell
         run: |
           # El widget a veces no termina de cargar en 30 s. Reintentamos una vez
           # antes de dar el job por fallido, para no inyectar una semilla vieja.
           $ok = $false
           for ($intento = 1; $intento -le 3; $intento++) {
-            # Si la cookie exportada expira, el tercer intento usa el widget
-            # público: así el cron sigue vivo sin pedir login ni resolver captcha.
-            if ($intento -eq 3) {
-              $env:TRIUNFOBET_STORAGE_STATE = ""
-              Write-Host "FALLBACK_PUBLICO (sin sesion)"
-            }
+            # El widget público no requiere sesión; repetimos si no renderiza.
             Write-Host "CAPTURA_INTENTO=$intento"
             $salida = node scripts/triunfobet-capture.mjs --write --headed --wait 30000 2>&1
             $salida | ForEach-Object { Write-Host $_ }

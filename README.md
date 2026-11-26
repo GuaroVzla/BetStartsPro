@@ -43,14 +43,12 @@ Pulsa **F5** con la configuración `BetStats Pro: F5 (typecheck + Next.js + nave
 
 Triunfobet no expone un feed público de cuotas. La integración se hace por ingesta controlada:
 
-1. Se abre una sesión real en `https://triunfobet.com/login`.
+1. Se abre el widget público en `https://triunfobet.com/altenar` (sin login ni sesión).
 2. Se leen las cuotas desde el DOM/shadow DOM del widget de eventos.
 3. Se normalizan a decimal y se validan contra la lista de partidos activos.
 4. Se envían a `POST /api/ingest/triunfobet`.
 
-El payload y las reglas están documentados en `scripts/TRIUNFOBET.md`; `scripts/triunfobet-quotes.json` es un ejemplo con cotizaciones reales capturadas.
-
-Las credenciales de Triunfobet solo deben pasarse por variables de entorno (`TB_USER`, `TB_PASS`) en el entorno donde se ejecute la captura; nunca deben versionarse.
+El payload y las reglas están documentados en `scripts/TRIUNFOBET.md`; `scripts/triunfobet-quotes.json` es un ejemplo con cotizaciones reales capturadas. No se usan credenciales ni storageState de Triunfobet.
 
 ## Cuotas de Apuestas Royal
 
@@ -79,11 +77,12 @@ Los badges de la interfaz significan:
 El workflow `.github/workflows/refresh-data.yml` se ejecuta cada 3 horas (y también manualmente con `workflow_dispatch`). Para cada corrida:
 
 1. Captura los partidos de hoy y mañana desde Flashscore (móvil + escritorio + XHR de cuotas).
-2. Captura Triunfobet con las credenciales guardadas como secrets (si están configuradas).
-3. Captura Apuestas Royal reutilizando la sesión del secret `ROYAL_STORAGE_STATE` (Turnstile impide el login automático).
-4. Descarga los artículos reales de The Analyst desde su REST API de WordPress.
-5. Inyecta todo en la web desplegada mediante `POST /api/ingest/*` con el token `INGEST_TOKEN`.
-6. Actualiza y hace commit de `scripts/flashscore-payload*.json`, `scripts/*-quotes.json` y `scripts/the-analyst-seed.json`. Ese push dispara el deploy a Cloudflare, de modo que el Worker incorpora los datos nuevos en su bundle aunque se reinicie un isolate.
+2. Captura Apuestas Royal reutilizando la sesión del secret `ROYAL_STORAGE_STATE` (Turnstile impide el login automático).
+3. Descarga los artículos reales de The Analyst desde su REST API de WordPress.
+4. Inyecta todo en la web desplegada mediante `POST /api/ingest/*` con el token `INGEST_TOKEN`.
+5. Actualiza y hace commit de `scripts/flashscore-payload*.json`, `scripts/*-quotes.json` y `scripts/the-analyst-seed.json`. Ese push dispara el deploy a Cloudflare, de modo que el Worker incorpora los datos nuevos en su bundle aunque se reinicie un isolate.
+
+Triunfobet se refresca por separado en `.github/workflows/refresh-triunfobet.yml`, desde un runner residencial y sin sesión.
 
 Las semillas se importan directamente en los stores (`*IngestStore.ts` y
 `theAnalystStore.ts`), así que los datos sobreviven al reinicio de isolates.
@@ -92,14 +91,12 @@ Las semillas se importan directamente en los stores (`*IngestStore.ts` y
 
 | Secret | Descripción |
 | --- | --- |
-| `TB_USER` / `TB_PASS` | Usuario y contraseña de Triunfobet. |
-| `TRIUNFOBET_LOGIN_URL` | Opcional. Por defecto `https://triunfobet.com/login`. |
 | `ROYAL_STORAGE_STATE` | Contenido completo de `.royal-storage-state.json`, exportado con `npm run royal:export`. Obligatorio para capturar Royal. |
 | `BOOKMAKER_URL` | Opcional. Por defecto `https://app.apuestasroyal.com/`. |
 | `INGEST_TOKEN` | Token compartido que protege los endpoints de ingesta. Genera uno largo y aleatorio. Debe coincidir con el secret del Worker. |
 | `SITE_URL` | URL pública del sitio, sin barra final. |
 
-Si el formulario de Triunfobet difiere del selector por defecto, puedes añadir los secrets opcionales `TB_USER_SELECTOR`, `TB_PASS_SELECTOR`, `TB_SUBMIT_SELECTOR`. Para Apuestas Royal, Turnstile bloquea la automatización: usa `ROYAL_STORAGE_STATE`. Cuando la sesión caduca, vuelve a exportarla con `npm run royal:export` y actualiza el secret; el capturador imprime `API_ROYAL_HTTP=401` o `TOKEN_ROYAL_NO_DISPONIBLE` y no sobrescribe la semilla.
+Triunfobet no tiene secrets de login. Para Apuestas Royal, Turnstile bloquea la automatización: usa `ROYAL_STORAGE_STATE`. Cuando la sesión caduca, vuelve a exportarla con `npm run royal:export` y actualiza el secret; el capturador imprime `API_ROYAL_HTTP=401` o `TOKEN_ROYAL_NO_DISPONIBLE` y no sobrescribe la semilla.
 
 También puedes ejecutar el flujo en local:
 
@@ -143,8 +140,6 @@ Crea `.env.local` a partir de `.env.example`. Para habilitar cobertura premium a
 THE_ODDS_API_KEY=tu_clave_de_the_odds_api
 SPORTMONKS_KEY=tu_token_de_sportmonks
 APISPORTS_KEY=tu_clave_de_api_sports
-TB_USER=tu_usuario_de_triunfobet
-TB_PASS=tu_contraseña_de_triunfobet
 BOOKMAKER_URL=https://app.apuestasroyal.com/
 # Ruta al storageState exportado con `npm run royal:export` (nunca versionado).
 ROYAL_STORAGE_STATE=.royal-storage-state.json
@@ -290,7 +285,7 @@ La estrategia de ingesta diaria (fuentes, esquema canónico, validación, idempo
 - `/api/matches` devuelve el catálogo completo (~515 KB sin comprimir). Cloudflare aplica gzip automáticamente: el mismo payload ocupa **~46 KB** (91 % menos), por debajo del umbral de 100 KB. No se añadió paginación para no cambiar el contrato que consume el dashboard.
 - Versiones fijadas para cerrar advisories: `postcss@8.5.33`, `vite@8.3.8` y override transitivo `fflate@0.8.3`. `npm audit --omit=dev` → **0 vulnerabilidades**. No ejecutar `npm audit fix --force`: instalaría `next@16` / `vinext@0.2.1` (breaking).
 - Las rutas `/api/ingest/*` exigen `INGEST_TOKEN` tanto en `POST` como en `DELETE`. Todas las respuestas incluyen cabeceras de seguridad (CSP, HSTS, `nosniff`, Referrer-Policy, X-Frame-Options, Permissions-Policy).
-- Secretos pendientes de configurar fuera del repo: `ROYAL_STORAGE_STATE`, `INGEST_TOKEN` y `SITE_URL` en GitHub Actions; además `TB_USER` / `TB_PASS` si se habilita Triunfobet.
+- Secretos pendientes de configurar fuera del repo: `ROYAL_STORAGE_STATE`, `INGEST_TOKEN` y `SITE_URL` en GitHub Actions. Triunfobet no requiere secretos de sesión.
 
 ## Aviso
 
