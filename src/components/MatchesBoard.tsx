@@ -466,9 +466,24 @@ export function MatchesBoard({ matches, picksByMatch, onOpenMatch }: MatchesBoar
                     >
                       {edge == null ? "—" : formatSignedPercent(edge)}
                     </span>
-                    <span className="mt-0.5 block text-[10px] text-slate-400">
-                      {pick?.supportingSources.length ?? match.odds.bookmakerCount} fuentes
-                    </span>
+                    {(() => {
+                      const dataSources = new Set<string>(match.sourceTags ?? []);
+                      for (const b of match.odds.bookmakers ?? []) dataSources.add(b.source);
+                      const count = dataSources.size;
+                      return (
+                        <span
+                          className="mt-0.5 block text-[10px] text-slate-400"
+                          title={
+                            count > 0
+                              ? `Fuentes: ${Array.from(dataSources).join(", ")}`
+                              : "Sin fuentes de datos"
+                          }
+                        >
+                          {count} fuentes
+                          {match.odds.bookmakerCount > 0 ? ` · ${match.odds.bookmakerCount} casas` : ""}
+                        </span>
+                      );
+                    })()}
                   </td>
                   <td className="px-2 sm:px-3 py-2.5 sm:py-3 text-right align-middle">
                     <span className="inline-flex h-7 w-7 items-center justify-center rounded-lg border border-slate-200 text-slate-400 transition group-hover:border-emerald-400/40 group-hover:text-emerald-600 dark:border-white/10 dark:group-hover:text-emerald-300">

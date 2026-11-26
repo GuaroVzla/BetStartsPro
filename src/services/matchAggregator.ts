@@ -791,11 +791,22 @@ function withCapturedBookmakerQuotes(
     );
   }
 
+  // Etiquetar solo los partidos que realmente recibieron una cuota de la casa.
+  const tagged = royal.matches.map((match) => {
+    const hasRoyal = match.odds.bookmakers.some(
+      (bookmaker) => bookmaker.source === "apuestas-royal",
+    );
+    if (!hasRoyal) return match;
+    return {
+      ...match,
+      sourceTags: Array.from(
+        new Set([...(match.sourceTags ?? []), "apuestas-royal" as const]),
+      ),
+    };
+  });
+
   return {
-    matches: tagMatches(
-      royal.matches,
-      ...(royal.applied > 0 ? (["apuestas-royal"] as const) : []),
-    ),
+    matches: tagged,
     warnings,
     royalConnected: royal.applied > 0,
   };
@@ -1155,12 +1166,9 @@ async function buildDashboardData(): Promise<DashboardData> {
   if (base.meta.sources.sportmonks) baseSources.push("sportmonks");
   if (base.meta.sources.oddsApi) baseSources.push("the-odds-api");
   const taggedBase = tagMatches(base.matches, ...baseSources);
-  const freeActiveSources = (
-    Object.entries(freeSources.sources) as Array<[DataSourceId, boolean]>
-  )
-    .filter(([, active]) => active)
-    .map(([id]) => id);
-  const taggedFree = tagMatches(freeSources.matches, ...freeActiveSources);
+  // Las fuentes gratuitas ya vienen etiquetadas por partido en freeSourcesService;
+  // no re-etiquetar globalmente para no inflar la procedencia.
+  const taggedFree = freeSources.matches;
   const taggedAllSports = tagMatches(allSportsApi.matches, "allsportsapi");
   const taggedRundown = tagMatches(rundown.matches, "therundown");
 
