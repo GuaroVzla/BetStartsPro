@@ -2,7 +2,7 @@
   "target_app": "BetStats Pro",
   "source": "apuestas_royal_agent",
   "sync_mode": "enrich_or_create",
-  "fecha_extraccion": "2026-11-25",
+  "fecha_extraccion": "2026-11-26",
   "zona_horaria": "America/Caracas",
   "total_cotizaciones": 15,
   "cotizaciones": [
@@ -20,7 +20,7 @@
         "empate_x": 4.2,
         "visitante_2": 1.69
       },
-      "capturado_en": "2026-11-25T22:22:32-04:00",
+      "capturado_en": "2026-11-26T02:51:44-04:00",
       "url": "https://app.apuestasroyal.com/",
       "nota": "Cuota 1X2 publicada por la API autenticada del lobby de Apuestas Royal"
     },
@@ -34,11 +34,11 @@
       "equipo_visitante": "Proxy",
       "mercado": "1X2",
       "cuotas_1x2": {
-        "local_1": 2.02,
-        "empate_x": 2.94,
+        "local_1": 2.04,
+        "empate_x": 2.88,
         "visitante_2": 3.8
       },
-      "capturado_en": "2026-11-25T22:22:32-04:00",
+      "capturado_en": "2026-11-26T02:51:44-04:00",
       "url": "https://app.apuestasroyal.com/",
       "nota": "Cuota 1X2 publicada por la API autenticada del lobby de Apuestas Royal"
     },
@@ -56,7 +56,7 @@
         "empate_x": 3.7,
         "visitante_2": 3.65
       },
-      "capturado_en": "2026-11-25T22:22:32-04:00",
+      "capturado_en": "2026-11-26T02:51:44-04:00",
       "url": "https://app.apuestasroyal.com/",
       "nota": "Cuota 1X2 publicada por la API autenticada del lobby de Apuestas Royal"
     },
@@ -74,7 +74,7 @@
         "empate_x": 3.9,
         "visitante_2": 2.04
       },
-      "capturado_en": "2026-11-25T22:22:32-04:00",
+      "capturado_en": "2026-11-26T02:51:44-04:00",
       "url": "https://app.apuestasroyal.com/",
       "nota": "Cuota 1X2 publicada por la API autenticada del lobby de Apuestas Royal"
     },
@@ -92,7 +92,7 @@
         "empate_x": 3.55,
         "visitante_2": 2.2
       },
-      "capturado_en": "2026-11-25T22:22:32-04:00",
+      "capturado_en": "2026-11-26T02:51:44-04:00",
       "url": "https://app.apuestasroyal.com/",
       "nota": "Cuota 1X2 publicada por la API autenticada del lobby de Apuestas Royal"
     },
@@ -106,11 +106,11 @@
       "equipo_visitante": "Gateshead FC",
       "mercado": "1X2",
       "cuotas_1x2": {
-        "local_1": 1.1,
-        "empate_x": 8.2,
-        "visitante_2": 14
+        "local_1": 1.08,
+        "empate_x": 8.8,
+        "visitante_2": 16
       },
-      "capturado_en": "2026-11-25T22:22:32-04:00",
+      "capturado_en": "2026-11-26T02:51:44-04:00",
       "url": "https://app.apuestasroyal.com/",
       "nota": "Cuota 1X2 publicada por la API autenticada del lobby de Apuestas Royal"
     },
@@ -124,11 +124,11 @@
       "equipo_visitante": "Oakleigh",
       "mercado": "1X2",
       "cuotas_1x2": {
-        "local_1": 2.02,
-        "empate_x": 3.55,
-        "visitante_2": 3.25
+        "local_1": 2.12,
+        "empate_x": 3.25,
+        "visitante_2": 3.3
       },
-      "capturado_en": "2026-11-25T22:22:32-04:00",
+      "capturado_en": "2026-11-26T02:51:44-04:00",
       "url": "https://app.apuestasroyal.com/",
       "nota": "Cuota 1X2 publicada por la API autenticada del lobby de Apuestas Royal"
     },
@@ -146,7 +146,7 @@
         "empate_x": 3.5,
         "visitante_2": 3
       },
-      "capturado_en": "2026-11-25T22:22:32-04:00",
+      "capturado_en": "2026-11-26T02:51:44-04:00",
       "url": "https://app.apuestasroyal.com/",
       "nota": "Cuota 1X2 publicada por la API autenticada del lobby de Apuestas Royal"
     },
@@ -160,11 +160,11 @@
       "equipo_visitante": "Gimnasia Mendoza 2",
       "mercado": "1X2",
       "cuotas_1x2": {
-        "local_1": 1.81,
-        "empate_x": 3.35,
-        "visitante_2": 4
+        "local_1": 1.74,
+        "empate_x": 3.65,
+        "visitante_2": 3.95
       },
-      "capturado_en": "2026-11-25T22:22:32-04:00",
+      "capturado_en": "2026-11-26T02:51:44-04:00",
       "url": "https://app.apuestasroyal.com/",
       "nota": "Cuota 1X2 publicada por la API autenticada del lobby de Apuestas Royal"
     },
@@ -178,11 +178,11 @@
       "equipo_visitante": "Azerbaiyán Sub-19 F",
       "mercado": "1X2",
       "cuotas_1x2": {
-        "local_1": 1.02,
-        "empate_x": 14,
-        "visitante_2": 20
+        "local_1": 1.03,
+        "empate_x": 13,
+        "visitante_2": 19
       },
-      "capturado_en": "2026-11-25T22:22:32-04:00",
+      "capturado_en": "2026-11-26T02:51:44-04:00",
       "url": "https://app.apuestasroyal.com/",
       "nota": "Cuota 1X2 publicada por la API autenticada del lobby de Apuestas Royal"
     },
@@ -200,7 +200,7 @@
         "empate_x": 3.45,
         "visitante_2": 3.6
       },
-      "capturado_en": "2026-11-25T22:22:32-04:00",
+      "capturado_en": "2026-11-26T02:51:44-04:00",
       "url": "https://app.apuestasroyal.com/",
       "nota": "Cuota 1X2 publicada por la API autenticada del lobby de Apuestas Royal"
     },
@@ -218,7 +218,7 @@
         "empate_x": 3.95,
         "visitante_2": 4.6
       },
-      "capturado_en": "2026-11-25T22:22:32-04:00",
+      "capturado_en": "2026-11-26T02:51:44-04:00",
       "url": "https://app.apuestasroyal.com/",
       "nota": "Cuota 1X2 publicada por la API autenticada del lobby de Apuestas Royal"
     },
@@ -236,7 +236,7 @@
         "empate_x": 3.8,
         "visitante_2": 4.1
       },
-      "capturado_en": "2026-11-25T22:22:32-04:00",
+      "capturado_en": "2026-11-26T02:51:44-04:00",
       "url": "https://app.apuestasroyal.com/",
       "nota": "Cuota 1X2 publicada por la API autenticada del lobby de Apuestas Royal"
     },
@@ -254,25 +254,25 @@
         "empate_x": 5.2,
         "visitante_2": 8.8
       },
-      "capturado_en": "2026-11-25T22:22:32-04:00",
+      "capturado_en": "2026-11-26T02:51:44-04:00",
       "url": "https://app.apuestasroyal.com/",
       "nota": "Cuota 1X2 publicada por la API autenticada del lobby de Apuestas Royal"
     },
     {
-      "match_slug": "2026-11-27_tristan-suarez_vs_gimnasia-y-tiro-salta",
+      "match_slug": "2026-11-27_tristan-suarez_vs_gimnasia-y-tiro",
       "deporte": "Fútbol",
-      "liga": "Primera Nacional",
+      "liga": "ARGENTINA: Primera Nacional - Ascenso - Playoffs",
       "fecha_local": "2026-11-27",
       "hora_local": "20:00",
-      "equipo_local": "Tristan Suarez",
-      "equipo_visitante": "Gimnasia Y Tiro de Salta",
+      "equipo_local": "Tristán Suárez",
+      "equipo_visitante": "Gimnasia y Tiro",
       "mercado": "1X2",
       "cuotas_1x2": {
         "local_1": 1.84,
         "empate_x": 3.15,
         "visitante_2": 4.5
       },
-      "capturado_en": "2026-11-25T22:22:32-04:00",
+      "capturado_en": "2026-11-26T02:51:44-04:00",
       "url": "https://app.apuestasroyal.com/",
       "nota": "Cuota 1X2 publicada por la API autenticada del lobby de Apuestas Royal"
     }
