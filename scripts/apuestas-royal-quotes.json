@@ -2,25 +2,25 @@
   "target_app": "BetStats Pro",
   "source": "apuestas_royal_agent",
   "sync_mode": "enrich_or_create",
-  "fecha_extraccion": "2026-11-26",
+  "fecha_extraccion": "2026-11-27",
   "zona_horaria": "America/Caracas",
   "total_cotizaciones": 15,
   "cotizaciones": [
     {
       "match_slug": "2026-11-28_holywell_vs_llandudno",
       "deporte": "Fútbol",
-      "liga": "Cymru Premier",
+      "liga": "GALES: Cymru Premier",
       "fecha_local": "2026-11-28",
       "hora_local": "13:15",
-      "equipo_local": "Holywell Town",
-      "equipo_visitante": "Llandudno FC",
+      "equipo_local": "Holywell",
+      "equipo_visitante": "Llandudno",
       "mercado": "1X2",
       "cuotas_1x2": {
-        "local_1": 4.3,
+        "local_1": 4.7,
         "empate_x": 4.1,
-        "visitante_2": 1.64
+        "visitante_2": 1.58
       },
-      "capturado_en": "2026-11-26T23:30:06-04:00",
+      "capturado_en": "2026-11-27T12:09:03-04:00",
       "url": "https://app.apuestasroyal.com/",
       "nota": "Cuota 1X2 publicada por la API autenticada del lobby de Apuestas Royal"
     },
@@ -34,11 +34,83 @@
       "equipo_visitante": "IK Sirius",
       "mercado": "1X2",
       "cuotas_1x2": {
-        "local_1": 4.1,
+        "local_1": 4.2,
         "empate_x": 4.2,
-        "visitante_2": 1.69
+        "visitante_2": 1.68
       },
-      "capturado_en": "2026-11-26T23:30:06-04:00",
+      "capturado_en": "2026-11-27T12:09:03-04:00",
+      "url": "https://app.apuestasroyal.com/",
+      "nota": "Cuota 1X2 publicada por la API autenticada del lobby de Apuestas Royal"
+    },
+    {
+      "match_slug": "2026-11-28_calamocha_vs_olot",
+      "deporte": "Fútbol",
+      "liga": "ESPAÑA: Segunda Federación - Grupo 2",
+      "fecha_local": "2026-11-28",
+      "hora_local": "11:00",
+      "equipo_local": "Calamocha",
+      "equipo_visitante": "Olot",
+      "mercado": "1X2",
+      "cuotas_1x2": {
+        "local_1": 5,
+        "empate_x": 3.35,
+        "visitante_2": 1.66
+      },
+      "capturado_en": "2026-11-27T12:09:03-04:00",
+      "url": "https://app.apuestasroyal.com/",
+      "nota": "Cuota 1X2 publicada por la API autenticada del lobby de Apuestas Royal"
+    },
+    {
+      "match_slug": "2026-11-28_peterhead_vs_edinburgh",
+      "deporte": "Fútbol",
+      "liga": "ESCOCIA: Scottish Cup",
+      "fecha_local": "2026-11-28",
+      "hora_local": "11:00",
+      "equipo_local": "Peterhead",
+      "equipo_visitante": "Edinburgh City",
+      "mercado": "1X2",
+      "cuotas_1x2": {
+        "local_1": 1.62,
+        "empate_x": 4.1,
+        "visitante_2": 4.2
+      },
+      "capturado_en": "2026-11-27T12:09:03-04:00",
+      "url": "https://app.apuestasroyal.com/",
+      "nota": "Cuota 1X2 publicada por la API autenticada del lobby de Apuestas Royal"
+    },
+    {
+      "match_slug": "2026-11-27_estados-unidos_vs_el-salvador",
+      "deporte": "Fútbol",
+      "liga": "Campeonato CONCACAF Fem.",
+      "fecha_local": "2026-11-27",
+      "hora_local": "21:30",
+      "equipo_local": "Estados Unidos",
+      "equipo_visitante": "El Salvador",
+      "mercado": "1X2",
+      "cuotas_1x2": {
+        "local_1": 1.03,
+        "empate_x": 11,
+        "visitante_2": 35
+      },
+      "capturado_en": "2026-11-27T12:09:03-04:00",
+      "url": "https://app.apuestasroyal.com/",
+      "nota": "Cuota 1X2 publicada por la API autenticada del lobby de Apuestas Royal"
+    },
+    {
+      "match_slug": "2026-11-28_redcar_vs_workington",
+      "deporte": "Fútbol",
+      "liga": "INGLATERRA: NPL Premier Division",
+      "fecha_local": "2026-11-28",
+      "hora_local": "11:00",
+      "equipo_local": "Redcar Athletic",
+      "equipo_visitante": "Workington",
+      "mercado": "1X2",
+      "cuotas_1x2": {
+        "local_1": 1.5,
+        "empate_x": 4.5,
+        "visitante_2": 4.7
+      },
+      "capturado_en": "2026-11-27T12:09:03-04:00",
       "url": "https://app.apuestasroyal.com/",
       "nota": "Cuota 1X2 publicada por la API autenticada del lobby de Apuestas Royal"
     },
@@ -56,7 +128,7 @@
         "empate_x": 3.75,
         "visitante_2": 3.65
       },
-      "capturado_en": "2026-11-26T23:30:06-04:00",
+      "capturado_en": "2026-11-27T12:09:03-04:00",
       "url": "https://app.apuestasroyal.com/",
       "nota": "Cuota 1X2 publicada por la API autenticada del lobby de Apuestas Royal"
     },
@@ -72,9 +144,9 @@
       "cuotas_1x2": {
         "local_1": 5.4,
         "empate_x": 4.2,
-        "visitante_2": 1.52
+        "visitante_2": 1.5
       },
-      "capturado_en": "2026-11-26T23:30:06-04:00",
+      "capturado_en": "2026-11-27T12:09:04-04:00",
       "url": "https://app.apuestasroyal.com/",
       "nota": "Cuota 1X2 publicada por la API autenticada del lobby de Apuestas Royal"
     },
@@ -89,64 +161,100 @@
       "mercado": "1X2",
       "cuotas_1x2": {
         "local_1": 3.05,
-        "empate_x": 4,
-        "visitante_2": 2
+        "empate_x": 3.95,
+        "visitante_2": 2.02
       },
-      "capturado_en": "2026-11-26T23:30:06-04:00",
+      "capturado_en": "2026-11-27T12:09:04-04:00",
       "url": "https://app.apuestasroyal.com/",
       "nota": "Cuota 1X2 publicada por la API autenticada del lobby de Apuestas Royal"
     },
     {
-      "match_slug": "2026-11-28_slask-wroclaw_vs_gks-katowice",
+      "match_slug": "2026-11-28_telford_vs_south-shields",
       "deporte": "Fútbol",
-      "liga": "Liga Ekstraklasa",
+      "liga": "INGLATERRA: National League North",
       "fecha_local": "2026-11-28",
-      "hora_local": "12:30",
-      "equipo_local": "Slask Wroclaw",
-      "equipo_visitante": "GKS Katowice",
+      "hora_local": "11:00",
+      "equipo_local": "Telford",
+      "equipo_visitante": "South Shields",
       "mercado": "1X2",
       "cuotas_1x2": {
-        "local_1": 2.92,
+        "local_1": 2.56,
+        "empate_x": 3.4,
+        "visitante_2": 2.42
+      },
+      "capturado_en": "2026-11-27T12:09:04-04:00",
+      "url": "https://app.apuestasroyal.com/",
+      "nota": "Cuota 1X2 publicada por la API autenticada del lobby de Apuestas Royal"
+    },
+    {
+      "match_slug": "2026-11-28_slask_vs_katowice",
+      "deporte": "Fútbol",
+      "liga": "POLONIA: Ekstraklasa",
+      "fecha_local": "2026-11-28",
+      "hora_local": "12:30",
+      "equipo_local": "Slask",
+      "equipo_visitante": "Katowice",
+      "mercado": "1X2",
+      "cuotas_1x2": {
+        "local_1": 2.96,
         "empate_x": 3.6,
         "visitante_2": 2.22
       },
-      "capturado_en": "2026-11-26T23:30:06-04:00",
+      "capturado_en": "2026-11-27T12:09:04-04:00",
       "url": "https://app.apuestasroyal.com/",
       "nota": "Cuota 1X2 publicada por la API autenticada del lobby de Apuestas Royal"
     },
     {
-      "match_slug": "2026-11-28_mks-czarni-polaniec_vs_siarka-tarnobrzeg",
+      "match_slug": "2026-11-28_czarni-polaniec_vs_siarka-tarnobrzeg",
       "deporte": "Fútbol",
-      "liga": "III Liga",
+      "liga": "POLONIA: III Liga - Grupo IV",
       "fecha_local": "2026-11-28",
       "hora_local": "07:00",
-      "equipo_local": "MKS Czarni Polaniec",
+      "equipo_local": "Czarni Polaniec",
       "equipo_visitante": "Siarka Tarnobrzeg",
       "mercado": "1X2",
       "cuotas_1x2": {
-        "local_1": 1.86,
-        "empate_x": 3.7,
-        "visitante_2": 3.45
+        "local_1": 1.82,
+        "empate_x": 3.75,
+        "visitante_2": 3.55
       },
-      "capturado_en": "2026-11-26T23:30:06-04:00",
+      "capturado_en": "2026-11-27T12:09:04-04:00",
       "url": "https://app.apuestasroyal.com/",
       "nota": "Cuota 1X2 publicada por la API autenticada del lobby de Apuestas Royal"
     },
     {
       "match_slug": "2026-11-28_boreham-wood_vs_gateshead",
       "deporte": "Fútbol",
-      "liga": "Liga Nacional",
+      "liga": "INGLATERRA: National League",
       "fecha_local": "2026-11-28",
       "hora_local": "11:00",
-      "equipo_local": "Boreham Wood FC",
-      "equipo_visitante": "Gateshead FC",
+      "equipo_local": "Boreham Wood",
+      "equipo_visitante": "Gateshead",
       "mercado": "1X2",
       "cuotas_1x2": {
         "local_1": 1.08,
-        "empate_x": 9.4,
-        "visitante_2": 19
+        "empate_x": 9.2,
+        "visitante_2": 20
       },
-      "capturado_en": "2026-11-26T23:30:06-04:00",
+      "capturado_en": "2026-11-27T12:09:04-04:00",
+      "url": "https://app.apuestasroyal.com/",
+      "nota": "Cuota 1X2 publicada por la API autenticada del lobby de Apuestas Royal"
+    },
+    {
+      "match_slug": "2026-11-28_at-baleares_vs_orihuela",
+      "deporte": "Fútbol",
+      "liga": "ESPAÑA: Segunda Federación - Grupo 3",
+      "fecha_local": "2026-11-28",
+      "hora_local": "13:00",
+      "equipo_local": "At. Baleares",
+      "equipo_visitante": "Orihuela",
+      "mercado": "1X2",
+      "cuotas_1x2": {
+        "local_1": 1.71,
+        "empate_x": 3.45,
+        "visitante_2": 4.5
+      },
+      "capturado_en": "2026-11-27T12:09:04-04:00",
       "url": "https://app.apuestasroyal.com/",
       "nota": "Cuota 1X2 publicada por la API autenticada del lobby de Apuestas Royal"
     },
@@ -164,115 +272,7 @@
         "empate_x": 3.5,
         "visitante_2": 3
       },
-      "capturado_en": "2026-11-26T23:30:06-04:00",
-      "url": "https://app.apuestasroyal.com/",
-      "nota": "Cuota 1X2 publicada por la API autenticada del lobby de Apuestas Royal"
-    },
-    {
-      "match_slug": "2026-11-28_hradec-kralove_vs_bohemians-praga",
-      "deporte": "Fútbol",
-      "liga": "1ª Liga",
-      "fecha_local": "2026-11-28",
-      "hora_local": "13:00",
-      "equipo_local": "FC Hradec Kralove",
-      "equipo_visitante": "Bohemians Praga",
-      "mercado": "1X2",
-      "cuotas_1x2": {
-        "local_1": 1.91,
-        "empate_x": 3.5,
-        "visitante_2": 3.65
-      },
-      "capturado_en": "2026-11-26T23:30:06-04:00",
-      "url": "https://app.apuestasroyal.com/",
-      "nota": "Cuota 1X2 publicada por la API autenticada del lobby de Apuestas Royal"
-    },
-    {
-      "match_slug": "2026-12-03_tottenham-hotspur_vs_fulham",
-      "deporte": "Fútbol",
-      "liga": "Premier League",
-      "fecha_local": "2026-12-03",
-      "hora_local": "16:00",
-      "equipo_local": "Tottenham Hotspur FC",
-      "equipo_visitante": "FC Fulham",
-      "mercado": "1X2",
-      "cuotas_1x2": {
-        "local_1": 1.9,
-        "empate_x": 3.8,
-        "visitante_2": 4.1
-      },
-      "capturado_en": "2026-11-26T23:30:06-04:00",
-      "url": "https://app.apuestasroyal.com/",
-      "nota": "Cuota 1X2 publicada por la API autenticada del lobby de Apuestas Royal"
-    },
-    {
-      "match_slug": "2026-12-05_ssc-napoles_vs_us-lecce",
-      "deporte": "Fútbol",
-      "liga": "Serie A",
-      "fecha_local": "2026-12-05",
-      "hora_local": "15:45",
-      "equipo_local": "SSC Nápoles",
-      "equipo_visitante": "US Lecce",
-      "mercado": "1X2",
-      "cuotas_1x2": {
-        "local_1": 1.37,
-        "empate_x": 5.2,
-        "visitante_2": 8.8
-      },
-      "capturado_en": "2026-11-26T23:30:06-04:00",
-      "url": "https://app.apuestasroyal.com/",
-      "nota": "Cuota 1X2 publicada por la API autenticada del lobby de Apuestas Royal"
-    },
-    {
-      "match_slug": "2026-11-28_preston-lions_vs_apia-leichhardt",
-      "deporte": "Fútbol",
-      "liga": "Championship",
-      "fecha_local": "2026-11-28",
-      "hora_local": "00:00",
-      "equipo_local": "Preston Lions FC",
-      "equipo_visitante": "APIA Leichhardt",
-      "mercado": "1X2",
-      "cuotas_1x2": {
-        "local_1": 2.66,
-        "empate_x": 3.4,
-        "visitante_2": 2.4
-      },
-      "capturado_en": "2026-11-26T23:30:06-04:00",
-      "url": "https://app.apuestasroyal.com/",
-      "nota": "Cuota 1X2 publicada por la API autenticada del lobby de Apuestas Royal"
-    },
-    {
-      "match_slug": "2026-11-27_tristan-suarez_vs_gimnasia-y-tiro",
-      "deporte": "Fútbol",
-      "liga": "ARGENTINA: Primera Nacional - Ascenso - Playoffs",
-      "fecha_local": "2026-11-27",
-      "hora_local": "20:00",
-      "equipo_local": "Tristán Suárez",
-      "equipo_visitante": "Gimnasia y Tiro",
-      "mercado": "1X2",
-      "cuotas_1x2": {
-        "local_1": 1.75,
-        "empate_x": 3.25,
-        "visitante_2": 4.8
-      },
-      "capturado_en": "2026-11-26T23:30:06-04:00",
-      "url": "https://app.apuestasroyal.com/",
-      "nota": "Cuota 1X2 publicada por la API autenticada del lobby de Apuestas Royal"
-    },
-    {
-      "match_slug": "2026-11-27_montpelier_vs_inchicore",
-      "deporte": "Fútbol",
-      "liga": "Leinster Senior League",
-      "fecha_local": "2026-11-27",
-      "hora_local": "15:30",
-      "equipo_local": "Montpelier FC",
-      "equipo_visitante": "Inchicore Athletic FC",
-      "mercado": "1X2",
-      "cuotas_1x2": {
-        "local_1": 3.15,
-        "empate_x": 4.1,
-        "visitante_2": 1.85
-      },
-      "capturado_en": "2026-11-26T23:30:06-04:00",
+      "capturado_en": "2026-11-27T12:09:04-04:00",
       "url": "https://app.apuestasroyal.com/",
       "nota": "Cuota 1X2 publicada por la API autenticada del lobby de Apuestas Royal"
     }

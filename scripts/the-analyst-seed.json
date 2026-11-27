@@ -2,10 +2,180 @@
   "target_app": "BetStats Pro",
   "source": "the_analyst_agent",
   "sync_mode": "enrich_or_create",
-  "fecha_extraccion": "2026-11-26",
+  "fecha_extraccion": "2026-11-27",
   "zona_horaria": "America/Caracas",
   "total_registros": 20,
   "registros": [
+    {
+      "articulo_id": "270488",
+      "titulo": "Everton vs Liverpool Prediction: Premier League Preview",
+      "url": "https://theanalyst.com/articles/everton-vs-liverpool-prediction-premier-league-preview-11-2026",
+      "fecha_publicacion": "2026-11-27T12:06:15.000Z",
+      "tipo": "match_preview",
+      "liga": "Premier League",
+      "equipo_local": "Everton",
+      "equipo_visitante": "Liverpool",
+      "resumen": "We look ahead to Sunday’s Premier League clash with our Everton vs Liverpool prediction and preview. Can the Reds win a fourth straight Merseyside derby?",
+      "insight": {
+        "match_slug": "2026-11-27_everton_vs_liverpool",
+        "fecha_partido": null,
+        "deporte": "Fútbol",
+        "liga": "Premier League",
+        "equipo_local": "Everton",
+        "equipo_visitante": "Liverpool",
+        "probabilidades": {
+          "home": 0.32,
+          "draw": 0.254,
+          "away": 0.427,
+          "inferidas": []
+        },
+        "metricas": {
+          "xg_local": null,
+          "xg_visitante": null,
+          "forma_local": null,
+          "forma_visitante": null,
+          "racha_local": null,
+          "racha_visitante": null,
+          "h2h_resumen": "The Toffees have won just two of the last 31 league meetings (D14 L15) between the two rivals. Liverpool have only lost once in their last 15 Premier League games at Everton (W4 D10)."
+        },
+        "resumen": "We look ahead to Sunday’s Premier League clash with our Everton vs Liverpool prediction and preview. Can the Reds win a fourth straight Merseyside derby?",
+        "metodo": "articulo",
+        "confianza": "media"
+      },
+      "capturado_en": "2026-11-27T16:09:11.719Z",
+      "notas": null
+    },
+    {
+      "articulo_id": "270255",
+      "titulo": "Palmeiras vs Estudiantes: Opta Supercomputer Copa Libertadores Final Prediction",
+      "url": "https://theanalyst.com/articles/palmeiras-vs-estudiantes-opta-supercomputer-copa-libertadores-final-prediction-2026",
+      "fecha_publicacion": "2026-11-27T10:11:25.000Z",
+      "tipo": "match_preview",
+      "liga": "Opta Supercomputer Copa Libertadores Final",
+      "equipo_local": "Palmeiras",
+      "equipo_visitante": "Estudiantes: Opta Supercomputer Copa Libertadores Final",
+      "resumen": "We look ahead to Saturday’s 2026 Copa Libertadores final at the Estadio Centenario with our Palmeiras vs Estudiantes prediction and preview. Who will come out on top in South American football’s big showdown?",
+      "insight": {
+        "match_slug": "2026-11-27_palmeiras_vs_estudiantes-opta-supercomputer-copa-libertadores-final",
+        "fecha_partido": null,
+        "deporte": "Fútbol",
+        "liga": "Opta Supercomputer Copa Libertadores Final",
+        "equipo_local": "Palmeiras",
+        "equipo_visitante": "Estudiantes: Opta Supercomputer Copa Libertadores Final",
+        "probabilidades": {
+          "home": 0.59,
+          "draw": null,
+          "away": null,
+          "inferidas": []
+        },
+        "metricas": {
+          "xg_local": null,
+          "xg_visitante": null,
+          "forma_local": null,
+          "forma_visitante": null,
+          "racha_local": null,
+          "racha_visitante": null,
+          "h2h_resumen": "Palmeiras vs Estudiantes Head-to-Head This is the second Libertadores season in which Palmeiras and Estudiantes will face off."
+        },
+        "resumen": "We look ahead to Saturday’s 2026 Copa Libertadores final at the Estadio Centenario with our Palmeiras vs Estudiantes prediction and preview. Who will come out on top in South American football’s big showdown?",
+        "metodo": "articulo",
+        "confianza": "baja"
+      },
+      "capturado_en": "2026-11-27T16:09:11.720Z",
+      "notas": null
+    },
+    {
+      "articulo_id": "270467",
+      "titulo": "Arsenal vs Manchester City Prediction: Premier League Preview",
+      "url": "https://theanalyst.com/articles/arsenal-vs-manchester-city-prediction-premier-league-preview-11-2026",
+      "fecha_publicacion": "2026-11-27T10:05:09.000Z",
+      "tipo": "match_preview",
+      "liga": "Premier League",
+      "equipo_local": "Arsenal",
+      "equipo_visitante": "Manchester City",
+      "resumen": "This weekend’s Premier League action is headline by a huge clash between the two most likely title contenders. Here, we look ahead to the game with our Arsenal vs Manchester City prediction and preview.",
+      "insight": {
+        "match_slug": "2026-11-27_arsenal_vs_manchester-city",
+        "fecha_partido": null,
+        "deporte": "Fútbol",
+        "liga": "Premier League",
+        "equipo_local": "Arsenal",
+        "equipo_visitante": "Manchester City",
+        "probabilidades": {
+          "home": 0.544,
+          "draw": 0.234,
+          "away": 0.222,
+          "inferidas": []
+        },
+        "metricas": {
+          "xg_local": 2,
+          "xg_visitante": null,
+          "forma_local": null,
+          "forma_visitante": null,
+          "racha_local": "Having lost six consecutive home league games against Man City between 2018 and 2023, Arsenal are unbeaten in their last three against them at the Emirates Stadium (W2 D1).",
+          "racha_visitante": "Having lost six consecutive home league games against Man City between 2018 and 2023, Arsenal are unbeaten in their last three against them at the Emirates Stadium (W2 D1).",
+          "h2h_resumen": "Erling Haaland could become only the fourth player to score in five straight Premier League meetings with Arsenal, after Jimmy Floyd Hasselbaink, Harry Kane and Charlie Austin. Arsenal versus Manchester City has emerged as arguably the stan"
+        },
+        "resumen": "This weekend’s Premier League action is headline by a huge clash between the two most likely title contenders. Here, we look ahead to the game with our Arsenal vs Manchester City prediction and preview.",
+        "metodo": "articulo",
+        "confianza": "media"
+      },
+      "capturado_en": "2026-11-27T16:09:11.720Z",
+      "notas": null
+    },
+    {
+      "articulo_id": "270182",
+      "titulo": "Nottingham Forest vs Chelsea Prediction: Premier League Preview",
+      "url": "https://theanalyst.com/articles/nottingham-forest-vs-chelsea-prediction-premier-league-11-2026",
+      "fecha_publicacion": "2026-11-27T07:17:56.000Z",
+      "tipo": "match_preview",
+      "liga": "Premier League",
+      "equipo_local": "Nottingham Forest",
+      "equipo_visitante": "Chelsea",
+      "resumen": "We look ahead to this Friday night Premier League match at the City Ground with our Nottingham Forest vs Chelsea prediction and preview. Can Xabi Alonso’s men get back on track?",
+      "insight": {
+        "match_slug": "2026-11-27_nottingham-forest_vs_chelsea",
+        "fecha_partido": null,
+        "deporte": "Fútbol",
+        "liga": "Premier League",
+        "equipo_local": "Nottingham Forest",
+        "equipo_visitante": "Chelsea",
+        "probabilidades": {
+          "home": 0.399,
+          "draw": 0.266,
+          "away": 0.335,
+          "inferidas": []
+        },
+        "metricas": {
+          "xg_local": null,
+          "xg_visitante": null,
+          "forma_local": null,
+          "forma_visitante": null,
+          "racha_local": null,
+          "racha_visitante": "A 2–0 home win over Manchester United aside, Chelsea have now lost three of their last four Premier League games, and since the start of March, no side has lost more Premier League",
+          "h2h_resumen": "Nottingham Forest vs Chelsea Head-to-Head Forest’s 3–1 win at Stamford Bridge in May saw Taiwo Awoniyi score early in both halves either side of an Igor Jesus penalty in the 15th minute, with João Pedro pulling one back in second-half stopp"
+        },
+        "resumen": "We look ahead to this Friday night Premier League match at the City Ground with our Nottingham Forest vs Chelsea prediction and preview. Can Xabi Alonso’s men get back on track?",
+        "metodo": "articulo",
+        "confianza": "media"
+      },
+      "capturado_en": "2026-11-27T16:09:11.721Z",
+      "notas": null
+    },
+    {
+      "articulo_id": "83282",
+      "titulo": "Premier League Match Predictions: The Opta Supercomputer’s Picks for This Week",
+      "url": "https://theanalyst.com/articles/premier-league-match-predictions",
+      "fecha_publicacion": "2026-11-27T07:17:49.000Z",
+      "tipo": "match_preview",
+      "liga": null,
+      "equipo_local": null,
+      "equipo_visitante": null,
+      "resumen": "With the help of the Opta supercomputer, we provide our Premier League match predictions for Matchday 11 of the 2026-27 season.",
+      "insight": null,
+      "capturado_en": "2026-11-27T16:09:11.721Z",
+      "notas": null
+    },
     {
       "articulo_id": "270448",
       "titulo": "Man Utd vs Brentford Prediction: Premier League Preview",
@@ -42,21 +212,7 @@
         "metodo": "articulo",
         "confianza": "media"
       },
-      "capturado_en": "2026-11-27T03:30:07.125Z",
-      "notas": null
-    },
-    {
-      "articulo_id": "83282",
-      "titulo": "Premier League Match Predictions: The Opta Supercomputer’s Picks for This Week",
-      "url": "https://theanalyst.com/articles/premier-league-match-predictions",
-      "fecha_publicacion": "2026-11-26T14:25:20.000Z",
-      "tipo": "match_preview",
-      "liga": null,
-      "equipo_local": null,
-      "equipo_visitante": null,
-      "resumen": "With the help of the Opta supercomputer, we provide our Premier League match predictions for Matchday 11 of the 2026-27 season.",
-      "insight": null,
-      "capturado_en": "2026-11-27T03:30:07.126Z",
+      "capturado_en": "2026-11-27T16:09:11.722Z",
       "notas": null
     },
     {
@@ -70,46 +226,7 @@
       "equipo_visitante": null,
       "resumen": "Arsenal, Barcelona, Bayern Munich, PSG and Real Madrid are the favourites for Champions League glory according to the Opta supercomputer.",
       "insight": null,
-      "capturado_en": "2026-11-27T03:30:07.127Z",
-      "notas": null
-    },
-    {
-      "articulo_id": "270182",
-      "titulo": "Nottingham Forest vs Chelsea Prediction: Premier League Preview",
-      "url": "https://theanalyst.com/articles/nottingham-forest-vs-chelsea-prediction-premier-league-11-2026",
-      "fecha_publicacion": "2026-11-26T07:50:58.000Z",
-      "tipo": "match_preview",
-      "liga": "Premier League",
-      "equipo_local": "Nottingham Forest",
-      "equipo_visitante": "Chelsea",
-      "resumen": "We look ahead to this Friday night Premier League match at the City Ground with our Nottingham Forest vs Chelsea prediction and preview. Can Xabi Alonso’s men get back on track?",
-      "insight": {
-        "match_slug": "2026-11-26_nottingham-forest_vs_chelsea",
-        "fecha_partido": null,
-        "deporte": "Fútbol",
-        "liga": "Premier League",
-        "equipo_local": "Nottingham Forest",
-        "equipo_visitante": "Chelsea",
-        "probabilidades": {
-          "home": 0.399,
-          "draw": 0.266,
-          "away": 0.335,
-          "inferidas": []
-        },
-        "metricas": {
-          "xg_local": null,
-          "xg_visitante": null,
-          "forma_local": null,
-          "forma_visitante": null,
-          "racha_local": null,
-          "racha_visitante": "A 2–0 home win over Manchester United aside, Chelsea have now lost three of their last four Premier League games, and since the start of March, no side has lost more Premier League",
-          "h2h_resumen": "Nottingham Forest vs Chelsea Head-to-Head Forest’s 3–1 win at Stamford Bridge in May saw Taiwo Awoniyi score early in both halves either side of an Igor Jesus penalty in the 15th minute, with João Pedro pulling one back in second-half stopp"
-        },
-        "resumen": "We look ahead to this Friday night Premier League match at the City Ground with our Nottingham Forest vs Chelsea prediction and preview. Can Xabi Alonso’s men get back on track?",
-        "metodo": "articulo",
-        "confianza": "media"
-      },
-      "capturado_en": "2026-11-27T03:30:07.128Z",
+      "capturado_en": "2026-11-27T16:09:11.722Z",
       "notas": null
     },
     {
@@ -123,7 +240,7 @@
       "equipo_visitante": null,
       "resumen": "The engine is all revved as FCS football heads up the on-ramp to the second season. Here are predictions of first-round playoff games in No. 1 seed Montana State’s half of the bracket. ",
       "insight": null,
-      "capturado_en": "2026-11-27T03:30:07.128Z",
+      "capturado_en": "2026-11-27T16:09:11.722Z",
       "notas": null
     },
     {
@@ -137,7 +254,7 @@
       "equipo_visitante": null,
       "resumen": "The engine is all revved as FCS football heads up the on-ramp to the second season. Here are predictions of first-round playoff games on No. 2 seed Tarleton State’s half of the bracket. ",
       "insight": null,
-      "capturado_en": "2026-11-27T03:30:07.128Z",
+      "capturado_en": "2026-11-27T16:09:11.722Z",
       "notas": null
     },
     {
@@ -176,7 +293,7 @@
         "metodo": "articulo",
         "confianza": "baja"
       },
-      "capturado_en": "2026-11-27T03:30:07.129Z",
+      "capturado_en": "2026-11-27T16:09:11.722Z",
       "notas": null
     },
     {
@@ -215,7 +332,7 @@
         "metodo": "articulo",
         "confianza": "baja"
       },
-      "capturado_en": "2026-11-27T03:30:07.130Z",
+      "capturado_en": "2026-11-27T16:09:11.723Z",
       "notas": null
     },
     {
@@ -254,7 +371,7 @@
         "metodo": "articulo",
         "confianza": "media"
       },
-      "capturado_en": "2026-11-27T03:30:07.131Z",
+      "capturado_en": "2026-11-27T16:09:11.723Z",
       "notas": null
     },
     {
@@ -293,7 +410,7 @@
         "metodo": "articulo",
         "confianza": "media"
       },
-      "capturado_en": "2026-11-27T03:30:07.132Z",
+      "capturado_en": "2026-11-27T16:09:11.724Z",
       "notas": null
     },
     {
@@ -307,7 +424,7 @@
       "equipo_visitante": null,
       "resumen": "With the help of the AI-powered Opta supercomputer, we provide our UEFA Champions League match predictions for every game across the 2026-27 competition.",
       "insight": null,
-      "capturado_en": "2026-11-27T03:30:07.132Z",
+      "capturado_en": "2026-11-27T16:09:11.724Z",
       "notas": null
     },
     {
@@ -321,7 +438,7 @@
       "equipo_visitante": null,
       "resumen": "We look back on the weekend’s Premier League action by jumping to five conclusions based on just a single round of action.",
       "insight": null,
-      "capturado_en": "2026-11-27T03:30:07.132Z",
+      "capturado_en": "2026-11-27T16:09:11.724Z",
       "notas": null
     },
     {
@@ -335,7 +452,7 @@
       "equipo_visitante": null,
       "resumen": "Eleven teams are qualified for the 2026 FCS playoffs. With 13 more teams about to get the call on Selection Sunday, our bracketology predicts how the field may turn out.",
       "insight": null,
-      "capturado_en": "2026-11-27T03:30:07.132Z",
+      "capturado_en": "2026-11-27T16:09:11.724Z",
       "notas": null
     },
     {
@@ -374,7 +491,7 @@
         "metodo": "articulo",
         "confianza": "media"
       },
-      "capturado_en": "2026-11-27T03:30:07.133Z",
+      "capturado_en": "2026-11-27T16:09:11.724Z",
       "notas": null
     },
     {
@@ -413,7 +530,7 @@
         "metodo": "articulo",
         "confianza": "media"
       },
-      "capturado_en": "2026-11-27T03:30:07.133Z",
+      "capturado_en": "2026-11-27T16:09:11.725Z",
       "notas": null
     },
     {
@@ -427,7 +544,7 @@
       "equipo_visitante": null,
       "resumen": "Who will win the 2026 MLS Cup? Here, we detail how the Opta supercomputer sees the 2026 Major League Soccer play-offs bracket playing out.",
       "insight": null,
-      "capturado_en": "2026-11-27T03:30:07.133Z",
+      "capturado_en": "2026-11-27T16:09:11.725Z",
       "notas": null
     },
     {
@@ -466,76 +583,7 @@
         "metodo": "articulo",
         "confianza": "baja"
       },
-      "capturado_en": "2026-11-27T03:30:07.133Z",
-      "notas": null
-    },
-    {
-      "articulo_id": "269349",
-      "titulo": "Liverpool vs Man Utd Prediction: Premier League Preview",
-      "url": "https://theanalyst.com/articles/liverpool-vs-man-utd-prediction-premier-league-11-2026",
-      "fecha_publicacion": "2026-11-20T10:16:12.000Z",
-      "tipo": "match_preview",
-      "liga": "Premier League",
-      "equipo_local": "Liverpool",
-      "equipo_visitante": "Man Utd",
-      "resumen": "We look ahead to Sunday’s Premier League game at Anfield with our Liverpool vs Man Utd prediction and preview. Mauricio Pochettino looks to make a winning return to England.",
-      "insight": {
-        "match_slug": "2026-11-20_liverpool_vs_man-utd",
-        "fecha_partido": null,
-        "deporte": "Fútbol",
-        "liga": "Premier League",
-        "equipo_local": "Liverpool",
-        "equipo_visitante": "Man Utd",
-        "probabilidades": {
-          "home": 0.573,
-          "draw": 0.222,
-          "away": 0.205,
-          "inferidas": [
-            "away"
-          ]
-        },
-        "metricas": {
-          "xg_local": null,
-          "xg_visitante": null,
-          "forma_local": null,
-          "forma_visitante": null,
-          "racha_local": null,
-          "racha_visitante": null,
-          "h2h_resumen": "Liverpool vs Man Utd Head-to-Head Liverpool lost both Premier League meetings with United last season, as many as they had in their previous 18 (W7 D9)."
-        },
-        "resumen": "We look ahead to Sunday’s Premier League game at Anfield with our Liverpool vs Man Utd prediction and preview. Mauricio Pochettino looks to make a winning return to England.",
-        "metodo": "articulo",
-        "confianza": "media"
-      },
-      "capturado_en": "2026-11-27T03:30:07.134Z",
-      "notas": null
-    },
-    {
-      "articulo_id": "258231",
-      "titulo": "WSL Match Predictions: The Opta Supercomputer’s Picks for This Week",
-      "url": "https://theanalyst.com/articles/wsl-match-predictions",
-      "fecha_publicacion": "2026-11-19T18:55:00.000Z",
-      "tipo": "match_preview",
-      "liga": null,
-      "equipo_local": null,
-      "equipo_visitante": null,
-      "resumen": "With the help of the Opta supercomputer, we provide our WSL match predictions for Matchday 11 of the 2026-27 season.",
-      "insight": null,
-      "capturado_en": "2026-11-27T03:30:07.134Z",
-      "notas": null
-    },
-    {
-      "articulo_id": "269381",
-      "titulo": "NWSL Championship Final Prediction: The Opta Supercomputer Projections",
-      "url": "https://theanalyst.com/articles/nwsl-championship-final-prediction-opta-supercomputer-projections",
-      "fecha_publicacion": "2026-11-19T18:19:53.000Z",
-      "tipo": "match_preview",
-      "liga": null,
-      "equipo_local": null,
-      "equipo_visitante": null,
-      "resumen": "The Washington Spirit and Kansas City Current will battle it out for the 2026 NWSL Championship title. Here’s our Opta supercomputer preview and prediction.",
-      "insight": null,
-      "capturado_en": "2026-11-27T03:30:07.134Z",
+      "capturado_en": "2026-11-27T16:09:11.725Z",
       "notas": null
     }
   ],
