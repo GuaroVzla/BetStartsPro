@@ -20,7 +20,7 @@
         "empate_x": 4.1,
         "visitante_2": 1.64
       },
-      "capturado_en": "2026-11-26T14:50:58-04:00",
+      "capturado_en": "2026-11-26T23:30:06-04:00",
       "url": "https://app.apuestasroyal.com/",
       "nota": "Cuota 1X2 publicada por la API autenticada del lobby de Apuestas Royal"
     },
@@ -38,7 +38,7 @@
         "empate_x": 4.2,
         "visitante_2": 1.69
       },
-      "capturado_en": "2026-11-26T14:50:58-04:00",
+      "capturado_en": "2026-11-26T23:30:06-04:00",
       "url": "https://app.apuestasroyal.com/",
       "nota": "Cuota 1X2 publicada por la API autenticada del lobby de Apuestas Royal"
     },
@@ -52,11 +52,11 @@
       "equipo_visitante": "Everton FC",
       "mercado": "1X2",
       "cuotas_1x2": {
-        "local_1": 2.06,
-        "empate_x": 3.7,
+        "local_1": 2.04,
+        "empate_x": 3.75,
         "visitante_2": 3.65
       },
-      "capturado_en": "2026-11-26T14:50:58-04:00",
+      "capturado_en": "2026-11-26T23:30:06-04:00",
       "url": "https://app.apuestasroyal.com/",
       "nota": "Cuota 1X2 publicada por la API autenticada del lobby de Apuestas Royal"
     },
@@ -74,7 +74,7 @@
         "empate_x": 4.2,
         "visitante_2": 1.52
       },
-      "capturado_en": "2026-11-26T14:50:58-04:00",
+      "capturado_en": "2026-11-26T23:30:06-04:00",
       "url": "https://app.apuestasroyal.com/",
       "nota": "Cuota 1X2 publicada por la API autenticada del lobby de Apuestas Royal"
     },
@@ -92,7 +92,7 @@
         "empate_x": 4,
         "visitante_2": 2
       },
-      "capturado_en": "2026-11-26T14:50:58-04:00",
+      "capturado_en": "2026-11-26T23:30:06-04:00",
       "url": "https://app.apuestasroyal.com/",
       "nota": "Cuota 1X2 publicada por la API autenticada del lobby de Apuestas Royal"
     },
@@ -110,7 +110,7 @@
         "empate_x": 3.6,
         "visitante_2": 2.22
       },
-      "capturado_en": "2026-11-26T14:50:58-04:00",
+      "capturado_en": "2026-11-26T23:30:06-04:00",
       "url": "https://app.apuestasroyal.com/",
       "nota": "Cuota 1X2 publicada por la API autenticada del lobby de Apuestas Royal"
     },
@@ -128,7 +128,7 @@
         "empate_x": 3.7,
         "visitante_2": 3.45
       },
-      "capturado_en": "2026-11-26T14:50:58-04:00",
+      "capturado_en": "2026-11-26T23:30:06-04:00",
       "url": "https://app.apuestasroyal.com/",
       "nota": "Cuota 1X2 publicada por la API autenticada del lobby de Apuestas Royal"
     },
@@ -142,11 +142,11 @@
       "equipo_visitante": "Gateshead FC",
       "mercado": "1X2",
       "cuotas_1x2": {
-        "local_1": 1.09,
-        "empate_x": 9.2,
-        "visitante_2": 17
+        "local_1": 1.08,
+        "empate_x": 9.4,
+        "visitante_2": 19
       },
-      "capturado_en": "2026-11-26T14:50:58-04:00",
+      "capturado_en": "2026-11-26T23:30:06-04:00",
       "url": "https://app.apuestasroyal.com/",
       "nota": "Cuota 1X2 publicada por la API autenticada del lobby de Apuestas Royal"
     },
@@ -164,25 +164,7 @@
         "empate_x": 3.5,
         "visitante_2": 3
       },
-      "capturado_en": "2026-11-26T14:50:58-04:00",
-      "url": "https://app.apuestasroyal.com/",
-      "nota": "Cuota 1X2 publicada por la API autenticada del lobby de Apuestas Royal"
-    },
-    {
-      "match_slug": "2026-11-26_independiente-2_vs_gimnasia-mendoza-2",
-      "deporte": "Fútbol",
-      "liga": "ARGENTINA: División Reserva - Clausura - Playoffs",
-      "fecha_local": "2026-11-26",
-      "hora_local": "18:00",
-      "equipo_local": "Independiente 2",
-      "equipo_visitante": "Gimnasia Mendoza 2",
-      "mercado": "1X2",
-      "cuotas_1x2": {
-        "local_1": 1.67,
-        "empate_x": 4,
-        "visitante_2": 4
-      },
-      "capturado_en": "2026-11-26T14:50:58-04:00",
+      "capturado_en": "2026-11-26T23:30:06-04:00",
       "url": "https://app.apuestasroyal.com/",
       "nota": "Cuota 1X2 publicada por la API autenticada del lobby de Apuestas Royal"
     },
@@ -200,7 +182,7 @@
         "empate_x": 3.5,
         "visitante_2": 3.65
       },
-      "capturado_en": "2026-11-26T14:50:58-04:00",
+      "capturado_en": "2026-11-26T23:30:06-04:00",
       "url": "https://app.apuestasroyal.com/",
       "nota": "Cuota 1X2 publicada por la API autenticada del lobby de Apuestas Royal"
     },
@@ -218,7 +200,7 @@
         "empate_x": 3.8,
         "visitante_2": 4.1
       },
-      "capturado_en": "2026-11-26T14:50:58-04:00",
+      "capturado_en": "2026-11-26T23:30:06-04:00",
       "url": "https://app.apuestasroyal.com/",
       "nota": "Cuota 1X2 publicada por la API autenticada del lobby de Apuestas Royal"
     },
@@ -232,11 +214,29 @@
       "equipo_visitante": "US Lecce",
       "mercado": "1X2",
       "cuotas_1x2": {
-        "local_1": 1.36,
-        "empate_x": 5.4,
+        "local_1": 1.37,
+        "empate_x": 5.2,
         "visitante_2": 8.8
       },
-      "capturado_en": "2026-11-26T14:50:58-04:00",
+      "capturado_en": "2026-11-26T23:30:06-04:00",
+      "url": "https://app.apuestasroyal.com/",
+      "nota": "Cuota 1X2 publicada por la API autenticada del lobby de Apuestas Royal"
+    },
+    {
+      "match_slug": "2026-11-28_preston-lions_vs_apia-leichhardt",
+      "deporte": "Fútbol",
+      "liga": "Championship",
+      "fecha_local": "2026-11-28",
+      "hora_local": "00:00",
+      "equipo_local": "Preston Lions FC",
+      "equipo_visitante": "APIA Leichhardt",
+      "mercado": "1X2",
+      "cuotas_1x2": {
+        "local_1": 2.66,
+        "empate_x": 3.4,
+        "visitante_2": 2.4
+      },
+      "capturado_en": "2026-11-26T23:30:06-04:00",
       "url": "https://app.apuestasroyal.com/",
       "nota": "Cuota 1X2 publicada por la API autenticada del lobby de Apuestas Royal"
     },
@@ -250,11 +250,11 @@
       "equipo_visitante": "Gimnasia y Tiro",
       "mercado": "1X2",
       "cuotas_1x2": {
-        "local_1": 1.85,
-        "empate_x": 3.15,
-        "visitante_2": 4.4
+        "local_1": 1.75,
+        "empate_x": 3.25,
+        "visitante_2": 4.8
       },
-      "capturado_en": "2026-11-26T14:50:58-04:00",
+      "capturado_en": "2026-11-26T23:30:06-04:00",
       "url": "https://app.apuestasroyal.com/",
       "nota": "Cuota 1X2 publicada por la API autenticada del lobby de Apuestas Royal"
     },
@@ -272,7 +272,7 @@
         "empate_x": 4.1,
         "visitante_2": 1.85
       },
-      "capturado_en": "2026-11-26T14:50:58-04:00",
+      "capturado_en": "2026-11-26T23:30:06-04:00",
       "url": "https://app.apuestasroyal.com/",
       "nota": "Cuota 1X2 publicada por la API autenticada del lobby de Apuestas Royal"
     }
