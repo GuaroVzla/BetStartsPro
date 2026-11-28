@@ -6,8 +6,8 @@
   "fecha_local": "2026-11-28",
   "dia": "hoy",
   "zona_horaria": "America/Caracas",
-  "capturado_en": "2026-11-28T07:22:22-04:00",
-  "total_partidos": 1324,
+  "capturado_en": "2026-11-28T15:32:48-04:00",
+  "total_partidos": 1321,
   "partidos": [
     {
       "match_slug": "2026-11-28_colonia_vs_elversberg",
@@ -19,9 +19,9 @@
       "equipo_local": "Colonia",
       "equipo_visitante": "Elversberg",
       "cuotas_1x2": {
-        "local_1": 2,
-        "empate_x": 3.75,
-        "visitante_2": 3.5
+        "local_1": 2.05,
+        "empate_x": 3.7,
+        "visitante_2": 3.4
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -43,9 +43,9 @@
       "equipo_local": "Hamburgo",
       "equipo_visitante": "Bayern Múnich",
       "cuotas_1x2": {
-        "local_1": 7.5,
-        "empate_x": 5.5,
-        "visitante_2": 1.33
+        "local_1": 7,
+        "empate_x": 5,
+        "visitante_2": 1.4
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -67,9 +67,9 @@
       "equipo_local": "Mainz",
       "equipo_visitante": "Union Berlin",
       "cuotas_1x2": {
-        "local_1": 1.45,
-        "empate_x": 4.5,
-        "visitante_2": 6.25
+        "local_1": 1.42,
+        "empate_x": 4.75,
+        "visitante_2": 7
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -91,9 +91,9 @@
       "equipo_local": "Paderborn",
       "equipo_visitante": "Schalke",
       "cuotas_1x2": {
-        "local_1": 2.7,
+        "local_1": 2.9,
         "empate_x": 3.5,
-        "visitante_2": 2.55
+        "visitante_2": 2.35
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -115,9 +115,9 @@
       "equipo_local": "Stuttgart",
       "equipo_visitante": "Eintracht Fráncfort",
       "cuotas_1x2": {
-        "local_1": 1.8,
-        "empate_x": 4.5,
-        "visitante_2": 3.75
+        "local_1": 1.75,
+        "empate_x": 4.33,
+        "visitante_2": 4
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -140,8 +140,8 @@
       "equipo_visitante": "Rayo Vallecano",
       "cuotas_1x2": {
         "local_1": 1.6,
-        "empate_x": 4.2,
-        "visitante_2": 5.25
+        "empate_x": 4.5,
+        "visitante_2": 5
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -164,8 +164,8 @@
       "equipo_visitante": "Athletic Club",
       "cuotas_1x2": {
         "local_1": 4.75,
-        "empate_x": 3.75,
-        "visitante_2": 1.7
+        "empate_x": 3.7,
+        "visitante_2": 1.73
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -235,7 +235,7 @@
       "equipo_local": "Angers",
       "equipo_visitante": "Lens",
       "cuotas_1x2": {
-        "local_1": 4.75,
+        "local_1": 4.5,
         "empate_x": 4,
         "visitante_2": 1.7
       },
@@ -259,9 +259,9 @@
       "equipo_local": "Le Havre",
       "equipo_visitante": "Estrasburgo",
       "cuotas_1x2": {
-        "local_1": 3.3,
-        "empate_x": 3.4,
-        "visitante_2": 2.15
+        "local_1": 3.4,
+        "empate_x": 3.5,
+        "visitante_2": 2.1
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -283,9 +283,9 @@
       "equipo_local": "Le Mans",
       "equipo_visitante": "Lille",
       "cuotas_1x2": {
-        "local_1": 4.1,
+        "local_1": 3.5,
         "empate_x": 3.4,
-        "visitante_2": 1.91
+        "visitante_2": 2.05
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -308,7 +308,7 @@
       "equipo_visitante": "Troyes",
       "cuotas_1x2": {
         "local_1": 1.73,
-        "empate_x": 3.8,
+        "empate_x": 3.75,
         "visitante_2": 4.75
       },
       "estadisticas_complementarias": {
@@ -331,8 +331,8 @@
       "equipo_local": "PSG",
       "equipo_visitante": "Lorient",
       "cuotas_1x2": {
-        "local_1": 1.2,
-        "empate_x": 6.5,
+        "local_1": 1.22,
+        "empate_x": 6,
         "visitante_2": 15
       },
       "estadisticas_complementarias": {
@@ -355,9 +355,9 @@
       "equipo_local": "Leeds Utd",
       "equipo_visitante": "Coventry",
       "cuotas_1x2": {
-        "local_1": 1.48,
-        "empate_x": 4.33,
-        "visitante_2": 6.25
+        "local_1": 1.45,
+        "empate_x": 4.5,
+        "visitante_2": 6.5
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -379,7 +379,7 @@
       "equipo_local": "Manchester Utd",
       "equipo_visitante": "Brentford",
       "cuotas_1x2": {
-        "local_1": 2.3,
+        "local_1": 2.25,
         "empate_x": 3.75,
         "visitante_2": 2.9
       },
@@ -403,9 +403,9 @@
       "equipo_local": "Ipswich",
       "equipo_visitante": "Aston Villa",
       "cuotas_1x2": {
-        "local_1": 3.5,
-        "empate_x": 3.6,
-        "visitante_2": 2
+        "local_1": 3.25,
+        "empate_x": 3.5,
+        "visitante_2": 2.15
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -427,9 +427,9 @@
       "equipo_local": "Frosinone",
       "equipo_visitante": "Parma",
       "cuotas_1x2": {
-        "local_1": 1.42,
-        "empate_x": 5.25,
-        "visitante_2": 6.25
+        "local_1": 1.38,
+        "empate_x": 5.5,
+        "visitante_2": 7
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -452,8 +452,8 @@
       "equipo_visitante": "Lazio",
       "cuotas_1x2": {
         "local_1": 3.5,
-        "empate_x": 3.3,
-        "visitante_2": 2.1
+        "empate_x": 3.5,
+        "visitante_2": 2.05
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -475,9 +475,9 @@
       "equipo_local": "Inter",
       "equipo_visitante": "Genoa",
       "cuotas_1x2": {
-        "local_1": 1.3,
-        "empate_x": 5.75,
-        "visitante_2": 8.5
+        "local_1": 1.22,
+        "empate_x": 6.5,
+        "visitante_2": 10
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -638,8 +638,8 @@
       "deporte": "Fútbol",
       "liga": "ÁFRICA: Liga de Campeones CAF",
       "fecha_local": "2026-11-28",
-      "hora_local": "15:00",
-      "estado": "Programado",
+      "hora_local": null,
+      "estado": "En Vivo",
       "equipo_local": "Berkane (Mar)",
       "equipo_visitante": "Colombe (Cmr)",
       "cuotas_1x2": {
@@ -662,8 +662,8 @@
       "deporte": "Fútbol",
       "liga": "ÁFRICA: Copa Confederaciones CAF",
       "fecha_local": "2026-11-28",
-      "hora_local": "15:00",
-      "estado": "Programado",
+      "hora_local": null,
+      "estado": "En Vivo",
       "equipo_local": "FAR Rabat (Mar)",
       "equipo_visitante": "Durban City (Rsa)",
       "cuotas_1x2": {
@@ -686,8 +686,8 @@
       "deporte": "Fútbol",
       "liga": "ÁFRICA: Copa Confederaciones CAF",
       "fecha_local": "2026-11-28",
-      "hora_local": "15:00",
-      "estado": "Programado",
+      "hora_local": null,
+      "estado": "En Vivo",
       "equipo_local": "Raja Casablanca (Mar)",
       "equipo_visitante": "Kara (Tog)",
       "cuotas_1x2": {
@@ -859,9 +859,9 @@
       "equipo_local": "Dynamo Dresden",
       "equipo_visitante": "St. Pauli",
       "cuotas_1x2": {
-        "local_1": 3.1,
+        "local_1": 3,
         "empate_x": 3.5,
-        "visitante_2": 2.15
+        "visitante_2": 2.2
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -908,8 +908,8 @@
       "equipo_visitante": "Kaiserslautern",
       "cuotas_1x2": {
         "local_1": 2.4,
-        "empate_x": 3.5,
-        "visitante_2": 2.63
+        "empate_x": 3.4,
+        "visitante_2": 2.7
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -926,14 +926,14 @@
       "deporte": "Fútbol",
       "liga": "ALEMANIA: 2. Bundesliga",
       "fecha_local": "2026-11-28",
-      "hora_local": "15:30",
-      "estado": "Programado",
+      "hora_local": null,
+      "estado": "En Vivo",
       "equipo_local": "Osnabruck",
       "equipo_visitante": "Hannover",
       "cuotas_1x2": {
-        "local_1": 2.9,
+        "local_1": 3,
         "empate_x": 3.4,
-        "visitante_2": 2.25
+        "visitante_2": 2.2
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -1310,7 +1310,7 @@
       "deporte": "Fútbol",
       "liga": "ALEMANIA: Regionalliga West",
       "fecha_local": "2026-11-28",
-      "hora_local": "09:00",
+      "hora_local": null,
       "estado": "Programado",
       "equipo_local": "Bocholt",
       "equipo_visitante": "Hilden",
@@ -2126,8 +2126,8 @@
       "deporte": "Fútbol",
       "liga": "ALEMANIA: Oberliga Niedersachsen",
       "fecha_local": "2026-11-28",
-      "hora_local": "09:00",
-      "estado": "Programado",
+      "hora_local": null,
+      "estado": "En Vivo",
       "equipo_local": "Braunschweig Sub-23",
       "equipo_visitante": "Heeslinger",
       "cuotas_1x2": {
@@ -2966,8 +2966,8 @@
       "deporte": "Fútbol",
       "liga": "ALEMANIA: DFB Youth League - Preliminar",
       "fecha_local": "2026-11-28",
-      "hora_local": "07:30",
-      "estado": "Programado",
+      "hora_local": null,
+      "estado": "En Vivo",
       "equipo_local": "Chemnitzer FC Sub-19",
       "equipo_visitante": "Cottbus Sub-19",
       "cuotas_1x2": {
@@ -3230,8 +3230,8 @@
       "deporte": "Fútbol",
       "liga": "ANDORRA: Primera Divisió",
       "fecha_local": "2026-11-28",
-      "hora_local": "15:30",
-      "estado": "Programado",
+      "hora_local": null,
+      "estado": "En Vivo",
       "equipo_local": "Esperanca",
       "equipo_visitante": "FC Rangers",
       "cuotas_1x2": {
@@ -3835,9 +3835,9 @@
       "equipo_local": "Vélez Sarsfield",
       "equipo_visitante": "Independiente",
       "cuotas_1x2": {
-        "local_1": 2.05,
+        "local_1": 2.1,
         "empate_x": 3.1,
-        "visitante_2": 4
+        "visitante_2": 3.9
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -3859,9 +3859,9 @@
       "equipo_local": "Instituto",
       "equipo_visitante": "River Plate",
       "cuotas_1x2": {
-        "local_1": 3.5,
-        "empate_x": 3.2,
-        "visitante_2": 2.15
+        "local_1": 3.9,
+        "empate_x": 3.3,
+        "visitante_2": 1.96
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -4118,8 +4118,8 @@
       "deporte": "Fútbol",
       "liga": "AUSTRIA: Bundesliga",
       "fecha_local": "2026-11-28",
-      "hora_local": "14:30",
-      "estado": "Programado",
+      "hora_local": null,
+      "estado": "En Vivo",
       "equipo_local": "A. Lustenau",
       "equipo_visitante": "SK Rapid",
       "cuotas_1x2": {
@@ -4484,8 +4484,8 @@
       "equipo_visitante": "RAAL La Louviere",
       "cuotas_1x2": {
         "local_1": 1.85,
-        "empate_x": 3.8,
-        "visitante_2": 3.75
+        "empate_x": 3.9,
+        "visitante_2": 3.7
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -4507,9 +4507,9 @@
       "equipo_local": "Círculo Brujas",
       "equipo_visitante": "KV Mechelen",
       "cuotas_1x2": {
-        "local_1": 2,
-        "empate_x": 3.7,
-        "visitante_2": 3.4
+        "local_1": 2.1,
+        "empate_x": 3.5,
+        "visitante_2": 3.3
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -4531,9 +4531,9 @@
       "equipo_local": "Charleroi",
       "equipo_visitante": "Beveren",
       "cuotas_1x2": {
-        "local_1": 1.6,
-        "empate_x": 4,
-        "visitante_2": 5.25
+        "local_1": 1.65,
+        "empate_x": 3.9,
+        "visitante_2": 5
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -4555,9 +4555,9 @@
       "equipo_local": "Lommel SK",
       "equipo_visitante": "Waregem",
       "cuotas_1x2": {
-        "local_1": 2.9,
-        "empate_x": 3.6,
-        "visitante_2": 2.15
+        "local_1": 3.2,
+        "empate_x": 3.5,
+        "visitante_2": 2.1
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -4603,9 +4603,9 @@
       "equipo_local": "Patro Eisden",
       "equipo_visitante": "Gent Sub-23",
       "cuotas_1x2": {
-        "local_1": 1.8,
+        "local_1": 1.75,
         "empate_x": 3.5,
-        "visitante_2": 3.6
+        "visitante_2": 3.8
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -4622,14 +4622,14 @@
       "deporte": "Fútbol",
       "liga": "BÉLGICA: Challenger Pro League",
       "fecha_local": "2026-11-28",
-      "hora_local": "15:00",
-      "estado": "Programado",
+      "hora_local": null,
+      "estado": "En Vivo",
       "equipo_local": "Sporting Lokeren",
       "equipo_visitante": "Beerschot VA",
       "cuotas_1x2": {
-        "local_1": 3.1,
-        "empate_x": 3.4,
-        "visitante_2": 2
+        "local_1": 3.3,
+        "empate_x": 3.5,
+        "visitante_2": 1.85
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -4670,8 +4670,8 @@
       "deporte": "Fútbol",
       "liga": "BÉLGICA: National Division 1 - ACFF",
       "fecha_local": "2026-11-28",
-      "hora_local": "15:00",
-      "estado": "Programado",
+      "hora_local": null,
+      "estado": "En Vivo",
       "equipo_local": "Flenu",
       "equipo_visitante": "Habay La Neuve",
       "cuotas_1x2": {
@@ -4694,8 +4694,8 @@
       "deporte": "Fútbol",
       "liga": "BÉLGICA: National Division 1 - ACFF",
       "fecha_local": "2026-11-28",
-      "hora_local": "15:00",
-      "estado": "Programado",
+      "hora_local": null,
+      "estado": "En Vivo",
       "equipo_local": "Meux",
       "equipo_visitante": "Renaissance Mons",
       "cuotas_1x2": {
@@ -4718,8 +4718,8 @@
       "deporte": "Fútbol",
       "liga": "BÉLGICA: National Division 1 - ACFF",
       "fecha_local": "2026-11-28",
-      "hora_local": "15:00",
-      "estado": "Programado",
+      "hora_local": null,
+      "estado": "En Vivo",
       "equipo_local": "RWDM Brussels",
       "equipo_visitante": "Onhaye",
       "cuotas_1x2": {
@@ -4766,8 +4766,8 @@
       "deporte": "Fútbol",
       "liga": "BÉLGICA: National Division 1 - VV",
       "fecha_local": "2026-11-28",
-      "hora_local": "15:00",
-      "estado": "Programado",
+      "hora_local": null,
+      "estado": "En Vivo",
       "equipo_local": "Heist",
       "equipo_visitante": "SK Roeselare",
       "cuotas_1x2": {
@@ -4790,8 +4790,8 @@
       "deporte": "Fútbol",
       "liga": "BÉLGICA: National Division 1 - VV",
       "fecha_local": "2026-11-28",
-      "hora_local": "15:00",
-      "estado": "Programado",
+      "hora_local": null,
+      "estado": "En Vivo",
       "equipo_local": "Lyra-Lierse",
       "equipo_visitante": "Tienen",
       "cuotas_1x2": {
@@ -4814,8 +4814,8 @@
       "deporte": "Fútbol",
       "liga": "BÉLGICA: National Division 1 - VV",
       "fecha_local": "2026-11-28",
-      "hora_local": "15:00",
-      "estado": "Programado",
+      "hora_local": null,
+      "estado": "En Vivo",
       "equipo_local": "Thes Sport",
       "equipo_visitante": "Merelbeke",
       "cuotas_1x2": {
@@ -5438,8 +5438,8 @@
       "deporte": "Fútbol",
       "liga": "BIELORRUSIA: Vysshaya Liga",
       "fecha_local": "2026-11-28",
-      "hora_local": null,
-      "estado": "En Vivo",
+      "hora_local": "06:00",
+      "estado": "Programado",
       "equipo_local": "BATE",
       "equipo_visitante": "Isloch",
       "cuotas_1x2": {
@@ -5462,8 +5462,8 @@
       "deporte": "Fútbol",
       "liga": "BIELORRUSIA: Vysshaya Liga",
       "fecha_local": "2026-11-28",
-      "hora_local": null,
-      "estado": "En Vivo",
+      "hora_local": "06:00",
+      "estado": "Programado",
       "equipo_local": "Belshina",
       "equipo_visitante": "ML Vitebsk",
       "cuotas_1x2": {
@@ -5486,8 +5486,8 @@
       "deporte": "Fútbol",
       "liga": "BIELORRUSIA: Vysshaya Liga",
       "fecha_local": "2026-11-28",
-      "hora_local": null,
-      "estado": "En Vivo",
+      "hora_local": "06:00",
+      "estado": "Programado",
       "equipo_local": "FC Minsk",
       "equipo_visitante": "Dnepr Mogilev",
       "cuotas_1x2": {
@@ -5510,8 +5510,8 @@
       "deporte": "Fútbol",
       "liga": "BIELORRUSIA: Vysshaya Liga",
       "fecha_local": "2026-11-28",
-      "hora_local": null,
-      "estado": "En Vivo",
+      "hora_local": "06:00",
+      "estado": "Programado",
       "equipo_local": "Naftan",
       "equipo_visitante": "Dinamo Minsk",
       "cuotas_1x2": {
@@ -5534,8 +5534,8 @@
       "deporte": "Fútbol",
       "liga": "BIELORRUSIA: Vysshaya Liga",
       "fecha_local": "2026-11-28",
-      "hora_local": null,
-      "estado": "En Vivo",
+      "hora_local": "06:00",
+      "estado": "Programado",
       "equipo_local": "Vitebsk",
       "equipo_visitante": "Arsenal Dzerzhinsk",
       "cuotas_1x2": {
@@ -5558,14 +5558,14 @@
       "deporte": "Fútbol",
       "liga": "BOLIVIA: División Profesional",
       "fecha_local": "2026-11-28",
-      "hora_local": "15:00",
-      "estado": "Programado",
+      "hora_local": null,
+      "estado": "En Vivo",
       "equipo_local": "GV San Jose",
       "equipo_visitante": "Real Potosí",
       "cuotas_1x2": {
-        "local_1": 3.5,
-        "empate_x": 3.75,
-        "visitante_2": 1.86
+        "local_1": 2.8,
+        "empate_x": 4.1,
+        "visitante_2": 2
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -5587,9 +5587,9 @@
       "equipo_local": "Guabirá",
       "equipo_visitante": "Universitario de Vinto",
       "cuotas_1x2": {
-        "local_1": 1.57,
-        "empate_x": 4.1,
-        "visitante_2": 4.33
+        "local_1": 1.53,
+        "empate_x": 4.33,
+        "visitante_2": 4.75
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -5611,9 +5611,9 @@
       "equipo_local": "Nacional Potosí",
       "equipo_visitante": "Oriente Petrolero",
       "cuotas_1x2": {
-        "local_1": 1.06,
-        "empate_x": 12,
-        "visitante_2": 26
+        "local_1": 1.02,
+        "empate_x": 21,
+        "visitante_2": 41
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -5726,8 +5726,8 @@
       "deporte": "Fútbol",
       "liga": "BOTSUANA: Premier League",
       "fecha_local": "2026-11-28",
-      "hora_local": "10:00",
-      "estado": "Programado",
+      "hora_local": null,
+      "estado": "En Vivo",
       "equipo_local": "Nico United",
       "equipo_visitante": "Matebele",
       "cuotas_1x2": {
@@ -5827,9 +5827,9 @@
       "equipo_local": "Botafogo",
       "equipo_visitante": "Bahia",
       "cuotas_1x2": {
-        "local_1": 1.96,
-        "empate_x": 3.8,
-        "visitante_2": 3.5
+        "local_1": 2,
+        "empate_x": 3.75,
+        "visitante_2": 3.4
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -5851,9 +5851,9 @@
       "equipo_local": "Fortaleza",
       "equipo_visitante": "Criciúma",
       "cuotas_1x2": {
-        "local_1": 2,
-        "empate_x": 2.8,
-        "visitante_2": 4.5
+        "local_1": 2.05,
+        "empate_x": 2.75,
+        "visitante_2": 4.33
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -5870,8 +5870,8 @@
       "deporte": "Fútbol",
       "liga": "BRASIL: Carioca B1 - Playoffs",
       "fecha_local": "2026-11-28",
-      "hora_local": "15:00",
-      "estado": "Programado",
+      "hora_local": null,
+      "estado": "En Vivo",
       "equipo_local": "Niteroiense",
       "equipo_visitante": "Serrano FC",
       "cuotas_1x2": {
@@ -6062,8 +6062,8 @@
       "deporte": "Fútbol",
       "liga": "BRASIL: Pernambucano Sub-20 - Playoffs",
       "fecha_local": "2026-11-28",
-      "hora_local": "14:00",
-      "estado": "Programado",
+      "hora_local": null,
+      "estado": "En Vivo",
       "equipo_local": "Sport Recife Sub-20",
       "equipo_visitante": "Santa Cruz Sub-20",
       "cuotas_1x2": {
@@ -6134,8 +6134,8 @@
       "deporte": "Fútbol",
       "liga": "BRASIL: Copinha Femenina",
       "fecha_local": "2026-11-28",
-      "hora_local": "14:00",
-      "estado": "Programado",
+      "hora_local": null,
+      "estado": "En Vivo",
       "equipo_local": "Corinthians Sub-20 F",
       "equipo_visitante": "Atlético-MG Sub-20 F",
       "cuotas_1x2": {
@@ -6158,8 +6158,8 @@
       "deporte": "Fútbol",
       "liga": "BRASIL: Copinha Femenina",
       "fecha_local": "2026-11-28",
-      "hora_local": "14:00",
-      "estado": "Programado",
+      "hora_local": null,
+      "estado": "En Vivo",
       "equipo_local": "Sport Recife Sub-20 F",
       "equipo_visitante": "Botafogo Sub-20 F",
       "cuotas_1x2": {
@@ -6374,8 +6374,8 @@
       "deporte": "Fútbol",
       "liga": "BULGARIA: efbet League",
       "fecha_local": "2026-11-28",
-      "hora_local": null,
-      "estado": "En Vivo",
+      "hora_local": "06:45",
+      "estado": "Programado",
       "equipo_local": "Lok. Plovdiv",
       "equipo_visitante": "Spartak Varna",
       "cuotas_1x2": {
@@ -6398,14 +6398,14 @@
       "deporte": "Fútbol",
       "liga": "BULGARIA: efbet League",
       "fecha_local": "2026-11-28",
-      "hora_local": "09:15",
+      "hora_local": null,
       "estado": "Programado",
       "equipo_local": "Botev Vratsa",
       "equipo_visitante": "Ludogorets",
       "cuotas_1x2": {
-        "local_1": 7.5,
-        "empate_x": 4.2,
-        "visitante_2": 1.42
+        "local_1": 7,
+        "empate_x": 4,
+        "visitante_2": 1.46
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -6427,9 +6427,9 @@
       "equipo_local": "Cherno More",
       "equipo_visitante": "Botev Plovdiv",
       "cuotas_1x2": {
-        "local_1": 2.5,
+        "local_1": 2.3,
         "empate_x": 3.2,
-        "visitante_2": 2.75
+        "visitante_2": 3.1
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -6758,8 +6758,8 @@
       "deporte": "Fútbol",
       "liga": "BULGARIA: Third League - South-West",
       "fecha_local": "2026-11-28",
-      "hora_local": "08:00",
-      "estado": "Programado",
+      "hora_local": null,
+      "estado": "En Vivo",
       "equipo_local": "Septemvri Simitli",
       "equipo_visitante": "Balkan Botevgrad",
       "cuotas_1x2": {
@@ -6830,8 +6830,8 @@
       "deporte": "Fútbol",
       "liga": "BULGARIA: Third League - Noreste",
       "fecha_local": "2026-11-28",
-      "hora_local": "08:00",
-      "estado": "Programado",
+      "hora_local": null,
+      "estado": "En Vivo",
       "equipo_local": "Devnya 2005",
       "equipo_visitante": "Botev Novi Pazar",
       "cuotas_1x2": {
@@ -6950,8 +6950,8 @@
       "deporte": "Fútbol",
       "liga": "BULGARIA: Third League - Noreste",
       "fecha_local": "2026-11-28",
-      "hora_local": "08:00",
-      "estado": "Programado",
+      "hora_local": null,
+      "estado": "En Vivo",
       "equipo_local": "Septemvri Tervel",
       "equipo_visitante": "Svetkavitsa 2014",
       "cuotas_1x2": {
@@ -7094,7 +7094,7 @@
       "deporte": "Fútbol",
       "liga": "BURUNDI: Primus League",
       "fecha_local": "2026-11-28",
-      "hora_local": "09:00",
+      "hora_local": "09:45",
       "estado": "Programado",
       "equipo_local": "Aigle Noir",
       "equipo_visitante": "Panthere Noir",
@@ -7142,8 +7142,8 @@
       "deporte": "Fútbol",
       "liga": "CAMBOYA: CPL",
       "fecha_local": "2026-11-28",
-      "hora_local": null,
-      "estado": "En Vivo",
+      "hora_local": "07:00",
+      "estado": "Programado",
       "equipo_local": "Boeung Ket",
       "equipo_visitante": "Tiffy Army",
       "cuotas_1x2": {
@@ -7166,8 +7166,8 @@
       "deporte": "Fútbol",
       "liga": "CAMBOYA: CPL",
       "fecha_local": "2026-11-28",
-      "hora_local": null,
-      "estado": "En Vivo",
+      "hora_local": "07:00",
+      "estado": "Programado",
       "equipo_local": "Dangkor",
       "equipo_visitante": "Moi Kompong Dewa",
       "cuotas_1x2": {
@@ -7435,8 +7435,8 @@
       "equipo_local": "Coquimbo",
       "equipo_visitante": "Limache",
       "cuotas_1x2": {
-        "local_1": 1.57,
-        "empate_x": 3.75,
+        "local_1": 1.61,
+        "empate_x": 3.6,
         "visitante_2": 5
       },
       "estadisticas_complementarias": {
@@ -8155,9 +8155,9 @@
       "equipo_local": "Cartaginés",
       "equipo_visitante": "Pérez Zeledón",
       "cuotas_1x2": {
-        "local_1": 1.18,
-        "empate_x": 5.75,
-        "visitante_2": 11
+        "local_1": 1.17,
+        "empate_x": 6.25,
+        "visitante_2": 12
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -8179,9 +8179,9 @@
       "equipo_local": "San Carlos",
       "equipo_visitante": "Alajuelense",
       "cuotas_1x2": {
-        "local_1": 3.3,
-        "empate_x": 3.25,
-        "visitante_2": 1.95
+        "local_1": 2.88,
+        "empate_x": 3.1,
+        "visitante_2": 2.2
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -8227,9 +8227,9 @@
       "equipo_local": "Sporting FC",
       "equipo_visitante": "Puntarenas FC",
       "cuotas_1x2": {
-        "local_1": 1.62,
-        "empate_x": 3.75,
-        "visitante_2": 4.33
+        "local_1": 1.48,
+        "empate_x": 4.1,
+        "visitante_2": 5.25
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -8251,9 +8251,9 @@
       "equipo_local": "Lok. Zagreb",
       "equipo_visitante": "Slaven Belupo",
       "cuotas_1x2": {
-        "local_1": 2.2,
-        "empate_x": 3.25,
-        "visitante_2": 2.8
+        "local_1": 2.7,
+        "empate_x": 3.2,
+        "visitante_2": 2.35
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -8515,9 +8515,9 @@
       "equipo_local": "Hillerod",
       "equipo_visitante": "Vendsyssel",
       "cuotas_1x2": {
-        "local_1": 2.25,
+        "local_1": 2.35,
         "empate_x": 3.4,
-        "visitante_2": 2.8
+        "visitante_2": 2.7
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -8539,9 +8539,9 @@
       "equipo_local": "Koge",
       "equipo_visitante": "Aarhus Fremad",
       "cuotas_1x2": {
-        "local_1": 2.2,
+        "local_1": 2.25,
         "empate_x": 3.5,
-        "visitante_2": 2.8
+        "visitante_2": 2.75
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -8563,9 +8563,9 @@
       "equipo_local": "U. Católica",
       "equipo_visitante": "Ind. del Valle",
       "cuotas_1x2": {
-        "local_1": 2.5,
+        "local_1": 2.87,
         "empate_x": 3.3,
-        "visitante_2": 2.5
+        "visitante_2": 2.2
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -8582,14 +8582,14 @@
       "deporte": "Fútbol",
       "liga": "ECUADOR: Liga Pro - Grupo de Campeonato",
       "fecha_local": "2026-11-28",
-      "hora_local": "15:00",
-      "estado": "Programado",
+      "hora_local": null,
+      "estado": "En Vivo",
       "equipo_local": "Macará",
       "equipo_visitante": "LDU Quito",
       "cuotas_1x2": {
-        "local_1": 3.3,
-        "empate_x": 3.4,
-        "visitante_2": 2
+        "local_1": 3,
+        "empate_x": 3.2,
+        "visitante_2": 2.25
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -8779,8 +8779,8 @@
       "equipo_local": "Aberdeen",
       "equipo_visitante": "Dundee FC",
       "cuotas_1x2": {
-        "local_1": 1.81,
-        "empate_x": 3.8,
+        "local_1": 1.86,
+        "empate_x": 3.6,
         "visitante_2": 3.8
       },
       "estadisticas_complementarias": {
@@ -8805,7 +8805,7 @@
       "cuotas_1x2": {
         "local_1": 1.57,
         "empate_x": 4.2,
-        "visitante_2": 4.5
+        "visitante_2": 4.75
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -8851,9 +8851,9 @@
       "equipo_local": "St. Mirren",
       "equipo_visitante": "Kilmarnock",
       "cuotas_1x2": {
-        "local_1": 2.15,
+        "local_1": 2.3,
         "empate_x": 3.5,
-        "visitante_2": 3.1
+        "visitante_2": 2.8
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -8870,14 +8870,14 @@
       "deporte": "Fútbol",
       "liga": "ESCOCIA: Premiership",
       "fecha_local": "2026-11-28",
-      "hora_local": "13:45",
-      "estado": "Programado",
+      "hora_local": null,
+      "estado": "En Vivo",
       "equipo_local": "Motherwell",
       "equipo_visitante": "Hibernian",
       "cuotas_1x2": {
-        "local_1": 2.5,
+        "local_1": 2.6,
         "empate_x": 3.6,
-        "visitante_2": 2.5
+        "visitante_2": 2.4
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -8990,8 +8990,8 @@
       "deporte": "Fútbol",
       "liga": "ESCOCIA: Lowland League",
       "fecha_local": "2026-11-28",
-      "hora_local": "11:00",
-      "estado": "Programado",
+      "hora_local": null,
+      "estado": "En Vivo",
       "equipo_local": "Beith",
       "equipo_visitante": "Gretna 2008",
       "cuotas_1x2": {
@@ -9187,9 +9187,9 @@
       "equipo_local": "Annan",
       "equipo_visitante": "Morton",
       "cuotas_1x2": {
-        "local_1": 4.1,
-        "empate_x": 3.5,
-        "visitante_2": 1.7
+        "local_1": 4.75,
+        "empate_x": 3.7,
+        "visitante_2": 1.57
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -9211,9 +9211,9 @@
       "equipo_local": "Bo'ness United",
       "equipo_visitante": "Brechin",
       "cuotas_1x2": {
-        "local_1": 2.9,
-        "empate_x": 4.1,
-        "visitante_2": 1.91
+        "local_1": 3.25,
+        "empate_x": 4.2,
+        "visitante_2": 1.75
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -9235,9 +9235,9 @@
       "equipo_local": "Clydebank FC",
       "equipo_visitante": "Livingston",
       "cuotas_1x2": {
-        "local_1": 7,
-        "empate_x": 4.2,
-        "visitante_2": 1.38
+        "local_1": 7.5,
+        "empate_x": 4.5,
+        "visitante_2": 1.33
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -9283,9 +9283,9 @@
       "equipo_local": "Dumbarton",
       "equipo_visitante": "Johnstone Burgh",
       "cuotas_1x2": {
-        "local_1": 1.83,
+        "local_1": 1.75,
         "empate_x": 4.1,
-        "visitante_2": 3.1
+        "visitante_2": 3.3
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -9307,9 +9307,9 @@
       "equipo_local": "East Kilbride",
       "equipo_visitante": "Clyde",
       "cuotas_1x2": {
-        "local_1": 1.44,
-        "empate_x": 4.2,
-        "visitante_2": 5.75
+        "local_1": 1.5,
+        "empate_x": 4,
+        "visitante_2": 5.25
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -9333,7 +9333,7 @@
       "cuotas_1x2": {
         "local_1": 7,
         "empate_x": 5,
-        "visitante_2": 1.29
+        "visitante_2": 1.3
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -9355,9 +9355,9 @@
       "equipo_local": "Inverness",
       "equipo_visitante": "Cove Rangers",
       "cuotas_1x2": {
-        "local_1": 1.33,
+        "local_1": 1.29,
         "empate_x": 5,
-        "visitante_2": 6.5
+        "visitante_2": 7.5
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -9427,9 +9427,9 @@
       "equipo_local": "Peterhead",
       "equipo_visitante": "Edinburgh City",
       "cuotas_1x2": {
-        "local_1": 1.67,
-        "empate_x": 4,
-        "visitante_2": 3.8
+        "local_1": 1.7,
+        "empate_x": 3.9,
+        "visitante_2": 3.75
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -9451,9 +9451,9 @@
       "equipo_local": "Queen of South",
       "equipo_visitante": "Dunfermline",
       "cuotas_1x2": {
-        "local_1": 8,
-        "empate_x": 5.5,
-        "visitante_2": 1.25
+        "local_1": 11,
+        "empate_x": 7,
+        "visitante_2": 1.17
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -9475,9 +9475,9 @@
       "equipo_local": "Queen's Park",
       "equipo_visitante": "Spartans",
       "cuotas_1x2": {
-        "local_1": 1.44,
-        "empate_x": 5,
-        "visitante_2": 5
+        "local_1": 1.65,
+        "empate_x": 4.1,
+        "visitante_2": 4.1
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -9547,9 +9547,9 @@
       "equipo_local": "Stenhousemuir",
       "equipo_visitante": "East Fife",
       "cuotas_1x2": {
-        "local_1": 1.5,
-        "empate_x": 3.8,
-        "visitante_2": 5.25
+        "local_1": 1.36,
+        "empate_x": 4.33,
+        "visitante_2": 6.5
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -9595,9 +9595,9 @@
       "equipo_local": "Threave Rovers",
       "equipo_visitante": "Alloa",
       "cuotas_1x2": {
-        "local_1": 3.3,
+        "local_1": 3,
         "empate_x": 5.25,
-        "visitante_2": 1.6
+        "visitante_2": 1.67
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -9787,9 +9787,9 @@
       "equipo_local": "Las Palmas",
       "equipo_visitante": "Andorra",
       "cuotas_1x2": {
-        "local_1": 2.25,
+        "local_1": 2.1,
         "empate_x": 3.5,
-        "visitante_2": 2.87
+        "visitante_2": 3.1
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -9811,9 +9811,9 @@
       "equipo_local": "Albacete",
       "equipo_visitante": "Tenerife",
       "cuotas_1x2": {
-        "local_1": 2,
-        "empate_x": 3.25,
-        "visitante_2": 3.6
+        "local_1": 1.96,
+        "empate_x": 3.2,
+        "visitante_2": 3.8
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -9835,9 +9835,9 @@
       "equipo_local": "Eldense",
       "equipo_visitante": "Girona",
       "cuotas_1x2": {
-        "local_1": 3.4,
-        "empate_x": 3.25,
-        "visitante_2": 2.1
+        "local_1": 3.6,
+        "empate_x": 3.2,
+        "visitante_2": 2.05
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -9859,7 +9859,7 @@
       "equipo_local": "Eibar",
       "equipo_visitante": "Burgos CF",
       "cuotas_1x2": {
-        "local_1": 1.79,
+        "local_1": 1.76,
         "empate_x": 3.4,
         "visitante_2": 4.5
       },
@@ -9898,13 +9898,13 @@
       "url": "http://m.flashscore.com.ve/partido/l2komi3l/?d=0"
     },
     {
-      "match_slug": "2026-11-28_cd-coria_vs_ponferradina",
+      "match_slug": "2026-11-28_cd-coria-2_vs_ponferradina",
       "deporte": "Fútbol",
       "liga": "ESPAÑA: Primera Federación - Grupo 1",
       "fecha_local": "2026-11-28",
       "hora_local": "08:00",
       "estado": "Programado",
-      "equipo_local": "CD Coria",
+      "equipo_local": "CD Coria\n2",
       "equipo_visitante": "Ponferradina",
       "cuotas_1x2": {
         "local_1": null,
@@ -9974,8 +9974,8 @@
       "deporte": "Fútbol",
       "liga": "ESPAÑA: Primera Federación - Grupo 1",
       "fecha_local": "2026-11-28",
-      "hora_local": "13:45",
-      "estado": "Programado",
+      "hora_local": null,
+      "estado": "En Vivo",
       "equipo_local": "Lugo",
       "equipo_visitante": "UD Ourense",
       "cuotas_1x2": {
@@ -9998,8 +9998,8 @@
       "deporte": "Fútbol",
       "liga": "ESPAÑA: Primera Federación - Grupo 1",
       "fecha_local": "2026-11-28",
-      "hora_local": "13:45",
-      "estado": "Programado",
+      "hora_local": null,
+      "estado": "En Vivo",
       "equipo_local": "Real Unión",
       "equipo_visitante": "Arenas Club",
       "cuotas_1x2": {
@@ -10022,8 +10022,8 @@
       "deporte": "Fútbol",
       "liga": "ESPAÑA: Primera Federación - Grupo 1",
       "fecha_local": "2026-11-28",
-      "hora_local": "13:45",
-      "estado": "Programado",
+      "hora_local": null,
+      "estado": "En Vivo",
       "equipo_local": "Zamora",
       "equipo_visitante": "Pontevedra",
       "cuotas_1x2": {
@@ -10142,8 +10142,8 @@
       "deporte": "Fútbol",
       "liga": "ESPAÑA: Primera Federación - Grupo 2",
       "fecha_local": "2026-11-28",
-      "hora_local": "13:45",
-      "estado": "Programado",
+      "hora_local": null,
+      "estado": "En Vivo",
       "equipo_local": "Alcorcón",
       "equipo_visitante": "Real Zaragoza",
       "cuotas_1x2": {
@@ -10166,8 +10166,8 @@
       "deporte": "Fútbol",
       "liga": "ESPAÑA: Primera Federación - Grupo 2",
       "fecha_local": "2026-11-28",
-      "hora_local": "13:45",
-      "estado": "Programado",
+      "hora_local": null,
+      "estado": "En Vivo",
       "equipo_local": "J. Torremolinos",
       "equipo_visitante": "Cartagena",
       "cuotas_1x2": {
@@ -10190,8 +10190,8 @@
       "deporte": "Fútbol",
       "liga": "ESPAÑA: Primera Federación - Grupo 2",
       "fecha_local": "2026-11-28",
-      "hora_local": "14:00",
-      "estado": "Programado",
+      "hora_local": null,
+      "estado": "En Vivo",
       "equipo_local": "CE Europa",
       "equipo_visitante": "Villarreal B",
       "cuotas_1x2": {
@@ -10214,8 +10214,8 @@
       "deporte": "Fútbol",
       "liga": "ESPAÑA: Segunda Federación - Grupo 1",
       "fecha_local": "2026-11-28",
-      "hora_local": null,
-      "estado": "En Vivo",
+      "hora_local": "07:00",
+      "estado": "Programado",
       "equipo_local": "Basconia",
       "equipo_visitante": "Sestao River",
       "cuotas_1x2": {
@@ -10670,8 +10670,8 @@
       "deporte": "Fútbol",
       "liga": "ESPAÑA: Segunda Federación - Grupo 3",
       "fecha_local": "2026-11-28",
-      "hora_local": "15:00",
-      "estado": "Programado",
+      "hora_local": null,
+      "estado": "En Vivo",
       "equipo_local": "Alcoyano",
       "equipo_visitante": "Lorca Deportiva",
       "cuotas_1x2": {
@@ -10694,8 +10694,8 @@
       "deporte": "Fútbol",
       "liga": "ESPAÑA: Segunda Federación - Grupo 4",
       "fecha_local": "2026-11-28",
-      "hora_local": "14:00",
-      "estado": "Programado",
+      "hora_local": null,
+      "estado": "En Vivo",
       "equipo_local": "At. Sanluqueño",
       "equipo_visitante": "Antoniano",
       "cuotas_1x2": {
@@ -10718,8 +10718,8 @@
       "deporte": "Fútbol",
       "liga": "ESPAÑA: Segunda Federación - Grupo 4",
       "fecha_local": "2026-11-28",
-      "hora_local": "14:00",
-      "estado": "Programado",
+      "hora_local": null,
+      "estado": "En Vivo",
       "equipo_local": "CD Badajoz",
       "equipo_visitante": "Mijas Las Lagunas",
       "cuotas_1x2": {
@@ -11366,8 +11366,8 @@
       "deporte": "Fútbol",
       "liga": "ESPAÑA: Tercera Federación - Grupo 5",
       "fecha_local": "2026-11-28",
-      "hora_local": "13:45",
-      "estado": "Programado",
+      "hora_local": null,
+      "estado": "En Vivo",
       "equipo_local": "San Juan Atletico de Montcada",
       "equipo_visitante": "Badalona",
       "cuotas_1x2": {
@@ -11390,8 +11390,8 @@
       "deporte": "Fútbol",
       "liga": "ESPAÑA: Tercera Federación - Grupo 6",
       "fecha_local": "2026-11-28",
-      "hora_local": null,
-      "estado": "En Vivo",
+      "hora_local": "07:00",
+      "estado": "Programado",
       "equipo_local": "Levante B",
       "equipo_visitante": "Hércules B",
       "cuotas_1x2": {
@@ -11678,8 +11678,8 @@
       "deporte": "Fútbol",
       "liga": "ESPAÑA: Tercera Federación - Grupo 9",
       "fecha_local": "2026-11-28",
-      "hora_local": "14:00",
-      "estado": "Programado",
+      "hora_local": null,
+      "estado": "En Vivo",
       "equipo_local": "Málaga B",
       "equipo_visitante": "Torredonjimeno",
       "cuotas_1x2": {
@@ -11702,8 +11702,8 @@
       "deporte": "Fútbol",
       "liga": "ESPAÑA: Tercera Federación - Grupo 10",
       "fecha_local": "2026-11-28",
-      "hora_local": null,
-      "estado": "En Vivo",
+      "hora_local": "07:00",
+      "estado": "Programado",
       "equipo_local": "AD Ceuta B",
       "equipo_visitante": "Portuense",
       "cuotas_1x2": {
@@ -12710,14 +12710,14 @@
       "deporte": "Fútbol",
       "liga": "ESTADOS UNIDOS: MLS - Playoffs",
       "fecha_local": "2026-11-28",
-      "hora_local": "13:30",
-      "estado": "Programado",
+      "hora_local": null,
+      "estado": "En Vivo",
       "equipo_local": "Charlotte",
       "equipo_visitante": "Chicago Fire",
       "cuotas_1x2": {
-        "local_1": 2.63,
+        "local_1": 2.88,
         "empate_x": 3.9,
-        "visitante_2": 2.4
+        "visitante_2": 2.2
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -12739,7 +12739,7 @@
       "equipo_local": "Houston Dynamo",
       "equipo_visitante": "San Jose Earthquakes",
       "cuotas_1x2": {
-        "local_1": 2.15,
+        "local_1": 2.2,
         "empate_x": 3.4,
         "visitante_2": 3.4
       },
@@ -12764,7 +12764,7 @@
       "equipo_visitante": "New England Revolution",
       "cuotas_1x2": {
         "local_1": 1.57,
-        "empate_x": 4.5,
+        "empate_x": 4.33,
         "visitante_2": 5.25
       },
       "estadisticas_complementarias": {
@@ -12787,9 +12787,9 @@
       "equipo_local": "Cincinnati",
       "equipo_visitante": "Nashville SC",
       "cuotas_1x2": {
-        "local_1": 3.4,
-        "empate_x": 3.9,
-        "visitante_2": 2
+        "local_1": 3.25,
+        "empate_x": 3.8,
+        "visitante_2": 2.05
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -12811,9 +12811,9 @@
       "equipo_local": "Los Angeles FC",
       "equipo_visitante": "St. Louis City",
       "cuotas_1x2": {
-        "local_1": 1.62,
-        "empate_x": 4.33,
-        "visitante_2": 5
+        "local_1": 1.55,
+        "empate_x": 4.5,
+        "visitante_2": 5.25
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -12835,9 +12835,9 @@
       "equipo_local": "Portland Timbers",
       "equipo_visitante": "FC Dallas",
       "cuotas_1x2": {
-        "local_1": 2.15,
+        "local_1": 2.2,
         "empate_x": 3.8,
-        "visitante_2": 3
+        "visitante_2": 2.9
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -12950,8 +12950,8 @@
       "deporte": "Fútbol",
       "liga": "ESTONIA: Meistriliiga - Descenso",
       "fecha_local": "2026-11-28",
-      "hora_local": null,
-      "estado": "En Vivo",
+      "hora_local": "06:30",
+      "estado": "Programado",
       "equipo_local": "Kuressaare",
       "equipo_visitante": "Viimsi JK",
       "cuotas_1x2": {
@@ -12974,8 +12974,8 @@
       "deporte": "Fútbol",
       "liga": "ESTONIA: Esiliiga - Descenso",
       "fecha_local": "2026-11-28",
-      "hora_local": null,
-      "estado": "En Vivo",
+      "hora_local": "06:30",
+      "estado": "Programado",
       "equipo_local": "FC Tallinn",
       "equipo_visitante": "Tulevik",
       "cuotas_1x2": {
@@ -13142,8 +13142,8 @@
       "deporte": "Fútbol",
       "liga": "EUROPA: Premier League (Crimea)",
       "fecha_local": "2026-11-28",
-      "hora_local": null,
-      "estado": "En Vivo",
+      "hora_local": "07:00",
+      "estado": "Programado",
       "equipo_local": "GFK Yalta",
       "equipo_visitante": "Sparta-KT",
       "cuotas_1x2": {
@@ -13166,8 +13166,8 @@
       "deporte": "Fútbol",
       "liga": "EUROPA: Premier League (Crimea)",
       "fecha_local": "2026-11-28",
-      "hora_local": null,
-      "estado": "En Vivo",
+      "hora_local": "07:00",
+      "estado": "Programado",
       "equipo_local": "Ocean Kerch",
       "equipo_visitante": "MAK",
       "cuotas_1x2": {
@@ -13214,8 +13214,8 @@
       "deporte": "Fútbol",
       "liga": "EUROPA: Europeo Femenino Sub-19 - Clasificación - Ronda 1 - Liga A",
       "fecha_local": "2026-11-28",
-      "hora_local": null,
-      "estado": "En Vivo",
+      "hora_local": "07:00",
+      "estado": "Programado",
       "equipo_local": "Irlanda del Norte Sub-19 F",
       "equipo_visitante": "Escocia Sub-19 F",
       "cuotas_1x2": {
@@ -13238,8 +13238,8 @@
       "deporte": "Fútbol",
       "liga": "EUROPA: Europeo Femenino Sub-19 - Clasificación - Ronda 1 - Liga A",
       "fecha_local": "2026-11-28",
-      "hora_local": null,
-      "estado": "En Vivo",
+      "hora_local": "07:00",
+      "estado": "Programado",
       "equipo_local": "Islandia Sub-19 F",
       "equipo_visitante": "Croacia Sub-19 F",
       "cuotas_1x2": {
@@ -13334,8 +13334,8 @@
       "deporte": "Fútbol",
       "liga": "EUROPA: Europeo Femenino Sub-19 - Clasificación - Ronda 1 - Liga A",
       "fecha_local": "2026-11-28",
-      "hora_local": "14:00",
-      "estado": "Programado",
+      "hora_local": null,
+      "estado": "En Vivo",
       "equipo_local": "Alemania Sub-19 F",
       "equipo_visitante": "Eslovenia Sub-19 F",
       "cuotas_1x2": {
@@ -13406,8 +13406,8 @@
       "deporte": "Fútbol",
       "liga": "FILIPINAS: PFL",
       "fecha_local": "2026-11-28",
-      "hora_local": null,
-      "estado": "En Vivo",
+      "hora_local": "07:00",
+      "estado": "Programado",
       "equipo_local": "Davao Aguilas",
       "equipo_visitante": "Manila Digger",
       "cuotas_1x2": {
@@ -13459,9 +13459,9 @@
       "equipo_local": "OCPAM",
       "equipo_visitante": "Reims",
       "cuotas_1x2": {
-        "local_1": 3.9,
+        "local_1": 4.2,
         "empate_x": 4.75,
-        "visitante_2": 1.57
+        "visitante_2": 1.53
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -13483,9 +13483,9 @@
       "equipo_local": "Tremblay",
       "equipo_visitante": "Red Star",
       "cuotas_1x2": {
-        "local_1": 11,
-        "empate_x": 7.5,
-        "visitante_2": 1.13
+        "local_1": 26,
+        "empate_x": 9.5,
+        "visitante_2": 1.08
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -13546,30 +13546,6 @@
       "url": "http://m.flashscore.com.ve/partido/jPfFnfWF/?d=0"
     },
     {
-      "match_slug": "2026-11-28_etoile-matoury_vs_fleury-91",
-      "deporte": "Fútbol",
-      "liga": "FRANCIA: Copa de Francia",
-      "fecha_local": "2026-11-28",
-      "hora_local": "10:30",
-      "estado": "Programado",
-      "equipo_local": "Etoile Matoury",
-      "equipo_visitante": "Fleury 91",
-      "cuotas_1x2": {
-        "local_1": null,
-        "empate_x": null,
-        "visitante_2": null
-      },
-      "estadisticas_complementarias": {
-        "posicion_local": null,
-        "posicion_visitante": null,
-        "racha_local_ultimos_5": null,
-        "racha_visitante_ultimos_5": null,
-        "h2h_resumen": null
-      },
-      "mid": "tjeRpgIP",
-      "url": "http://m.flashscore.com.ve/partido/tjeRpgIP/?d=0"
-    },
-    {
       "match_slug": "2026-11-28_bayonne_vs_franciscain",
       "deporte": "Fútbol",
       "liga": "FRANCIA: Copa de Francia",
@@ -13592,30 +13568,6 @@
       },
       "mid": "0CNZv3U6",
       "url": "http://m.flashscore.com.ve/partido/0CNZv3U6/?d=0"
-    },
-    {
-      "match_slug": "2026-11-28_biesheim_vs_besancon",
-      "deporte": "Fútbol",
-      "liga": "FRANCIA: Copa de Francia",
-      "fecha_local": "2026-11-28",
-      "hora_local": "12:00",
-      "estado": "Programado",
-      "equipo_local": "Biesheim",
-      "equipo_visitante": "Besancon",
-      "cuotas_1x2": {
-        "local_1": null,
-        "empate_x": null,
-        "visitante_2": null
-      },
-      "estadisticas_complementarias": {
-        "posicion_local": null,
-        "posicion_visitante": null,
-        "racha_local_ultimos_5": null,
-        "racha_visitante_ultimos_5": null,
-        "h2h_resumen": null
-      },
-      "mid": "fLqguCOk",
-      "url": "http://m.flashscore.com.ve/partido/fLqguCOk/?d=0"
     },
     {
       "match_slug": "2026-11-28_cosne_vs_sedan",
@@ -13642,18 +13594,18 @@
       "url": "http://m.flashscore.com.ve/partido/48d7lG13/?d=0"
     },
     {
-      "match_slug": "2026-11-28_feurs_vs_annecy",
+      "match_slug": "2026-11-28_feurs-2_vs_annecy",
       "deporte": "Fútbol",
       "liga": "FRANCIA: Copa de Francia",
       "fecha_local": "2026-11-28",
       "hora_local": "12:00",
       "estado": "Programado",
-      "equipo_local": "Feurs",
+      "equipo_local": "Feurs\n2",
       "equipo_visitante": "Annecy",
       "cuotas_1x2": {
-        "local_1": 4.5,
-        "empate_x": 3.7,
-        "visitante_2": 1.6
+        "local_1": 5.5,
+        "empate_x": 3.9,
+        "visitante_2": 1.48
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -13675,9 +13627,9 @@
       "equipo_local": "La Roche",
       "equipo_visitante": "Chateaubriant",
       "cuotas_1x2": {
-        "local_1": 1.48,
-        "empate_x": 3.7,
-        "visitante_2": 6.25
+        "local_1": 1.6,
+        "empate_x": 3.4,
+        "visitante_2": 5.25
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -13843,9 +13795,9 @@
       "equipo_local": "Nimes",
       "equipo_visitante": "Grenoble",
       "cuotas_1x2": {
-        "local_1": 3.1,
-        "empate_x": 3.1,
-        "visitante_2": 2.1
+        "local_1": 2.75,
+        "empate_x": 3,
+        "visitante_2": 2.38
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -13982,14 +13934,14 @@
       "deporte": "Fútbol",
       "liga": "FRANCIA: Copa de Francia",
       "fecha_local": "2026-11-28",
-      "hora_local": "13:30",
-      "estado": "Programado",
+      "hora_local": null,
+      "estado": "En Vivo",
       "equipo_local": "US Castanet",
       "equipo_visitante": "Pau FC",
       "cuotas_1x2": {
-        "local_1": 5.25,
-        "empate_x": 4.5,
-        "visitante_2": 1.4
+        "local_1": 3.5,
+        "empate_x": 3.9,
+        "visitante_2": 1.73
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -14150,14 +14102,14 @@
       "deporte": "Fútbol",
       "liga": "FRANCIA: Copa de Francia",
       "fecha_local": "2026-11-28",
-      "hora_local": "14:00",
-      "estado": "Programado",
+      "hora_local": null,
+      "estado": "En Vivo",
       "equipo_local": "Saint-Étienne",
       "equipo_visitante": "Villefranche",
       "cuotas_1x2": {
-        "local_1": 1.33,
+        "local_1": 1.27,
         "empate_x": 5.25,
-        "visitante_2": 6
+        "visitante_2": 7.5
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -14194,12 +14146,36 @@
       "url": "http://m.flashscore.com.ve/partido/ziq0n6gU/?d=0"
     },
     {
+      "match_slug": "2026-11-28_etoile-matoury_vs_fleury-91",
+      "deporte": "Fútbol",
+      "liga": "FRANCIA: Copa de Francia",
+      "fecha_local": "2026-11-28",
+      "hora_local": "14:30",
+      "estado": "Programado",
+      "equipo_local": "Etoile Matoury",
+      "equipo_visitante": "Fleury 91",
+      "cuotas_1x2": {
+        "local_1": null,
+        "empate_x": null,
+        "visitante_2": null
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "tjeRpgIP",
+      "url": "http://m.flashscore.com.ve/partido/tjeRpgIP/?d=0"
+    },
+    {
       "match_slug": "2026-11-28_vannes_vs_concarneau",
       "deporte": "Fútbol",
       "liga": "FRANCIA: Copa de Francia",
       "fecha_local": "2026-11-28",
-      "hora_local": "15:00",
-      "estado": "Programado",
+      "hora_local": null,
+      "estado": "En Vivo",
       "equipo_local": "Vannes",
       "equipo_visitante": "Concarneau",
       "cuotas_1x2": {
@@ -14414,7 +14390,7 @@
       "deporte": "Fútbol",
       "liga": "GALES: Cymru Premier",
       "fecha_local": "2026-11-28",
-      "hora_local": "13:15",
+      "hora_local": null,
       "estado": "Programado",
       "equipo_local": "Holywell",
       "equipo_visitante": "Llandudno",
@@ -14510,7 +14486,7 @@
       "deporte": "Fútbol",
       "liga": "GALES: Cymru North",
       "fecha_local": "2026-11-28",
-      "hora_local": "10:00",
+      "hora_local": null,
       "estado": "Programado",
       "equipo_local": "Buckley",
       "equipo_visitante": "Llanuwchllyn",
@@ -14606,7 +14582,7 @@
       "deporte": "Fútbol",
       "liga": "GALES: Cymru North",
       "fecha_local": "2026-11-28",
-      "hora_local": "10:30",
+      "hora_local": null,
       "estado": "Programado",
       "equipo_local": "Porthmadog",
       "equipo_visitante": "Penrhyncoch",
@@ -14707,9 +14683,9 @@
       "equipo_local": "Iraklis 1908",
       "equipo_visitante": "Panetolikos",
       "cuotas_1x2": {
-        "local_1": 1.76,
-        "empate_x": 3.6,
-        "visitante_2": 4.33
+        "local_1": 1.81,
+        "empate_x": 3.5,
+        "visitante_2": 4.1
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -14731,9 +14707,9 @@
       "equipo_local": "Volos",
       "equipo_visitante": "Asteras T.",
       "cuotas_1x2": {
-        "local_1": 2.6,
-        "empate_x": 3,
-        "visitante_2": 2.7
+        "local_1": 2.65,
+        "empate_x": 3.1,
+        "visitante_2": 2.65
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -14750,13 +14726,13 @@
       "deporte": "Fútbol",
       "liga": "GRECIA: Superliga",
       "fecha_local": "2026-11-28",
-      "hora_local": "14:00",
-      "estado": "Programado",
+      "hora_local": null,
+      "estado": "En Vivo",
       "equipo_local": "Kifisia",
       "equipo_visitante": "Kalamata",
       "cuotas_1x2": {
-        "local_1": 1.81,
-        "empate_x": 3.3,
+        "local_1": 1.76,
+        "empate_x": 3.5,
         "visitante_2": 4.5
       },
       "estadisticas_complementarias": {
@@ -16291,9 +16267,9 @@
       "equipo_local": "Vasas",
       "equipo_visitante": "Honved",
       "cuotas_1x2": {
-        "local_1": 1.7,
-        "empate_x": 3.6,
-        "visitante_2": 4.1
+        "local_1": 1.8,
+        "empate_x": 3.4,
+        "visitante_2": 3.7
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -16334,14 +16310,14 @@
       "deporte": "Fútbol",
       "liga": "HUNGRÍA: NB I.",
       "fecha_local": "2026-11-28",
-      "hora_local": "14:15",
-      "estado": "Programado",
+      "hora_local": null,
+      "estado": "En Vivo",
       "equipo_local": "Kisvarda",
       "equipo_visitante": "Nyiregyhaza",
       "cuotas_1x2": {
-        "local_1": 2.55,
+        "local_1": 2.63,
         "empate_x": 3.25,
-        "visitante_2": 2.4
+        "visitante_2": 2.35
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -16426,13 +16402,13 @@
       "url": "http://m.flashscore.com.ve/partido/6Tbx9bRh/?d=0"
     },
     {
-      "match_slug": "2026-11-28_szeged_vs_ajka",
+      "match_slug": "2026-11-28_szeged-2_vs_ajka",
       "deporte": "Fútbol",
       "liga": "HUNGRÍA: NB II.",
       "fecha_local": "2026-11-28",
       "hora_local": "10:00",
       "estado": "Programado",
-      "equipo_local": "Szeged",
+      "equipo_local": "Szeged\n2",
       "equipo_visitante": "Ajka",
       "cuotas_1x2": {
         "local_1": null,
@@ -16795,9 +16771,9 @@
       "equipo_local": "Blackburn",
       "equipo_visitante": "Charlton",
       "cuotas_1x2": {
-        "local_1": 2,
+        "local_1": 1.9,
         "empate_x": 3.5,
-        "visitante_2": 3.4
+        "visitante_2": 3.75
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -16819,9 +16795,9 @@
       "equipo_local": "Lincoln",
       "equipo_visitante": "Wolves",
       "cuotas_1x2": {
-        "local_1": 7,
-        "empate_x": 3.9,
-        "visitante_2": 1.45
+        "local_1": 6.5,
+        "empate_x": 3.8,
+        "visitante_2": 1.49
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -16867,9 +16843,9 @@
       "equipo_local": "Birmingham",
       "equipo_visitante": "Bolton",
       "cuotas_1x2": {
-        "local_1": 1.45,
-        "empate_x": 4.33,
-        "visitante_2": 5.75
+        "local_1": 1.49,
+        "empate_x": 4.2,
+        "visitante_2": 5.25
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -16891,9 +16867,9 @@
       "equipo_local": "Derby",
       "equipo_visitante": "Watford",
       "cuotas_1x2": {
-        "local_1": 2.25,
-        "empate_x": 3.25,
-        "visitante_2": 3.1
+        "local_1": 2,
+        "empate_x": 3.3,
+        "visitante_2": 3.5
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -16939,8 +16915,8 @@
       "equipo_local": "QPR",
       "equipo_visitante": "Sheffield Utd",
       "cuotas_1x2": {
-        "local_1": 1.9,
-        "empate_x": 3.6,
+        "local_1": 1.96,
+        "empate_x": 3.5,
         "visitante_2": 3.6
       },
       "estadisticas_complementarias": {
@@ -16963,9 +16939,9 @@
       "equipo_local": "West Brom",
       "equipo_visitante": "Bristol City",
       "cuotas_1x2": {
-        "local_1": 1.66,
-        "empate_x": 3.7,
-        "visitante_2": 5
+        "local_1": 1.69,
+        "empate_x": 3.6,
+        "visitante_2": 4.75
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -17011,9 +16987,9 @@
       "equipo_local": "Wrexham",
       "equipo_visitante": "Portsmouth",
       "cuotas_1x2": {
-        "local_1": 2.15,
-        "empate_x": 3.25,
-        "visitante_2": 3.3
+        "local_1": 1.96,
+        "empate_x": 3.4,
+        "visitante_2": 3.7
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -17035,9 +17011,9 @@
       "equipo_local": "MK Dons",
       "equipo_visitante": "Notts County",
       "cuotas_1x2": {
-        "local_1": 1.79,
+        "local_1": 1.71,
         "empate_x": 3.5,
-        "visitante_2": 4.1
+        "visitante_2": 4.33
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -17059,9 +17035,9 @@
       "equipo_local": "Peterborough",
       "equipo_visitante": "Cambridge Utd",
       "cuotas_1x2": {
-        "local_1": 2.1,
+        "local_1": 2.15,
         "empate_x": 3.3,
-        "visitante_2": 3.25
+        "visitante_2": 3.2
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -17085,7 +17061,7 @@
       "cuotas_1x2": {
         "local_1": 2.25,
         "empate_x": 3.4,
-        "visitante_2": 3
+        "visitante_2": 2.8
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -17107,9 +17083,9 @@
       "equipo_local": "Leicester",
       "equipo_visitante": "Mansfield",
       "cuotas_1x2": {
-        "local_1": 1.45,
+        "local_1": 1.46,
         "empate_x": 4.5,
-        "visitante_2": 5.5
+        "visitante_2": 5.25
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -17131,9 +17107,9 @@
       "equipo_local": "Luton",
       "equipo_visitante": "Oxford Utd",
       "cuotas_1x2": {
-        "local_1": 1.66,
-        "empate_x": 3.9,
-        "visitante_2": 4.33
+        "local_1": 1.71,
+        "empate_x": 3.7,
+        "visitante_2": 4.1
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -17155,9 +17131,9 @@
       "equipo_local": "Sheffield Wed",
       "equipo_visitante": "Reading",
       "cuotas_1x2": {
-        "local_1": 2.5,
-        "empate_x": 3.4,
-        "visitante_2": 2.5
+        "local_1": 2.4,
+        "empate_x": 3.5,
+        "visitante_2": 2.65
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -17179,9 +17155,9 @@
       "equipo_local": "Stevenage",
       "equipo_visitante": "Blackpool",
       "cuotas_1x2": {
-        "local_1": 1.81,
-        "empate_x": 3.6,
-        "visitante_2": 4
+        "local_1": 1.71,
+        "empate_x": 3.7,
+        "visitante_2": 4.2
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -17203,9 +17179,9 @@
       "equipo_local": "Stockport",
       "equipo_visitante": "Leyton Orient",
       "cuotas_1x2": {
-        "local_1": 1.3,
-        "empate_x": 5,
-        "visitante_2": 8.5
+        "local_1": 1.35,
+        "empate_x": 4.75,
+        "visitante_2": 7
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -17227,9 +17203,9 @@
       "equipo_local": "Wigan",
       "equipo_visitante": "Plymouth",
       "cuotas_1x2": {
-        "local_1": 2.3,
-        "empate_x": 3.25,
-        "visitante_2": 2.87
+        "local_1": 2.87,
+        "empate_x": 3.3,
+        "visitante_2": 2.3
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -17251,9 +17227,9 @@
       "equipo_local": "Wimbledon",
       "equipo_visitante": "Barnsley",
       "cuotas_1x2": {
-        "local_1": 2.8,
-        "empate_x": 3.6,
-        "visitante_2": 2.15
+        "local_1": 3.5,
+        "empate_x": 3.8,
+        "visitante_2": 1.86
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -17275,9 +17251,9 @@
       "equipo_local": "Wycombe",
       "equipo_visitante": "Bradford City",
       "cuotas_1x2": {
-        "local_1": 2.45,
-        "empate_x": 3.2,
-        "visitante_2": 2.75
+        "local_1": 2.3,
+        "empate_x": 3.25,
+        "visitante_2": 3
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -17299,9 +17275,9 @@
       "equipo_local": "Bristol Rovers",
       "equipo_visitante": "Tranmere",
       "cuotas_1x2": {
-        "local_1": 1.86,
-        "empate_x": 3.3,
-        "visitante_2": 4
+        "local_1": 1.79,
+        "empate_x": 3.4,
+        "visitante_2": 4.2
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -17347,9 +17323,9 @@
       "equipo_local": "Colchester",
       "equipo_visitante": "York",
       "cuotas_1x2": {
-        "local_1": 2.87,
+        "local_1": 2.7,
         "empate_x": 3.4,
-        "visitante_2": 2.3
+        "visitante_2": 2.4
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -17371,9 +17347,9 @@
       "equipo_local": "Crewe",
       "equipo_visitante": "Grimsby",
       "cuotas_1x2": {
-        "local_1": 3.1,
-        "empate_x": 3.3,
-        "visitante_2": 2.15
+        "local_1": 3.7,
+        "empate_x": 3.5,
+        "visitante_2": 1.86
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -17395,9 +17371,9 @@
       "equipo_local": "Fleetwood",
       "equipo_visitante": "Accrington",
       "cuotas_1x2": {
-        "local_1": 2.15,
-        "empate_x": 3.2,
-        "visitante_2": 3.3
+        "local_1": 1.9,
+        "empate_x": 3.3,
+        "visitante_2": 3.9
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -17421,7 +17397,7 @@
       "cuotas_1x2": {
         "local_1": 1.86,
         "empate_x": 3.4,
-        "visitante_2": 3.8
+        "visitante_2": 4
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -17467,9 +17443,9 @@
       "equipo_local": "Rotherham",
       "equipo_visitante": "Oldham",
       "cuotas_1x2": {
-        "local_1": 2.65,
-        "empate_x": 3.3,
-        "visitante_2": 2.45
+        "local_1": 3.1,
+        "empate_x": 3.25,
+        "visitante_2": 2.2
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -17491,9 +17467,9 @@
       "equipo_local": "Salford",
       "equipo_visitante": "Gillingham FC",
       "cuotas_1x2": {
-        "local_1": 1.42,
-        "empate_x": 4.33,
-        "visitante_2": 6.5
+        "local_1": 1.56,
+        "empate_x": 4,
+        "visitante_2": 5
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -17515,9 +17491,9 @@
       "equipo_local": "Shrewsbury",
       "equipo_visitante": "Cheltenham",
       "cuotas_1x2": {
-        "local_1": 1.76,
+        "local_1": 1.79,
         "empate_x": 3.4,
-        "visitante_2": 4.33
+        "visitante_2": 4.2
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -17563,9 +17539,9 @@
       "equipo_local": "Walsall",
       "equipo_visitante": "Northampton",
       "cuotas_1x2": {
-        "local_1": 2.25,
+        "local_1": 2.2,
         "empate_x": 3.2,
-        "visitante_2": 3
+        "visitante_2": 3.1
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -17774,8 +17750,8 @@
       "deporte": "Fútbol",
       "liga": "INGLATERRA: National League",
       "fecha_local": "2026-11-28",
-      "hora_local": "11:00",
-      "estado": "Programado",
+      "hora_local": null,
+      "estado": "En Vivo",
       "equipo_local": "Harrogate",
       "equipo_visitante": "Yeovil",
       "cuotas_1x2": {
@@ -18518,8 +18494,8 @@
       "deporte": "Fútbol",
       "liga": "INGLATERRA: NPL Premier Division",
       "fecha_local": "2026-11-28",
-      "hora_local": "11:00",
-      "estado": "Programado",
+      "hora_local": null,
+      "estado": "En Vivo",
       "equipo_local": "Gainsborough",
       "equipo_visitante": "Alfreton",
       "cuotas_1x2": {
@@ -18542,8 +18518,8 @@
       "deporte": "Fútbol",
       "liga": "INGLATERRA: NPL Premier Division",
       "fecha_local": "2026-11-28",
-      "hora_local": "11:00",
-      "estado": "Programado",
+      "hora_local": null,
+      "estado": "En Vivo",
       "equipo_local": "Guiseley",
       "equipo_visitante": "Whitby",
       "cuotas_1x2": {
@@ -18662,8 +18638,8 @@
       "deporte": "Fútbol",
       "liga": "INGLATERRA: Southern League Premier Central",
       "fecha_local": "2026-11-28",
-      "hora_local": "11:00",
-      "estado": "Programado",
+      "hora_local": null,
+      "estado": "En Vivo",
       "equipo_local": "Anstey Nomads",
       "equipo_visitante": "Stratford",
       "cuotas_1x2": {
@@ -19094,8 +19070,8 @@
       "deporte": "Fútbol",
       "liga": "INGLATERRA: Southern League Premier South",
       "fecha_local": "2026-11-28",
-      "hora_local": "11:00",
-      "estado": "Programado",
+      "hora_local": null,
+      "estado": "En Vivo",
       "equipo_local": "Plymouth Parkway",
       "equipo_visitante": "Sholing",
       "cuotas_1x2": {
@@ -19142,8 +19118,8 @@
       "deporte": "Fútbol",
       "liga": "INGLATERRA: Southern League Premier South",
       "fecha_local": "2026-11-28",
-      "hora_local": "11:00",
-      "estado": "Programado",
+      "hora_local": null,
+      "estado": "En Vivo",
       "equipo_local": "Taunton",
       "equipo_visitante": "Gosport",
       "cuotas_1x2": {
@@ -19334,8 +19310,8 @@
       "deporte": "Fútbol",
       "liga": "INGLATERRA: Isthmian League Premier Division",
       "fecha_local": "2026-11-28",
-      "hora_local": "11:00",
-      "estado": "Programado",
+      "hora_local": null,
+      "estado": "En Vivo",
       "equipo_local": "Leatherhead",
       "equipo_visitante": "Lewes",
       "cuotas_1x2": {
@@ -19478,8 +19454,8 @@
       "deporte": "Fútbol",
       "liga": "INGLATERRA: Premier League U18",
       "fecha_local": "2026-11-28",
-      "hora_local": null,
-      "estado": "En Vivo",
+      "hora_local": "07:00",
+      "estado": "Programado",
       "equipo_local": "Crystal Palace Sub-18",
       "equipo_visitante": "Chelsea Sub-18",
       "cuotas_1x2": {
@@ -19502,8 +19478,8 @@
       "deporte": "Fútbol",
       "liga": "INGLATERRA: Premier League U18",
       "fecha_local": "2026-11-28",
-      "hora_local": null,
-      "estado": "En Vivo",
+      "hora_local": "07:00",
+      "estado": "Programado",
       "equipo_local": "Fulham Sub-18",
       "equipo_visitante": "Reading Sub-18",
       "cuotas_1x2": {
@@ -19526,8 +19502,8 @@
       "deporte": "Fútbol",
       "liga": "INGLATERRA: Premier League U18",
       "fecha_local": "2026-11-28",
-      "hora_local": null,
-      "estado": "En Vivo",
+      "hora_local": "07:00",
+      "estado": "Programado",
       "equipo_local": "Ipswich Sub-18",
       "equipo_visitante": "Norwich Sub-18",
       "cuotas_1x2": {
@@ -19550,8 +19526,8 @@
       "deporte": "Fútbol",
       "liga": "INGLATERRA: Premier League U18",
       "fecha_local": "2026-11-28",
-      "hora_local": null,
-      "estado": "En Vivo",
+      "hora_local": "07:00",
+      "estado": "Programado",
       "equipo_local": "Leeds Utd Sub-18",
       "equipo_visitante": "Manchester Utd Sub-18",
       "cuotas_1x2": {
@@ -19574,8 +19550,8 @@
       "deporte": "Fútbol",
       "liga": "INGLATERRA: Premier League U18",
       "fecha_local": "2026-11-28",
-      "hora_local": null,
-      "estado": "En Vivo",
+      "hora_local": "07:00",
+      "estado": "Programado",
       "equipo_local": "Liverpool Sub-18",
       "equipo_visitante": "Everton Sub-18",
       "cuotas_1x2": {
@@ -19598,8 +19574,8 @@
       "deporte": "Fútbol",
       "liga": "INGLATERRA: Premier League U18",
       "fecha_local": "2026-11-28",
-      "hora_local": null,
-      "estado": "En Vivo",
+      "hora_local": "07:00",
+      "estado": "Programado",
       "equipo_local": "Sunderland Sub-18",
       "equipo_visitante": "Leicester Sub-18",
       "cuotas_1x2": {
@@ -19622,8 +19598,8 @@
       "deporte": "Fútbol",
       "liga": "INGLATERRA: Premier League U18",
       "fecha_local": "2026-11-28",
-      "hora_local": null,
-      "estado": "En Vivo",
+      "hora_local": "07:00",
+      "estado": "Programado",
       "equipo_local": "West Brom Sub-18",
       "equipo_visitante": "Brighton Sub-18",
       "cuotas_1x2": {
@@ -19646,8 +19622,8 @@
       "deporte": "Fútbol",
       "liga": "INGLATERRA: Premier League U18",
       "fecha_local": "2026-11-28",
-      "hora_local": null,
-      "estado": "En Vivo",
+      "hora_local": "07:00",
+      "estado": "Programado",
       "equipo_local": "Wolves Sub-18",
       "equipo_visitante": "Stoke City Sub-18",
       "cuotas_1x2": {
@@ -19790,7 +19766,7 @@
       "deporte": "Fútbol",
       "liga": "INGLATERRA: Premier League U18",
       "fecha_local": "2026-11-28",
-      "hora_local": "08:30",
+      "hora_local": "09:00",
       "estado": "Programado",
       "equipo_local": "Derby Sub-18",
       "equipo_visitante": "Blackburn Sub-18",
@@ -20054,8 +20030,8 @@
       "deporte": "Fútbol",
       "liga": "IRLANDA DEL NORTE: NIFL Premiership",
       "fecha_local": "2026-11-28",
-      "hora_local": "14:00",
-      "estado": "Programado",
+      "hora_local": null,
+      "estado": "En Vivo",
       "equipo_local": "Ballymena",
       "equipo_visitante": "Cliftonville",
       "cuotas_1x2": {
@@ -20179,9 +20155,9 @@
       "equipo_local": "Sakhnin",
       "equipo_visitante": "Maccabi Haifa",
       "cuotas_1x2": {
-        "local_1": 4.75,
-        "empate_x": 3.9,
-        "visitante_2": 1.55
+        "local_1": 4.33,
+        "empate_x": 3.75,
+        "visitante_2": 1.62
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -20229,7 +20205,7 @@
       "cuotas_1x2": {
         "local_1": 1.7,
         "empate_x": 3.5,
-        "visitante_2": 4
+        "visitante_2": 4.1
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -20251,8 +20227,8 @@
       "equipo_local": "Maccabi Tel Aviv",
       "equipo_visitante": "H. Petah Tikva",
       "cuotas_1x2": {
-        "local_1": 1.14,
-        "empate_x": 7,
+        "local_1": 1.17,
+        "empate_x": 6.5,
         "visitante_2": 13
       },
       "estadisticas_complementarias": {
@@ -20270,14 +20246,14 @@
       "deporte": "Fútbol",
       "liga": "ISRAEL: Ligat ha'Al",
       "fecha_local": "2026-11-28",
-      "hora_local": "14:15",
-      "estado": "Programado",
+      "hora_local": null,
+      "estado": "En Vivo",
       "equipo_local": "B. Jerusalem",
       "equipo_visitante": "Hapoel Jerusalem",
       "cuotas_1x2": {
-        "local_1": 1.38,
-        "empate_x": 4.5,
-        "visitante_2": 6
+        "local_1": 1.44,
+        "empate_x": 4.33,
+        "visitante_2": 5.25
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -20318,8 +20294,8 @@
       "deporte": "Fútbol",
       "liga": "ISRAEL: Liga Alef Norte",
       "fecha_local": "2026-11-28",
-      "hora_local": "14:45",
-      "estado": "Programado",
+      "hora_local": null,
+      "estado": "En Vivo",
       "equipo_local": "Maccabi Neve Shaanan Eldad",
       "equipo_visitante": "H. Migdal HaEmek",
       "cuotas_1x2": {
@@ -20362,18 +20338,18 @@
       "url": "http://m.flashscore.com.ve/partido/KIHeHgLE/?d=0"
     },
     {
-      "match_slug": "2026-11-28_carrarese_vs_juve-stabia",
+      "match_slug": "2026-11-28_carrarese_vs_juve-stabia-2",
       "deporte": "Fútbol",
       "liga": "ITALIA: Serie B",
       "fecha_local": "2026-11-28",
       "hora_local": "10:00",
       "estado": "Programado",
       "equipo_local": "Carrarese",
-      "equipo_visitante": "Juve Stabia",
+      "equipo_visitante": "Juve Stabia\n2",
       "cuotas_1x2": {
-        "local_1": 1.96,
-        "empate_x": 3.2,
-        "visitante_2": 3.9
+        "local_1": 1.76,
+        "empate_x": 3.4,
+        "visitante_2": 4.75
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -20395,9 +20371,9 @@
       "equipo_local": "Empoli",
       "equipo_visitante": "Verona",
       "cuotas_1x2": {
-        "local_1": 4.33,
-        "empate_x": 3.5,
-        "visitante_2": 1.76
+        "local_1": 3.9,
+        "empate_x": 3.4,
+        "visitante_2": 1.9
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -20419,9 +20395,9 @@
       "equipo_local": "L.R. Vicenza",
       "equipo_visitante": "Cesena",
       "cuotas_1x2": {
-        "local_1": 2.6,
-        "empate_x": 3.2,
-        "visitante_2": 2.6
+        "local_1": 2.55,
+        "empate_x": 3,
+        "visitante_2": 2.87
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -20438,14 +20414,14 @@
       "deporte": "Fútbol",
       "liga": "ITALIA: Serie B",
       "fecha_local": "2026-11-28",
-      "hora_local": "14:30",
-      "estado": "Programado",
+      "hora_local": null,
+      "estado": "En Vivo",
       "equipo_local": "Palermo",
       "equipo_visitante": "Benevento",
       "cuotas_1x2": {
-        "local_1": 1.96,
+        "local_1": 1.86,
         "empate_x": 3.5,
-        "visitante_2": 3.5
+        "visitante_2": 3.8
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -20822,8 +20798,8 @@
       "deporte": "Fútbol",
       "liga": "ITALIA: Primavera 1",
       "fecha_local": "2026-11-28",
-      "hora_local": null,
-      "estado": "En Vivo",
+      "hora_local": "06:00",
+      "estado": "Programado",
       "equipo_local": "AC Milan Sub-20",
       "equipo_visitante": "Lecce Sub-20",
       "cuotas_1x2": {
@@ -20846,8 +20822,8 @@
       "deporte": "Fútbol",
       "liga": "ITALIA: Primavera 1",
       "fecha_local": "2026-11-28",
-      "hora_local": null,
-      "estado": "En Vivo",
+      "hora_local": "06:00",
+      "estado": "Programado",
       "equipo_local": "Cagliari Sub-20",
       "equipo_visitante": "Torino Sub-20",
       "cuotas_1x2": {
@@ -20942,8 +20918,8 @@
       "deporte": "Fútbol",
       "liga": "ITALIA: Primavera 2",
       "fecha_local": "2026-11-28",
-      "hora_local": null,
-      "estado": "En Vivo",
+      "hora_local": "06:00",
+      "estado": "Programado",
       "equipo_local": "Entella Sub-19",
       "equipo_visitante": "Venezia Sub-19",
       "cuotas_1x2": {
@@ -20966,8 +20942,8 @@
       "deporte": "Fútbol",
       "liga": "ITALIA: Primavera 2",
       "fecha_local": "2026-11-28",
-      "hora_local": null,
-      "estado": "En Vivo",
+      "hora_local": "06:00",
+      "estado": "Programado",
       "equipo_local": "Palermo Sub-19",
       "equipo_visitante": "Latina Sub-19",
       "cuotas_1x2": {
@@ -20990,8 +20966,8 @@
       "deporte": "Fútbol",
       "liga": "ITALIA: Primavera 2",
       "fecha_local": "2026-11-28",
-      "hora_local": null,
-      "estado": "En Vivo",
+      "hora_local": "06:00",
+      "estado": "Programado",
       "equipo_local": "Spezia Sub-19",
       "equipo_visitante": "Bari Sub-19",
       "cuotas_1x2": {
@@ -21014,8 +20990,8 @@
       "deporte": "Fútbol",
       "liga": "ITALIA: Primavera 2",
       "fecha_local": "2026-11-28",
-      "hora_local": null,
-      "estado": "En Vivo",
+      "hora_local": "06:30",
+      "estado": "Programado",
       "equipo_local": "Cosenza Sub-19",
       "equipo_visitante": "Ascoli Sub-19",
       "cuotas_1x2": {
@@ -21038,8 +21014,8 @@
       "deporte": "Fútbol",
       "liga": "ITALIA: Primavera 2",
       "fecha_local": "2026-11-28",
-      "hora_local": null,
-      "estado": "En Vivo",
+      "hora_local": "06:30",
+      "estado": "Programado",
       "equipo_local": "Lecco Sub-19",
       "equipo_visitante": "Udinese Sub-19",
       "cuotas_1x2": {
@@ -21062,8 +21038,8 @@
       "deporte": "Fútbol",
       "liga": "ITALIA: Primavera 2",
       "fecha_local": "2026-11-28",
-      "hora_local": null,
-      "estado": "En Vivo",
+      "hora_local": "06:30",
+      "estado": "Programado",
       "equipo_local": "Pisa Sub-19",
       "equipo_visitante": "Pescara Sub-19",
       "cuotas_1x2": {
@@ -22142,8 +22118,8 @@
       "deporte": "Fútbol",
       "liga": "LUXEMBURGO: BGL Ligue",
       "fecha_local": "2026-11-28",
-      "hora_local": "14:00",
-      "estado": "Programado",
+      "hora_local": null,
+      "estado": "En Vivo",
       "equipo_local": "Wiltz",
       "equipo_visitante": "Hostert",
       "cuotas_1x2": {
@@ -22166,8 +22142,8 @@
       "deporte": "Fútbol",
       "liga": "MACEDONIA DEL NORTE: 1. MFL",
       "fecha_local": "2026-11-28",
-      "hora_local": null,
-      "estado": "En Vivo",
+      "hora_local": "07:00",
+      "estado": "Programado",
       "equipo_local": "Arsimi",
       "equipo_visitante": "Vardar",
       "cuotas_1x2": {
@@ -22190,8 +22166,8 @@
       "deporte": "Fútbol",
       "liga": "MACEDONIA DEL NORTE: 1. MFL",
       "fecha_local": "2026-11-28",
-      "hora_local": null,
-      "estado": "En Vivo",
+      "hora_local": "07:00",
+      "estado": "Programado",
       "equipo_local": "Sileks",
       "equipo_visitante": "Struga",
       "cuotas_1x2": {
@@ -22574,8 +22550,8 @@
       "deporte": "Fútbol",
       "liga": "MALI: Premiere Division",
       "fecha_local": "2026-11-28",
-      "hora_local": "14:15",
-      "estado": "Programado",
+      "hora_local": null,
+      "estado": "En Vivo",
       "equipo_local": "AS Kayes",
       "equipo_visitante": "Onze Createurs",
       "cuotas_1x2": {
@@ -23107,9 +23083,9 @@
       "equipo_local": "Club América",
       "equipo_visitante": "Monterrey",
       "cuotas_1x2": {
-        "local_1": 2.05,
-        "empate_x": 3.25,
-        "visitante_2": 3.7
+        "local_1": 1.86,
+        "empate_x": 3.4,
+        "visitante_2": 4.2
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -23462,7 +23438,7 @@
       "deporte": "Fútbol",
       "liga": "MÉXICO: Liga Premier Serie A",
       "fecha_local": "2026-11-28",
-      "hora_local": "20:00",
+      "hora_local": "21:00",
       "estado": "Programado",
       "equipo_local": "La Tribu de Cd. Juarez",
       "equipo_visitante": "Mineros de Fresnillo",
@@ -23534,8 +23510,8 @@
       "deporte": "Fútbol",
       "liga": "MOLDAVIA: Super Liga",
       "fecha_local": "2026-11-28",
-      "hora_local": null,
-      "estado": "En Vivo",
+      "hora_local": "07:00",
+      "estado": "Programado",
       "equipo_local": "Milsami",
       "equipo_visitante": "Real Sireti",
       "cuotas_1x2": {
@@ -23659,9 +23635,9 @@
       "equipo_local": "China Taipei F",
       "equipo_visitante": "Sudáfrica F",
       "cuotas_1x2": {
-        "local_1": 8,
-        "empate_x": 4.75,
-        "visitante_2": 1.29
+        "local_1": 9,
+        "empate_x": 5,
+        "visitante_2": 1.25
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -23683,9 +23659,9 @@
       "equipo_local": "Uzbekistán F",
       "equipo_visitante": "Papúa Nueva Guinea F",
       "cuotas_1x2": {
-        "local_1": 1.02,
-        "empate_x": 17,
-        "visitante_2": 51
+        "local_1": 1.04,
+        "empate_x": 15,
+        "visitante_2": 41
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -23702,14 +23678,14 @@
       "deporte": "Fútbol",
       "liga": "MUNDIAL: Mundial Femenino - Clasificación - Grupo Ascenso",
       "fecha_local": "2026-11-28",
-      "hora_local": "15:00",
-      "estado": "Programado",
+      "hora_local": null,
+      "estado": "En Vivo",
       "equipo_local": "Ghana F",
       "equipo_visitante": "Ecuador F",
       "cuotas_1x2": {
-        "local_1": null,
-        "empate_x": null,
-        "visitante_2": null
+        "local_1": 2.15,
+        "empate_x": 3.2,
+        "visitante_2": 3
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -23798,8 +23774,8 @@
       "deporte": "Fútbol",
       "liga": "MUNDIAL: Amistosos Internacionales Femeninos",
       "fecha_local": "2026-11-28",
-      "hora_local": null,
-      "estado": "En Vivo",
+      "hora_local": "07:00",
+      "estado": "Programado",
       "equipo_local": "Letonia F",
       "equipo_visitante": "Lituania F",
       "cuotas_1x2": {
@@ -24206,7 +24182,7 @@
       "deporte": "Fútbol",
       "liga": "NIGERIA: NPFL",
       "fecha_local": "2026-11-28",
-      "hora_local": "11:00",
+      "hora_local": "10:00",
       "estado": "Programado",
       "equipo_local": "Doma United",
       "equipo_visitante": "Rangers Int'l",
@@ -24346,30 +24322,6 @@
       "url": "http://m.flashscore.com.ve/partido/jkGpWX6T/?d=0"
     },
     {
-      "match_slug": "2026-11-28_eko_vs_remo-stars",
-      "deporte": "Fútbol",
-      "liga": "NIGERIA: NNL",
-      "fecha_local": "2026-11-28",
-      "hora_local": "11:00",
-      "estado": "Programado",
-      "equipo_local": "Eko United",
-      "equipo_visitante": "Remo Stars",
-      "cuotas_1x2": {
-        "local_1": null,
-        "empate_x": null,
-        "visitante_2": null
-      },
-      "estadisticas_complementarias": {
-        "posicion_local": null,
-        "posicion_visitante": null,
-        "racha_local_ultimos_5": null,
-        "racha_visitante_ultimos_5": null,
-        "h2h_resumen": null
-      },
-      "mid": "UykJlOJ6",
-      "url": "http://m.flashscore.com.ve/partido/UykJlOJ6/?d=0"
-    },
-    {
       "match_slug": "2026-11-28_jigawa-golden-stars_vs_kebbi",
       "deporte": "Fútbol",
       "liga": "NIGERIA: NNL",
@@ -24494,8 +24446,8 @@
       "deporte": "Fútbol",
       "liga": "NORTE, CENTROAMÉRICA Y CARIBE: Campeonato Femenino CONCACAF",
       "fecha_local": "2026-11-28",
-      "hora_local": "14:00",
-      "estado": "Programado",
+      "hora_local": null,
+      "estado": "En Vivo",
       "equipo_local": "Canadá F",
       "equipo_visitante": "Panamá F",
       "cuotas_1x2": {
@@ -24547,9 +24499,9 @@
       "equipo_local": "Bodo/Glimt",
       "equipo_visitante": "KFUM Oslo",
       "cuotas_1x2": {
-        "local_1": 1.09,
-        "empate_x": 11,
-        "visitante_2": 17
+        "local_1": 1.06,
+        "empate_x": 13,
+        "visitante_2": 21
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -24571,9 +24523,9 @@
       "equipo_local": "Rosenborg",
       "equipo_visitante": "Molde",
       "cuotas_1x2": {
-        "local_1": 1.8,
-        "empate_x": 4.2,
-        "visitante_2": 3.75
+        "local_1": 1.6,
+        "empate_x": 4.5,
+        "visitante_2": 4.75
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -24787,9 +24739,9 @@
       "equipo_local": "Excelsior",
       "equipo_visitante": "Telstar",
       "cuotas_1x2": {
-        "local_1": 2.2,
-        "empate_x": 3.3,
-        "visitante_2": 3.3
+        "local_1": 2.15,
+        "empate_x": 3.4,
+        "visitante_2": 3.4
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -24806,14 +24758,14 @@
       "deporte": "Fútbol",
       "liga": "PAÍSES BAJOS: Eredivisie",
       "fecha_local": "2026-11-28",
-      "hora_local": "13:45",
-      "estado": "Programado",
+      "hora_local": null,
+      "estado": "En Vivo",
       "equipo_local": "PSV",
       "equipo_visitante": "G.A. Eagles",
       "cuotas_1x2": {
-        "local_1": 1.22,
-        "empate_x": 6.5,
-        "visitante_2": 11
+        "local_1": 1.2,
+        "empate_x": 7,
+        "visitante_2": 13
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -24835,9 +24787,9 @@
       "equipo_local": "Cambuur",
       "equipo_visitante": "Sparta Rotterdam",
       "cuotas_1x2": {
-        "local_1": 1.85,
-        "empate_x": 4.1,
-        "visitante_2": 3.6
+        "local_1": 1.83,
+        "empate_x": 3.9,
+        "visitante_2": 4
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -24878,7 +24830,7 @@
       "deporte": "Fútbol",
       "liga": "PAÍSES BAJOS: Tweede Divisie",
       "fecha_local": "2026-11-28",
-      "hora_local": "09:00",
+      "hora_local": null,
       "estado": "Programado",
       "equipo_local": "HFC",
       "equipo_visitante": "RKAV Volendam",
@@ -24926,7 +24878,7 @@
       "deporte": "Fútbol",
       "liga": "PAÍSES BAJOS: Tweede Divisie",
       "fecha_local": "2026-11-28",
-      "hora_local": "09:30",
+      "hora_local": null,
       "estado": "Programado",
       "equipo_local": "Hardenberg",
       "equipo_visitante": "Katwijk",
@@ -25022,7 +24974,7 @@
       "deporte": "Fútbol",
       "liga": "PAÍSES BAJOS: Tweede Divisie",
       "fecha_local": "2026-11-28",
-      "hora_local": "10:00",
+      "hora_local": null,
       "estado": "Programado",
       "equipo_local": "Kozakken Boys",
       "equipo_visitante": "AFC",
@@ -25142,8 +25094,8 @@
       "deporte": "Fútbol",
       "liga": "PAÍSES BAJOS: Derde Divisie",
       "fecha_local": "2026-11-28",
-      "hora_local": "09:30",
-      "estado": "Programado",
+      "hora_local": null,
+      "estado": "En Vivo",
       "equipo_local": "ACV Assen",
       "equipo_visitante": "Harkemase Boys",
       "cuotas_1x2": {
@@ -25454,8 +25406,8 @@
       "deporte": "Fútbol",
       "liga": "PAÍSES BAJOS: Divisie 1 U21 - Fall Season",
       "fecha_local": "2026-11-28",
-      "hora_local": "13:00",
-      "estado": "Programado",
+      "hora_local": null,
+      "estado": "En Vivo",
       "equipo_local": "Cambuur Sub-21",
       "equipo_visitante": "Feyenoord Sub-21",
       "cuotas_1x2": {
@@ -25555,9 +25507,9 @@
       "equipo_local": "Widzew Lodz",
       "equipo_visitante": "Zaglebie",
       "cuotas_1x2": {
-        "local_1": 1.95,
-        "empate_x": 3.25,
-        "visitante_2": 3.75
+        "local_1": 1.83,
+        "empate_x": 3.3,
+        "visitante_2": 4.1
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -25579,8 +25531,8 @@
       "equipo_local": "Slask",
       "equipo_visitante": "Katowice",
       "cuotas_1x2": {
-        "local_1": 2.9,
-        "empate_x": 3.6,
+        "local_1": 3,
+        "empate_x": 3.5,
         "visitante_2": 2.15
       },
       "estadisticas_complementarias": {
@@ -25598,14 +25550,14 @@
       "deporte": "Fútbol",
       "liga": "POLONIA: Ekstraklasa",
       "fecha_local": "2026-11-28",
-      "hora_local": "15:15",
-      "estado": "Programado",
+      "hora_local": null,
+      "estado": "En Vivo",
       "equipo_local": "Wisla",
       "equipo_visitante": "Motor Lublin",
       "cuotas_1x2": {
-        "local_1": 1.8,
-        "empate_x": 3.6,
-        "visitante_2": 3.8
+        "local_1": 1.9,
+        "empate_x": 3.4,
+        "visitante_2": 3.7
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -25718,8 +25670,8 @@
       "deporte": "Fútbol",
       "liga": "POLONIA: Division 2",
       "fecha_local": "2026-11-28",
-      "hora_local": null,
-      "estado": "En Vivo",
+      "hora_local": "07:00",
+      "estado": "Programado",
       "equipo_local": "Leczna",
       "equipo_visitante": "Swit Szczecin",
       "cuotas_1x2": {
@@ -25790,8 +25742,8 @@
       "deporte": "Fútbol",
       "liga": "POLONIA: III Liga - Grupo I",
       "fecha_local": "2026-11-28",
-      "hora_local": null,
-      "estado": "En Vivo",
+      "hora_local": "07:00",
+      "estado": "Programado",
       "equipo_local": "Mazovia Minsk Mazowiecki",
       "equipo_visitante": "Troszyn",
       "cuotas_1x2": {
@@ -25862,8 +25814,8 @@
       "deporte": "Fútbol",
       "liga": "POLONIA: III Liga - Grupo I",
       "fecha_local": "2026-11-28",
-      "hora_local": "11:00",
-      "estado": "Programado",
+      "hora_local": null,
+      "estado": "En Vivo",
       "equipo_local": "Warta Sieradz",
       "equipo_visitante": "LKS Lodz II",
       "cuotas_1x2": {
@@ -25886,8 +25838,8 @@
       "deporte": "Fútbol",
       "liga": "POLONIA: III Liga - Grupo I",
       "fecha_local": "2026-11-28",
-      "hora_local": "12:00",
-      "estado": "Programado",
+      "hora_local": null,
+      "estado": "En Vivo",
       "equipo_local": "Lidzbark Warminski",
       "equipo_visitante": "Elblag",
       "cuotas_1x2": {
@@ -25910,8 +25862,8 @@
       "deporte": "Fútbol",
       "liga": "POLONIA: III Liga - Grupo II",
       "fecha_local": "2026-11-28",
-      "hora_local": null,
-      "estado": "En Vivo",
+      "hora_local": "07:00",
+      "estado": "Programado",
       "equipo_local": "Chemik Bydgoszcz",
       "equipo_visitante": "Lech Poznan II",
       "cuotas_1x2": {
@@ -25982,8 +25934,8 @@
       "deporte": "Fútbol",
       "liga": "POLONIA: III Liga - Grupo II",
       "fecha_local": "2026-11-28",
-      "hora_local": null,
-      "estado": "En Vivo",
+      "hora_local": "07:00",
+      "estado": "Programado",
       "equipo_local": "Koszalin",
       "equipo_visitante": "Luzino",
       "cuotas_1x2": {
@@ -26006,8 +25958,8 @@
       "deporte": "Fútbol",
       "liga": "POLONIA: III Liga - Grupo II",
       "fecha_local": "2026-11-28",
-      "hora_local": null,
-      "estado": "En Vivo",
+      "hora_local": "07:00",
+      "estado": "Programado",
       "equipo_local": "Unia Swarzedz",
       "equipo_visitante": "KKS Kalisz",
       "cuotas_1x2": {
@@ -26102,8 +26054,8 @@
       "deporte": "Fútbol",
       "liga": "POLONIA: III Liga - Grupo III",
       "fecha_local": "2026-11-28",
-      "hora_local": null,
-      "estado": "En Vivo",
+      "hora_local": "07:00",
+      "estado": "Programado",
       "equipo_local": "Bytom Odrzanski",
       "equipo_visitante": "Rakow II",
       "cuotas_1x2": {
@@ -26198,8 +26150,8 @@
       "deporte": "Fútbol",
       "liga": "POLONIA: III Liga - Grupo IV",
       "fecha_local": "2026-11-28",
-      "hora_local": null,
-      "estado": "En Vivo",
+      "hora_local": "07:00",
+      "estado": "Programado",
       "equipo_local": "Czarni Polaniec",
       "equipo_visitante": "Siarka Tarnobrzeg",
       "cuotas_1x2": {
@@ -26342,8 +26294,8 @@
       "deporte": "Fútbol",
       "liga": "POLONIA: Central Youth League",
       "fecha_local": "2026-11-28",
-      "hora_local": null,
-      "estado": "En Vivo",
+      "hora_local": "05:30",
+      "estado": "Programado",
       "equipo_local": "S. Rzeszow Sub-19",
       "equipo_visitante": "Escola Warszawa Sub-19",
       "cuotas_1x2": {
@@ -26366,8 +26318,8 @@
       "deporte": "Fútbol",
       "liga": "POLONIA: Central Youth League",
       "fecha_local": "2026-11-28",
-      "hora_local": null,
-      "estado": "En Vivo",
+      "hora_local": "06:00",
+      "estado": "Programado",
       "equipo_local": "Gornik Z. Sub-19",
       "equipo_visitante": "Arkonia Szczecin Sub-19",
       "cuotas_1x2": {
@@ -26414,8 +26366,8 @@
       "deporte": "Fútbol",
       "liga": "POLONIA: Central Youth League",
       "fecha_local": "2026-11-28",
-      "hora_local": null,
-      "estado": "En Vivo",
+      "hora_local": "07:00",
+      "estado": "Programado",
       "equipo_local": "Talent Warszawa Sub-19",
       "equipo_visitante": "Polonia W. Sub-19",
       "cuotas_1x2": {
@@ -26467,9 +26419,9 @@
       "equipo_local": "Arouca",
       "equipo_visitante": "Rio Ave",
       "cuotas_1x2": {
-        "local_1": 1.69,
-        "empate_x": 3.75,
-        "visitante_2": 4.5
+        "local_1": 1.62,
+        "empate_x": 3.8,
+        "visitante_2": 4.75
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -26491,9 +26443,9 @@
       "equipo_local": "Moreirense",
       "equipo_visitante": "Santa Clara",
       "cuotas_1x2": {
-        "local_1": 2.5,
-        "empate_x": 3.1,
-        "visitante_2": 2.75
+        "local_1": 2.65,
+        "empate_x": 3,
+        "visitante_2": 2.65
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -26510,14 +26462,14 @@
       "deporte": "Fútbol",
       "liga": "PORTUGAL: Liga Portugal",
       "fecha_local": "2026-11-28",
-      "hora_local": "14:00",
-      "estado": "Programado",
+      "hora_local": null,
+      "estado": "En Vivo",
       "equipo_local": "Academico Viseu",
       "equipo_visitante": "Alverca",
       "cuotas_1x2": {
-        "local_1": 2.6,
+        "local_1": 2.75,
         "empate_x": 3.2,
-        "visitante_2": 2.65
+        "visitante_2": 2.5
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -26539,9 +26491,9 @@
       "equipo_local": "Vitória Guimaraes",
       "equipo_visitante": "Estrela",
       "cuotas_1x2": {
-        "local_1": 1.69,
-        "empate_x": 3.75,
-        "visitante_2": 4.5
+        "local_1": 1.86,
+        "empate_x": 3.6,
+        "visitante_2": 3.9
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -26558,8 +26510,8 @@
       "deporte": "Fútbol",
       "liga": "PORTUGAL: Liga Portugal 2",
       "fecha_local": "2026-11-28",
-      "hora_local": null,
-      "estado": "En Vivo",
+      "hora_local": "07:00",
+      "estado": "Programado",
       "equipo_local": "AFS",
       "equipo_visitante": "Leixoes",
       "cuotas_1x2": {
@@ -26587,9 +26539,9 @@
       "equipo_local": "Chaves",
       "equipo_visitante": "Tondela",
       "cuotas_1x2": {
-        "local_1": 3.3,
+        "local_1": 3.6,
         "empate_x": 3.25,
-        "visitante_2": 2
+        "visitante_2": 1.91
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -26611,7 +26563,7 @@
       "equipo_local": "Farense",
       "equipo_visitante": "Leiria",
       "cuotas_1x2": {
-        "local_1": 2.15,
+        "local_1": 2.2,
         "empate_x": 3,
         "visitante_2": 3.1
       },
@@ -26630,8 +26582,8 @@
       "deporte": "Fútbol",
       "liga": "PORTUGAL: Liga Portugal 2",
       "fecha_local": "2026-11-28",
-      "hora_local": "14:00",
-      "estado": "Programado",
+      "hora_local": null,
+      "estado": "En Vivo",
       "equipo_local": "Lusitania FC",
       "equipo_visitante": "Vizela",
       "cuotas_1x2": {
@@ -26654,8 +26606,8 @@
       "deporte": "Fútbol",
       "liga": "PORTUGAL: Liga Portugal 2",
       "fecha_local": "2026-11-28",
-      "hora_local": "14:00",
-      "estado": "Programado",
+      "hora_local": null,
+      "estado": "En Vivo",
       "equipo_local": "Sporting CP B",
       "equipo_visitante": "Amarante",
       "cuotas_1x2": {
@@ -27134,8 +27086,8 @@
       "deporte": "Fútbol",
       "liga": "PORTUGAL: Campeonato de Portugal - Group D",
       "fecha_local": "2026-11-28",
-      "hora_local": "10:00",
-      "estado": "Programado",
+      "hora_local": null,
+      "estado": "En Vivo",
       "equipo_local": "Juv. Evora",
       "equipo_visitante": "Santa Clara B",
       "cuotas_1x2": {
@@ -27278,8 +27230,8 @@
       "deporte": "Fútbol",
       "liga": "PORTUGAL: Campeonato Nacional Sub-19",
       "fecha_local": "2026-11-28",
-      "hora_local": null,
-      "estado": "En Vivo",
+      "hora_local": "07:00",
+      "estado": "Programado",
       "equipo_local": "Braga Sub-19",
       "equipo_visitante": "Vizela Sub-19",
       "cuotas_1x2": {
@@ -27302,8 +27254,8 @@
       "deporte": "Fútbol",
       "liga": "PORTUGAL: Campeonato Nacional Sub-19",
       "fecha_local": "2026-11-28",
-      "hora_local": null,
-      "estado": "En Vivo",
+      "hora_local": "07:00",
+      "estado": "Programado",
       "equipo_local": "Oporto Sub-19",
       "equipo_visitante": "Vitória Guimaraes Sub-19",
       "cuotas_1x2": {
@@ -27326,8 +27278,8 @@
       "deporte": "Fútbol",
       "liga": "PORTUGAL: Campeonato Nacional Sub-19",
       "fecha_local": "2026-11-28",
-      "hora_local": null,
-      "estado": "En Vivo",
+      "hora_local": "07:00",
+      "estado": "Programado",
       "equipo_local": "Sporting CP Sub-19",
       "equipo_visitante": "Torreense Sub-19",
       "cuotas_1x2": {
@@ -27523,9 +27475,9 @@
       "equipo_local": "Mlada Boleslav",
       "equipo_visitante": "Sigma Olomouc",
       "cuotas_1x2": {
-        "local_1": 2.25,
+        "local_1": 2.5,
         "empate_x": 3.5,
-        "visitante_2": 2.75
+        "visitante_2": 2.5
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -27547,9 +27499,9 @@
       "equipo_local": "Teplice",
       "equipo_visitante": "Liberec",
       "cuotas_1x2": {
-        "local_1": 3.25,
-        "empate_x": 3.2,
-        "visitante_2": 2.1
+        "local_1": 3.6,
+        "empate_x": 3.3,
+        "visitante_2": 1.95
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -27573,7 +27525,7 @@
       "cuotas_1x2": {
         "local_1": 1.85,
         "empate_x": 3.4,
-        "visitante_2": 3.75
+        "visitante_2": 3.8
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -27763,9 +27715,9 @@
       "equipo_local": "FC Voluntari",
       "equipo_visitante": "CFR Cluj",
       "cuotas_1x2": {
-        "local_1": 2.25,
-        "empate_x": 3.3,
-        "visitante_2": 2.75
+        "local_1": 2.35,
+        "empate_x": 3.2,
+        "visitante_2": 2.7
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -27787,9 +27739,9 @@
       "equipo_local": "Corvinul",
       "equipo_visitante": "Farul Constanta",
       "cuotas_1x2": {
-        "local_1": 2,
-        "empate_x": 3.4,
-        "visitante_2": 3.2
+        "local_1": 1.9,
+        "empate_x": 3.5,
+        "visitante_2": 3.4
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -27806,8 +27758,8 @@
       "deporte": "Fútbol",
       "liga": "RUMANÍA: Superliga",
       "fecha_local": "2026-11-28",
-      "hora_local": "14:00",
-      "estado": "Programado",
+      "hora_local": null,
+      "estado": "En Vivo",
       "equipo_local": "FCSB",
       "equipo_visitante": "Csikszereda M. Ciuc",
       "cuotas_1x2": {
@@ -27998,8 +27950,8 @@
       "deporte": "Fútbol",
       "liga": "RUMANÍA: Liga 2",
       "fecha_local": "2026-11-28",
-      "hora_local": null,
-      "estado": "En Vivo",
+      "hora_local": "06:00",
+      "estado": "Programado",
       "equipo_local": "Politehnica Timisoara",
       "equipo_visitante": "Bihor",
       "cuotas_1x2": {
@@ -28574,8 +28526,8 @@
       "deporte": "Fútbol",
       "liga": "RUSIA: Premier League",
       "fecha_local": "2026-11-28",
-      "hora_local": null,
-      "estado": "En Vivo",
+      "hora_local": "07:00",
+      "estado": "Programado",
       "equipo_local": "Rubin Kazan",
       "equipo_visitante": "Akron Togliatti",
       "cuotas_1x2": {
@@ -28939,9 +28891,9 @@
       "equipo_local": "Radnik",
       "equipo_visitante": "Vojvodina",
       "cuotas_1x2": {
-        "local_1": 3.6,
-        "empate_x": 3.7,
-        "visitante_2": 1.91
+        "local_1": 3.5,
+        "empate_x": 3.6,
+        "visitante_2": 1.95
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -28963,9 +28915,9 @@
       "equipo_local": "Cukaricki",
       "equipo_visitante": "Mladost",
       "cuotas_1x2": {
-        "local_1": 1.5,
-        "empate_x": 4.2,
-        "visitante_2": 5.75
+        "local_1": 1.53,
+        "empate_x": 4.1,
+        "visitante_2": 5.5
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -28987,9 +28939,9 @@
       "equipo_local": "Partizan",
       "equipo_visitante": "Radnicki Nis",
       "cuotas_1x2": {
-        "local_1": 1.33,
-        "empate_x": 5,
-        "visitante_2": 8
+        "local_1": 1.3,
+        "empate_x": 5.25,
+        "visitante_2": 9
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -29000,30 +28952,6 @@
       },
       "mid": "xAp35UQQ",
       "url": "http://m.flashscore.com.ve/partido/xAp35UQQ/?d=0"
-    },
-    {
-      "match_slug": "2026-11-28_graficar-beograd_vs_proleter-023",
-      "deporte": "Fútbol",
-      "liga": "SERBIA: Mozzart Bet Prva Liga",
-      "fecha_local": "2026-11-28",
-      "hora_local": "08:00",
-      "estado": "Programado",
-      "equipo_local": "Graficar Beograd",
-      "equipo_visitante": "Proleter 023",
-      "cuotas_1x2": {
-        "local_1": null,
-        "empate_x": null,
-        "visitante_2": null
-      },
-      "estadisticas_complementarias": {
-        "posicion_local": null,
-        "posicion_visitante": null,
-        "racha_local_ultimos_5": null,
-        "racha_visitante_ultimos_5": null,
-        "h2h_resumen": null
-      },
-      "mid": "E5vCheTG",
-      "url": "http://m.flashscore.com.ve/partido/E5vCheTG/?d=0"
     },
     {
       "match_slug": "2026-11-28_javor_vs_sp-subotica",
@@ -29198,8 +29126,8 @@
       "deporte": "Fútbol",
       "liga": "SERBIA: Srpska Liga - Vojvodina",
       "fecha_local": "2026-11-28",
-      "hora_local": "08:00",
-      "estado": "Programado",
+      "hora_local": null,
+      "estado": "En Vivo",
       "equipo_local": "Sloboda",
       "equipo_visitante": "Sloven Ruma",
       "cuotas_1x2": {
@@ -29294,8 +29222,8 @@
       "deporte": "Fútbol",
       "liga": "SEYCHELLES: Premier League",
       "fecha_local": "2026-11-28",
-      "hora_local": null,
-      "estado": "En Vivo",
+      "hora_local": "06:45",
+      "estado": "Programado",
       "equipo_local": "Anse Reunion",
       "equipo_visitante": "Saint Louis",
       "cuotas_1x2": {
@@ -29462,8 +29390,8 @@
       "deporte": "Fútbol",
       "liga": "SRI LANKA: Super League - Grupo de Campeonato",
       "fecha_local": "2026-11-28",
-      "hora_local": null,
-      "estado": "En Vivo",
+      "hora_local": "05:30",
+      "estado": "Programado",
       "equipo_local": "UP Country Lions",
       "equipo_visitante": "Red Star",
       "cuotas_1x2": {
@@ -29486,7 +29414,7 @@
       "deporte": "Fútbol",
       "liga": "SUDÁFRICA: Betway Premiership",
       "fecha_local": "2026-11-28",
-      "hora_local": "09:30",
+      "hora_local": null,
       "estado": "Programado",
       "equipo_local": "AmaZulu",
       "equipo_visitante": "Milford FC",
@@ -29755,9 +29683,9 @@
       "equipo_local": "Varberg",
       "equipo_visitante": "Östersund",
       "cuotas_1x2": {
-        "local_1": 2.8,
-        "empate_x": 3.3,
-        "visitante_2": 2.2
+        "local_1": 3.2,
+        "empate_x": 3.2,
+        "visitante_2": 2.05
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -29781,7 +29709,7 @@
       "cuotas_1x2": {
         "local_1": 1.33,
         "empate_x": 4.33,
-        "visitante_2": 7
+        "visitante_2": 7.5
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -29803,9 +29731,9 @@
       "equipo_local": "Norrby",
       "equipo_visitante": "Lunds",
       "cuotas_1x2": {
-        "local_1": 1.73,
-        "empate_x": 3.75,
-        "visitante_2": 3.7
+        "local_1": 1.7,
+        "empate_x": 3.8,
+        "visitante_2": 3.8
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -29827,9 +29755,9 @@
       "equipo_local": "Grasshoppers",
       "equipo_visitante": "Basilea",
       "cuotas_1x2": {
-        "local_1": 2.8,
-        "empate_x": 3.8,
-        "visitante_2": 2.15
+        "local_1": 3.25,
+        "empate_x": 3.9,
+        "visitante_2": 1.96
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -29852,8 +29780,8 @@
       "equipo_visitante": "Zúrich",
       "cuotas_1x2": {
         "local_1": 2.1,
-        "empate_x": 4.1,
-        "visitante_2": 2.75
+        "empate_x": 4.2,
+        "visitante_2": 2.7
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -29870,14 +29798,14 @@
       "deporte": "Fútbol",
       "liga": "SUIZA: Super League",
       "fecha_local": "2026-11-28",
-      "hora_local": "15:30",
-      "estado": "Programado",
+      "hora_local": null,
+      "estado": "En Vivo",
       "equipo_local": "Servette",
       "equipo_visitante": "Lausanne",
       "cuotas_1x2": {
-        "local_1": 1.96,
-        "empate_x": 3.6,
-        "visitante_2": 3.5
+        "local_1": 1.76,
+        "empate_x": 3.8,
+        "visitante_2": 4.1
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -29942,7 +29870,7 @@
       "deporte": "Fútbol",
       "liga": "SURINAM: SML",
       "fecha_local": "2026-11-28",
-      "hora_local": "15:00",
+      "hora_local": "15:30",
       "estado": "Programado",
       "equipo_local": "Broki",
       "equipo_visitante": "Notch",
@@ -30014,8 +29942,8 @@
       "deporte": "Fútbol",
       "liga": "TAILANDIA: Thai League 1",
       "fecha_local": "2026-11-28",
-      "hora_local": null,
-      "estado": "En Vivo",
+      "hora_local": "07:00",
+      "estado": "Programado",
       "equipo_local": "Pattani",
       "equipo_visitante": "Chiangrai",
       "cuotas_1x2": {
@@ -30058,14 +29986,14 @@
       "url": "http://m.flashscore.com.ve/partido/6LxzCxxH/?d=0"
     },
     {
-      "match_slug": "2026-11-28_lamphun-warrior_vs_chonburi",
+      "match_slug": "2026-11-28_lamphun-warrior_vs_chonburi-2",
       "deporte": "Fútbol",
       "liga": "TAILANDIA: Thai League 1",
       "fecha_local": "2026-11-28",
       "hora_local": "08:30",
       "estado": "Programado",
       "equipo_local": "Lamphun Warrior",
-      "equipo_visitante": "Chonburi",
+      "equipo_visitante": "Chonburi\n2",
       "cuotas_1x2": {
         "local_1": null,
         "empate_x": null,
@@ -30086,8 +30014,8 @@
       "deporte": "Fútbol",
       "liga": "TAILANDIA: Thai League 2",
       "fecha_local": "2026-11-28",
-      "hora_local": null,
-      "estado": "En Vivo",
+      "hora_local": "07:00",
+      "estado": "Programado",
       "equipo_local": "Chainat",
       "equipo_visitante": "Chanthaburi",
       "cuotas_1x2": {
@@ -30182,8 +30110,8 @@
       "deporte": "Fútbol",
       "liga": "TANZANIA: Ligi Kuu Bara",
       "fecha_local": "2026-11-28",
-      "hora_local": "09:00",
-      "estado": "Programado",
+      "hora_local": null,
+      "estado": "En Vivo",
       "equipo_local": "Fountain Gate",
       "equipo_visitante": "Azam",
       "cuotas_1x2": {
@@ -30499,9 +30427,9 @@
       "equipo_local": "Samsunspor",
       "equipo_visitante": "Genclerbirligi",
       "cuotas_1x2": {
-        "local_1": 1.79,
-        "empate_x": 3.5,
-        "visitante_2": 3.8
+        "local_1": 1.76,
+        "empate_x": 3.6,
+        "visitante_2": 4
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -30523,9 +30451,9 @@
       "equipo_local": "Gaziantep",
       "equipo_visitante": "Amedspor",
       "cuotas_1x2": {
-        "local_1": 3.1,
-        "empate_x": 3.25,
-        "visitante_2": 2.15
+        "local_1": 3,
+        "empate_x": 3.2,
+        "visitante_2": 2.25
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -30542,8 +30470,8 @@
       "deporte": "Fútbol",
       "liga": "TURQUÍA: 1. Lig",
       "fecha_local": "2026-11-28",
-      "hora_local": null,
-      "estado": "En Vivo",
+      "hora_local": "06:30",
+      "estado": "Programado",
       "equipo_local": "Bandirmaspor",
       "equipo_visitante": "Batman Petrolspor",
       "cuotas_1x2": {
@@ -30566,8 +30494,8 @@
       "deporte": "Fútbol",
       "liga": "TURQUÍA: 1. Lig",
       "fecha_local": "2026-11-28",
-      "hora_local": null,
-      "estado": "En Vivo",
+      "hora_local": "06:30",
+      "estado": "Programado",
       "equipo_local": "Sivasspor",
       "equipo_visitante": "Bodrumspor",
       "cuotas_1x2": {
@@ -30595,9 +30523,9 @@
       "equipo_local": "Vanspor FK",
       "equipo_visitante": "Bursaspor",
       "cuotas_1x2": {
-        "local_1": 5.5,
-        "empate_x": 4.1,
-        "visitante_2": 1.48
+        "local_1": 5,
+        "empate_x": 4,
+        "visitante_2": 1.5
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -30619,9 +30547,9 @@
       "equipo_local": "Muglaspor",
       "equipo_visitante": "Mardin 1969",
       "cuotas_1x2": {
-        "local_1": 3,
-        "empate_x": 3.3,
-        "visitante_2": 2.1
+        "local_1": 2.7,
+        "empate_x": 3.25,
+        "visitante_2": 2.3
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -30638,8 +30566,8 @@
       "deporte": "Fútbol",
       "liga": "TURQUÍA: 2. Lig Grupo Blanco",
       "fecha_local": "2026-11-28",
-      "hora_local": null,
-      "estado": "En Vivo",
+      "hora_local": "06:00",
+      "estado": "Programado",
       "equipo_local": "Hatayspor",
       "equipo_visitante": "Ankaraspor",
       "cuotas_1x2": {
@@ -30662,8 +30590,8 @@
       "deporte": "Fútbol",
       "liga": "TURQUÍA: 2. Lig Grupo Blanco",
       "fecha_local": "2026-11-28",
-      "hora_local": null,
-      "estado": "En Vivo",
+      "hora_local": "06:00",
+      "estado": "Programado",
       "equipo_local": "Isparta 32 Spor",
       "equipo_visitante": "Inegol Kafkas",
       "cuotas_1x2": {
@@ -30686,8 +30614,8 @@
       "deporte": "Fútbol",
       "liga": "TURQUÍA: 2. Lig Grupo Blanco",
       "fecha_local": "2026-11-28",
-      "hora_local": null,
-      "estado": "En Vivo",
+      "hora_local": "06:00",
+      "estado": "Programado",
       "equipo_local": "Sanliurfaspor",
       "equipo_visitante": "Soma Spor",
       "cuotas_1x2": {
@@ -30758,8 +30686,8 @@
       "deporte": "Fútbol",
       "liga": "TURQUÍA: 2. Lig Grupo Rojo",
       "fecha_local": "2026-11-28",
-      "hora_local": null,
-      "estado": "En Vivo",
+      "hora_local": "06:00",
+      "estado": "Programado",
       "equipo_local": "Inegolspor",
       "equipo_visitante": "24 Erzincanspor",
       "cuotas_1x2": {
@@ -30782,8 +30710,8 @@
       "deporte": "Fútbol",
       "liga": "TURQUÍA: 2. Lig Grupo Rojo",
       "fecha_local": "2026-11-28",
-      "hora_local": null,
-      "estado": "En Vivo",
+      "hora_local": "06:00",
+      "estado": "Programado",
       "equipo_local": "Karacabey Bld.",
       "equipo_visitante": "Sakaryaspor",
       "cuotas_1x2": {
@@ -30806,8 +30734,8 @@
       "deporte": "Fútbol",
       "liga": "TURQUÍA: 2. Lig Grupo Rojo",
       "fecha_local": "2026-11-28",
-      "hora_local": null,
-      "estado": "En Vivo",
+      "hora_local": "06:00",
+      "estado": "Programado",
       "equipo_local": "Serik Spor",
       "equipo_visitante": "52 Orduspor",
       "cuotas_1x2": {
@@ -30830,8 +30758,8 @@
       "deporte": "Fútbol",
       "liga": "TURQUÍA: 3. Lig Grupo 1",
       "fecha_local": "2026-11-28",
-      "hora_local": null,
-      "estado": "En Vivo",
+      "hora_local": "06:00",
+      "estado": "Programado",
       "equipo_local": "Amasyaspor",
       "equipo_visitante": "Kucukcekmece",
       "cuotas_1x2": {
@@ -30854,8 +30782,8 @@
       "deporte": "Fútbol",
       "liga": "TURQUÍA: 3. Lig Grupo 1",
       "fecha_local": "2026-11-28",
-      "hora_local": null,
-      "estado": "En Vivo",
+      "hora_local": "06:00",
+      "estado": "Programado",
       "equipo_local": "Orduspor 1967",
       "equipo_visitante": "Inkilapspor",
       "cuotas_1x2": {
@@ -30950,8 +30878,8 @@
       "deporte": "Fútbol",
       "liga": "TURQUÍA: 3. Lig Grupo 2",
       "fecha_local": "2026-11-28",
-      "hora_local": null,
-      "estado": "En Vivo",
+      "hora_local": "06:00",
+      "estado": "Programado",
       "equipo_local": "Alanya 1221",
       "equipo_visitante": "Gemlikspor",
       "cuotas_1x2": {
@@ -31022,8 +30950,8 @@
       "deporte": "Fútbol",
       "liga": "TURQUÍA: 3. Lig Grupo 3",
       "fecha_local": "2026-11-28",
-      "hora_local": null,
-      "estado": "En Vivo",
+      "hora_local": "06:00",
+      "estado": "Programado",
       "equipo_local": "Adanaspor",
       "equipo_visitante": "Bitlis 1916",
       "cuotas_1x2": {
@@ -31046,8 +30974,8 @@
       "deporte": "Fútbol",
       "liga": "TURQUÍA: 3. Lig Grupo 3",
       "fecha_local": "2026-11-28",
-      "hora_local": null,
-      "estado": "En Vivo",
+      "hora_local": "06:00",
+      "estado": "Programado",
       "equipo_local": "Kirikkale FK",
       "equipo_visitante": "Karaman",
       "cuotas_1x2": {
@@ -31094,8 +31022,8 @@
       "deporte": "Fútbol",
       "liga": "TURQUÍA: U19 League",
       "fecha_local": "2026-11-28",
-      "hora_local": null,
-      "estado": "En Vivo",
+      "hora_local": "06:00",
+      "estado": "Programado",
       "equipo_local": "Gaziantep Sub-19",
       "equipo_visitante": "Amedspor Sub-19",
       "cuotas_1x2": {
@@ -31118,8 +31046,8 @@
       "deporte": "Fútbol",
       "liga": "TURQUÍA: U19 League",
       "fecha_local": "2026-11-28",
-      "hora_local": null,
-      "estado": "En Vivo",
+      "hora_local": "06:00",
+      "estado": "Programado",
       "equipo_local": "Samsunspor Sub-19",
       "equipo_visitante": "Genclerbirligi Sub-19",
       "cuotas_1x2": {
@@ -31142,8 +31070,8 @@
       "deporte": "Fútbol",
       "liga": "UCRANIA: Premier League",
       "fecha_local": "2026-11-28",
-      "hora_local": null,
-      "estado": "En Vivo",
+      "hora_local": "07:00",
+      "estado": "Programado",
       "equipo_local": "Dinamo Kiev",
       "equipo_visitante": "Ch. Odesa",
       "cuotas_1x2": {
@@ -31166,8 +31094,8 @@
       "deporte": "Fútbol",
       "liga": "UCRANIA: Premier League",
       "fecha_local": "2026-11-28",
-      "hora_local": null,
-      "estado": "En Vivo",
+      "hora_local": "07:00",
+      "estado": "Programado",
       "equipo_local": "Obolon",
       "equipo_visitante": "Zorya",
       "cuotas_1x2": {
@@ -31190,8 +31118,8 @@
       "deporte": "Fútbol",
       "liga": "UCRANIA: Persha Liga",
       "fecha_local": "2026-11-28",
-      "hora_local": null,
-      "estado": "En Vivo",
+      "hora_local": "05:00",
+      "estado": "Programado",
       "equipo_local": "Viktoria",
       "equipo_visitante": "Lokomotyv Kyiv",
       "cuotas_1x2": {
@@ -31238,8 +31166,8 @@
       "deporte": "Fútbol",
       "liga": "UCRANIA: Persha Liga",
       "fecha_local": "2026-11-28",
-      "hora_local": null,
-      "estado": "En Vivo",
+      "hora_local": "06:30",
+      "estado": "Programado",
       "equipo_local": "Prykarpattya",
       "equipo_visitante": "Kulikiv",
       "cuotas_1x2": {
@@ -31310,8 +31238,8 @@
       "deporte": "Fútbol",
       "liga": "UCRANIA: Druha Liga",
       "fecha_local": "2026-11-28",
-      "hora_local": null,
-      "estado": "En Vivo",
+      "hora_local": "05:30",
+      "estado": "Programado",
       "equipo_local": "SK Metalurh",
       "equipo_visitante": "Atlet Kyiv",
       "cuotas_1x2": {
@@ -31334,8 +31262,8 @@
       "deporte": "Fútbol",
       "liga": "UCRANIA: Druha Liga",
       "fecha_local": "2026-11-28",
-      "hora_local": null,
-      "estado": "En Vivo",
+      "hora_local": "06:00",
+      "estado": "Programado",
       "equipo_local": "Penuel Kryvyi Rih",
       "equipo_visitante": "Lozova",
       "cuotas_1x2": {
@@ -31358,8 +31286,8 @@
       "deporte": "Fútbol",
       "liga": "UCRANIA: Druha Liga",
       "fecha_local": "2026-11-28",
-      "hora_local": null,
-      "estado": "En Vivo",
+      "hora_local": "06:30",
+      "estado": "Programado",
       "equipo_local": "SC Poltava 2",
       "equipo_visitante": "Karbon Cherkasy",
       "cuotas_1x2": {
@@ -31478,8 +31406,8 @@
       "deporte": "Fútbol",
       "liga": "UZBEKISTÁN: Super League",
       "fecha_local": "2026-11-28",
-      "hora_local": null,
-      "estado": "En Vivo",
+      "hora_local": "07:15",
+      "estado": "Programado",
       "equipo_local": "Neftchi Fargona",
       "equipo_visitante": "Din. Samarkand",
       "cuotas_1x2": {
@@ -31502,8 +31430,8 @@
       "deporte": "Fútbol",
       "liga": "UZBEKISTÁN: Super League",
       "fecha_local": "2026-11-28",
-      "hora_local": null,
-      "estado": "En Vivo",
+      "hora_local": "07:15",
+      "estado": "Programado",
       "equipo_local": "Qizilqum",
       "equipo_visitante": "Pakhtakor",
       "cuotas_1x2": {
@@ -31526,8 +31454,8 @@
       "deporte": "Fútbol",
       "liga": "UZBEKISTÁN: Pro Liga - Ascenso - Playoffs",
       "fecha_local": "2026-11-28",
-      "hora_local": null,
-      "estado": "En Vivo",
+      "hora_local": "05:00",
+      "estado": "Programado",
       "equipo_local": "Metallurg Bekabad",
       "equipo_visitante": "FarDU",
       "cuotas_1x2": {
@@ -31550,8 +31478,8 @@
       "deporte": "Fútbol",
       "liga": "VIETNAM: V.League 1",
       "fecha_local": "2026-11-28",
-      "hora_local": null,
-      "estado": "En Vivo",
+      "hora_local": "07:00",
+      "estado": "Programado",
       "equipo_local": "Bac Ninh",
       "equipo_visitante": "Da Nang",
       "cuotas_1x2": {
@@ -31574,8 +31502,8 @@
       "deporte": "Fútbol",
       "liga": "VIETNAM: V.League 1",
       "fecha_local": "2026-11-28",
-      "hora_local": null,
-      "estado": "En Vivo",
+      "hora_local": "07:00",
+      "estado": "Programado",
       "equipo_local": "Ho Chi Minh",
       "equipo_visitante": "Gia Lai",
       "cuotas_1x2": {
@@ -31622,8 +31550,8 @@
       "deporte": "Fútbol",
       "liga": "VIETNAM: V.League 2",
       "fecha_local": "2026-11-28",
-      "hora_local": null,
-      "estado": "En Vivo",
+      "hora_local": "06:00",
+      "estado": "Programado",
       "equipo_local": "Aurora Saigon United",
       "equipo_visitante": "Becamex HCMC",
       "cuotas_1x2": {
@@ -31646,8 +31574,8 @@
       "deporte": "Fútbol",
       "liga": "VIETNAM: V.League 2",
       "fecha_local": "2026-11-28",
-      "hora_local": null,
-      "estado": "En Vivo",
+      "hora_local": "07:00",
+      "estado": "Programado",
       "equipo_local": "Quy Nhon United",
       "equipo_visitante": "Khanh Hoa",
       "cuotas_1x2": {
@@ -31670,8 +31598,8 @@
       "deporte": "Fútbol",
       "liga": "VIETNAM: V.League 2",
       "fecha_local": "2026-11-28",
-      "hora_local": null,
-      "estado": "En Vivo",
+      "hora_local": "07:00",
+      "estado": "Programado",
       "equipo_local": "Thep Can Tho",
       "equipo_visitante": "Ho Chi Minh City",
       "cuotas_1x2": {

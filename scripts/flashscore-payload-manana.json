@@ -6,8 +6,8 @@
   "fecha_local": "2026-11-29",
   "dia": "manana",
   "zona_horaria": "America/Caracas",
-  "capturado_en": "2026-11-28T07:22:22-04:00",
-  "total_partidos": 897,
+  "capturado_en": "2026-11-28T15:32:48-04:00",
+  "total_partidos": 895,
   "partidos": [
     {
       "match_slug": "2026-11-29_friburgo_vs_rb-leipzig",
@@ -187,9 +187,9 @@
       "equipo_local": "Auxerre",
       "equipo_visitante": "Marsella",
       "cuotas_1x2": {
-        "local_1": 3.7,
+        "local_1": 3.6,
         "empate_x": 3.7,
-        "visitante_2": 1.95
+        "visitante_2": 2
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -211,9 +211,9 @@
       "equipo_local": "Toulouse",
       "equipo_visitante": "Stade Rennais",
       "cuotas_1x2": {
-        "local_1": 2.4,
+        "local_1": 2.3,
         "empate_x": 3.6,
-        "visitante_2": 2.75
+        "visitante_2": 2.9
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -355,9 +355,9 @@
       "equipo_local": "Sunderland",
       "equipo_visitante": "Tottenham",
       "cuotas_1x2": {
-        "local_1": 3.9,
+        "local_1": 4,
         "empate_x": 3.5,
-        "visitante_2": 1.95
+        "visitante_2": 1.91
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -380,7 +380,7 @@
       "equipo_visitante": "Manchester City",
       "cuotas_1x2": {
         "local_1": 2,
-        "empate_x": 3.5,
+        "empate_x": 3.6,
         "visitante_2": 3.6
       },
       "estadisticas_complementarias": {
@@ -874,30 +874,6 @@
       "url": "http://m.flashscore.com.ve/partido/xvrRbIjd/?d=1"
     },
     {
-      "match_slug": "2026-11-29_drochtersen-assel_vs_hamburgo-ii",
-      "deporte": "Fútbol",
-      "liga": "ALEMANIA: Regionalliga Nord",
-      "fecha_local": "2026-11-29",
-      "hora_local": "09:00",
-      "estado": "Programado",
-      "equipo_local": "Drochtersen/Assel",
-      "equipo_visitante": "Hamburgo II",
-      "cuotas_1x2": {
-        "local_1": null,
-        "empate_x": null,
-        "visitante_2": null
-      },
-      "estadisticas_complementarias": {
-        "posicion_local": null,
-        "posicion_visitante": null,
-        "racha_local_ultimos_5": null,
-        "racha_visitante_ultimos_5": null,
-        "h2h_resumen": null
-      },
-      "mid": "reyTIwrS",
-      "url": "http://m.flashscore.com.ve/partido/reyTIwrS/?d=1"
-    },
-    {
       "match_slug": "2026-11-29_phonix-lubeck_vs_emden",
       "deporte": "Fútbol",
       "liga": "ALEMANIA: Regionalliga Nord",
@@ -1022,7 +998,7 @@
       "deporte": "Fútbol",
       "liga": "ALEMANIA: Regionalliga Südwest",
       "fecha_local": "2026-11-29",
-      "hora_local": "09:00",
+      "hora_local": null,
       "estado": "Programado",
       "equipo_local": "Fulda-Lehnerz",
       "equipo_visitante": "Trier",
@@ -1622,8 +1598,8 @@
       "deporte": "Fútbol",
       "liga": "ALEMANIA: Oberliga Westfalen",
       "fecha_local": "2026-11-29",
-      "hora_local": "09:15",
-      "estado": "Programado",
+      "hora_local": null,
+      "estado": "En Vivo",
       "equipo_local": "Clarholz",
       "equipo_visitante": "Vreden",
       "cuotas_1x2": {
@@ -2026,6 +2002,30 @@
       "url": "http://m.flashscore.com.ve/partido/YaOrSDr9/?d=1"
     },
     {
+      "match_slug": "2026-11-29_neunkirchen-seelscheid_vs_duren",
+      "deporte": "Fútbol",
+      "liga": "ALEMANIA: Oberliga Mittelrhein",
+      "fecha_local": "2026-11-29",
+      "hora_local": "09:45",
+      "estado": "Programado",
+      "equipo_local": "Neunkirchen-Seelscheid",
+      "equipo_visitante": "Duren",
+      "cuotas_1x2": {
+        "local_1": null,
+        "empate_x": null,
+        "visitante_2": null
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "CClO7qcf",
+      "url": "http://m.flashscore.com.ve/partido/CClO7qcf/?d=1"
+    },
+    {
       "match_slug": "2026-11-29_hurth_vs_bornheim",
       "deporte": "Fútbol",
       "liga": "ALEMANIA: Oberliga Mittelrhein",
@@ -2120,30 +2120,6 @@
       },
       "mid": "6gWd4Aj2",
       "url": "http://m.flashscore.com.ve/partido/6gWd4Aj2/?d=1"
-    },
-    {
-      "match_slug": "2026-11-29_neunkirchen-seelscheid_vs_duren",
-      "deporte": "Fútbol",
-      "liga": "ALEMANIA: Oberliga Mittelrhein",
-      "fecha_local": "2026-11-29",
-      "hora_local": "10:30",
-      "estado": "Programado",
-      "equipo_local": "Neunkirchen-Seelscheid",
-      "equipo_visitante": "Duren",
-      "cuotas_1x2": {
-        "local_1": null,
-        "empate_x": null,
-        "visitante_2": null
-      },
-      "estadisticas_complementarias": {
-        "posicion_local": null,
-        "posicion_visitante": null,
-        "racha_local_ultimos_5": null,
-        "racha_visitante_ultimos_5": null,
-        "h2h_resumen": null
-      },
-      "mid": "CClO7qcf",
-      "url": "http://m.flashscore.com.ve/partido/CClO7qcf/?d=1"
     },
     {
       "match_slug": "2026-11-29_vfl-vichttal_vs_eintracht-hohkeppel",
@@ -3116,7 +3092,7 @@
       "equipo_visitante": "Tirol",
       "cuotas_1x2": {
         "local_1": 1.56,
-        "empate_x": 4.2,
+        "empate_x": 4.1,
         "visitante_2": 5
       },
       "estadisticas_complementarias": {
@@ -3178,14 +3154,14 @@
       "url": "http://m.flashscore.com.ve/partido/6DGwHXzf/?d=1"
     },
     {
-      "match_slug": "2026-11-29_slovan-hac_vs_dinamo-helfort",
+      "match_slug": "2026-11-29_dinamo-helfort_vs_slovan-hac",
       "deporte": "Fútbol",
       "liga": "AUSTRIA: Wien",
       "fecha_local": "2026-11-29",
-      "hora_local": "05:30",
+      "hora_local": "08:00",
       "estado": "Programado",
-      "equipo_local": "Slovan HAC",
-      "equipo_visitante": "Dinamo Helfort",
+      "equipo_local": "Dinamo Helfort",
+      "equipo_visitante": "Slovan HAC",
       "cuotas_1x2": {
         "local_1": null,
         "empate_x": null,
@@ -4459,9 +4435,9 @@
       "equipo_local": "Mirassol",
       "equipo_visitante": "Athletico-PR",
       "cuotas_1x2": {
-        "local_1": 2,
-        "empate_x": 3.4,
-        "visitante_2": 3.75
+        "local_1": 1.9,
+        "empate_x": 3.5,
+        "visitante_2": 4
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -5395,9 +5371,9 @@
       "equipo_local": "U. Católica",
       "equipo_visitante": "Huachipato",
       "cuotas_1x2": {
-        "local_1": 1.39,
+        "local_1": 1.41,
         "empate_x": 4.5,
-        "visitante_2": 6.5
+        "visitante_2": 6.25
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -6307,9 +6283,9 @@
       "equipo_local": "Randers",
       "equipo_visitante": "Horsens",
       "cuotas_1x2": {
-        "local_1": 2.15,
+        "local_1": 2.2,
         "empate_x": 3.6,
-        "visitante_2": 3
+        "visitante_2": 2.87
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -6355,7 +6331,7 @@
       "equipo_local": "Silkeborg",
       "equipo_visitante": "Aarhus",
       "cuotas_1x2": {
-        "local_1": 3.6,
+        "local_1": 3.7,
         "empate_x": 3.75,
         "visitante_2": 1.86
       },
@@ -6667,9 +6643,9 @@
       "equipo_local": "Almería",
       "equipo_visitante": "Real Sporting",
       "cuotas_1x2": {
-        "local_1": 1.62,
-        "empate_x": 3.8,
-        "visitante_2": 5
+        "local_1": 1.53,
+        "empate_x": 4,
+        "visitante_2": 5.75
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -9787,9 +9763,9 @@
       "equipo_local": "Kellermann",
       "equipo_visitante": "Sochaux",
       "cuotas_1x2": {
-        "local_1": null,
-        "empate_x": null,
-        "visitante_2": null
+        "local_1": 6,
+        "empate_x": 4.75,
+        "visitante_2": 1.36
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -9800,6 +9776,30 @@
       },
       "mid": "b9jLZS9O",
       "url": "http://m.flashscore.com.ve/partido/b9jLZS9O/?d=1"
+    },
+    {
+      "match_slug": "2026-11-29_biesheim_vs_besancon",
+      "deporte": "Fútbol",
+      "liga": "FRANCIA: Copa de Francia",
+      "fecha_local": "2026-11-29",
+      "hora_local": "10:00",
+      "estado": "Programado",
+      "equipo_local": "Biesheim",
+      "equipo_visitante": "Besancon",
+      "cuotas_1x2": {
+        "local_1": 2.38,
+        "empate_x": 2.8,
+        "visitante_2": 3
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "fLqguCOk",
+      "url": "http://m.flashscore.com.ve/partido/fLqguCOk/?d=1"
     },
     {
       "match_slug": "2026-11-29_limonest_vs_hauts-lyonnais",
@@ -9883,9 +9883,9 @@
       "equipo_local": "Nantes",
       "equipo_visitante": "Nueillaubiers",
       "cuotas_1x2": {
-        "local_1": null,
-        "empate_x": null,
-        "visitante_2": null
+        "local_1": 1.04,
+        "empate_x": 15,
+        "visitante_2": 41
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -10147,9 +10147,9 @@
       "equipo_local": "AEK",
       "equipo_visitante": "PAOK",
       "cuotas_1x2": {
-        "local_1": 1.66,
-        "empate_x": 3.9,
-        "visitante_2": 4.5
+        "local_1": 1.61,
+        "empate_x": 4,
+        "visitante_2": 4.75
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -11107,9 +11107,9 @@
       "equipo_local": "Sudtirol",
       "equipo_visitante": "Mantova",
       "cuotas_1x2": {
-        "local_1": 2.75,
+        "local_1": 2.8,
         "empate_x": 3.25,
-        "visitante_2": 2.35
+        "visitante_2": 2.3
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -11131,9 +11131,9 @@
       "equipo_local": "Sampdoria",
       "equipo_visitante": "Cremonese",
       "cuotas_1x2": {
-        "local_1": 2.6,
+        "local_1": 2.8,
         "empate_x": 3,
-        "visitante_2": 2.6
+        "visitante_2": 2.4
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -11155,9 +11155,9 @@
       "equipo_local": "Arezzo",
       "equipo_visitante": "Pisa",
       "cuotas_1x2": {
-        "local_1": 3.8,
+        "local_1": 3.9,
         "empate_x": 3.3,
-        "visitante_2": 1.86
+        "visitante_2": 1.81
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -13651,9 +13651,9 @@
       "equipo_local": "Nagoya",
       "equipo_visitante": "Avispa Fukuoka",
       "cuotas_1x2": {
-        "local_1": 1.79,
-        "empate_x": 3.5,
-        "visitante_2": 4.2
+        "local_1": 1.76,
+        "empate_x": 3.6,
+        "visitante_2": 4.33
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -13723,9 +13723,9 @@
       "equipo_local": "Albirex Niigata",
       "equipo_visitante": "Kofu",
       "cuotas_1x2": {
-        "local_1": 1.69,
-        "empate_x": 3.6,
-        "visitante_2": 4.25
+        "local_1": 1.62,
+        "empate_x": 3.7,
+        "visitante_2": 4.5
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -13747,9 +13747,9 @@
       "equipo_local": "Blaublitz",
       "equipo_visitante": "Yokohama FC",
       "cuotas_1x2": {
-        "local_1": 3.8,
-        "empate_x": 3.5,
-        "visitante_2": 1.81
+        "local_1": 3.7,
+        "empate_x": 3.4,
+        "visitante_2": 1.86
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -13795,9 +13795,9 @@
       "equipo_local": "Oita",
       "equipo_visitante": "Tokushima",
       "cuotas_1x2": {
-        "local_1": 2.55,
+        "local_1": 2.6,
         "empate_x": 3.1,
-        "visitante_2": 2.55
+        "visitante_2": 2.5
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -13843,9 +13843,9 @@
       "equipo_local": "Tegevajaro Miyazaki",
       "equipo_visitante": "Sagan Tosu",
       "cuotas_1x2": {
-        "local_1": 2.3,
+        "local_1": 2.2,
         "empate_x": 3.2,
-        "visitante_2": 2.75
+        "visitante_2": 2.87
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -13891,9 +13891,9 @@
       "equipo_local": "Iwaki",
       "equipo_visitante": "Sapporo",
       "cuotas_1x2": {
-        "local_1": 1.9,
-        "empate_x": 3.6,
-        "visitante_2": 3.4
+        "local_1": 1.96,
+        "empate_x": 3.5,
+        "visitante_2": 3.25
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -14410,35 +14410,11 @@
       "url": "http://m.flashscore.com.ve/partido/6uFMR9H5/?d=1"
     },
     {
-      "match_slug": "2026-11-29_al-naser_vs_al-jahra",
-      "deporte": "Fútbol",
-      "liga": "KUWAIT: Premier League",
-      "fecha_local": "2026-11-29",
-      "hora_local": "12:40",
-      "estado": "Programado",
-      "equipo_local": "Al Naser",
-      "equipo_visitante": "Al Jahra",
-      "cuotas_1x2": {
-        "local_1": null,
-        "empate_x": null,
-        "visitante_2": null
-      },
-      "estadisticas_complementarias": {
-        "posicion_local": null,
-        "posicion_visitante": null,
-        "racha_local_ultimos_5": null,
-        "racha_visitante_ultimos_5": null,
-        "h2h_resumen": null
-      },
-      "mid": "jL8cNVKs",
-      "url": "http://m.flashscore.com.ve/partido/jL8cNVKs/?d=1"
-    },
-    {
       "match_slug": "2026-11-29_al-sahel_vs_al-shabab",
       "deporte": "Fútbol",
       "liga": "KUWAIT: Premier League",
       "fecha_local": "2026-11-29",
-      "hora_local": "12:40",
+      "hora_local": "10:20",
       "estado": "Programado",
       "equipo_local": "Al Sahel",
       "equipo_visitante": "Al Shabab",
@@ -14456,6 +14432,30 @@
       },
       "mid": "Ugz53Vl3",
       "url": "http://m.flashscore.com.ve/partido/Ugz53Vl3/?d=1"
+    },
+    {
+      "match_slug": "2026-11-29_al-naser_vs_al-jahra",
+      "deporte": "Fútbol",
+      "liga": "KUWAIT: Premier League",
+      "fecha_local": "2026-11-29",
+      "hora_local": "12:35",
+      "estado": "Programado",
+      "equipo_local": "Al Naser",
+      "equipo_visitante": "Al Jahra",
+      "cuotas_1x2": {
+        "local_1": null,
+        "empate_x": null,
+        "visitante_2": null
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "jL8cNVKs",
+      "url": "http://m.flashscore.com.ve/partido/jL8cNVKs/?d=1"
     },
     {
       "match_slug": "2026-11-29_chanthabouly_vs_bis",
@@ -14966,7 +14966,7 @@
       "deporte": "Fútbol",
       "liga": "MALAUI: Super League",
       "fecha_local": "2026-11-29",
-      "hora_local": "09:00",
+      "hora_local": "08:30",
       "estado": "Programado",
       "equipo_local": "Kamuzu Barracks",
       "equipo_visitante": "Dedza Dynamos",
@@ -14984,6 +14984,30 @@
       },
       "mid": "bqNXI5sR",
       "url": "http://m.flashscore.com.ve/partido/bqNXI5sR/?d=1"
+    },
+    {
+      "match_slug": "2026-11-29_moyale-barracks_vs_big-bullets",
+      "deporte": "Fútbol",
+      "liga": "MALAUI: Super League",
+      "fecha_local": "2026-11-29",
+      "hora_local": "08:30",
+      "estado": "Programado",
+      "equipo_local": "Moyale Barracks",
+      "equipo_visitante": "Big Bullets",
+      "cuotas_1x2": {
+        "local_1": null,
+        "empate_x": null,
+        "visitante_2": null
+      },
+      "estadisticas_complementarias": {
+        "posicion_local": null,
+        "posicion_visitante": null,
+        "racha_local_ultimos_5": null,
+        "racha_visitante_ultimos_5": null,
+        "h2h_resumen": null
+      },
+      "mid": "pMWwcOK7",
+      "url": "http://m.flashscore.com.ve/partido/pMWwcOK7/?d=1"
     },
     {
       "match_slug": "2026-11-29_mafco_vs_silver-strikers",
@@ -15056,30 +15080,6 @@
       },
       "mid": "jJJPKRCE",
       "url": "http://m.flashscore.com.ve/partido/jJJPKRCE/?d=1"
-    },
-    {
-      "match_slug": "2026-11-29_moyale-barracks_vs_big-bullets",
-      "deporte": "Fútbol",
-      "liga": "MALAUI: Super League",
-      "fecha_local": "2026-11-29",
-      "hora_local": "09:00",
-      "estado": "Programado",
-      "equipo_local": "Moyale Barracks",
-      "equipo_visitante": "Big Bullets",
-      "cuotas_1x2": {
-        "local_1": null,
-        "empate_x": null,
-        "visitante_2": null
-      },
-      "estadisticas_complementarias": {
-        "posicion_local": null,
-        "posicion_visitante": null,
-        "racha_local_ultimos_5": null,
-        "racha_visitante_ultimos_5": null,
-        "h2h_resumen": null
-      },
-      "mid": "pMWwcOK7",
-      "url": "http://m.flashscore.com.ve/partido/pMWwcOK7/?d=1"
     },
     {
       "match_slug": "2026-11-29_djoliba_vs_usfas-bamako",
@@ -16603,9 +16603,9 @@
       "equipo_local": "Sandefjord",
       "equipo_visitante": "Tromsø",
       "cuotas_1x2": {
-        "local_1": 2.4,
+        "local_1": 2.45,
         "empate_x": 3.7,
-        "visitante_2": 2.63
+        "visitante_2": 2.55
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -16675,8 +16675,8 @@
       "equipo_local": "Stabaek",
       "equipo_visitante": "Odd",
       "cuotas_1x2": {
-        "local_1": 1.73,
-        "empate_x": 4.1,
+        "local_1": 1.75,
+        "empate_x": 4,
         "visitante_2": 3.4
       },
       "estadisticas_complementarias": {
@@ -16910,7 +16910,7 @@
       "deporte": "Fútbol",
       "liga": "PAÍSES BAJOS: Keuken Kampioen Divisie",
       "fecha_local": "2026-11-29",
-      "hora_local": "07:15",
+      "hora_local": null,
       "estado": "Programado",
       "equipo_local": "FC Volendam",
       "equipo_visitante": "Eindhoven",
@@ -16940,7 +16940,7 @@
       "equipo_visitante": "De Graafschap",
       "cuotas_1x2": {
         "local_1": 2.1,
-        "empate_x": 3.7,
+        "empate_x": 3.4,
         "visitante_2": 3
       },
       "estadisticas_complementarias": {
@@ -17366,7 +17366,7 @@
       "deporte": "Fútbol",
       "liga": "POLONIA: Division 2",
       "fecha_local": "2026-11-29",
-      "hora_local": "07:00",
+      "hora_local": null,
       "estado": "Programado",
       "equipo_local": "Kleczew",
       "equipo_visitante": "Zawisza",
@@ -17995,9 +17995,9 @@
       "equipo_local": "Slavia Praga",
       "equipo_visitante": "Ostrava",
       "cuotas_1x2": {
-        "local_1": 1.25,
-        "empate_x": 5.75,
-        "visitante_2": 8
+        "local_1": 1.22,
+        "empate_x": 6,
+        "visitante_2": 8.5
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -18658,30 +18658,6 @@
       "url": "http://m.flashscore.com.ve/partido/2TDD8166/?d=1"
     },
     {
-      "match_slug": "2026-11-29_zemun_vs_radnicki-1923",
-      "deporte": "Fútbol",
-      "liga": "SERBIA: Super Liga",
-      "fecha_local": "2026-11-29",
-      "hora_local": "08:00",
-      "estado": "Programado",
-      "equipo_local": "Zemun",
-      "equipo_visitante": "Radnicki 1923",
-      "cuotas_1x2": {
-        "local_1": 3.7,
-        "empate_x": 3.3,
-        "visitante_2": 1.9
-      },
-      "estadisticas_complementarias": {
-        "posicion_local": null,
-        "posicion_visitante": null,
-        "racha_local_ultimos_5": null,
-        "racha_visitante_ultimos_5": null,
-        "h2h_resumen": null
-      },
-      "mid": "GSmCavw8",
-      "url": "http://m.flashscore.com.ve/partido/GSmCavw8/?d=1"
-    },
-    {
       "match_slug": "2026-11-29_novi-pazar_vs_estrella-roja",
       "deporte": "Fútbol",
       "liga": "SERBIA: Super Liga",
@@ -18691,9 +18667,9 @@
       "equipo_local": "Novi Pazar",
       "equipo_visitante": "Estrella Roja",
       "cuotas_1x2": {
-        "local_1": 5.5,
-        "empate_x": 5.25,
-        "visitante_2": 1.42
+        "local_1": 5.75,
+        "empate_x": 5.5,
+        "visitante_2": 1.4
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -18776,30 +18752,6 @@
       },
       "mid": "jiVJxj7c",
       "url": "http://m.flashscore.com.ve/partido/jiVJxj7c/?d=1"
-    },
-    {
-      "match_slug": "2026-11-29_metalac_vs_vozdovac",
-      "deporte": "Fútbol",
-      "liga": "SERBIA: Mozzart Bet Prva Liga",
-      "fecha_local": "2026-11-29",
-      "hora_local": "08:00",
-      "estado": "Programado",
-      "equipo_local": "Metalac",
-      "equipo_visitante": "Vozdovac",
-      "cuotas_1x2": {
-        "local_1": null,
-        "empate_x": null,
-        "visitante_2": null
-      },
-      "estadisticas_complementarias": {
-        "posicion_local": null,
-        "posicion_visitante": null,
-        "racha_local_ultimos_5": null,
-        "racha_visitante_ultimos_5": null,
-        "h2h_resumen": null
-      },
-      "mid": "YRxddwUi",
-      "url": "http://m.flashscore.com.ve/partido/YRxddwUi/?d=1"
     },
     {
       "match_slug": "2026-11-29_kabel-novi-sad_vs_hajduk-divos",
@@ -19219,9 +19171,9 @@
       "equipo_local": "Degerfors",
       "equipo_visitante": "Orgryte",
       "cuotas_1x2": {
-        "local_1": 1.96,
-        "empate_x": 3.5,
-        "visitante_2": 3.6
+        "local_1": 1.9,
+        "empate_x": 3.6,
+        "visitante_2": 3.8
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -19315,9 +19267,9 @@
       "equipo_local": "Halmstad",
       "equipo_visitante": "Mjallby",
       "cuotas_1x2": {
-        "local_1": 1.49,
-        "empate_x": 4.33,
-        "visitante_2": 5.5
+        "local_1": 1.51,
+        "empate_x": 4.2,
+        "visitante_2": 5.25
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -19363,9 +19315,9 @@
       "equipo_local": "Malmö",
       "equipo_visitante": "Brommapojkarna",
       "cuotas_1x2": {
-        "local_1": 1.53,
+        "local_1": 1.51,
         "empate_x": 4.33,
-        "visitante_2": 5
+        "visitante_2": 5.25
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -19387,9 +19339,9 @@
       "equipo_local": "Västerås SK",
       "equipo_visitante": "Hammarby",
       "cuotas_1x2": {
-        "local_1": 8,
-        "empate_x": 5.75,
-        "visitante_2": 1.27
+        "local_1": 8.5,
+        "empate_x": 6.25,
+        "visitante_2": 1.24
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -19435,7 +19387,7 @@
       "equipo_local": "Sion",
       "equipo_visitante": "Young Boys",
       "cuotas_1x2": {
-        "local_1": 2.4,
+        "local_1": 2.35,
         "empate_x": 4,
         "visitante_2": 2.45
       },
@@ -20131,9 +20083,9 @@
       "equipo_local": "Corum",
       "equipo_visitante": "Kocaelispor",
       "cuotas_1x2": {
-        "local_1": 1.81,
+        "local_1": 1.86,
         "empate_x": 3.3,
-        "visitante_2": 3.9
+        "visitante_2": 3.75
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
@@ -20179,8 +20131,8 @@
       "equipo_local": "Fenerbahçe",
       "equipo_visitante": "Erzurumspor",
       "cuotas_1x2": {
-        "local_1": 1.19,
-        "empate_x": 5.5,
+        "local_1": 1.17,
+        "empate_x": 5.75,
         "visitante_2": 11
       },
       "estadisticas_complementarias": {
@@ -20275,9 +20227,9 @@
       "equipo_local": "Keciorengucu",
       "equipo_visitante": "Kayserispor",
       "cuotas_1x2": {
-        "local_1": 3.3,
+        "local_1": 3.4,
         "empate_x": 3.5,
-        "visitante_2": 1.9
+        "visitante_2": 1.83
       },
       "estadisticas_complementarias": {
         "posicion_local": null,
