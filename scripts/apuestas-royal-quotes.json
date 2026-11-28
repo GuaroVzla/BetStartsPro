@@ -7,6 +7,24 @@
   "total_cotizaciones": 15,
   "cotizaciones": [
     {
+      "match_slug": "2026-11-28_spezia-sub-19_vs_bari-sub-19",
+      "deporte": "Fútbol",
+      "liga": "ITALIA: Primavera 2",
+      "fecha_local": "2026-11-28",
+      "hora_local": "06:00",
+      "equipo_local": "Spezia Sub-19",
+      "equipo_visitante": "Bari Sub-19",
+      "mercado": "1X2",
+      "cuotas_1x2": {
+        "local_1": 2.36,
+        "empate_x": 3.4,
+        "visitante_2": 2.64
+      },
+      "capturado_en": "2026-11-27T21:05:45-04:00",
+      "url": "https://app.apuestasroyal.com/",
+      "nota": "Cuota 1X2 publicada por la API autenticada del lobby de Apuestas Royal"
+    },
+    {
       "match_slug": "2026-11-28_holywell_vs_llandudno",
       "deporte": "Fútbol",
       "liga": "GALES: Cymru Premier",
@@ -20,7 +38,7 @@
         "empate_x": 4.1,
         "visitante_2": 1.58
       },
-      "capturado_en": "2026-11-27T12:09:03-04:00",
+      "capturado_en": "2026-11-27T21:05:45-04:00",
       "url": "https://app.apuestasroyal.com/",
       "nota": "Cuota 1X2 publicada por la API autenticada del lobby de Apuestas Royal"
     },
@@ -34,11 +52,11 @@
       "equipo_visitante": "IK Sirius",
       "mercado": "1X2",
       "cuotas_1x2": {
-        "local_1": 4.2,
+        "local_1": 4.1,
         "empate_x": 4.2,
-        "visitante_2": 1.68
+        "visitante_2": 1.7
       },
-      "capturado_en": "2026-11-27T12:09:03-04:00",
+      "capturado_en": "2026-11-27T21:05:45-04:00",
       "url": "https://app.apuestasroyal.com/",
       "nota": "Cuota 1X2 publicada por la API autenticada del lobby de Apuestas Royal"
     },
@@ -56,7 +74,7 @@
         "empate_x": 3.35,
         "visitante_2": 1.66
       },
-      "capturado_en": "2026-11-27T12:09:03-04:00",
+      "capturado_en": "2026-11-27T21:05:45-04:00",
       "url": "https://app.apuestasroyal.com/",
       "nota": "Cuota 1X2 publicada por la API autenticada del lobby de Apuestas Royal"
     },
@@ -74,25 +92,7 @@
         "empate_x": 4.1,
         "visitante_2": 4.2
       },
-      "capturado_en": "2026-11-27T12:09:03-04:00",
-      "url": "https://app.apuestasroyal.com/",
-      "nota": "Cuota 1X2 publicada por la API autenticada del lobby de Apuestas Royal"
-    },
-    {
-      "match_slug": "2026-11-27_estados-unidos_vs_el-salvador",
-      "deporte": "Fútbol",
-      "liga": "Campeonato CONCACAF Fem.",
-      "fecha_local": "2026-11-27",
-      "hora_local": "21:30",
-      "equipo_local": "Estados Unidos",
-      "equipo_visitante": "El Salvador",
-      "mercado": "1X2",
-      "cuotas_1x2": {
-        "local_1": 1.03,
-        "empate_x": 11,
-        "visitante_2": 35
-      },
-      "capturado_en": "2026-11-27T12:09:03-04:00",
+      "capturado_en": "2026-11-27T21:05:45-04:00",
       "url": "https://app.apuestasroyal.com/",
       "nota": "Cuota 1X2 publicada por la API autenticada del lobby de Apuestas Royal"
     },
@@ -106,11 +106,11 @@
       "equipo_visitante": "Workington",
       "mercado": "1X2",
       "cuotas_1x2": {
-        "local_1": 1.5,
+        "local_1": 1.51,
         "empate_x": 4.5,
         "visitante_2": 4.7
       },
-      "capturado_en": "2026-11-27T12:09:03-04:00",
+      "capturado_en": "2026-11-27T21:05:45-04:00",
       "url": "https://app.apuestasroyal.com/",
       "nota": "Cuota 1X2 publicada por la API autenticada del lobby de Apuestas Royal"
     },
@@ -128,7 +128,7 @@
         "empate_x": 3.75,
         "visitante_2": 3.65
       },
-      "capturado_en": "2026-11-27T12:09:03-04:00",
+      "capturado_en": "2026-11-27T21:05:45-04:00",
       "url": "https://app.apuestasroyal.com/",
       "nota": "Cuota 1X2 publicada por la API autenticada del lobby de Apuestas Royal"
     },
@@ -142,11 +142,11 @@
       "equipo_visitante": "Bursaspor",
       "mercado": "1X2",
       "cuotas_1x2": {
-        "local_1": 5.4,
-        "empate_x": 4.2,
-        "visitante_2": 1.5
+        "local_1": 6,
+        "empate_x": 4.3,
+        "visitante_2": 1.46
       },
-      "capturado_en": "2026-11-27T12:09:04-04:00",
+      "capturado_en": "2026-11-27T21:05:45-04:00",
       "url": "https://app.apuestasroyal.com/",
       "nota": "Cuota 1X2 publicada por la API autenticada del lobby de Apuestas Royal"
     },
@@ -161,10 +161,10 @@
       "mercado": "1X2",
       "cuotas_1x2": {
         "local_1": 3.05,
-        "empate_x": 3.95,
+        "empate_x": 4,
         "visitante_2": 2.02
       },
-      "capturado_en": "2026-11-27T12:09:04-04:00",
+      "capturado_en": "2026-11-27T21:05:45-04:00",
       "url": "https://app.apuestasroyal.com/",
       "nota": "Cuota 1X2 publicada por la API autenticada del lobby de Apuestas Royal"
     },
@@ -178,11 +178,11 @@
       "equipo_visitante": "South Shields",
       "mercado": "1X2",
       "cuotas_1x2": {
-        "local_1": 2.56,
+        "local_1": 2.4,
         "empate_x": 3.4,
-        "visitante_2": 2.42
+        "visitante_2": 2.58
       },
-      "capturado_en": "2026-11-27T12:09:04-04:00",
+      "capturado_en": "2026-11-27T21:05:45-04:00",
       "url": "https://app.apuestasroyal.com/",
       "nota": "Cuota 1X2 publicada por la API autenticada del lobby de Apuestas Royal"
     },
@@ -196,11 +196,11 @@
       "equipo_visitante": "Katowice",
       "mercado": "1X2",
       "cuotas_1x2": {
-        "local_1": 2.96,
+        "local_1": 2.98,
         "empate_x": 3.6,
         "visitante_2": 2.22
       },
-      "capturado_en": "2026-11-27T12:09:04-04:00",
+      "capturado_en": "2026-11-27T21:05:45-04:00",
       "url": "https://app.apuestasroyal.com/",
       "nota": "Cuota 1X2 publicada por la API autenticada del lobby de Apuestas Royal"
     },
@@ -214,11 +214,11 @@
       "equipo_visitante": "Siarka Tarnobrzeg",
       "mercado": "1X2",
       "cuotas_1x2": {
-        "local_1": 1.82,
-        "empate_x": 3.75,
-        "visitante_2": 3.55
+        "local_1": 1.94,
+        "empate_x": 3.5,
+        "visitante_2": 3.35
       },
-      "capturado_en": "2026-11-27T12:09:04-04:00",
+      "capturado_en": "2026-11-27T21:05:45-04:00",
       "url": "https://app.apuestasroyal.com/",
       "nota": "Cuota 1X2 publicada por la API autenticada del lobby de Apuestas Royal"
     },
@@ -236,7 +236,7 @@
         "empate_x": 9.2,
         "visitante_2": 20
       },
-      "capturado_en": "2026-11-27T12:09:04-04:00",
+      "capturado_en": "2026-11-27T21:05:45-04:00",
       "url": "https://app.apuestasroyal.com/",
       "nota": "Cuota 1X2 publicada por la API autenticada del lobby de Apuestas Royal"
     },
@@ -254,7 +254,7 @@
         "empate_x": 3.45,
         "visitante_2": 4.5
       },
-      "capturado_en": "2026-11-27T12:09:04-04:00",
+      "capturado_en": "2026-11-27T21:05:45-04:00",
       "url": "https://app.apuestasroyal.com/",
       "nota": "Cuota 1X2 publicada por la API autenticada del lobby de Apuestas Royal"
     },
@@ -272,7 +272,7 @@
         "empate_x": 3.5,
         "visitante_2": 3
       },
-      "capturado_en": "2026-11-27T12:09:04-04:00",
+      "capturado_en": "2026-11-27T21:05:45-04:00",
       "url": "https://app.apuestasroyal.com/",
       "nota": "Cuota 1X2 publicada por la API autenticada del lobby de Apuestas Royal"
     }
